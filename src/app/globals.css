@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  /* Color Palette matching KPC Command Centre specification */
+  --kpc-sidebar-bg: #0B1420;
+  --kpc-sidebar-border: #152234;
+  --kpc-brand-green: #1B7A3D;
+  --kpc-brand-green-light: #3DAA63;
+  --kpc-brand-green-soft: rgba(27, 122, 61, 0.12);
+  
+  --kpc-bg-main: #FAFBFC;
+  --kpc-card-bg: #FFFFFF;
+  --kpc-border: #E2E6EA;
+  --kpc-border-subtle: #EDF1F5;
+
+  --kpc-text-primary: #0F1B2B;
+  --kpc-text-secondary: #5C6B7A;
+  --kpc-text-muted: #8492A6;
+
+  --kpc-status-success: #1B7A3D;
+  --kpc-status-warning: #B7791F;
+  --kpc-status-critical: #C0392B;
+}
+
+body {
+  background-color: var(--kpc-bg-main);
+  color: var(--kpc-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbars for clean industrial UI feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Sidebar dark scrollbar */
+.dark-scrollbar::-webkit-scrollbar-thumb {
+  background: #1e293b;
+}
+
+.dark-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Pulse animation utility for Live radar/status */
+@keyframes softPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.15);
+  }
+}
+
+.animate-pulse-soft {
+  animation: softPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
