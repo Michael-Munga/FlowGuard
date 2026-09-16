@@ -14,6 +14,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { RoleSwitcher } from "@/components/Navigation/RoleSwitcher";
+import { DataSourceBadge } from "@/components/shared/DataSourceBadge";
 import { ExecutiveKpiSummary, ExecutiveTimePeriod } from "@/types/flowguard";
 
 interface ExecutiveHeaderProps {
@@ -55,6 +56,7 @@ export const ExecutiveHeader: React.FC<ExecutiveHeaderProps> = ({
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   <span>FLOWGUARD: OPERATIONAL</span>
                 </span>
+                <DataSourceBadge />
                 <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200 uppercase">
                   BOARDROOM VIEW
                 </span>

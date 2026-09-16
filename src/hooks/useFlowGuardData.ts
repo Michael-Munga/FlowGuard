@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { flowGuardService } from "@/services/flowguardService";
 import {
   Depot,
@@ -32,6 +32,11 @@ export function useFlowGuardData() {
   );
   const [isLiveActive, setIsLiveActive] = useState<boolean>(true);
   const [isSyncing, setIsSyncing] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const isApiMode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE === "api";
+  const hasSyncFromApi = typeof (flowGuardService as any).syncFromApi === "function";
 
   // Sync state from repository
   const syncFromRepo = useCallback(() => {
@@ -44,26 +49,67 @@ export function useFlowGuardData() {
     setHealth(flowGuardService.getSystemHealth());
   }, []);
 
-  // Live simulation tick
+  // Initial API sync on mount
+  useEffect(() => {
+    if (isApiMode && hasSyncFromApi) {
+      setIsLoading(true);
+      (flowGuardService as any)
+        .syncFromApi()
+        .then((ok: boolean) => {
+          if (ok) {
+            setErrorMessage(null);
+          } else {
+            setErrorMessage("Failed to sync live operational data from backend");
+          }
+          syncFromRepo();
+        })
+        .catch((err: any) => {
+          setErrorMessage(err?.message || "Backend unreachable");
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+  }, [isApiMode, hasSyncFromApi, syncFromRepo]);
+
+  // Polling or Live Simulation tick
   useEffect(() => {
     if (!isLiveActive) return;
 
-    const interval = setInterval(() => {
-      flowGuardService.stepSimulation();
-      syncFromRepo();
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [isLiveActive, syncFromRepo]);
+    if (isApiMode && hasSyncFromApi) {
+      // 30-second interval in API mode
+      const interval = setInterval(async () => {
+        try {
+          await (flowGuardService as any).syncFromApi();
+          syncFromRepo();
+        } catch {
+          // Keep last cached values on transient network error
+        }
+      }, 30_000);
+      return () => clearInterval(interval);
+    } else {
+      // 1-second simulation tick in synthetic mode
+      const interval = setInterval(() => {
+        flowGuardService.stepSimulation();
+        syncFromRepo();
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [isLiveActive, isApiMode, hasSyncFromApi, syncFromRepo]);
 
   // Manual Refresh
-  const refresh = useCallback(() => {
+  const refresh = useCallback(async () => {
     setIsSyncing(true);
-    setTimeout(() => {
-      syncFromRepo();
-      setIsSyncing(false);
-    }, 400);
-  }, [syncFromRepo]);
+    if (isApiMode && hasSyncFromApi) {
+      try {
+        await (flowGuardService as any).syncFromApi();
+      } catch (err: any) {
+        setErrorMessage(err?.message || "Refresh failed");
+      }
+    }
+    syncFromRepo();
+    setIsSyncing(false);
+  }, [isApiMode, hasSyncFromApi, syncFromRepo]);
 
   // Execute or Approve intervention
   const handleExecuteIntervention = useCallback(
@@ -103,6 +149,8 @@ export function useFlowGuardData() {
     health,
     isLiveActive,
     isSyncing,
+    isLoading,
+    errorMessage,
     refresh,
     executeIntervention: handleExecuteIntervention,
     approveIntervention: handleApproveIntervention,

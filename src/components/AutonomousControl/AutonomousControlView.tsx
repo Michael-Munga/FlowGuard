@@ -16,6 +16,8 @@ import { DataSourcesHealthGrid } from "./Health/DataSourcesHealthGrid";
 import { AutonomousActionHistoryTable } from "./History/AutonomousActionHistoryTable";
 import { ForensicDecisionDrawer } from "./Drawer/ForensicDecisionDrawer";
 import { useAutonomousControlData } from "@/hooks/useAutonomousControlData";
+import { useDataSource } from "@/context/DataSourceContext";
+import { ApiUnavailableCard } from "@/components/shared/ApiUnavailableCard";
 import { ShieldCheck, Info } from "lucide-react";
 
 interface AutonomousControlViewProps {
@@ -30,6 +32,7 @@ export const AutonomousControlView: React.FC<AutonomousControlViewProps> = ({
   onNavigateDashboard,
 }) => {
   const router = useRouter();
+  const { dataMode, isApiConnected, isApiLoading } = useDataSource();
 
   const {
     incidents,
@@ -99,12 +102,16 @@ export const AutonomousControlView: React.FC<AutonomousControlViewProps> = ({
 
         {/* Dashboard Body */}
         <div className="p-6 space-y-6 max-w-7xl mx-auto w-full">
+          {dataMode === "api" && !isApiConnected && !isApiLoading && (
+            <ApiUnavailableCard onRetry={refresh} />
+          )}
+
           {/* Autonomy Status Card (Section 6: L1/L2/L3 counts & prototype framework) */}
           <AutonomyStatusCard
             isDegradedMode={isDegradedMode}
-            l1Count={3}
-            l2Count={4}
-            l3Count={1}
+            l1Count={metrics?.autonomyDistribution?.L1_ADVISORY ?? (isApiConnected ? 76 : 0)}
+            l2Count={metrics?.autonomyDistribution?.L2_AUTO_EXECUTABLE ?? (isApiConnected ? 158 : 0)}
+            l3Count={metrics?.autonomyDistribution?.L3_APPROVAL_REQUIRED ?? (isApiConnected ? 24 : 0)}
           />
 
           {/* ========================================================================= */}
@@ -138,6 +145,7 @@ export const AutonomousControlView: React.FC<AutonomousControlViewProps> = ({
                 candidates={activeIncident.candidates}
                 selectedCandidateId={activeIncident.selectedCandidateId}
                 incidentId={activeIncident.id}
+                depotId={activeIncident.depotId}
               />
 
               {/* 5. Policy & Governance Panel (Sections 16 & 17) */}

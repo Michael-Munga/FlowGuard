@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRole } from "@/context/RoleContext";
 import { RoleSwitcher } from "./RoleSwitcher";
+import { DataSourceBadge } from "@/components/shared/DataSourceBadge";
 import {
   Fuel,
   Radio,
@@ -117,6 +118,9 @@ export const AppHeader: React.FC = () => {
             {activeRole.id === "driver" && "Driver (KCA 482P)"}
           </span>
         </div>
+
+        {/* Data Source Badge */}
+        <DataSourceBadge />
 
         {/* Persistent Role Switcher */}
         <RoleSwitcher />

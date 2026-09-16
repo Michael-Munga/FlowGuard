@@ -13,6 +13,8 @@ import { ExecutiveRiskView } from "./Risk/ExecutiveRiskView";
 import { RoiBusinessCaseCard } from "./Roi/RoiBusinessCaseCard";
 import { DeploymentReadinessPanel } from "./Readiness/DeploymentReadinessPanel";
 import { MetricDefinitionModal } from "./Modals/MetricDefinitionModal";
+import { useDataSource } from "@/context/DataSourceContext";
+import { ApiUnavailableCard } from "@/components/shared/ApiUnavailableCard";
 import { ShieldCheck, Lock, Award, TrendingUp } from "lucide-react";
 
 interface ExecutiveControlViewProps {
@@ -24,6 +26,7 @@ export const ExecutiveControlView: React.FC<ExecutiveControlViewProps> = ({
   subView = "all",
   onNavigateDashboard,
 }) => {
+  const { dataMode, isApiConnected, isApiLoading } = useDataSource();
   const {
     kpis,
     trend,
@@ -71,6 +74,10 @@ export const ExecutiveControlView: React.FC<ExecutiveControlViewProps> = ({
 
         {/* Dashboard Body */}
         <div className="p-6 space-y-6 flex-1">
+          {dataMode === "api" && !isApiConnected && !isApiLoading && (
+            <ApiUnavailableCard onRetry={refresh} />
+          )}
+
           {/* 1. Main Executive KPI Strip */}
           <ExecutiveKpiStrip
             kpis={kpis}

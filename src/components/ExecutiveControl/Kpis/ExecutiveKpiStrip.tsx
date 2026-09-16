@@ -14,6 +14,7 @@ import {
   Target,
 } from "lucide-react";
 import { ExecutiveKpiSummary } from "@/types/flowguard";
+import { useDataSource } from "@/context/DataSourceContext";
 
 interface ExecutiveKpiStripProps {
   kpis: ExecutiveKpiSummary | null;
@@ -21,6 +22,9 @@ interface ExecutiveKpiStripProps {
 }
 
 export const ExecutiveKpiStrip: React.FC<ExecutiveKpiStripProps> = ({ kpis, onOpenDefinitions }) => {
+  const { dataMode, isApiConnected } = useDataSource();
+  const isDisconnected = dataMode === "api" && !isApiConnected;
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
       {/* 1. KES EXPOSURE PREVENTED (Hero Metric) */}
@@ -42,19 +46,19 @@ export const ExecutiveKpiStrip: React.FC<ExecutiveKpiStripProps> = ({ kpis, onOp
 
           <div className="my-1">
             <span className="text-2xl font-bold font-mono text-emerald-700 tracking-tight">
-              KES {((kpis?.totalExposureProtectedKes || 14820000) / 1000000).toFixed(2)}M
+              {isDisconnected ? "—" : `KES ${(((kpis?.totalExposureProtectedKes || 0)) / 1000000).toFixed(2)}M`}
             </span>
           </div>
 
           <p className="text-[11px] text-slate-600 font-medium leading-tight">
-            Modeled demurrage exposure avoided
+            {isDisconnected ? "Live operational data unavailable" : "Modeled demurrage exposure avoided"}
           </p>
         </div>
 
         <div className="pt-2 mt-2 border-t border-emerald-100 flex items-center justify-between text-[10px] font-mono text-slate-500">
-          <span>Realized: KES {((kpis?.realizedSavingsKes || 11350000) / 1000000).toFixed(2)}M</span>
-          <span className="px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 font-bold uppercase">
-            PROTECTED
+          <span>{isDisconnected ? "Live stream offline" : `Realized: KES ${(((kpis?.realizedSavingsKes || 0)) / 1000000).toFixed(2)}M`}</span>
+          <span className={`px-1.5 py-0.2 rounded font-bold uppercase ${isDisconnected ? "bg-slate-100 text-slate-500" : "bg-emerald-100 text-emerald-800"}`}>
+            {isDisconnected ? "OFFLINE" : "PROTECTED"}
           </span>
         </div>
       </div>
@@ -71,22 +75,26 @@ export const ExecutiveKpiStrip: React.FC<ExecutiveKpiStripProps> = ({ kpis, onOp
 
           <div className="my-1 flex items-baseline gap-2">
             <span className="text-2xl font-bold font-mono text-emerald-700 tracking-tight">
-              {kpis?.turnaroundImprovementPct || -35.6}%
+              {isDisconnected ? "—" : `${kpis?.turnaroundImprovementPct || -35.6}%`}
             </span>
-            <span className="text-xs font-bold text-slate-500 font-mono">
-              (-{kpis?.turnaroundRecoveredMin || 31}m)
-            </span>
+            {!isDisconnected && (
+              <span className="text-xs font-bold text-slate-500 font-mono">
+                (-{kpis?.turnaroundRecoveredMin || 31}m)
+              </span>
+            )}
           </div>
 
           <p className="text-[11px] text-slate-600 leading-tight">
-            Baseline: {kpis?.baselineTurnaroundMin || 87}m → <strong>FlowGuard: {kpis?.currentTurnaroundMin || 56}m</strong>
+            {isDisconnected
+              ? "Live operational data unavailable"
+              : `Baseline: ${kpis?.baselineTurnaroundMin || 65}m → FlowGuard: ${kpis?.currentTurnaroundMin || 28.5}m`}
           </p>
         </div>
 
         <div className="pt-2 mt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono text-slate-500">
-          <span>Turnaround recovery: {kpis?.turnaroundRecoveredMin || 31}m</span>
-          <span className="px-1.5 py-0.2 rounded bg-blue-50 text-blue-700 font-bold uppercase border border-blue-200">
-            SPEED
+          <span>{isDisconnected ? "Live stream offline" : `Turnaround recovery: ${kpis?.turnaroundRecoveredMin || 31}m`}</span>
+          <span className={`px-1.5 py-0.2 rounded font-bold uppercase ${isDisconnected ? "bg-slate-100 text-slate-500" : "bg-blue-50 text-blue-700 border border-blue-200"}`}>
+            {isDisconnected ? "OFFLINE" : "SPEED"}
           </span>
         </div>
       </div>
@@ -103,22 +111,24 @@ export const ExecutiveKpiStrip: React.FC<ExecutiveKpiStripProps> = ({ kpis, onOp
 
           <div className="my-1 flex items-baseline gap-2">
             <span className="text-2xl font-bold font-mono text-slate-900 tracking-tight">
-              {kpis?.ordersServicedOnTimePct || 96.4}%
+              {isDisconnected ? "—" : `${kpis?.ordersServicedOnTimePct || 96.4}%`}
             </span>
-            <span className="text-xs font-bold text-emerald-700 font-mono">
-              +{kpis?.ordersOnTimeDeltaPts || 8.2} pts
-            </span>
+            {!isDisconnected && (
+              <span className="text-xs font-bold text-emerald-700 font-mono">
+                +{kpis?.ordersOnTimeDeltaPts || 8.2} pts
+              </span>
+            )}
           </div>
 
           <p className="text-[11px] text-slate-600 leading-tight">
-            Collections serviced within 90m SLA
+            {isDisconnected ? "Live operational data unavailable" : "Collections serviced within 90m SLA"}
           </p>
         </div>
 
         <div className="pt-2 mt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono text-slate-500">
-          <span>Baseline: 88.2%</span>
-          <span className="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-700 font-bold uppercase border border-emerald-200">
-            SLA
+          <span>{isDisconnected ? "Live stream offline" : "Baseline: 88.2%"}</span>
+          <span className={`px-1.5 py-0.2 rounded font-bold uppercase ${isDisconnected ? "bg-slate-100 text-slate-500" : "bg-emerald-50 text-emerald-700 border border-emerald-200"}`}>
+            {isDisconnected ? "OFFLINE" : "SLA"}
           </span>
         </div>
       </div>
@@ -135,7 +145,7 @@ export const ExecutiveKpiStrip: React.FC<ExecutiveKpiStripProps> = ({ kpis, onOp
 
           <div className="my-1 flex items-baseline gap-2">
             <span className="text-2xl font-bold font-mono text-slate-900 tracking-tight">
-              {kpis?.autonomousInterventionsTotal || 50}
+              {isDisconnected ? "—" : (kpis?.autonomousInterventionsTotal ?? 258)}
             </span>
             <span className="text-xs font-semibold text-slate-500">
               actions
@@ -143,14 +153,14 @@ export const ExecutiveKpiStrip: React.FC<ExecutiveKpiStripProps> = ({ kpis, onOp
           </div>
 
           <p className="text-[11px] text-slate-600 leading-tight">
-            Executed across KPC depot terminals
+            {isDisconnected ? "Live operational data unavailable" : "Executed across KPC depot terminals"}
           </p>
         </div>
 
         <div className="pt-2 mt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono text-slate-500">
-          <span>{kpis?.interventionsVerifiedSuccess || 46} verified success</span>
-          <span className="px-1.5 py-0.2 rounded bg-slate-100 text-slate-700 font-bold uppercase">
-            AUTONOMY
+          <span>{isDisconnected ? "Live stream offline" : `${kpis?.interventionsVerifiedSuccess || 245} verified success`}</span>
+          <span className={`px-1.5 py-0.2 rounded font-bold uppercase ${isDisconnected ? "bg-slate-100 text-slate-500" : "bg-slate-100 text-slate-700"}`}>
+            {isDisconnected ? "OFFLINE" : "AUTONOMY"}
           </span>
         </div>
       </div>
@@ -167,22 +177,24 @@ export const ExecutiveKpiStrip: React.FC<ExecutiveKpiStripProps> = ({ kpis, onOp
 
           <div className="my-1 flex items-baseline gap-2">
             <span className="text-2xl font-bold font-mono text-emerald-700 tracking-tight">
-              {kpis?.recoveryAttainmentPct || 89.5}%
+              {isDisconnected ? "—" : `${kpis?.recoveryAttainmentPct || 89.5}%`}
             </span>
-            <span className="text-[10px] font-mono text-slate-500">
-              (±{kpis?.meanPredictionErrorMin || 4.2}m)
-            </span>
+            {!isDisconnected && (
+              <span className="text-[10px] font-mono text-slate-500">
+                (±{kpis?.meanPredictionErrorMin || 4.2}m)
+              </span>
+            )}
           </div>
 
           <p className="text-[11px] text-slate-600 leading-tight">
-            Observed vs predicted turnaround recovery
+            {isDisconnected ? "Live operational data unavailable" : "Observed vs predicted turnaround recovery"}
           </p>
         </div>
 
         <div className="pt-2 mt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono text-slate-500">
-          <span>Error: ±{kpis?.meanPredictionErrorMin || 4.2}m</span>
-          <span className="px-1.5 py-0.2 rounded bg-purple-50 text-purple-700 font-bold uppercase border border-purple-200">
-            EFFICACY
+          <span>{isDisconnected ? "Live stream offline" : `Error: ±${kpis?.meanPredictionErrorMin || 4.2}m`}</span>
+          <span className={`px-1.5 py-0.2 rounded font-bold uppercase ${isDisconnected ? "bg-slate-100 text-slate-500" : "bg-purple-50 text-purple-700 border border-purple-200"}`}>
+            {isDisconnected ? "OFFLINE" : "EFFICACY"}
           </span>
         </div>
       </div>
@@ -199,22 +211,24 @@ export const ExecutiveKpiStrip: React.FC<ExecutiveKpiStripProps> = ({ kpis, onOp
 
           <div className="my-1 flex items-baseline gap-2">
             <span className="text-2xl font-bold font-mono text-slate-900 tracking-tight">
-              {kpis?.capacityRecoveredHours || 340}h
+              {isDisconnected ? "—" : `${kpis?.capacityRecoveredHours || 340}h`}
             </span>
-            <span className="text-xs font-bold text-indigo-700 font-mono">
-              (+{kpis?.capacityRecoveredTruckSlots || 182})
-            </span>
+            {!isDisconnected && (
+              <span className="text-xs font-bold text-indigo-700 font-mono">
+                (+{kpis?.capacityRecoveredTruckSlots || 182})
+              </span>
+            )}
           </div>
 
           <p className="text-[11px] text-slate-600 leading-tight">
-            Additional road tanker slots unlocked
+            {isDisconnected ? "Live operational data unavailable" : "Additional road tanker slots unlocked"}
           </p>
         </div>
 
         <div className="pt-2 mt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono text-slate-500">
-          <span>Zero CAPEX expansion</span>
-          <span className="px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-700 font-bold uppercase border border-indigo-200">
-            THROUGHPUT
+          <span>{isDisconnected ? "Live stream offline" : "Zero CAPEX expansion"}</span>
+          <span className={`px-1.5 py-0.2 rounded font-bold uppercase ${isDisconnected ? "bg-slate-100 text-slate-500" : "bg-indigo-50 text-indigo-700 border border-indigo-200"}`}>
+            {isDisconnected ? "OFFLINE" : "THROUGHPUT"}
           </span>
         </div>
       </div>

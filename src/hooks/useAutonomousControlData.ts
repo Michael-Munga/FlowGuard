@@ -30,7 +30,10 @@ export function useAutonomousControlData(initialIncidentId: string = "INT-8801")
   const [filterDepot, setFilterDepot] = useState<string>("ALL");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const refresh = useCallback(() => {
+  const isApiMode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE === "api";
+  const hasSyncFromApi = typeof (flowGuardService as any).syncFromApi === "function";
+
+  const syncState = useCallback(() => {
     setIncidents(flowGuardService.getAutonomyIncidents());
     setTelemetrySources(flowGuardService.getTelemetryDataSources());
     setPolicyRules(flowGuardService.getPolicyRules());
@@ -40,9 +43,27 @@ export function useAutonomousControlData(initialIncidentId: string = "INT-8801")
     setIsDegradedMode(flowGuardService.isSimulatedDegradedMode());
   }, []);
 
+  const refresh = useCallback(async () => {
+    if (isApiMode && hasSyncFromApi) {
+      try {
+        await (flowGuardService as any).syncFromApi();
+      } catch (err) {
+        console.error("Failed to sync autonomy data from API:", err);
+      }
+    }
+    syncState();
+  }, [isApiMode, hasSyncFromApi, syncState]);
+
   useEffect(() => {
-    refresh();
-  }, [refresh]);
+    syncState();
+    if (isApiMode && hasSyncFromApi) {
+      (flowGuardService as any).syncFromApi().then(() => {
+        syncState();
+      }).catch(() => {
+        syncState();
+      });
+    }
+  }, [isApiMode, hasSyncFromApi, syncState]);
 
   const activeIncident = useMemo(() => {
     return incidents.find((i) => i.id === activeIncidentId) || incidents[0] || null;

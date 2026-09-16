@@ -185,6 +185,15 @@ export interface NetworkKpis {
   networkCapacityPressurePct: number; // e.g. 78%
   networkCapacityPressureLevel: 'OPTIMAL' | 'ELEVATED' | 'HIGH' | 'CRITICAL';
   autonomyMode: 'FULL AUTONOMY' | 'APPROVAL GATED' | 'DEGRADED';
+  loadingTrucksCount?: number;
+  queueTrucksCount?: number;
+  severityCounts?: {
+    critical?: number;
+    high?: number;
+    medium?: number;
+    low?: number;
+  };
+  autoExecutedCount?: number;
 }
 
 export interface SystemHealth {
@@ -749,6 +758,11 @@ export interface AutonomyAggregateMetrics {
   activeRulesCount: number;
   unauthorizedInterventionsCount: number;
   lastDriftCheck: string;
+  autonomyDistribution?: {
+    L1_ADVISORY: number;
+    L2_AUTO_EXECUTABLE: number;
+    L3_APPROVAL_REQUIRED: number;
+  };
 }
 
 /**

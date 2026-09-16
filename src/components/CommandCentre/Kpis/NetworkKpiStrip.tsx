@@ -11,6 +11,7 @@ import {
   Info,
 } from "lucide-react";
 import { NetworkKpis } from "@/types/flowguard";
+import { useDataSource } from "@/context/DataSourceContext";
 
 interface NetworkKpiStripProps {
   kpis: NetworkKpis;
@@ -18,6 +19,8 @@ interface NetworkKpiStripProps {
 
 export const NetworkKpiStrip: React.FC<NetworkKpiStripProps> = ({ kpis }) => {
   const [showExposureTooltip, setShowExposureTooltip] = useState(false);
+  const { dataMode, isApiConnected } = useDataSource();
+  const isDisconnected = dataMode === "api" && !isApiConnected;
 
   const formatKes = (amount: number) => {
     if (amount >= 1000000) {
@@ -46,14 +49,14 @@ export const NetworkKpiStrip: React.FC<NetworkKpiStripProps> = ({ kpis }) => {
           </div>
           <div className="mt-1.5 flex items-baseline gap-1.5">
             <span className="text-2xl font-bold font-mono text-[#0F1B2B] tracking-tight">
-              {kpis.expectedCollectionDemandNearTerm}
+              {isDisconnected ? "—" : kpis.expectedCollectionDemandNearTerm.toLocaleString()}
             </span>
             <span className="text-[10px] text-[#5C6B7A] font-medium">orders / trucks</span>
           </div>
         </div>
         <div className="mt-2 text-[10px] text-[#5C6B7A] flex items-center justify-between border-t border-[#F1F5F9] pt-1.5">
-          <span className="text-[#0F1B2B] font-semibold">Near-Term Horizon</span>
-          <span className="font-mono text-slate-500">Next 90 Min</span>
+          <span className="text-[#0F1B2B] font-semibold">{isDisconnected ? "Live operational data unavailable" : "Near-Term Horizon"}</span>
+          {!isDisconnected && <span className="font-mono text-slate-500">Next 90 Min</span>}
         </div>
       </div>
 
@@ -70,14 +73,20 @@ export const NetworkKpiStrip: React.FC<NetworkKpiStripProps> = ({ kpis }) => {
           </div>
           <div className="mt-1.5 flex items-baseline gap-1.5">
             <span className="text-2xl font-bold font-mono text-[#0F1B2B] tracking-tight">
-              {kpis.trucksInsideTotal}
+              {isDisconnected ? "—" : kpis.trucksInsideTotal}
             </span>
             <span className="text-[10px] text-[#5C6B7A] font-medium">active in yard</span>
           </div>
         </div>
         <div className="mt-2 text-[10px] text-[#5C6B7A] flex items-center justify-between border-t border-[#F1F5F9] pt-1.5">
-          <span className="text-[#1B7A3D] font-semibold">23 loading</span>
-          <span className="text-slate-500">19 in gate / queue</span>
+          {isDisconnected ? (
+            <span className="text-slate-400">Live operational data unavailable</span>
+          ) : (
+            <>
+              <span className="text-[#1B7A3D] font-semibold">{kpis.loadingTrucksCount ?? 0} loading</span>
+              <span className="text-slate-500">{kpis.queueTrucksCount ?? 0} in gate / queue</span>
+            </>
+          )}
         </div>
       </div>
 
@@ -94,14 +103,20 @@ export const NetworkKpiStrip: React.FC<NetworkKpiStripProps> = ({ kpis }) => {
           </div>
           <div className="mt-1.5 flex items-baseline gap-1.5">
             <span className="text-2xl font-bold font-mono text-[#C0392B] tracking-tight">
-              {kpis.atRiskCount}
+              {isDisconnected ? "—" : kpis.atRiskCount}
             </span>
             <span className="text-[10px] text-[#C0392B] font-semibold">predicted delays</span>
           </div>
         </div>
         <div className="mt-2 text-[10px] text-[#B7791F] flex items-center justify-between border-t border-[#F1F5F9] pt-1.5 font-medium">
-          <span className="text-rose-700 font-semibold">2 Critical</span>
-          <span className="text-amber-700 font-semibold">2 Watch / High</span>
+          {isDisconnected ? (
+            <span className="text-slate-400">Live operational data unavailable</span>
+          ) : (
+            <>
+              <span className="text-rose-700 font-semibold">{kpis.severityCounts?.critical ?? 2} Critical</span>
+              <span className="text-amber-700 font-semibold">{(kpis.severityCounts?.high ?? 0) + (kpis.severityCounts?.medium ?? 0) || 2} Watch / High</span>
+            </>
+          )}
         </div>
       </div>
 
@@ -118,16 +133,22 @@ export const NetworkKpiStrip: React.FC<NetworkKpiStripProps> = ({ kpis }) => {
           </div>
           <div className="mt-1.5 flex items-baseline gap-1.5">
             <span className="text-2xl font-bold font-mono text-[#0F1B2B] tracking-tight">
-              {kpis.avgPredictedTurnaroundMin}m
+              {isDisconnected ? "—" : `${kpis.avgPredictedTurnaroundMin}m`}
             </span>
             <span className="text-[10px] text-[#5C6B7A]">network avg</span>
           </div>
         </div>
         <div className="mt-2 text-[10px] flex items-center justify-between border-t border-[#F1F5F9] pt-1.5">
-          <span className="text-[#8492A6]">Baseline: {kpis.baselineTurnaroundMin}m</span>
-          <span className={`font-semibold ${turnaroundDelta > 0 ? "text-[#B7791F]" : "text-[#1B7A3D]"}`}>
-            ({turnaroundDelta > 0 ? `+${turnaroundDelta}m` : `${turnaroundDelta}m`})
-          </span>
+          {isDisconnected ? (
+            <span className="text-slate-400">Live operational data unavailable</span>
+          ) : (
+            <>
+              <span className="text-[#8492A6]">Baseline: {kpis.baselineTurnaroundMin}m</span>
+              <span className={`font-semibold ${turnaroundDelta > 0 ? "text-[#B7791F]" : "text-[#1B7A3D]"}`}>
+                ({turnaroundDelta > 0 ? `+${turnaroundDelta.toFixed(1)}m` : `${turnaroundDelta.toFixed(1)}m`})
+              </span>
+            </>
+          )}
         </div>
       </div>
 
@@ -144,17 +165,23 @@ export const NetworkKpiStrip: React.FC<NetworkKpiStripProps> = ({ kpis }) => {
           </div>
           <div className="mt-1.5 flex items-baseline gap-1.5">
             <span className="text-2xl font-bold font-mono text-[#1B7A3D] tracking-tight">
-              {kpis.activeInterventionsCount}
+              {isDisconnected ? "—" : kpis.activeInterventionsCount}
             </span>
             <span className="text-[10px] font-bold uppercase px-1.5 py-0.2 rounded bg-emerald-50 text-[#1B7A3D] border border-emerald-200 font-mono">
-              ACTIVE
+              {isDisconnected ? "OFFLINE" : "ACTIVE"}
             </span>
           </div>
         </div>
         <div className="mt-2 text-[10px] text-[#5C6B7A] flex items-center justify-between border-t border-[#F1F5F9] pt-1.5">
-          <span className="text-emerald-700 font-semibold">3 Auto-Executed</span>
-          {kpis.approvalRequiredCount > 0 && (
-            <span className="text-amber-700 font-bold">{kpis.approvalRequiredCount} Approval Req</span>
+          {isDisconnected ? (
+            <span className="text-slate-400">Live operational data unavailable</span>
+          ) : (
+            <>
+              <span className="text-emerald-700 font-semibold">{kpis.autoExecutedCount ?? kpis.activeInterventionsCount} Auto-Executed</span>
+              {kpis.approvalRequiredCount > 0 && (
+                <span className="text-amber-700 font-bold">{kpis.approvalRequiredCount} Approval Req</span>
+              )}
+            </>
           )}
         </div>
       </div>
@@ -181,18 +208,24 @@ export const NetworkKpiStrip: React.FC<NetworkKpiStripProps> = ({ kpis }) => {
           </div>
           <div className="mt-1.5 flex items-baseline gap-1.5">
             <span className="text-2xl font-bold font-mono text-[#1B7A3D] tracking-tight">
-              {formatKes(kpis.exposureProtectedKes)}
+              {isDisconnected ? "—" : formatKes(kpis.exposureProtectedKes)}
             </span>
             <span className="text-[9px] font-bold uppercase px-1 py-0.2 rounded bg-emerald-100/60 text-emerald-800">
-              MODELED
+              {isDisconnected ? "OFFLINE" : "MODELED"}
             </span>
           </div>
         </div>
         <div className="mt-2 text-[10px] text-[#5C6B7A] flex items-center justify-between border-t border-[#F1F5F9] pt-1.5">
-          <span className="text-slate-500">At Risk:</span>
-          <span className="font-mono text-[#C0392B] font-semibold">{formatKes(kpis.exposureAtRiskKes)}</span>
-          <span className="text-slate-300">|</span>
-          <span className="font-mono text-slate-600">Realized: {formatKes(kpis.realizedSavingsKes)}</span>
+          {isDisconnected ? (
+            <span className="text-slate-400">Live operational data unavailable</span>
+          ) : (
+            <>
+              <span className="text-slate-500">At Risk:</span>
+              <span className="font-mono text-[#C0392B] font-semibold">{formatKes(kpis.exposureAtRiskKes)}</span>
+              <span className="text-slate-300">|</span>
+              <span className="font-mono text-slate-600">Realized: {formatKes(kpis.realizedSavingsKes)}</span>
+            </>
+          )}
         </div>
 
         {/* Informational Tooltip Popover */}

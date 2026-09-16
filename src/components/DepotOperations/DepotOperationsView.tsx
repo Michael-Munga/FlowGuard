@@ -17,6 +17,8 @@ import { TruckDetailDrawer } from "./Drawer/TruckDetailDrawer";
 import { useDepotOperationsData } from "@/hooks/useDepotOperationsData";
 import { useRole } from "@/context/RoleContext";
 import { DepotId, YardTruck } from "@/types/flowguard";
+import { useDataSource } from "@/context/DataSourceContext";
+import { ApiUnavailableCard } from "@/components/shared/ApiUnavailableCard";
 import { Lock, Fuel } from "lucide-react";
 
 interface DepotOperationsViewProps {
@@ -32,6 +34,7 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
 }) => {
   const router = useRouter();
   const { selectedDepotId, setSelectedDepotId } = useRole();
+  const { dataMode, isApiConnected, isApiLoading } = useDataSource();
 
   // Use the depot ID from props or role context
   const effectiveInitialDepotId = initialDepotId || selectedDepotId || "nairobi";
@@ -144,6 +147,12 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
 
         {/* Depot Operations Body */}
         <main className="flex-1 flex flex-col space-y-4 py-4 pb-8">
+          {dataMode === "api" && !isApiConnected && !isApiLoading && (
+            <div className="px-6 pt-2">
+              <ApiUnavailableCard onRetry={refresh} />
+            </div>
+          )}
+
           {/* Section 1: Standardized 6-Metric Depot KPI Strip */}
           <DepotKpiStrip summary={kpiSummary} />
 

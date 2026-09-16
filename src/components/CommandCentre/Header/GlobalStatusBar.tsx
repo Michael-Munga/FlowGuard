@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { SystemHealth } from "@/types/flowguard";
 import { RoleSwitcher } from "@/components/Navigation/RoleSwitcher";
+import { DataSourceBadge } from "@/components/shared/DataSourceBadge";
 
 interface GlobalStatusBarProps {
   health: SystemHealth;
@@ -105,10 +106,8 @@ export const GlobalStatusBar: React.FC<GlobalStatusBarProps> = ({
                 <span>{state.label}</span>
               </div>
 
-              {/* Compact Simulated Operational Data Tag */}
-              <span className="text-[9px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
-                SIMULATED OPERATIONAL DATA
-              </span>
+              {/* Data Source Connection Badge */}
+              <DataSourceBadge />
             </div>
 
             <p className="text-[11px] text-[#5C6B7A] mt-0.5">

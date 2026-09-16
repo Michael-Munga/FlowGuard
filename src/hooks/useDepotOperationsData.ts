@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { flowGuardService } from "@/services/flowguardService";
 import {
   DepotId,
@@ -50,6 +50,11 @@ export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
 
   const [isLiveActive, setIsLiveActive] = useState<boolean>(true);
   const [isSyncing, setIsSyncing] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const isApiMode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE === "api";
+  const hasSyncFromApi = typeof (flowGuardService as any).syncFromApi === "function";
 
   // Sync state for current depot
   const syncDepotState = useCallback((targetDepotId: DepotId) => {
@@ -66,35 +71,81 @@ export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
     setHealth(flowGuardService.getSystemHealth());
   }, []);
 
+  // Initial mount sync
+  useEffect(() => {
+    if (isApiMode && hasSyncFromApi) {
+      setIsLoading(true);
+      (flowGuardService as any)
+        .syncFromApi()
+        .then((ok: boolean) => {
+          if (ok) {
+            setErrorMessage(null);
+          } else {
+            setErrorMessage("Failed to sync depot live state from backend");
+          }
+          syncDepotState(activeDepotId);
+        })
+        .catch((err: any) => {
+          setErrorMessage(err?.message || "Backend unreachable");
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+  }, [isApiMode, hasSyncFromApi, activeDepotId, syncDepotState]);
+
   // When activeDepotId changes, immediately sync
   const handleSelectDepot = useCallback(
-    (newDepotId: DepotId) => {
+    async (newDepotId: DepotId) => {
       setActiveDepotId(newDepotId);
+      if (isApiMode && typeof (flowGuardService as any).fetchDepotLiveFromApi === "function") {
+        try {
+          await (flowGuardService as any).fetchDepotLiveFromApi(newDepotId);
+        } catch {
+          // ignore
+        }
+      }
       syncDepotState(newDepotId);
     },
-    [syncDepotState]
+    [isApiMode, syncDepotState]
   );
 
-  // Live simulation tick
+  // Live simulation tick or API polling
   useEffect(() => {
     if (!isLiveActive) return;
 
-    const interval = setInterval(() => {
-      flowGuardService.stepSimulation();
-      syncDepotState(activeDepotId);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [isLiveActive, activeDepotId, syncDepotState]);
+    if (isApiMode && hasSyncFromApi) {
+      const interval = setInterval(async () => {
+        try {
+          await (flowGuardService as any).syncFromApi();
+          syncDepotState(activeDepotId);
+        } catch {
+          // Keep last cached values
+        }
+      }, 30_000);
+      return () => clearInterval(interval);
+    } else {
+      const interval = setInterval(() => {
+        flowGuardService.stepSimulation();
+        syncDepotState(activeDepotId);
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [isLiveActive, isApiMode, hasSyncFromApi, activeDepotId, syncDepotState]);
 
   // Manual refresh
-  const refresh = useCallback(() => {
+  const refresh = useCallback(async () => {
     setIsSyncing(true);
-    setTimeout(() => {
-      syncDepotState(activeDepotId);
-      setIsSyncing(false);
-    }, 400);
-  }, [activeDepotId, syncDepotState]);
+    if (isApiMode && hasSyncFromApi) {
+      try {
+        await (flowGuardService as any).syncFromApi();
+      } catch (err: any) {
+        setErrorMessage(err?.message || "Refresh failed");
+      }
+    }
+    syncDepotState(activeDepotId);
+    setIsSyncing(false);
+  }, [isApiMode, hasSyncFromApi, activeDepotId, syncDepotState]);
 
   // Approve Intervention
   const approveIntervention = useCallback(
@@ -140,6 +191,8 @@ export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
     health,
     isLiveActive,
     isSyncing,
+    isLoading,
+    errorMessage,
     refresh,
     approveIntervention,
     executeIntervention,

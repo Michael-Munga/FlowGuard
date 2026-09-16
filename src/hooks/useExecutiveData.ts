@@ -58,7 +58,10 @@ export function useExecutiveData() {
     flowGuardService.getExecutiveAlerts()
   );
 
-  const refresh = useCallback(() => {
+  const isApiMode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE === "api";
+  const hasSyncFromApi = typeof (flowGuardService as any).syncFromApi === "function";
+
+  const syncState = useCallback(() => {
     setKpis(flowGuardService.getExecutiveKpis(timePeriod));
     setTrend(flowGuardService.getTurnaroundTrend(timePeriod));
     setDepotPerformances(flowGuardService.getDepotExecutivePerformance(timePeriod));
@@ -72,10 +75,28 @@ export function useExecutiveData() {
     setAlerts(flowGuardService.getExecutiveAlerts());
   }, [timePeriod]);
 
-  // Reactively recompute when timePeriod changes
+  const refresh = useCallback(async () => {
+    if (isApiMode && hasSyncFromApi) {
+      try {
+        await (flowGuardService as any).syncFromApi();
+      } catch (err) {
+        console.error("Failed to sync executive data from API:", err);
+      }
+    }
+    syncState();
+  }, [isApiMode, hasSyncFromApi, syncState]);
+
+  // Reactively recompute when timePeriod changes or on mount
   useEffect(() => {
-    refresh();
-  }, [refresh]);
+    syncState();
+    if (isApiMode && hasSyncFromApi) {
+      (flowGuardService as any).syncFromApi().then(() => {
+        syncState();
+      }).catch(() => {
+        syncState();
+      });
+    }
+  }, [isApiMode, hasSyncFromApi, syncState]);
 
   const currentRoi = useMemo(() => {
     return roiScenarios[activeScenario] || flowGuardService.getRoiSummary(activeScenario);

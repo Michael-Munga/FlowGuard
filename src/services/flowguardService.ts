@@ -1278,5 +1278,15 @@ export class SyntheticFlowGuardRepository implements IFlowGuardRepository {
   }
 }
 
-export const flowGuardService = new SyntheticFlowGuardRepository();
+import { HttpFlowGuardRepository } from "./httpFlowGuardRepository";
+
+export function createFlowGuardRepository(): IFlowGuardRepository {
+  const mode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE;
+  if (mode === "api") {
+    return new HttpFlowGuardRepository();
+  }
+  return new SyntheticFlowGuardRepository();
+}
+
+export const flowGuardService: IFlowGuardRepository = createFlowGuardRepository();
 

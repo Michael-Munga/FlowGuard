@@ -13,6 +13,8 @@ import { OmcNotificationCenter } from "./Notifications/OmcNotificationCenter";
 import { useOmcCollectionData } from "@/hooks/useOmcCollectionData";
 import { useRole } from "@/context/RoleContext";
 import { OmcId } from "@/types/flowguard";
+import { useDataSource } from "@/context/DataSourceContext";
+import { ApiUnavailableCard } from "@/components/shared/ApiUnavailableCard";
 import { Lock, ShieldCheck, Truck, Building2 } from "lucide-react";
 
 interface OmcVisibilityViewProps {
@@ -28,6 +30,7 @@ export const OmcVisibilityView: React.FC<OmcVisibilityViewProps> = ({
 }) => {
   const router = useRouter();
   const { selectedOmcId, setSelectedOmcId } = useRole();
+  const { dataMode, isApiConnected, isApiLoading } = useDataSource();
 
   const effectiveOmcId = (selectedOmcId as OmcId) || initialOmcId;
 
@@ -121,6 +124,12 @@ export const OmcVisibilityView: React.FC<OmcVisibilityViewProps> = ({
 
         {/* OMC Operations Body */}
         <main className="flex-1 flex flex-col space-y-4 py-4 pb-8">
+          {dataMode === "api" && !isApiConnected && !isApiLoading && (
+            <div className="px-6 pt-2">
+              <ApiUnavailableCard onRetry={refresh} />
+            </div>
+          )}
+
           {/* Section 1: Top Customer KPI Strip */}
           <OmcKpiStrip summary={kpis} />
 

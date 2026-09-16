@@ -24,9 +24,37 @@ export function useOmcCollectionData(initialOmcId: OmcId = "vivo") {
   const [isLiveActive, setIsLiveActive] = useState(true);
   const [dataFreshnessSeconds, setDataFreshnessSeconds] = useState(4);
   const [tick, setTick] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const isApiMode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE === "api";
+  const hasSyncFromApi = typeof (flowGuardService as any).syncFromApi === "function";
+
+  // Initial API sync
+  useEffect(() => {
+    if (isApiMode && hasSyncFromApi) {
+      setIsLoading(true);
+      (flowGuardService as any)
+        .syncFromApi()
+        .then((ok: boolean) => {
+          if (ok) {
+            setErrorMessage(null);
+          } else {
+            setErrorMessage("Failed to sync OMC collection data from backend");
+          }
+          setTick((prev) => prev + 1);
+        })
+        .catch((err: any) => {
+          setErrorMessage(err?.message || "Backend unreachable");
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+  }, [isApiMode, hasSyncFromApi]);
 
   // Read data from singleton repository
-  const allOmcs = useMemo(() => flowGuardService.getOmcList(), []);
+  const allOmcs = useMemo(() => flowGuardService.getOmcList(), [tick]);
   const omcProfile = useMemo(
     () => flowGuardService.getOmcProfile(activeOmcId) || allOmcs[0],
     [activeOmcId, allOmcs, tick]
@@ -90,7 +118,6 @@ export function useOmcCollectionData(initialOmcId: OmcId = "vivo") {
         return true;
       })
       .sort((a, b) => {
-        // Priority 1: Category rank (1: At-Risk, 2: Active inside, 3: Upcoming, 4: Completed)
         const getCategoryRank = (order: OmcCollectionOrder) => {
           if (
             order.status === "AT RISK" ||
@@ -98,30 +125,27 @@ export function useOmcCollectionData(initialOmcId: OmcId = "vivo") {
             order.status === "DEVELOPING RISK" ||
             order.riskSeverity === "CRITICAL"
           ) {
-            return 1; // Priority 1: At-Risk collections
+            return 1;
           }
           if (
+            order.status === "LOADING" ||
             order.currentStage === "GANTRY_LOADING" ||
             order.currentStage === "VALIDATION_RELEASE" ||
             order.currentStage === "GATE_IN"
           ) {
-            return 2; // Priority 2: Active collections inside terminal
+            return 2;
           }
-          if (order.currentStage === "ORDER_PLACED" && order.status !== "COMPLETED") {
-            return 3; // Priority 3: Upcoming collections
+          if (order.status === "COMPLETED" || order.status === "READY FOR EXIT") {
+            return 4;
           }
-          return 4; // Priority 4: Completed collections
+          return 3;
         };
 
-        const catA = getCategoryRank(a);
-        const catB = getCategoryRank(b);
+        const rankA = getCategoryRank(a);
+        const rankB = getCategoryRank(b);
 
-        if (catA !== catB) {
-          return catA - catB; // Lower category number = higher priority
-        }
+        if (rankA !== rankB) return rankA - rankB;
 
-        // Within same category:
-        // First, risk severity
         const severityRank: Record<string, number> = {
           CRITICAL: 3,
           ELEVATED: 2,
@@ -131,17 +155,10 @@ export function useOmcCollectionData(initialOmcId: OmcId = "vivo") {
         const sevB = severityRank[b.riskSeverity] || 0;
         if (sevB !== sevA) return sevB - sevA;
 
-        // Second, turnaround delay delta (highest delay first)
         if (b.turnaroundDeltaMin !== a.turnaroundDeltaMin) {
           return b.turnaroundDeltaMin - a.turnaroundDeltaMin;
         }
 
-        // Third, financial exposure at risk
-        const expA = a.exposure?.potentialKes || 0;
-        const expB = b.exposure?.potentialKes || 0;
-        if (expB !== expA) return expB - expA;
-
-        // Fourth, predicted total turnaround
         return b.predictedTurnaroundMin - a.predictedTurnaroundMin;
       });
   }, [orders, searchQuery, filterStage]);
@@ -166,30 +183,46 @@ export function useOmcCollectionData(initialOmcId: OmcId = "vivo") {
     setTick((prev) => prev + 1);
   };
 
-  const refresh = useCallback(() => {
+  const refresh = useCallback(async () => {
     setIsSyncing(true);
-    setTimeout(() => {
-      setDataFreshnessSeconds(1);
-      setTick((prev) => prev + 1);
-      setIsSyncing(false);
-    }, 400);
-  }, []);
+    if (isApiMode && hasSyncFromApi) {
+      try {
+        await (flowGuardService as any).syncFromApi();
+      } catch (err: any) {
+        setErrorMessage(err?.message || "Refresh failed");
+      }
+    }
+    setDataFreshnessSeconds(1);
+    setTick((prev) => prev + 1);
+    setIsSyncing(false);
+  }, [isApiMode, hasSyncFromApi]);
 
   const toggleLiveStream = useCallback(() => {
     setIsLiveActive((prev) => !prev);
   }, []);
 
-  // Live simulation ticker
+  // Live simulation or API polling ticker
   useEffect(() => {
     if (!isLiveActive) return;
 
-    const interval = setInterval(() => {
-      setDataFreshnessSeconds((prev) => (prev >= 20 ? 2 : prev + 2));
-      setTick((prev) => prev + 1);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [isLiveActive]);
+    if (isApiMode && hasSyncFromApi) {
+      const interval = setInterval(async () => {
+        try {
+          await (flowGuardService as any).syncFromApi();
+          setTick((prev) => prev + 1);
+        } catch {
+          // Keep last cached values
+        }
+      }, 30_000);
+      return () => clearInterval(interval);
+    } else {
+      const interval = setInterval(() => {
+        setDataFreshnessSeconds((prev) => (prev >= 20 ? 2 : prev + 2));
+        setTick((prev) => prev + 1);
+      }, 4000);
+      return () => clearInterval(interval);
+    }
+  }, [isLiveActive, isApiMode, hasSyncFromApi]);
 
   return {
     activeOmcId,
@@ -211,6 +244,8 @@ export function useOmcCollectionData(initialOmcId: OmcId = "vivo") {
     outlooks,
     health,
     isSyncing,
+    isLoading,
+    errorMessage,
     dataFreshnessSeconds,
     isLiveActive,
     refresh,

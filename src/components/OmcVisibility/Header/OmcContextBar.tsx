@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { OmcProfile, OmcId, SystemHealth } from "@/types/flowguard";
 import { RoleSwitcher } from "@/components/Navigation/RoleSwitcher";
+import { DataSourceBadge } from "@/components/shared/DataSourceBadge";
 
 interface OmcContextBarProps {
   omcProfile: OmcProfile;
@@ -71,6 +72,9 @@ export const OmcContextBar: React.FC<OmcContextBarProps> = ({
               FLOWGUARD INTELLIGENCE FEED: ACTIVE
             </span>
           </div>
+
+          {/* Data Source Mode Badge */}
+          <DataSourceBadge />
 
           {/* Transparent Simulated Badge */}
           <div className="relative hidden md:inline-flex items-center">

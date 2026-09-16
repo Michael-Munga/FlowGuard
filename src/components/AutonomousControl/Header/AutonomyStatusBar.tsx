@@ -18,6 +18,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 import { RoleSwitcher } from "@/components/Navigation/RoleSwitcher";
+import { DataSourceBadge } from "@/components/shared/DataSourceBadge";
 import {
   AutonomyState,
   AutonomySubsystemHealth,
@@ -116,6 +117,9 @@ export const AutonomyStatusBar: React.FC<AutonomyStatusBarProps> = ({
               <span>AUTONOMY: {badge.label}</span>
             </span>
           </div>
+
+          {/* Data Source Mode Badge */}
+          <DataSourceBadge />
 
           <span className="text-slate-300">|</span>
 

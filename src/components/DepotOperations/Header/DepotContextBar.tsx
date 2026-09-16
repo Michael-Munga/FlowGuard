@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Depot, DepotId, SystemHealth } from "@/types/flowguard";
 import { RoleSwitcher } from "@/components/Navigation/RoleSwitcher";
+import { DataSourceBadge } from "@/components/shared/DataSourceBadge";
 
 interface DepotContextBarProps {
   depot: Depot;
@@ -106,6 +107,9 @@ export const DepotContextBar: React.FC<DepotContextBarProps> = ({
               </span>
             )}
           </div>
+
+          {/* Data Source Mode Badge */}
+          <DataSourceBadge />
 
           {/* Transparent Simulated Badge */}
           <div className="relative hidden md:inline-flex items-center">

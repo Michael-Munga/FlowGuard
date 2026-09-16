@@ -14,6 +14,9 @@ import { DepotDrillDownModal } from "@/components/CommandCentre/Modals/DepotDril
 import { useFlowGuardData } from "@/hooks/useFlowGuardData";
 import { AtRiskOperation, Depot, DepotId } from "@/types/flowguard";
 import { Lock } from "lucide-react";
+import { useDataSource } from "@/context/DataSourceContext";
+import { ApiUnavailableCard } from "@/components/shared/ApiUnavailableCard";
+import { DataLoadingSkeleton } from "@/components/shared/DataLoadingSkeleton";
 
 interface NetworkCommandCentreViewProps {
   subView?: "overview" | "interventions" | "alerts";
@@ -42,6 +45,8 @@ export const NetworkCommandCentreView: React.FC<NetworkCommandCentreViewProps> =
     toggleDegradedMode,
     toggleLiveStream,
   } = useFlowGuardData();
+
+  const { dataMode, isApiConnected, isApiLoading } = useDataSource();
 
   // Selection & Modal States
   const [selectedOperation, setSelectedOperation] = useState<AtRiskOperation | null>(null);
@@ -108,6 +113,18 @@ export const NetworkCommandCentreView: React.FC<NetworkCommandCentreViewProps> =
 
         {/* Command Centre Body */}
         <main className="flex-1 flex flex-col space-y-4 pb-6">
+          {dataMode === "api" && !isApiConnected && !isApiLoading && (
+            <div className="px-6 pt-4">
+              <ApiUnavailableCard onRetry={refresh} />
+            </div>
+          )}
+
+          {isApiLoading && (
+            <div className="px-6 pt-4">
+              <DataLoadingSkeleton type="kpi" count={4} />
+            </div>
+          )}
+
           {/* Section 1: Network KPI Strip */}
           <NetworkKpiStrip kpis={kpis} />
 

@@ -13,6 +13,7 @@ import {
   TrendingDown,
 } from "lucide-react";
 import { DepotKpiSummary } from "@/types/flowguard";
+import { useDataSource } from "@/context/DataSourceContext";
 
 interface DepotKpiStripProps {
   summary: DepotKpiSummary;
@@ -20,6 +21,8 @@ interface DepotKpiStripProps {
 
 export const DepotKpiStrip: React.FC<DepotKpiStripProps> = ({ summary }) => {
   const [activeTooltip, setActiveTooltip] = useState<number | null>(null);
+  const { dataMode, isApiConnected } = useDataSource();
+  const isDisconnected = dataMode === "api" && !isApiConnected;
 
   // Turnaround calculations: Dwell + Loading Duration baseline (~65 min target)
   const avgTurnaround = summary.averageDwellMin ? summary.averageDwellMin + 28 : 71;
@@ -37,56 +40,62 @@ export const DepotKpiStrip: React.FC<DepotKpiStripProps> = ({ summary }) => {
     {
       id: 1,
       label: "TRUCKS INSIDE",
-      value: summary.trucksInside.toString(),
+      value: isDisconnected ? "—" : summary.trucksInside.toString(),
       unit: "tankers",
-      subtext: "Gate-In to Gate-Out yard occupancy",
-      badge: summary.trucksInside > 40 ? "High Yard Density" : "Nominal Flow",
-      badgeColor:
-        summary.trucksInside > 40
-          ? "bg-amber-50 text-amber-900 border-amber-300 font-semibold"
-          : "bg-slate-100 text-slate-700 border-slate-200",
+      subtext: isDisconnected ? "Live operational data unavailable" : "Gate-In to Gate-Out yard occupancy",
+      badge: isDisconnected ? "DISCONNECTED" : summary.trucksInside > 40 ? "High Yard Density" : "Nominal Flow",
+      badgeColor: isDisconnected
+        ? "bg-slate-100 text-slate-500 border-slate-200"
+        : summary.trucksInside > 40
+        ? "bg-amber-50 text-amber-900 border-amber-300 font-semibold"
+        : "bg-slate-100 text-slate-700 border-slate-200",
       icon: <Truck className="w-4 h-4 text-[#0F1B2B]" />,
       explanation: "Total active road tankers currently physically located within KPC terminal boundaries.",
     },
     {
       id: 2,
       label: "IN QUEUE",
-      value: summary.inQueue.toString(),
+      value: isDisconnected ? "—" : summary.inQueue.toString(),
       unit: "tankers",
-      subtext: "Tare weighbridge & validation hold",
-      badge: summary.inQueue > 8 ? "Staging Congestion" : summary.inQueue > 4 ? "Elevated Inflow" : "Fluid Queue",
-      badgeColor:
-        summary.inQueue > 8
-          ? "bg-rose-50 text-rose-800 border-rose-300 font-bold"
-          : summary.inQueue > 4
-          ? "bg-amber-50 text-amber-800 border-amber-200"
-          : "bg-emerald-50 text-[#1B7A3D] border-emerald-200",
+      subtext: isDisconnected ? "Live operational data unavailable" : "Tare weighbridge & validation hold",
+      badge: isDisconnected ? "DISCONNECTED" : summary.inQueue > 8 ? "Staging Congestion" : summary.inQueue > 4 ? "Elevated Inflow" : "Fluid Queue",
+      badgeColor: isDisconnected
+        ? "bg-slate-100 text-slate-500 border-slate-200"
+        : summary.inQueue > 8
+        ? "bg-rose-50 text-rose-800 border-rose-300 font-bold"
+        : summary.inQueue > 4
+        ? "bg-amber-50 text-amber-800 border-amber-200"
+        : "bg-emerald-50 text-[#1B7A3D] border-emerald-200",
       icon: <Users className="w-4 h-4 text-amber-700" />,
       explanation: "Tankers waiting for tare scale entry or customs seal verification prior to gantry dispatch.",
     },
     {
       id: 3,
       label: "LOADING",
-      value: summary.currentlyLoading.toString(),
+      value: isDisconnected ? "—" : summary.currentlyLoading.toString(),
       unit: "tankers",
-      subtext: `Active across ${summary.usablePositions} usable gantries`,
-      badge: `${summary.currentlyLoading}/${summary.usablePositions} Bays Busy`,
-      badgeColor: "bg-blue-50 text-blue-800 border-blue-200 font-semibold",
+      subtext: isDisconnected ? "Live operational data unavailable" : `Active across ${summary.usablePositions} usable gantries`,
+      badge: isDisconnected ? "DISCONNECTED" : `${summary.currentlyLoading}/${summary.usablePositions} Bays Busy`,
+      badgeColor: isDisconnected ? "bg-slate-100 text-slate-500 border-slate-200" : "bg-blue-50 text-blue-800 border-blue-200 font-semibold",
       icon: <Fuel className="w-4 h-4 text-blue-700" />,
       explanation: "Tankers currently connected to loading arms undergoing bottom/top loading flow.",
     },
     {
       id: 4,
       label: "AVERAGE TURNAROUND",
-      value: `${avgTurnaround}`,
+      value: isDisconnected ? "—" : `${avgTurnaround}`,
       unit: "min",
-      subtext: `Target SLA: ${baselineTurnaround} min gate-to-gate`,
-      badge: isTurnaroundElevated
+      subtext: isDisconnected ? "Live operational data unavailable" : `Target SLA: ${baselineTurnaround} min gate-to-gate`,
+      badge: isDisconnected
+        ? "DISCONNECTED"
+        : isTurnaroundElevated
         ? `+${turnaroundDelta}m above SLA`
         : turnaroundDelta <= 0
         ? "On SLA benchmark"
         : `+${turnaroundDelta}m delta`,
-      badgeColor: isTurnaroundElevated
+      badgeColor: isDisconnected
+        ? "bg-slate-100 text-slate-500 border-slate-200"
+        : isTurnaroundElevated
         ? "bg-rose-50 text-rose-800 border-rose-300 font-bold"
         : "bg-emerald-50 text-[#1B7A3D] border-emerald-200",
       icon: <Clock className={`w-4 h-4 ${isTurnaroundElevated ? "text-rose-600" : "text-[#1B7A3D]"}`} />,
@@ -95,31 +104,34 @@ export const DepotKpiStrip: React.FC<DepotKpiStripProps> = ({ summary }) => {
     {
       id: 5,
       label: "AT RISK",
-      value: summary.atRiskCount.toString(),
+      value: isDisconnected ? "—" : summary.atRiskCount.toString(),
       unit: "orders",
-      subtext: summary.atRiskCount > 0 ? "Threshold breach predicted" : "Zero active breaches",
-      badge: summary.atRiskCount > 0 ? "Intervention Needed" : "All Stable",
-      badgeColor:
-        summary.atRiskCount > 0
-          ? "bg-rose-100 text-rose-800 border-rose-300 font-bold animate-pulse"
-          : "bg-emerald-50 text-[#1B7A3D] border-emerald-200",
+      subtext: isDisconnected ? "Live operational data unavailable" : summary.atRiskCount > 0 ? "Threshold breach predicted" : "Zero active breaches",
+      badge: isDisconnected ? "DISCONNECTED" : summary.atRiskCount > 0 ? "Intervention Needed" : "All Stable",
+      badgeColor: isDisconnected
+        ? "bg-slate-100 text-slate-500 border-slate-200"
+        : summary.atRiskCount > 0
+        ? "bg-rose-100 text-rose-800 border-rose-300 font-bold animate-pulse"
+        : "bg-emerald-50 text-[#1B7A3D] border-emerald-200",
       icon: <AlertTriangle className={`w-4 h-4 ${summary.atRiskCount > 0 ? "text-rose-600" : "text-[#1B7A3D]"}`} />,
       explanation: "Collections forecast to exceed terminal dwell SLA unless FlowGuard sequencing or dual-arm intervention is applied.",
     },
     {
       id: 6,
       label: "EFFECTIVE CAPACITY",
-      value: `${effectiveRatePerHour}`,
+      value: isDisconnected ? "—" : `${effectiveRatePerHour}`,
       unit: "trucks/hr",
-      subtext: `${summary.usablePositions}/${summary.totalPositions} positions (${summary.effectiveCapacity90Min || 11} orders / 90m)`,
-      badge:
-        summary.usablePositions < summary.totalPositions
-          ? `${summary.unavailablePositions} Bay Unavailable`
-          : "100% Gantry Nominal",
-      badgeColor:
-        summary.usablePositions < summary.totalPositions
-          ? "bg-amber-50 text-amber-800 border-amber-200 font-semibold"
-          : "bg-emerald-50 text-[#1B7A3D] border-emerald-200",
+      subtext: isDisconnected ? "Live operational data unavailable" : `${summary.usablePositions}/${summary.totalPositions} positions (${summary.effectiveCapacity90Min || 11} orders / 90m)`,
+      badge: isDisconnected
+        ? "DISCONNECTED"
+        : summary.usablePositions < summary.totalPositions
+        ? `${summary.unavailablePositions} Bay Unavailable`
+        : "100% Gantry Nominal",
+      badgeColor: isDisconnected
+        ? "bg-slate-100 text-slate-500 border-slate-200"
+        : summary.usablePositions < summary.totalPositions
+        ? "bg-amber-50 text-amber-800 border-amber-200 font-semibold"
+        : "bg-emerald-50 text-[#1B7A3D] border-emerald-200",
       icon: <Layers className="w-4 h-4 text-[#1B7A3D]" />,
       explanation: "Achievable throughput accounting for physical bays, meter flow velocity, occupancy transfer loss, and compatibility constraints.",
     },
