@@ -30,6 +30,7 @@ import {
   ShieldCheck,
   Layers,
   Fuel,
+  FileText,
 } from "lucide-react";
 
 export const RoleSidebar: React.FC = () => {
@@ -84,6 +85,8 @@ export const RoleSidebar: React.FC = () => {
         return <DollarSign className={className} />;
       case "CheckSquare":
         return <CheckSquare className={className} />;
+      case "FileText":
+        return <FileText className={className} />;
       default:
         return <Layers className={className} />;
     }
@@ -135,7 +138,7 @@ export const RoleSidebar: React.FC = () => {
           </Link>
         </div>
 
-        {/* Depot Context Selector (Rendered ONLY in Depot Operator Workspace) */}
+        {/* Depot Context Selector */}
         {activeRole.contextType === "depot" && (
           <div className="p-2.5 mx-2.5 mt-2.5 rounded-lg bg-[#070D15] border border-[#1C2C42]">
             <span className="text-[9px] font-mono uppercase text-slate-400 font-bold block mb-1">
@@ -158,7 +161,7 @@ export const RoleSidebar: React.FC = () => {
           </div>
         )}
 
-        {/* OMC Context Selector (Rendered ONLY in OMC Dispatcher Workspace) */}
+        {/* OMC Context Selector */}
         {activeRole.contextType === "omc" && (
           <div className="p-2.5 mx-2.5 mt-2.5 rounded-lg bg-[#070D15] border border-[#1C2C42]">
             <span className="text-[9px] font-mono uppercase text-amber-400 font-bold block mb-1">
@@ -190,6 +193,7 @@ export const RoleSidebar: React.FC = () => {
           {activeRole.navItems.map((item) => {
             const isCurrent =
               pathname === item.route ||
+              pathname.startsWith(item.route + "/") ||
               (pathname === "/" && item.route === activeRole.defaultRoute);
 
             return (

@@ -5,7 +5,7 @@
  * Scope ends at GATE-OUT. No downstream retail/fleet tracking.
  */
 
-export type DriverTab = "HOME" | "COLLECTION" | "UPDATES" | "MORE";
+export type DriverTab = "HOME" | "COLLECTION" | "UPDATES" | "NAVIGATE" | "MORE";
 
 export type SyncState = "ONLINE" | "SYNCING" | "OFFLINE" | "SYNC COMPLETE" | "SYNC ERROR";
 

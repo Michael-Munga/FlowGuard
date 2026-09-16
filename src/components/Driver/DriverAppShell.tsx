@@ -1,16 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useCallback } from "react";
 import { useDriverState } from "./useDriverState";
+import { DriverPhoneFrame } from "./DriverPhoneFrame";
 import { DriverTopBar } from "./DriverTopBar";
 import { DriverBottomNav } from "./DriverBottomNav";
 import { HomeTab } from "./HomeTab";
 import { CollectionTab } from "./CollectionTab";
 import { UpdatesTab } from "./UpdatesTab";
+import { NavigateTab } from "./NavigateTab";
 import { MoreTab } from "./MoreTab";
 import { IssueReportSheet } from "./IssueReportSheet";
 import { OfflineSyncSheet } from "./OfflineSyncSheet";
 import { DemoJourneyController } from "./DemoJourneyController";
+import {
+  useDriverRepository,
+  getDriverRegistration,
+} from "./useDriverRepository";
 
 export const DriverAppShell: React.FC = () => {
   const {
@@ -41,107 +47,127 @@ export const DriverAppShell: React.FC = () => {
     isDemoControllerOpen,
     openDemoController,
     closeDemoController,
+    ingestReroute,
+    ingestInject,
+    applyRepositoryStage,
   } = useDriverState();
 
+  // Wire driver PWA to the shared repository + broadcast channel
+  useDriverRepository({
+    onReroute: useCallback((ev) => ingestReroute(ev), [ingestReroute]),
+    onInject: useCallback((ev) => ingestInject(ev), [ingestInject]),
+    onSnapshotStage: useCallback(
+      (idx: number) => applyRepositoryStage(idx),
+      [applyRepositoryStage]
+    ),
+  });
+
   const recentUpdate = updates[0];
+  const driverReg = getDriverRegistration();
 
   return (
-    <div className="min-h-screen bg-[#050A10] flex justify-center items-stretch sm:py-4">
-      {/* Mobile Phone Container (Targeting 360px, 390px, 412px viewport widths) */}
-      <div className="w-full max-w-md bg-[#070D15] text-white flex flex-col justify-between shadow-2xl sm:rounded-3xl border-x sm:border border-slate-800 relative overflow-hidden">
-        {/* Mobile Top Bar */}
-        <DriverTopBar
-          syncState={syncState}
-          lastSyncTime={lastSyncTime}
-          pendingCount={pendingSyncQueue.length}
-          unreadCount={unreadUpdatesCount}
-          currentStageNumber={currentStageIndex + 1}
-          totalStages={7}
-          activeTab={activeTab}
-          onSelectTab={setActiveTab}
-          onOpenSyncSheet={openSyncSheet}
-          onOpenDemoController={openDemoController}
-        />
+    <DriverPhoneFrame>
+      {/* Mobile Top Bar */}
+      <DriverTopBar
+        syncState={syncState}
+        lastSyncTime={lastSyncTime}
+        pendingCount={pendingSyncQueue.length}
+        unreadCount={unreadUpdatesCount}
+        currentStageNumber={currentStageIndex + 1}
+        totalStages={7}
+        activeTab={activeTab}
+        onSelectTab={setActiveTab}
+        onOpenSyncSheet={openSyncSheet}
+        onOpenDemoController={openDemoController}
+        driverRegistration={driverReg}
+      />
 
-        {/* Scrollable Main View Area */}
-        <main className="p-3.5 sm:p-4 overflow-y-auto flex-1 overscroll-contain">
-          {activeTab === "HOME" && (
-            <HomeTab
-              currentStage={currentStage}
-              isInstructionAcknowledged={isInstructionAcknowledged}
-              instructionAcknowledgedAt={instructionAcknowledgedAt}
-              onAcknowledgeInstruction={acknowledgeInstruction}
-              syncState={syncState}
-              lastSyncTime={lastSyncTime}
-              recentUpdate={recentUpdate}
-              onOpenReportSheet={openReportSheet}
-              onSelectTab={setActiveTab}
-            />
-          )}
+      {/* Scrollable main view — this is the ONLY scroll container */}
+      <main className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-3.5 py-3 sm:px-4">
+        {activeTab === "HOME" && (
+          <HomeTab
+            currentStage={currentStage}
+            isInstructionAcknowledged={isInstructionAcknowledged}
+            instructionAcknowledgedAt={instructionAcknowledgedAt}
+            onAcknowledgeInstruction={acknowledgeInstruction}
+            syncState={syncState}
+            lastSyncTime={lastSyncTime}
+            recentUpdate={recentUpdate}
+            onOpenReportSheet={openReportSheet}
+            onSelectTab={setActiveTab}
+          />
+        )}
 
-          {activeTab === "COLLECTION" && (
-            <CollectionTab
-              currentStage={currentStage}
-              onOpenReportSheet={openReportSheet}
-            />
-          )}
+        {activeTab === "COLLECTION" && (
+          <CollectionTab
+            currentStage={currentStage}
+            onOpenReportSheet={openReportSheet}
+          />
+        )}
 
-          {activeTab === "UPDATES" && (
-            <UpdatesTab
-              updates={updates}
-              onAcknowledgeUpdate={acknowledgeUpdate}
-            />
-          )}
+        {activeTab === "UPDATES" && (
+          <UpdatesTab
+            updates={updates}
+            onAcknowledgeUpdate={acknowledgeUpdate}
+          />
+        )}
 
-          {activeTab === "MORE" && (
-            <MoreTab
-              syncState={syncState}
-              lastSyncTime={lastSyncTime}
-              pendingSyncQueue={pendingSyncQueue}
-              submittedReports={submittedReports}
-              currentStageNumber={currentStageIndex + 1}
-              totalStages={7}
-              onToggleOffline={toggleOfflineSimulation}
-              onTriggerSync={triggerManualSync}
-              onOpenReportSheet={openReportSheet}
-              onOpenSyncSheet={openSyncSheet}
-              onOpenDemoController={openDemoController}
-            />
-          )}
-        </main>
+        {activeTab === "NAVIGATE" && (
+          <NavigateTab
+            currentStage={currentStage}
+            onOpenReportSheet={openReportSheet}
+          />
+        )}
 
-        {/* Bottom Navigation Dock */}
-        <DriverBottomNav
-          activeTab={activeTab}
-          onSelectTab={setActiveTab}
-          unreadUpdatesCount={unreadUpdatesCount}
-        />
+        {activeTab === "MORE" && (
+          <MoreTab
+            syncState={syncState}
+            lastSyncTime={lastSyncTime}
+            pendingSyncQueue={pendingSyncQueue}
+            submittedReports={submittedReports}
+            currentStageNumber={currentStageIndex + 1}
+            totalStages={7}
+            currentStage={currentStage}
+            onToggleOffline={toggleOfflineSimulation}
+            onTriggerSync={triggerManualSync}
+            onOpenReportSheet={openReportSheet}
+            onOpenSyncSheet={openSyncSheet}
+            onOpenDemoController={openDemoController}
+          />
+        )}
+      </main>
 
-        {/* Modal Bottom Sheets */}
-        <IssueReportSheet
-          isOpen={isReportSheetOpen}
-          onClose={closeReportSheet}
-          syncState={syncState}
-          onSubmitReport={submitIssueReport}
-        />
+      {/* Bottom Navigation Dock */}
+      <DriverBottomNav
+        activeTab={activeTab}
+        onSelectTab={setActiveTab}
+        unreadUpdatesCount={unreadUpdatesCount}
+      />
 
-        <OfflineSyncSheet
-          isOpen={isSyncSheetOpen}
-          onClose={closeSyncSheet}
-          syncState={syncState}
-          lastSyncTime={lastSyncTime}
-          pendingSyncQueue={pendingSyncQueue}
-          onToggleOffline={toggleOfflineSimulation}
-          onTriggerSync={triggerManualSync}
-        />
+      {/* Modal Bottom Sheets */}
+      <IssueReportSheet
+        isOpen={isReportSheetOpen}
+        onClose={closeReportSheet}
+        syncState={syncState}
+        onSubmitReport={submitIssueReport}
+      />
 
-        <DemoJourneyController
-          isOpen={isDemoControllerOpen}
-          onClose={closeDemoController}
-          currentIndex={currentStageIndex}
-          onSelectStage={setStageIndex}
-        />
-      </div>
-    </div>
+      <OfflineSyncSheet
+        isOpen={isSyncSheetOpen}
+        onClose={closeSyncSheet}
+        syncState={syncState}
+        lastSyncTime={lastSyncTime}
+        pendingSyncQueue={pendingSyncQueue}
+        onToggleOffline={toggleOfflineSimulation}
+        onTriggerSync={triggerManualSync}
+      />
+
+      <DemoJourneyController
+        isOpen={isDemoControllerOpen}
+        onClose={closeDemoController}
+        currentIndex={currentStageIndex}
+        onSelectStage={setStageIndex}
+      />
+    </DriverPhoneFrame>
   );
 };

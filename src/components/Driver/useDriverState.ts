@@ -10,41 +10,35 @@ import {
   JourneyStageConfig,
 } from "./types";
 import { DRIVER_JOURNEY_STAGES, INITIAL_DRIVER_UPDATES } from "./journeyStages";
+import { RerouteEvent, InjectEvent } from "@/services/driverChannel";
 
 export interface DriverStateReturn {
-  // Navigation
   activeTab: DriverTab;
   setActiveTab: (tab: DriverTab) => void;
 
-  // Journey Stage
   currentStageIndex: number;
   currentStage: JourneyStageConfig;
   setStageIndex: (idx: number) => void;
   advanceStage: () => void;
   resetToStart: () => void;
 
-  // Instruction Acknowledgement
   isInstructionAcknowledged: boolean;
   instructionAcknowledgedAt: string | null;
   acknowledgeInstruction: () => void;
 
-  // Sync & Connectivity
   syncState: SyncState;
   lastSyncTime: string;
   pendingSyncQueue: DriverIssueReport[];
   toggleOfflineSimulation: () => void;
   triggerManualSync: () => void;
 
-  // Updates & Notifications
   updates: DriverUpdate[];
   unreadUpdatesCount: number;
   acknowledgeUpdate: (id: string) => void;
 
-  // Issue Reports
   submittedReports: DriverIssueReport[];
   submitIssueReport: (category: IssueCategory, subReason?: string, notes?: string) => void;
 
-  // Sheets & Modals
   isReportSheetOpen: boolean;
   openReportSheet: () => void;
   closeReportSheet: () => void;
@@ -56,25 +50,25 @@ export interface DriverStateReturn {
   isDemoControllerOpen: boolean;
   openDemoController: () => void;
   closeDemoController: () => void;
+
+  // NEW — repository link
+  ingestReroute: (ev: RerouteEvent) => void;
+  ingestInject: (ev: InjectEvent) => void;
+  applyRepositoryStage: (stageIndex: number) => void;
 }
 
 export function useDriverState(): DriverStateReturn {
   const [activeTab, setActiveTab] = useState<DriverTab>("HOME");
-  // Default to Stage 4 (FlowGuard Reallocated / Bay P04) or Stage 1
-  const [currentStageIndex, setCurrentStageIndex] = useState<number>(3); // Stage 4: FlowGuard Fast-Track Intervention
+  const [currentStageIndex, setCurrentStageIndex] = useState<number>(3);
   const [isInstructionAcknowledged, setIsInstructionAcknowledged] = useState<boolean>(false);
   const [instructionAcknowledgedAt, setInstructionAcknowledgedAt] = useState<string | null>(null);
 
-  // Sync state
   const [syncState, setSyncState] = useState<SyncState>("ONLINE");
   const [lastSyncTime, setLastSyncTime] = useState<string>("10:32 EAT");
   const [pendingSyncQueue, setPendingSyncQueue] = useState<DriverIssueReport[]>([]);
   const [submittedReports, setSubmittedReports] = useState<DriverIssueReport[]>([]);
-
-  // Updates
   const [updates, setUpdates] = useState<DriverUpdate[]>(INITIAL_DRIVER_UPDATES);
 
-  // Modals
   const [isReportSheetOpen, setIsReportSheetOpen] = useState(false);
   const [isSyncSheetOpen, setIsSyncSheetOpen] = useState(false);
   const [isDemoControllerOpen, setIsDemoControllerOpen] = useState(false);
@@ -89,7 +83,6 @@ export function useDriverState(): DriverStateReturn {
     [updates]
   );
 
-  // Set specific stage (e.g. from demo selector)
   const setStageIndex = useCallback((idx: number) => {
     if (idx >= 0 && idx < DRIVER_JOURNEY_STAGES.length) {
       setCurrentStageIndex(idx);
@@ -114,32 +107,29 @@ export function useDriverState(): DriverStateReturn {
   }, []);
 
   const acknowledgeInstruction = useCallback(() => {
-    const timeNow = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + " EAT";
+    const timeNow =
+      new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + " EAT";
     setIsInstructionAcknowledged(true);
     setInstructionAcknowledgedAt(timeNow);
   }, []);
 
   const acknowledgeUpdate = useCallback((id: string) => {
-    const timeNow = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + " EAT";
+    const timeNow =
+      new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + " EAT";
     setUpdates((prev) =>
       prev.map((item) =>
-        item.id === id
-          ? { ...item, isAcknowledged: true, acknowledgedAt: timeNow }
-          : item
+        item.id === id ? { ...item, isAcknowledged: true, acknowledgedAt: timeNow } : item
       )
     );
   }, []);
 
-  // Offline demo toggle
   const toggleOfflineSimulation = useCallback(() => {
     setSyncState((prev) => {
       if (prev === "OFFLINE") {
-        // Return online and trigger sync
         setTimeout(() => {
           setSyncState("SYNCING");
           setTimeout(() => {
             setPendingSyncQueue((queue) => {
-              // Flush pending queue into submitted
               setSubmittedReports((hist) => [
                 ...queue.map((item) => ({ ...item, syncStatus: "SYNCED" as const })),
                 ...hist,
@@ -147,13 +137,15 @@ export function useDriverState(): DriverStateReturn {
               return [];
             });
             setSyncState("ONLINE");
-            setLastSyncTime(new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + " EAT");
+            setLastSyncTime(
+              new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) +
+                " EAT"
+            );
           }, 1200);
         }, 100);
         return "SYNCING";
-      } else {
-        return "OFFLINE";
       }
+      return "OFFLINE";
     });
   }, []);
 
@@ -171,14 +163,16 @@ export function useDriverState(): DriverStateReturn {
         return [];
       });
       setSyncState("ONLINE");
-      setLastSyncTime(new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + " EAT");
+      setLastSyncTime(
+        new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + " EAT"
+      );
     }, 1000);
   }, [syncState]);
 
-  // Submit an issue report
   const submitIssueReport = useCallback(
     (category: IssueCategory, subReason?: string, notes?: string) => {
-      const timeNow = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + " EAT";
+      const timeNow =
+        new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + " EAT";
       const newReport: DriverIssueReport = {
         id: `REP-${Date.now().toString().slice(-4)}`,
         category,
@@ -194,12 +188,13 @@ export function useDriverState(): DriverStateReturn {
         setSubmittedReports((prev) => [newReport, ...prev]);
       }
 
-      // Add corresponding driver update item to feed
       const newUpdate: DriverUpdate = {
         id: `UPD-ISSUE-${Date.now().toString().slice(-4)}`,
         type: category === "SAFETY ISSUE" ? "IMPORTANT SAFETY MESSAGE" : "INSTRUCTION UPDATE",
         title: `Report Logged: ${category}`,
-        message: `${subReason ? subReason + ". " : ""}${notes ? notes : "Operational report received by KPC Terminal Dispatch."}`,
+        message: `${subReason ? subReason + ". " : ""}${
+          notes ? notes : "Operational report received by KPC Terminal Dispatch."
+        }`,
         timestamp: timeNow,
         priority: category === "SAFETY ISSUE" ? "URGENT" : "IMPORTANT",
         requiresAcknowledgement: false,
@@ -212,6 +207,74 @@ export function useDriverState(): DriverStateReturn {
     },
     [syncState]
   );
+
+  // ---------------------------------------------------------------------------
+  // NEW — Repository link handlers
+  // ---------------------------------------------------------------------------
+
+  /** Called when a REROUTE event arrives from the depot console. */
+  const ingestReroute = useCallback((ev: RerouteEvent) => {
+    const timeShort =
+      new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + " EAT";
+
+    const newUpdate: DriverUpdate = {
+      id: `UPD-RR-${Date.now()}`,
+      type: "INSTRUCTION UPDATE",
+      title: `Fast-Track Reroute: ${ev.fromBay} → ${ev.toBay}`,
+      message:
+        `FlowGuard has reassigned your collection from Bay ${ev.fromBay} to Bay ${ev.toBay}. ` +
+        `Estimated recovery ${ev.savedMinutes} minutes · ` +
+        `demurrage avoided KES ${ev.savedKes.toLocaleString("en-KE", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}.`,
+      previousTiming: `Bay ${ev.fromBay}`,
+      newTiming: `Bay ${ev.toBay}`,
+      reason: ev.reason,
+      timestamp: timeShort,
+      priority: "IMPORTANT",
+      requiresAcknowledgement: true,
+      isAcknowledged: false,
+    };
+
+    setUpdates((prev) => [newUpdate, ...prev]);
+
+    // Auto-advance to Stage 4 (FlowGuard Fast-Track Intervention)
+    setCurrentStageIndex(3);
+    setIsInstructionAcknowledged(false);
+    setInstructionAcknowledgedAt(null);
+    setActiveTab("HOME");
+  }, []);
+
+  /** Called when an INJECT event arrives from the depot console. */
+  const ingestInject = useCallback((ev: InjectEvent) => {
+    const timeShort =
+      new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + " EAT";
+
+    const newUpdate: DriverUpdate = {
+      id: `UPD-INJ-${Date.now()}`,
+      type: "GATE UPDATE",
+      title: `Collection Assigned — Bay ${ev.targetBay}`,
+      message:
+        `${ev.depotName} has scheduled your collection for bay ${ev.targetBay}. ` +
+        `${ev.product}, ${ev.quantityLitres.toLocaleString()}L.`,
+      timestamp: timeShort,
+      priority: "IMPORTANT",
+      requiresAcknowledgement: true,
+      isAcknowledged: false,
+    };
+
+    setUpdates((prev) => [newUpdate, ...prev]);
+    setCurrentStageIndex(1); // Stage 2: Arrival & Tare
+    setIsInstructionAcknowledged(false);
+    setInstructionAcknowledgedAt(null);
+    setActiveTab("HOME");
+  }, []);
+
+  /** Called on each repository poll — reflect the true stage if it moved. */
+  const applyRepositoryStage = useCallback((stageIndex: number) => {
+    setCurrentStageIndex((prev) => (prev === stageIndex ? prev : stageIndex));
+  }, []);
 
   return {
     activeTab,
@@ -243,5 +306,8 @@ export function useDriverState(): DriverStateReturn {
     isDemoControllerOpen,
     openDemoController: () => setIsDemoControllerOpen(true),
     closeDemoController: () => setIsDemoControllerOpen(false),
+    ingestReroute,
+    ingestInject,
+    applyRepositoryStage,
   };
 }

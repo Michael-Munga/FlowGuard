@@ -38,6 +38,7 @@ import {
   EmailPreview,
 } from "@/services/notificationsService";
 import { voiceService } from "@/services/voiceService";
+import { driverChannel } from "@/services/driverChannel";
 
 interface DepotOperationsViewProps {
   subView: DepotSubView;
@@ -186,7 +187,7 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
     });
     setEmailPreview(preview);
 
-    // 2. Push
+    // 2. Push (in-dashboard banner)
     const push: DriverPushPayload = {
       driverName: payload.driverName,
       driverEmail: payload.driverEmail,
@@ -203,6 +204,23 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
 
     // 3. Voice — command centre operator
     voiceService.speak(buildRerouteVoiceLine(push));
+
+    // 4. Broadcast to the driver PWA (cross-tab + cross-reload)
+    driverChannel.publish({
+      kind: "REROUTE",
+      truckRegistration: payload.registration,
+      driverName: payload.driverName,
+      driverEmail: payload.driverEmail,
+      orderNumber: result.truck.orderNumber,
+      fromBay: result.fromBay,
+      toBay: result.toBay,
+      depotId: activeDepotId,
+      depotName: depot.name,
+      savedMinutes: result.savedMinutes,
+      savedKes: result.savedKes,
+      reason: result.reason,
+      timestamp: new Date().toISOString(),
+    });
   };
 
   const recentEventCount = depotEvents.filter((e) => e.severity !== "info").length;

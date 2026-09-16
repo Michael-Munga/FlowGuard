@@ -151,10 +151,17 @@ export const ROLES_CONFIG: Record<DemoRoleId, RoleConfig> = {
       "Monitor collection orders, expected arrival, loading progress, and customer updates.",
     description:
       "Oil Marketing Company dispatch officers tracking order status, turnaround SLAs, delay causes, and gate-out predictions.",
-    defaultRoute: "/omc/orders",
+    defaultRoute: "/omc/overview",
     iconName: "Briefcase",
     contextType: "omc",
     navItems: [
+      {
+        id: "omc-overview",
+        label: "Overview",
+        route: "/omc/overview",
+        iconName: "LayoutDashboard",
+        description: "Collection summary & priority tiles",
+      },
       {
         id: "my-orders",
         label: "My Orders",
@@ -176,6 +183,13 @@ export const ROLES_CONFIG: Record<DemoRoleId, RoleConfig> = {
         iconName: "Bell",
         badge: "New",
         description: "Two-way operational updates & acknowledgements",
+      },
+      {
+        id: "omc-reports",
+        label: "Reports",
+        route: "/omc/reports",
+        iconName: "FileText",
+        description: "Order, turnaround & exposure exports",
       },
     ],
   },

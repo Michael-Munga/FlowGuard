@@ -16,6 +16,7 @@ interface DriverTopBarProps {
   onSelectTab: (tab: DriverTab) => void;
   onOpenSyncSheet: () => void;
   onOpenDemoController: () => void;
+  driverRegistration?: string;
 }
 
 export const DriverTopBar: React.FC<DriverTopBarProps> = ({
@@ -29,6 +30,7 @@ export const DriverTopBar: React.FC<DriverTopBarProps> = ({
   onSelectTab,
   onOpenSyncSheet,
   onOpenDemoController,
+  driverRegistration,
 }) => {
   const getSyncBadge = () => {
     switch (syncState) {

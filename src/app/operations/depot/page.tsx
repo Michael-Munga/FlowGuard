@@ -30,7 +30,7 @@ function OperationsDepotPageContent() {
   return (
     <DepotOperationsView
       initialDepotId={initialDepotId}
-      subView="all"
+      subView="overview"
       onNavigateDashboard={handleNavigateDashboard}
     />
   );

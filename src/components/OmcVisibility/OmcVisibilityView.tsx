@@ -10,14 +10,24 @@ import { TodayCollectionOutlook } from "./Outlook/TodayCollectionOutlook";
 import { OmcOrderBoard } from "./Orders/OmcOrderBoard";
 import { OrderJourneyDrawer } from "./Orders/OrderJourneyDrawer";
 import { OmcNotificationCenter } from "./Notifications/OmcNotificationCenter";
+import { OmcOverviewTiles } from "./Overview/OmcOverviewTiles";
+import { OmcReportsWorkspace } from "./Reports/OmcReportsWorkspace";
 import { useOmcCollectionData } from "@/hooks/useOmcCollectionData";
 import { useRole } from "@/context/RoleContext";
 import { OmcId } from "@/types/flowguard";
-import { Lock, ShieldCheck, Truck, Building2 } from "lucide-react";
+import { Lock, Briefcase } from "lucide-react";
+
+export type OmcSubView =
+  | "all"
+  | "overview"
+  | "orders"
+  | "outlook"
+  | "notifications"
+  | "reports";
 
 interface OmcVisibilityViewProps {
   initialOmcId?: OmcId;
-  subView?: "all" | "orders" | "outlook" | "notifications";
+  subView?: OmcSubView;
   onNavigateDashboard?: (id: string) => void;
 }
 
@@ -59,7 +69,6 @@ export const OmcVisibilityView: React.FC<OmcVisibilityViewProps> = ({
     acknowledgeOrder,
   } = useOmcCollectionData(effectiveOmcId);
 
-  // Synchronize role context when OMC is switched
   const handleSelectOmc = useCallback(
     (omcId: OmcId) => {
       setActiveOmcId(omcId);
@@ -68,21 +77,23 @@ export const OmcVisibilityView: React.FC<OmcVisibilityViewProps> = ({
     [setActiveOmcId, setSelectedOmcId]
   );
 
-  // Switch sub-view tabs
   const handleSelectSubView = useCallback(
-    (view: "all" | "orders" | "outlook" | "notifications") => {
-      if (view === "orders" || view === "all") {
+    (view: OmcSubView) => {
+      if (view === "overview") {
+        router.push("/omc/overview");
+      } else if (view === "orders" || view === "all") {
         router.push("/omc/orders");
       } else if (view === "outlook") {
         router.push("/omc/outlook");
       } else if (view === "notifications") {
         router.push("/omc/notifications");
+      } else if (view === "reports") {
+        router.push("/omc/reports");
       }
     },
     [router]
   );
 
-  // Open drawer from notification order ID
   const handleSelectOrderById = useCallback(
     (orderId: string) => {
       const target = orders.find((o) => o.id === orderId);
@@ -95,16 +106,13 @@ export const OmcVisibilityView: React.FC<OmcVisibilityViewProps> = ({
 
   return (
     <div className="min-h-screen bg-[#FAFBFC] text-[#0F1B2B] flex flex-col antialiased">
-      {/* 1. Global Role-Based Sidebar */}
       <AppSidebar
         activeDashboard="omc-collection"
         onSelectDashboard={onNavigateDashboard}
         activeInterventionsCount={1}
       />
 
-      {/* 2. Main Content Area */}
       <div className="ml-[240px] flex-1 flex flex-col min-w-0">
-        {/* OMC Context Bar with Company Switcher & Sub-view navigation */}
         <OmcContextBar
           omcProfile={omcProfile}
           allOmcs={allOmcs}
@@ -119,24 +127,43 @@ export const OmcVisibilityView: React.FC<OmcVisibilityViewProps> = ({
           onSelectSubView={handleSelectSubView}
         />
 
-        {/* OMC Operations Body */}
         <main className="flex-1 flex flex-col space-y-4 py-4 pb-8">
-          {/* Section 1: Top Customer KPI Strip */}
-          <OmcKpiStrip summary={kpis} />
+          {/* KPI strip hidden on reports for a calmer workspace */}
+          {subView !== "reports" && <OmcKpiStrip summary={kpis} />}
 
-          {/* Section 2: Priority Collections Needing Attention */}
-          {(subView === "all" || subView === "orders" || subView === "outlook") && (
-            <div className="px-6">
-              <CollectionsAtRiskCard
-                orders={orders}
-                onSelectOrder={openOrderDrawer}
-              />
-            </div>
+          {/* Overview */}
+          {subView === "overview" && (
+            <>
+              <div className="px-6">
+                <OmcOverviewTiles
+                  profile={omcProfile}
+                  kpis={kpis}
+                  orders={orders}
+                  notifications={notifications}
+                />
+              </div>
+              <div className="px-6">
+                <CollectionsAtRiskCard
+                  orders={orders}
+                  onSelectOrder={openOrderDrawer}
+                />
+              </div>
+            </>
           )}
 
-          {/* Section 3: Sub-view Content Layout */}
+          {/* Collections at risk — also shown on all / orders / outlook */}
+          {subView !== "overview" && subView !== "reports" &&
+            (subView === "all" || subView === "orders" || subView === "outlook") && (
+              <div className="px-6">
+                <CollectionsAtRiskCard
+                  orders={orders}
+                  onSelectOrder={openOrderDrawer}
+                />
+              </div>
+            )}
+
+          {/* Sub-view content */}
           <div className="px-6">
-            {/* View A: Orders Board (Full Width in /omc/orders) */}
             {subView === "orders" && (
               <div className="w-full">
                 <OmcOrderBoard
@@ -152,7 +179,6 @@ export const OmcVisibilityView: React.FC<OmcVisibilityViewProps> = ({
               </div>
             )}
 
-            {/* View B: Collection Outlook (Full Width in /omc/outlook) */}
             {subView === "outlook" && (
               <div className="w-full space-y-4">
                 <TodayCollectionOutlook
@@ -162,7 +188,6 @@ export const OmcVisibilityView: React.FC<OmcVisibilityViewProps> = ({
               </div>
             )}
 
-            {/* View C: Notifications Center (Full Width in /omc/notifications) */}
             {subView === "notifications" && (
               <div className="w-full space-y-4">
                 <OmcNotificationCenter
@@ -174,7 +199,16 @@ export const OmcVisibilityView: React.FC<OmcVisibilityViewProps> = ({
               </div>
             )}
 
-            {/* View D: Default / Legacy Combined View ("all") */}
+            {subView === "reports" && (
+              <OmcReportsWorkspace
+                profile={omcProfile}
+                orders={orders}
+                kpis={kpis}
+                notifications={notifications}
+                outlooks={outlooks}
+              />
+            )}
+
             {subView === "all" && (
               <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 items-start">
                 <div className="xl:col-span-8">
@@ -189,15 +223,11 @@ export const OmcVisibilityView: React.FC<OmcVisibilityViewProps> = ({
                     omcName={omcProfile.shortName}
                   />
                 </div>
-
                 <div className="xl:col-span-4 space-y-4">
-                  {/* Forward Collection Outlook */}
                   <TodayCollectionOutlook
                     outlooks={outlooks}
                     omcName={omcProfile.shortName}
                   />
-
-                  {/* Operational Dispatch Feed */}
                   <OmcNotificationCenter
                     notifications={notifications}
                     onAcknowledge={acknowledgeNotification}
@@ -210,17 +240,16 @@ export const OmcVisibilityView: React.FC<OmcVisibilityViewProps> = ({
           </div>
         </main>
 
-        {/* 3. OMC Portal Footer */}
         <footer className="bg-white border-t border-[#E2E6EA] px-6 py-2.5 text-[11px] text-[#5C6B7A] flex flex-wrap items-center justify-between gap-y-2 select-none">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#1B7A3D]" />
               <span className="font-semibold text-[#0F1B2B]">OMC Account Context:</span>
-              <span className="font-mono text-[#0F1B2B]">{omcProfile.name} ({omcProfile.accountCode})</span>
+              <span className="font-mono text-[#0F1B2B]">
+                {omcProfile.name} ({omcProfile.accountCode})
+              </span>
             </div>
-
             <span className="text-slate-300">|</span>
-
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#1B7A3D]" />
               <span className="font-semibold text-[#0F1B2B]">Data Isolation:</span>
@@ -241,7 +270,6 @@ export const OmcVisibilityView: React.FC<OmcVisibilityViewProps> = ({
         </footer>
       </div>
 
-      {/* 4. Selected Collection Order Journey Drawer */}
       <OrderJourneyDrawer
         order={selectedOrder}
         isOpen={isDrawerOpen}
