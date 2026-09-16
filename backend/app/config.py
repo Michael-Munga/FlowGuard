@@ -2,7 +2,8 @@
 
 import os
 from pathlib import Path
-from typing import List
+from typing import List, Optional
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -19,6 +20,7 @@ class Settings(BaseSettings):
     # Server & CORS
     HOST: str = "0.0.0.0"
     PORT: int = 8000
+    FRONTEND_URL: Optional[str] = None
     CORS_ORIGINS: List[str] = [
         "http://localhost:3000",
         "http://127.0.0.1:3000",
@@ -28,6 +30,26 @@ class Settings(BaseSettings):
 
     # Database settings
     DATABASE_URL: str = "postgresql+psycopg2://flowguard:flowguard@localhost:5432/flowguard"
+
+    @field_validator("DATABASE_URL", mode="before")
+    @classmethod
+    def assemble_db_connection(cls, v: str) -> str:
+        if isinstance(v, str):
+            if v.startswith("postgres://"):
+                return v.replace("postgres://", "postgresql+psycopg2://", 1)
+            elif v.startswith("postgresql://") and "+psycopg2" not in v:
+                return v.replace("postgresql://", "postgresql+psycopg2://", 1)
+        return v
+
+    @property
+    def cors_origins_list(self) -> List[str]:
+        origins = list(self.CORS_ORIGINS)
+        if self.FRONTEND_URL:
+            for u in self.FRONTEND_URL.split(","):
+                cleaned = u.strip().rstrip("/")
+                if cleaned and cleaned not in origins:
+                    origins.append(cleaned)
+        return origins
     DB_POOL_SIZE: int = 10
     DB_MAX_OVERFLOW: int = 20
     DB_POOL_TIMEOUT: int = 30

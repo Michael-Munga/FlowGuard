@@ -11,6 +11,7 @@ import {
   SystemHealth,
 } from "@/types/flowguard";
 import { flowGuardService } from "@/services/flowguardService";
+import { isApiMode as checkIsApiMode } from "@/lib/utils";
 
 export function useOmcCollectionData(initialOmcId: OmcId = "vivo") {
   const [activeOmcId, setActiveOmcId] = useState<OmcId>(initialOmcId);
@@ -27,7 +28,7 @@ export function useOmcCollectionData(initialOmcId: OmcId = "vivo") {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const isApiMode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE === "api";
+  const isApiMode = checkIsApiMode();
   const hasSyncFromApi = typeof (flowGuardService as any).syncFromApi === "function";
 
   // Initial API sync

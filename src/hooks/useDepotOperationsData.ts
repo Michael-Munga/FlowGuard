@@ -15,6 +15,7 @@ import {
   OperationalEvent,
   SystemHealth,
 } from "@/types/flowguard";
+import { isApiMode as checkIsApiMode } from "@/lib/utils";
 
 export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
   const [activeDepotId, setActiveDepotId] = useState<DepotId>(initialDepotId);
@@ -53,7 +54,7 @@ export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const isApiMode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE === "api";
+  const isApiMode = checkIsApiMode();
   const hasSyncFromApi = typeof (flowGuardService as any).syncFromApi === "function";
 
   // Sync state for current depot

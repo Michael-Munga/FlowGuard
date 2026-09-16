@@ -49,12 +49,15 @@ interface DataSourceProviderProps {
 }
 
 export function DataSourceProvider({ children }: DataSourceProviderProps) {
+  const explicitMode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE || process.env.NEXT_PUBLIC_DATA_MODE;
+  const rawApiUrl = process.env.NEXT_PUBLIC_FLOWGUARD_API_URL || process.env.NEXT_PUBLIC_API_URL;
   const dataMode = (
-    process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE === "api" ? "api" : "synthetic"
+    explicitMode === "api" || (explicitMode !== "synthetic" && Boolean(rawApiUrl))
+      ? "api"
+      : "synthetic"
   ) as DataMode;
 
-  const apiBaseUrl =
-    process.env.NEXT_PUBLIC_FLOWGUARD_API_URL || "http://localhost:8000";
+  const apiBaseUrl = (rawApiUrl || "http://localhost:8000").replace(/\/+$/, "");
 
   const [isApiConnected, setIsApiConnected] = useState(false);
   const [isApiLoading, setIsApiLoading] = useState(dataMode === "api");

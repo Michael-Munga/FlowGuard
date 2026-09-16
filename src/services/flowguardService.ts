@@ -1281,8 +1281,9 @@ export class SyntheticFlowGuardRepository implements IFlowGuardRepository {
 import { HttpFlowGuardRepository } from "./httpFlowGuardRepository";
 
 export function createFlowGuardRepository(): IFlowGuardRepository {
-  const mode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE;
-  if (mode === "api") {
+  const explicitMode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE || process.env.NEXT_PUBLIC_DATA_MODE;
+  const hasApiUrl = Boolean(process.env.NEXT_PUBLIC_FLOWGUARD_API_URL || process.env.NEXT_PUBLIC_API_URL);
+  if (explicitMode === "api" || (explicitMode !== "synthetic" && hasApiUrl)) {
     return new HttpFlowGuardRepository();
   }
   return new SyntheticFlowGuardRepository();

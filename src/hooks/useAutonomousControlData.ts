@@ -11,6 +11,7 @@ import {
   DepotId,
 } from "@/types/flowguard";
 import { flowGuardService } from "@/services/flowguardService";
+import { isApiMode as checkIsApiMode } from "@/lib/utils";
 
 export function useAutonomousControlData(initialIncidentId: string = "INT-8801") {
   const [incidents, setIncidents] = useState<AutonomyIncident[]>([]);
@@ -30,7 +31,7 @@ export function useAutonomousControlData(initialIncidentId: string = "INT-8801")
   const [filterDepot, setFilterDepot] = useState<string>("ALL");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const isApiMode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE === "api";
+  const isApiMode = checkIsApiMode();
   const hasSyncFromApi = typeof (flowGuardService as any).syncFromApi === "function";
 
   const syncState = useCallback(() => {

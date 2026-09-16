@@ -908,33 +908,125 @@ There is no silent fallback to synthetic data in API mode. Widgets that cannot r
 
 ## 23. CI/CD and Deployment
 
-FlowGuard uses GitHub Actions for continuous integration and automated deployment to Render.
+FlowGuard is configured for full-stack deployment on **Render** (Managed PostgreSQL, FastAPI Python backend, and Next.js frontend) backed by automated GitHub Actions CI/CD.
 
-### Workflow Configuration
+A ready-to-use Render Blueprint specification is provided in [`render.yaml`](render.yaml).
 
-The pipeline definition is located at:
-- [`.github/workflows/ci.yml`](.github/workflows/ci.yml)
+---
 
-### What Runs on Push and Pull Requests
+### Render Dashboard Deployment Steps (In Order)
 
-For every **push** and **pull request** targeting the `main` branch, the CI workflow runs on `ubuntu-latest`:
-1. **Environment Setup**: Checks out the repository and configures Node.js 20 with npm dependency caching.
-2. **Dependency Installation**: Installs locked dependencies cleanly via `npm ci`.
-3. **Automated Testing**: Executes the test suite via `npm test --if-present`.
-4. **Production Build**: Compiles and verifies the Next.js application using `npm run build` (`next build --webpack`), verifying TypeScript types and static page generation across all routes.
-5. **Failure Policy**: Fails the workflow immediately if any installation, test, or build step encounters an error.
+Deploy resources in the following exact sequence so each service receives the outputs of its dependencies:
 
-### What Triggers Deployment (CD)
+#### Step 1: Create Managed PostgreSQL
+1. In the Render Dashboard, click **New +** → **PostgreSQL**.
+2. **Name**: `flowguard-postgres`
+3. **Database**: `flowguard`
+4. **User**: `flowguard`
+5. **Region**: Choose the region closest to your users (e.g. `Oregon (US West)` or `Frankfurt (EU)`).
+6. **Plan**: `Free`
+7. Click **Create Database**.
+8. Once provisioned, locate the **Connections** section:
+   - Copy the **Internal Database URL** (e.g. `postgres://flowguard:***@dpg-xxx-a/flowguard`). This will be used in Step 2.
 
-Continuous deployment runs on every **push or merge to `main`** after build and verification succeed:
-- **Render Deploy Hook**: If `RENDER_DEPLOY_HOOK_URL` is set in GitHub repository secrets (`Settings > Secrets and variables > Actions`), the CD step issues an HTTP POST request via `curl` to trigger a deployment on Render.
-- **Auto-Deploy on Push**: If the service is linked directly in Render with auto-deploy enabled, Render deploys automatically on push to `main`.
-- **Infrastructure Overhead**: Minimal and zero-tooling — leverages standard GitHub Actions runners and native webhook triggering without third-party CLI dependencies.
+#### Step 2: Create FastAPI Backend Web Service
+1. Click **New +** → **Web Service** → Connect your FlowGuard GitHub repository.
+2. **Name**: `flowguard-backend`
+3. **Region**: Same region as your database in Step 1.
+4. **Branch**: `main`
+5. **Runtime**: `Python 3`
+6. **Build Command**:
+   ```bash
+   pip install --upgrade pip && pip install -r requirements.txt
+   ```
+7. **Start Command**:
+   ```bash
+   alembic upgrade head && uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+   ```
+8. **Plan**: `Free`
+9. **Environment Variables**:
+   - `DATABASE_URL`: Paste the **Internal Database URL** from Step 1.
+   - `ENVIRONMENT`: `production`
+   - `LOG_LEVEL`: `INFO`
+   - `FRONTEND_URL`: Leave blank for now, or set to `*` temporarily.
+10. Click **Create Web Service**.
+11. Once built, note your **Backend URL** (e.g. `https://flowguard-backend.onrender.com`).
 
-| Pipeline Stage | Mechanism | Trigger Event |
-|---|---|---|
-| **CI (Build & Verify)** | Node 20, `npm ci`, `npm run build` | Push or PR to `main` |
-| **CD (Render Deployment)** | Render Deploy Hook (`RENDER_DEPLOY_HOOK_URL`) / Auto-Deploy | Merge / Push to `main` |
+#### Step 3: Create Next.js Frontend Web Service
+1. Click **New +** → **Web Service** → Connect your FlowGuard GitHub repository.
+2. **Name**: `flowguard-frontend`
+3. **Region**: Same region as your backend and database.
+4. **Branch**: `main`
+5. **Runtime**: `Node`
+6. **Build Command**:
+   ```bash
+   npm install && npm run build
+   ```
+7. **Start Command**:
+   ```bash
+   npm run start
+   ```
+8. **Plan**: `Free`
+9. **Environment Variables**:
+   - `NEXT_PUBLIC_API_URL`: Paste the **Backend URL** from Step 2 (e.g. `https://flowguard-backend.onrender.com`).
+   - `NEXT_PUBLIC_FLOWGUARD_API_URL`: Same Backend URL (for backward compatibility).
+   - `NEXT_PUBLIC_FLOWGUARD_DATA_MODE`: `api`
+   - `NODE_VERSION`: `20`
+10. Click **Create Web Service**.
+11. Once built, note your **Frontend URL** (e.g. `https://flowguard-frontend.onrender.com`).
+
+#### Step 4: Close the Loop (CORS Origin Setup)
+1. Go back to your **Backend Service** (`flowguard-backend`) → **Environment**.
+2. Set or update:
+   - `FRONTEND_URL`: `https://flowguard-frontend.onrender.com` (your frontend URL from Step 3, without trailing slash).
+3. Save changes. Render will automatically redeploy the backend with proper CORS authorization.
+
+#### Step 5: Seed Database Data via Render Shell
+The backend automatically executes `alembic upgrade head` on every deploy to ensure database tables and indexes are created.
+
+To load the full canonical dataset (~90k records across 20 tables with Great Expectations validation):
+1. In the Render Dashboard, open `flowguard-backend` → **Shell** tab.
+2. Run the idempotent ETL pipeline:
+   ```bash
+   python etl/run.py
+   ```
+3. Once completed, your PostgreSQL instance is fully populated with all live KPC depots, orders, truck telemetry, and autonomous decision records.
+
+---
+
+### Environment Variables Checklist
+
+| Service | Variable Name | Required | Description & Value Source |
+|---|---|---|---|
+| **PostgreSQL** | `POSTGRES_DB` | Auto | Set to `flowguard` during creation. |
+| | `POSTGRES_USER` | Auto | Set to `flowguard` during creation. |
+| **Backend** | `DATABASE_URL` | **Yes** | Copy from PostgreSQL **Internal Database URL** (e.g. `postgres://flowguard:...@dpg-...:5432/flowguard`). |
+| | `FRONTEND_URL` | **Yes** | Deployed Next.js URL (e.g. `https://flowguard-frontend.onrender.com`) for CORS allowlist. |
+| | `ENVIRONMENT` | Optional | Set to `production`. |
+| | `LOG_LEVEL` | Optional | Set to `INFO` (default). |
+| | `PORT` | Auto | Provided automatically by Render (uvicorn dynamically binds via `--port $PORT`). |
+| **Frontend** | `NEXT_PUBLIC_API_URL` | **Yes** | Full URL of the deployed FastAPI backend (e.g. `https://flowguard-backend.onrender.com`). |
+| | `NEXT_PUBLIC_FLOWGUARD_API_URL` | Optional | Alias for `NEXT_PUBLIC_API_URL` (both are supported). |
+| | `NEXT_PUBLIC_FLOWGUARD_DATA_MODE` | **Yes** | Set to `api` for live backend connectivity. |
+| | `NODE_VERSION` | **Yes** | Set to `20` to guarantee Node.js 20 LTS runtime. |
+| | `PORT` | Auto | Provided automatically by Render (Next.js binds to `process.env.PORT`). |
+
+---
+
+### Free-Tier Realities and Operating Constraints
+
+- **Inactivity Spin-Down**: Both the frontend and backend free instances automatically sleep after **15 minutes of inactivity**. The first subsequent request triggers a cold-boot requiring approximately **50–70 seconds**.
+- **PostgreSQL Expiration & Storage Limits**: Render's Free PostgreSQL instance is capped at **1 GB storage** and **automatically expires 30 days after creation**. For permanent operation, upgrade the database plan or export regular SQL dumps via `pg_dump`.
+- **Pre-Deploy Hooks**: Pre-deploy commands are restricted to paid Render tiers; database migrations are therefore executed idempotently inside the backend `startCommand` prior to starting uvicorn.
+
+---
+
+### CI/CD Pipeline Integration
+
+FlowGuard uses GitHub Actions for continuous quality assurance and continuous delivery:
+- **Workflow File**: [`.github/workflows/ci.yml`](.github/workflows/ci.yml)
+- **On Push & PR to `main`**: Runs `npm ci`, checks tests (`npm test --if-present`), and validates complete TypeScript static compilation (`npm run build`).
+- **On Merge to `main`**: If the `RENDER_DEPLOY_HOOK_URL` secret is configured in GitHub repository secrets (`Settings > Secrets and variables > Actions`), the workflow triggers an instantaneous Render deployment webhook via `curl`. Alternatively, Render's native auto-deploy-on-push deploys directly from GitHub upon push to `main`.
 
 ---
 

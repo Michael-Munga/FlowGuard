@@ -132,7 +132,8 @@ export class HttpFlowGuardRepository implements IFlowGuardRepository, Optimizati
   private cachedOmcOrders: Map<OmcId, OmcCollectionOrder[]> = new Map();
 
   constructor(baseUrl?: string) {
-    this.baseUrl = baseUrl || process.env.NEXT_PUBLIC_FLOWGUARD_API_URL || "http://localhost:8000";
+    const rawUrl = baseUrl || process.env.NEXT_PUBLIC_FLOWGUARD_API_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    this.baseUrl = rawUrl.replace(/\/+$/, "");
 
     // Initialize clean baseline master contract metadata
     this.depots = this.initMasterDepotMetadata();

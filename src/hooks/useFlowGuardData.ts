@@ -11,18 +11,23 @@ import {
   NetworkKpis,
   SystemHealth,
 } from "@/types/flowguard";
+import { isApiMode as checkIsApiMode } from "@/lib/utils";
 
 export function useFlowGuardData() {
-  const [kpis, setKpis] = useState<NetworkKpis>(() => flowGuardService.getNetworkKpis());
-  const [depots, setDepots] = useState<Depot[]>(() => flowGuardService.getDepots());
+  const [kpis, setKpis] = useState<NetworkKpis>(() =>
+    flowGuardService.getNetworkKpis()
+  );
+  const [depots, setDepots] = useState<Depot[]>(() =>
+    flowGuardService.getDepots()
+  );
   const [timeline, setTimeline] = useState<FuturePressurePoint[]>(() =>
     flowGuardService.getFuturePressureTimeline()
   );
   const [atRiskOps, setAtRiskOps] = useState<AtRiskOperation[]>(() =>
     flowGuardService.getAtRiskOperations()
   );
-  const [interventions, setInterventions] = useState<AutonomousIntervention[]>(() =>
-    flowGuardService.getActiveInterventions()
+  const [interventions, setInterventions] = useState<AutonomousIntervention[]>(
+    () => flowGuardService.getActiveInterventions()
   );
   const [events, setEvents] = useState<OperationalEvent[]>(() =>
     flowGuardService.getRecentEvents()
@@ -35,7 +40,7 @@ export function useFlowGuardData() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const isApiMode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE === "api";
+  const isApiMode = checkIsApiMode();
   const hasSyncFromApi = typeof (flowGuardService as any).syncFromApi === "function";
 
   // Sync state from repository

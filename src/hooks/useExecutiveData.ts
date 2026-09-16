@@ -18,6 +18,7 @@ import {
   DepotId,
 } from "@/types/flowguard";
 import { flowGuardService } from "@/services/flowguardService";
+import { isApiMode as checkIsApiMode } from "@/lib/utils";
 
 export function useExecutiveData() {
   const [timePeriod, setTimePeriod] = useState<ExecutiveTimePeriod>("30_DAYS");
@@ -58,7 +59,7 @@ export function useExecutiveData() {
     flowGuardService.getExecutiveAlerts()
   );
 
-  const isApiMode = process.env.NEXT_PUBLIC_FLOWGUARD_DATA_MODE === "api";
+  const isApiMode = checkIsApiMode();
   const hasSyncFromApi = typeof (flowGuardService as any).syncFromApi === "function";
 
   const syncState = useCallback(() => {

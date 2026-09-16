@@ -31,10 +31,12 @@ app = FastAPI(
 )
 
 # 1. Configure CORS
+cors_origins = settings.cors_origins_list
+allow_all = "*" in cors_origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
-    allow_credentials=True,
+    allow_origins=["*"] if allow_all else cors_origins,
+    allow_credentials=not allow_all,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -132,3 +134,11 @@ app.include_router(api_router, prefix=settings.API_PREFIX)
 @app.get("/", include_in_schema=False)
 def root_redirect():
     return RedirectResponse(url="/docs")
+
+
+if __name__ == "__main__":
+    import uvicorn
+    import os
+    port = int(os.environ.get("PORT", settings.PORT))
+    uvicorn.run("backend.app.main:app", host="0.0.0.0", port=port, reload=False)
+

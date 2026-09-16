@@ -45,7 +45,8 @@ export const CandidateInterventionsTable: React.FC<CandidateInterventionsTablePr
         const decision = await (flowGuardService as any).solveDepotOptimization(depotId, true);
         setLiveDecision(decision);
       } else {
-        const apiUrl = process.env.NEXT_PUBLIC_FLOWGUARD_API_URL || "http://localhost:8000";
+        const rawApiUrl = process.env.NEXT_PUBLIC_FLOWGUARD_API_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+        const apiUrl = rawApiUrl.replace(/\/+$/, "");
         const res = await fetch(`${apiUrl}/api/optimization/depot/${depotId}/solve?force_new=true`, {
           method: "POST",
         });

@@ -1,0 +1,58 @@
+databases:
+  - name: flowguard-postgres
+    databaseName: flowguard
+    user: flowguard
+    plan: free
+    region: oregon
+
+services:
+  # ==============================================================================
+  # 1. FastAPI Backend Web Service
+  # ==============================================================================
+  - type: web
+    name: flowguard-backend
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: alembic upgrade head && uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: flowguard-postgres
+          property: connectionString
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: flowguard-frontend
+          property: host
+      - key: ENVIRONMENT
+        value: production
+      - key: LOG_LEVEL
+        value: INFO
+
+  # ==============================================================================
+  # 2. Next.js Frontend Web Service
+  # ==============================================================================
+  - type: web
+    name: flowguard-frontend
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: flowguard-backend
+          property: host
+      - key: NEXT_PUBLIC_FLOWGUARD_API_URL
+        fromService:
+          type: web
+          name: flowguard-backend
+          property: host
+      - key: NEXT_PUBLIC_FLOWGUARD_DATA_MODE
+        value: api
+      - key: NODE_VERSION
+        value: "20"
