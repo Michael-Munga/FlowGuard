@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { Suspense } from "react";
 import { ExecutiveControlView } from "@/components/ExecutiveControl/ExecutiveControlView";
 
