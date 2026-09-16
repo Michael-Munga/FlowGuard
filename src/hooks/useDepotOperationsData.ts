@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { flowGuardService } from "@/services/flowguardService";
 import {
   DepotId,
@@ -16,12 +16,18 @@ import {
   SystemHealth,
 } from "@/types/flowguard";
 
-export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
+export type DepotSubView = "overview" | "live" | "capacity" | "forecast" | "events";
+
+export function useDepotOperationsData(
+  initialDepotId: DepotId = "nairobi"
+) {
   const [activeDepotId, setActiveDepotId] = useState<DepotId>(initialDepotId);
   const [depot, setDepot] = useState<Depot | undefined>(() =>
     flowGuardService.getDepotById(initialDepotId)
   );
-  const [allDepots, setAllDepots] = useState<Depot[]>(() => flowGuardService.getDepots());
+  const [allDepots, setAllDepots] = useState<Depot[]>(() =>
+    flowGuardService.getDepots()
+  );
   const [kpiSummary, setKpiSummary] = useState<DepotKpiSummary>(() =>
     flowGuardService.getDepotKpiSummary(initialDepotId)
   );
@@ -40,18 +46,23 @@ export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
   const [forecast, setForecast] = useState<DepotForecast>(() =>
     flowGuardService.getDepotForecast(initialDepotId)
   );
-  const [activeIntervention, setActiveIntervention] = useState<AutonomousIntervention | undefined>(
-    () => flowGuardService.getDepotIntervention(initialDepotId)
-  );
+  const [activeIntervention, setActiveIntervention] = useState<
+    AutonomousIntervention | undefined
+  >(() => flowGuardService.getDepotIntervention(initialDepotId));
   const [depotEvents, setDepotEvents] = useState<OperationalEvent[]>(() =>
     flowGuardService.getDepotEvents(initialDepotId)
   );
-  const [health, setHealth] = useState<SystemHealth>(() => flowGuardService.getSystemHealth());
+  const [health, setHealth] = useState<SystemHealth>(() =>
+    flowGuardService.getSystemHealth()
+  );
+
+  const [demurragePreventedKes, setDemurragePreventedKes] = useState<number>(() =>
+    flowGuardService.getDemurragePreventedKes()
+  );
 
   const [isLiveActive, setIsLiveActive] = useState<boolean>(true);
   const [isSyncing, setIsSyncing] = useState<boolean>(false);
 
-  // Sync state for current depot
   const syncDepotState = useCallback((targetDepotId: DepotId) => {
     setDepot(flowGuardService.getDepotById(targetDepotId));
     setAllDepots(flowGuardService.getDepots());
@@ -64,9 +75,9 @@ export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
     setActiveIntervention(flowGuardService.getDepotIntervention(targetDepotId));
     setDepotEvents(flowGuardService.getDepotEvents(targetDepotId));
     setHealth(flowGuardService.getSystemHealth());
+    setDemurragePreventedKes(flowGuardService.getDemurragePreventedKes());
   }, []);
 
-  // When activeDepotId changes, immediately sync
   const handleSelectDepot = useCallback(
     (newDepotId: DepotId) => {
       setActiveDepotId(newDepotId);
@@ -75,19 +86,15 @@ export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
     [syncDepotState]
   );
 
-  // Live simulation tick
   useEffect(() => {
     if (!isLiveActive) return;
-
     const interval = setInterval(() => {
       flowGuardService.stepSimulation();
       syncDepotState(activeDepotId);
     }, 1000);
-
     return () => clearInterval(interval);
   }, [isLiveActive, activeDepotId, syncDepotState]);
 
-  // Manual refresh
   const refresh = useCallback(() => {
     setIsSyncing(true);
     setTimeout(() => {
@@ -96,7 +103,6 @@ export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
     }, 400);
   }, [activeDepotId, syncDepotState]);
 
-  // Approve Intervention
   const approveIntervention = useCallback(
     async (interventionId: string) => {
       await flowGuardService.approveIntervention(interventionId);
@@ -105,7 +111,6 @@ export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
     [activeDepotId, syncDepotState]
   );
 
-  // Execute Intervention
   const executeIntervention = useCallback(
     async (interventionId: string) => {
       await flowGuardService.executeIntervention(interventionId);
@@ -114,7 +119,6 @@ export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
     [activeDepotId, syncDepotState]
   );
 
-  // Toggle Degraded Mode
   const toggleDegradedMode = useCallback(() => {
     flowGuardService.toggleDegradedMode();
     syncDepotState(activeDepotId);
@@ -123,6 +127,11 @@ export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
   const toggleLiveStream = useCallback(() => {
     setIsLiveActive((prev) => !prev);
   }, []);
+
+  const forceCrisis = useCallback(() => {
+    flowGuardService.forceCrisis();
+    syncDepotState(activeDepotId);
+  }, [activeDepotId, syncDepotState]);
 
   return {
     activeDepotId,
@@ -140,10 +149,12 @@ export function useDepotOperationsData(initialDepotId: DepotId = "nairobi") {
     health,
     isLiveActive,
     isSyncing,
+    demurragePreventedKes,
     refresh,
     approveIntervention,
     executeIntervention,
     toggleDegradedMode,
     toggleLiveStream,
+    forceCrisis,
   };
 }

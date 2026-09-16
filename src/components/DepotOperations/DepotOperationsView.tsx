@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { AppSidebar } from "@/components/CommandCentre/Shell/AppSidebar";
 import { DepotContextBar } from "./Header/DepotContextBar";
+import { DepotSubNav } from "./Nav/DepotSubNav";
 import { DepotKpiStrip } from "./Kpis/DepotKpiStrip";
 import { BottleneckDiagnosisHero } from "./Bottleneck/BottleneckDiagnosisHero";
 import { StageFlow } from "./Stage/StageFlow";
@@ -14,27 +15,36 @@ import { YardTruckBoard } from "./Yard/YardTruckBoard";
 import { EquipmentStatePanel } from "./Equipment/EquipmentStatePanel";
 import { DepotEventStream } from "./Events/DepotEventStream";
 import { TruckDetailDrawer } from "./Drawer/TruckDetailDrawer";
-import { useDepotOperationsData } from "@/hooks/useDepotOperationsData";
+import { LiveToasts } from "./LiveToasts";
+import { DepotTwin3D } from "./Twin/DepotTwin3D";
+import { DepotOverviewTiles } from "./Overview/DepotOverviewTiles";
+import { EventsFullView } from "./Events/EventsFullView";
+import { useDepotOperationsData, DepotSubView } from "@/hooks/useDepotOperationsData";
 import { useRole } from "@/context/RoleContext";
 import { DepotId, YardTruck } from "@/types/flowguard";
-import { Lock, Fuel } from "lucide-react";
+import { Lock } from "lucide-react";
 
 interface DepotOperationsViewProps {
+  subView: DepotSubView;
   initialDepotId?: DepotId;
-  subView?: "all" | "live" | "capacity" | "forecast";
   onNavigateDashboard?: (id: string) => void;
 }
 
+const fmtKes2 = (n: number) =>
+  `KES ${n.toLocaleString("en-KE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
 export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
-  initialDepotId = "nairobi",
-  subView = "all",
+  subView,
+  initialDepotId,
   onNavigateDashboard,
 }) => {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { selectedDepotId, setSelectedDepotId } = useRole();
 
-  // Use the depot ID from props or role context
-  const effectiveInitialDepotId = initialDepotId || selectedDepotId || "nairobi";
+  const urlDepot = (searchParams.get("depot") as DepotId) || undefined;
+  const effectiveInitialDepotId: DepotId =
+    urlDepot || initialDepotId || selectedDepotId || "nairobi";
 
   const {
     activeDepotId,
@@ -52,27 +62,26 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
     health,
     isLiveActive,
     isSyncing,
+    demurragePreventedKes,
     refresh,
     approveIntervention,
     executeIntervention,
     toggleDegradedMode,
     toggleLiveStream,
+    forceCrisis,
   } = useDepotOperationsData(effectiveInitialDepotId);
 
-  // Synchronize depot selection with role context
   const handleDepotChange = (depotId: DepotId) => {
     setActiveDepotId(depotId);
     setSelectedDepotId(depotId);
   };
 
-  // Sync if selectedDepotId changes externally (e.g. from sidebar selector)
   useEffect(() => {
     if (selectedDepotId && selectedDepotId !== activeDepotId) {
       setActiveDepotId(selectedDepotId);
     }
   }, [selectedDepotId, activeDepotId, setActiveDepotId]);
 
-  // Selected Truck Drawer state
   const [selectedTruck, setSelectedTruck] = useState<YardTruck | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [stageFilter, setStageFilter] = useState<string>("ALL");
@@ -82,9 +91,7 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
     setIsDrawerOpen(true);
   };
 
-  const handleCloseDrawer = () => {
-    setIsDrawerOpen(false);
-  };
+  const handleCloseDrawer = () => setIsDrawerOpen(false);
 
   const handleAuthorizeIntervention = async (interventionId: string) => {
     await approveIntervention(interventionId);
@@ -103,31 +110,17 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
     }
   };
 
-  // Subview navigation handler
-  const handleSelectSubView = (targetSubView: "all" | "live" | "capacity" | "forecast") => {
-    if (targetSubView === "live") {
-      router.push(`/depot/live?depot=${activeDepotId}`);
-    } else if (targetSubView === "capacity") {
-      router.push(`/depot/capacity?depot=${activeDepotId}`);
-    } else if (targetSubView === "forecast") {
-      router.push(`/depot/forecast?depot=${activeDepotId}`);
-    } else {
-      router.push(`/operations/depot?depot=${activeDepotId}`);
-    }
-  };
+  const recentEventCount = depotEvents.filter((e) => e.severity !== "info").length;
 
   return (
     <div className="min-h-screen bg-[#FAFBFC] text-[#0F1B2B] flex flex-col antialiased">
-      {/* 1. Global Shell Sidebar (delegates to role-specific rail) */}
       <AppSidebar
         activeDashboard="depot-operations"
         onSelectDashboard={onNavigateDashboard}
         activeInterventionsCount={activeIntervention ? 1 : 0}
       />
 
-      {/* 2. Main Terminal Content Area */}
       <div className="ml-[240px] flex-1 flex flex-col min-w-0">
-        {/* Depot Context Header Bar */}
         <DepotContextBar
           depot={depot}
           allDepots={allDepots}
@@ -138,28 +131,41 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
           onToggleDegradedMode={toggleDegradedMode}
           isLiveActive={isLiveActive}
           onToggleLive={toggleLiveStream}
-          activeSubView={subView}
-          onSelectSubView={handleSelectSubView}
+          demurragePreventedKes={demurragePreventedKes}
+          onForceCrisis={forceCrisis}
         />
 
-        {/* Depot Operations Body */}
-        <main className="flex-1 flex flex-col space-y-4 py-4 pb-8">
-          {/* Section 1: Standardized 6-Metric Depot KPI Strip */}
-          <DepotKpiStrip summary={kpiSummary} />
+        <DepotSubNav activeDepotId={activeDepotId} activeEventsCount={recentEventCount} />
 
-          {/* ============================================================== */}
-          {/* VIEW A: LIVE YARD (/depot/live) PRIMARY VIEW HIERARCHY        */}
-          {/* Hierarchy: HEADER -> KPI -> BOTTLENECK -> STAGE FLOW ->       */}
-          {/* TRUCK BOARD -> ACTIVE ACTION -> LIVE EVENTS                    */}
-          {/* ============================================================== */}
+        <main className="flex-1 flex flex-col space-y-4 py-5 pb-12">
+          {/* OVERVIEW */}
+          {subView === "overview" && (
+            <>
+              <DepotKpiStrip summary={kpiSummary} />
+              <div className="px-6">
+                <DepotOverviewTiles
+                  depot={depot}
+                  kpi={kpiSummary}
+                  capacity={capacityState}
+                  equipment={equipmentState}
+                  bottleneck={bottleneck}
+                  demurragePreventedKes={demurragePreventedKes}
+                />
+              </div>
+            </>
+          )}
+
+          {/* LIVE YARD — 3D twin + bottleneck + stage flow + yard board + action/events */}
           {subView === "live" && (
             <>
-              {/* Bottleneck Hero */}
+              <div className="px-6">
+                <DepotTwin3D trucks={yardTrucks} capacity={capacityState} height={420} />
+              </div>
+
               <div className="px-6">
                 <BottleneckDiagnosisHero bottleneck={bottleneck} />
               </div>
 
-              {/* Stage Flow Pipeline */}
               <div className="px-6">
                 <StageFlow
                   trucks={yardTrucks}
@@ -169,16 +175,6 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
                 />
               </div>
 
-              {/* Central Active Truck / Collection Board */}
-              <div className="px-6">
-                <YardTruckBoard
-                  trucks={yardTrucks}
-                  onSelectTruck={handleSelectTruck}
-                  selectedTruckId={selectedTruck?.id}
-                />
-              </div>
-
-              {/* Active FlowGuard Action & Live Terminal Event Stream */}
               <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 px-6 items-start">
                 <div className="xl:col-span-7">
                   <FlowGuardActionCard
@@ -192,107 +188,7 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
                   <DepotEventStream events={depotEvents} depotName={depot.name} />
                 </div>
               </div>
-            </>
-          )}
 
-          {/* ============================================================== */}
-          {/* VIEW B: CAPACITY & EQUIPMENT (/depot/capacity) VIEW           */}
-          {/* Hierarchy: HEADER -> KPI -> CAPACITY BOARD -> EQUIPMENT STATE */}
-          {/* ============================================================== */}
-          {subView === "capacity" && (
-            <>
-              {/* Capacity Board & Gantry Allocation */}
-              <div className="px-6">
-                <CapacityBoard capacityState={capacityState} />
-              </div>
-
-              {/* Equipment State & System Readiness */}
-              <div className="px-6">
-                <EquipmentStatePanel equipmentState={equipmentState} />
-              </div>
-
-              {/* Live Terminal Event Stream */}
-              <div className="px-6">
-                <DepotEventStream events={depotEvents} depotName={depot.name} />
-              </div>
-            </>
-          )}
-
-          {/* ============================================================== */}
-          {/* VIEW C: FORECAST & ACTIONS (/depot/forecast) VIEW             */}
-          {/* Hierarchy: HEADER -> KPI -> 90M FORECAST -> ACTION CARD ->    */}
-          {/* BOTTLENECK DIAGNOSIS -> LIVE EVENTS                            */}
-          {/* ============================================================== */}
-          {subView === "forecast" && (
-            <>
-              {/* 90-Minute Predictive Horizon & Active FlowGuard Action */}
-              <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 px-6 items-start">
-                <div className="xl:col-span-7">
-                  <Next90MinutesForecast forecast={forecast} depotName={depot.name} />
-                </div>
-                <div className="xl:col-span-5 h-full">
-                  <FlowGuardActionCard
-                    intervention={activeIntervention}
-                    onApprove={approveIntervention}
-                    onExecute={executeIntervention}
-                    depotName={depot.name}
-                  />
-                </div>
-              </div>
-
-              {/* Causal Bottleneck Diagnosis Hero */}
-              <div className="px-6">
-                <BottleneckDiagnosisHero bottleneck={bottleneck} />
-              </div>
-
-              {/* Live Terminal Event Stream */}
-              <div className="px-6">
-                <DepotEventStream events={depotEvents} depotName={depot.name} />
-              </div>
-            </>
-          )}
-
-          {/* ============================================================== */}
-          {/* VIEW D: ALL / COMPREHENSIVE VIEW (/operations/depot)           */}
-          {/* ============================================================== */}
-          {subView === "all" && (
-            <>
-              {/* Bottleneck Hero */}
-              <div className="px-6">
-                <BottleneckDiagnosisHero bottleneck={bottleneck} />
-              </div>
-
-              {/* Stage Flow Pipeline */}
-              <div className="px-6">
-                <StageFlow
-                  trucks={yardTrucks}
-                  expectedArrivalCount={depot.expectedDemandNext90Min}
-                  selectedStage={stageFilter}
-                  onSelectStage={setStageFilter}
-                />
-              </div>
-
-              {/* 90-Min Predictive Horizon & Active FlowGuard Action */}
-              <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 px-6 items-start">
-                <div className="xl:col-span-7">
-                  <Next90MinutesForecast forecast={forecast} depotName={depot.name} />
-                </div>
-                <div className="xl:col-span-5 h-full">
-                  <FlowGuardActionCard
-                    intervention={activeIntervention}
-                    onApprove={approveIntervention}
-                    onExecute={executeIntervention}
-                    depotName={depot.name}
-                  />
-                </div>
-              </div>
-
-              {/* Gantry Capacity Board */}
-              <div className="px-6">
-                <CapacityBoard capacityState={capacityState} />
-              </div>
-
-              {/* Yard Active Truck Board */}
               <div className="px-6">
                 <YardTruckBoard
                   trucks={yardTrucks}
@@ -300,43 +196,73 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
                   selectedTruckId={selectedTruck?.id}
                 />
               </div>
+            </>
+          )}
 
-              {/* Equipment State Panel & Live Event Stream */}
-              <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 px-6 items-start">
-                <div className="xl:col-span-8">
-                  <EquipmentStatePanel equipmentState={equipmentState} />
-                </div>
-                <div className="xl:col-span-4">
-                  <DepotEventStream events={depotEvents} depotName={depot.name} />
-                </div>
+          {/* CAPACITY */}
+          {subView === "capacity" && (
+            <>
+              <div className="px-6">
+                <CapacityBoard capacityState={capacityState} />
+              </div>
+              <div className="px-6">
+                <EquipmentStatePanel equipmentState={equipmentState} />
               </div>
             </>
           )}
+
+          {/* FORECAST */}
+          {subView === "forecast" && (
+            <>
+              <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 px-6 items-start">
+                <div className="xl:col-span-7">
+                  <Next90MinutesForecast forecast={forecast} depotName={depot.name} />
+                </div>
+                <div className="xl:col-span-5 h-full">
+                  <FlowGuardActionCard
+                    intervention={activeIntervention}
+                    onApprove={approveIntervention}
+                    onExecute={executeIntervention}
+                    depotName={depot.name}
+                  />
+                </div>
+              </div>
+              <div className="px-6">
+                <BottleneckDiagnosisHero bottleneck={bottleneck} />
+              </div>
+            </>
+          )}
+
+          {/* EVENTS */}
+          {subView === "events" && (
+            <div className="px-6">
+              <EventsFullView events={depotEvents} depotName={depot.name} />
+            </div>
+          )}
         </main>
 
-        {/* 3. Control System Telemetry Footer Bar */}
         <footer className="bg-white border-t border-[#E2E6EA] px-6 py-2 text-[11px] text-[#5C6B7A] flex flex-wrap items-center justify-between gap-y-2 select-none">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#1B7A3D]" />
               <span className="font-semibold text-[#0F1B2B]">Depot Automation:</span>
-              <span className="font-mono text-[#0F1B2B]">TAS & SCADA Telemetry Active (Simulated)</span>
+              <span className="font-mono text-[#0F1B2B]">
+                TAS & SCADA Telemetry Active (Simulated)
+              </span>
             </div>
-
             <span className="text-slate-300">|</span>
-
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#1B7A3D]" />
-              <span className="font-semibold text-[#0F1B2B]">Optimization Loop:</span>
-              <span>Active (0.8s cycle)</span>
-            </div>
-
-            <span className="text-slate-300 hidden md:inline">|</span>
-
-            <div className="hidden md:flex items-center gap-1.5">
-              <span className="font-semibold text-[#0F1B2B]">Gantry Controller:</span>
+              <span className="font-semibold text-[#0F1B2B]">Demurrage prevented:</span>
               <span className="font-mono text-[#1B7A3D] font-bold">
-                {capacityState.usableNow}/{capacityState.totalPhysicalPositions} Bays Usable
+                {fmtKes2(demurragePreventedKes)}
+              </span>
+            </div>
+            <span className="text-slate-300 hidden md:inline">|</span>
+            <div className="hidden md:flex items-center gap-1.5">
+              <span className="font-semibold text-[#0F1B2B]">Gantry:</span>
+              <span className="font-mono text-[#1B7A3D] font-bold">
+                {capacityState.usableNow}/{capacityState.totalPhysicalPositions} usable
               </span>
             </div>
           </div>
@@ -354,13 +280,14 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
         </footer>
       </div>
 
-      {/* 4. Selected Truck Detail Drawer */}
       <TruckDetailDrawer
         truck={selectedTruck}
         isOpen={isDrawerOpen}
         onClose={handleCloseDrawer}
         onAuthorizeAction={handleAuthorizeIntervention}
       />
+
+      <LiveToasts events={depotEvents} />
     </div>
   );
 };

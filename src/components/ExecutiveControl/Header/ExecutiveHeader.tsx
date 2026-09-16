@@ -7,11 +7,8 @@ import {
   HelpCircle,
   RotateCw,
   Award,
-  ShieldCheck,
   CheckCircle2,
   Clock,
-  Activity,
-  ChevronRight,
 } from "lucide-react";
 import { RoleSwitcher } from "@/components/Navigation/RoleSwitcher";
 import { ExecutiveKpiSummary, ExecutiveTimePeriod } from "@/types/flowguard";
@@ -22,6 +19,7 @@ interface ExecutiveHeaderProps {
   onTimePeriodChange: (period: ExecutiveTimePeriod) => void;
   onOpenDefinitions: () => void;
   onRefresh: () => void;
+  pageTitle?: string;
 }
 
 export const ExecutiveHeader: React.FC<ExecutiveHeaderProps> = ({
@@ -30,6 +28,7 @@ export const ExecutiveHeader: React.FC<ExecutiveHeaderProps> = ({
   onTimePeriodChange,
   onOpenDefinitions,
   onRefresh,
+  pageTitle,
 }) => {
   const periods: { id: ExecutiveTimePeriod; label: string; sub: string }[] = [
     { id: "TODAY", label: "Today", sub: "15 Sep" },
@@ -39,7 +38,6 @@ export const ExecutiveHeader: React.FC<ExecutiveHeaderProps> = ({
 
   return (
     <div className="bg-white border-b border-[#E2E6EA] p-6 space-y-4">
-      {/* Top Row: Title, Badges, Period Selector, Actions */}
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-3">
@@ -49,7 +47,7 @@ export const ExecutiveHeader: React.FC<ExecutiveHeaderProps> = ({
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <h1 className="text-xl font-bold text-[#0F1B2B] tracking-tight">
-                  Executive Control Plane
+                  {pageTitle ?? "Executive Control Plane"}
                 </h1>
                 <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-300 uppercase flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -63,7 +61,10 @@ export const ExecutiveHeader: React.FC<ExecutiveHeaderProps> = ({
                 </span>
               </div>
               <p className="text-xs text-[#5C6B7A] mt-0.5 flex items-center gap-2">
-                <span>Verified turnaround compression, demurrage exposure mitigation &amp; capital deployment ROI</span>
+                <span>
+                  Verified turnaround compression, demurrage exposure mitigation &amp; capital
+                  deployment ROI
+                </span>
                 <span className="text-slate-300">•</span>
                 <span className="font-mono text-[11px] text-slate-500 flex items-center gap-1">
                   <Clock className="w-3 h-3 text-slate-400" />
@@ -74,9 +75,7 @@ export const ExecutiveHeader: React.FC<ExecutiveHeaderProps> = ({
           </div>
         </div>
 
-        {/* Action Buttons & Reporting Period Selector */}
         <div className="flex flex-wrap items-center gap-2.5">
-          {/* Period Selector Tabs */}
           <div className="flex items-center bg-slate-100 p-1 rounded-lg border border-slate-200">
             <span className="text-[11px] font-semibold text-slate-500 px-2 flex items-center gap-1">
               <Calendar className="w-3 h-3 text-slate-400" />
@@ -95,7 +94,11 @@ export const ExecutiveHeader: React.FC<ExecutiveHeaderProps> = ({
                   }`}
                 >
                   <span>{p.label}</span>
-                  <span className={`text-[10px] font-mono ${isActive ? "text-emerald-700 font-bold" : "text-slate-400"}`}>
+                  <span
+                    className={`text-[10px] font-mono ${
+                      isActive ? "text-emerald-700 font-bold" : "text-slate-400"
+                    }`}
+                  >
                     ({p.sub})
                   </span>
                 </button>
@@ -103,7 +106,6 @@ export const ExecutiveHeader: React.FC<ExecutiveHeaderProps> = ({
             })}
           </div>
 
-          {/* Metric Standards Trigger */}
           <button
             onClick={onOpenDefinitions}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold shadow-2xs transition-all"
@@ -113,7 +115,6 @@ export const ExecutiveHeader: React.FC<ExecutiveHeaderProps> = ({
             <span>Metric Standards</span>
           </button>
 
-          {/* Refresh Data */}
           <button
             onClick={onRefresh}
             className="p-1.5 rounded-md bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-all"
@@ -122,12 +123,10 @@ export const ExecutiveHeader: React.FC<ExecutiveHeaderProps> = ({
             <RotateCw className="w-3.5 h-3.5" />
           </button>
 
-          {/* Persistent Role Switcher */}
           <RoleSwitcher />
         </div>
       </div>
 
-      {/* Hero Narrative Strip (Boardroom Headline) */}
       <div className="rounded-lg bg-gradient-to-r from-[#0B1420] via-[#0F1B2B] to-[#152234] p-4 text-white flex flex-wrap items-center justify-between gap-4 shadow-sm border border-[#1C2C42]">
         <div className="space-y-1 max-w-3xl">
           <div className="flex items-center gap-2">
@@ -140,14 +139,12 @@ export const ExecutiveHeader: React.FC<ExecutiveHeaderProps> = ({
               {kpis?.simulationPeriodLabel || "Last 30 Days • Consolidated Benchmark"}
             </span>
           </div>
-
           <p className="text-sm font-medium text-slate-100 leading-snug">
             {kpis?.executiveNarrative ||
               "FlowGuard reduced modeled average depot turnaround by 35.6%, protected KES 14.82M in exposure, and successfully verified 46 of 50 autonomous interventions."}
           </p>
         </div>
 
-        {/* Stage-Gate Recommendation Banner */}
         <div className="bg-white/10 backdrop-blur-xs border border-white/15 px-3.5 py-2 rounded-lg flex flex-col items-end text-right">
           <span className="text-[9px] uppercase font-mono tracking-wider text-emerald-300 font-bold flex items-center gap-1">
             <CheckCircle2 className="w-3 h-3 text-emerald-400" />

@@ -89,7 +89,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <div className="flex flex-col min-w-0">
             <div className="flex items-center gap-1.5">
               <span className="text-white font-bold text-sm tracking-tight truncate">
-                KPC FlowGuard
+                KAFDO SYSTEM
               </span>
               <span className="text-[10px] font-semibold uppercase px-1.5 py-0.5 rounded bg-[#1B7A3D]/20 text-[#3DAA63] border border-[#1B7A3D]/30 tracking-wider">
                 DEMO

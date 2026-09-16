@@ -1,5 +1,5 @@
-"use client";
+import { redirect } from "next/navigation";
 
-import AutonomousControlPage from "../autonomous-control/page";
-
-export default AutonomousControlPage;
+export default function Page() {
+  redirect("/engineer/decisions");
+}
