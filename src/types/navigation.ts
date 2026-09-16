@@ -46,8 +46,10 @@ export const ROLES_CONFIG: Record<DemoRoleId, RoleConfig> = {
     badge: "Central Command",
     workspaceTitle: "Pipeline Network Command",
     tagline: "Network-wide demand forecasting & bottleneck deconfliction",
-    purpose: "Monitor the network, manage depot operations, and oversee autonomous interventions.",
-    description: "Central pipeline coordinators managing flow, throughput pressure, and multi-depot operational continuity across Kenya.",
+    purpose:
+      "Monitor the network, manage depot operations, and oversee autonomous interventions.",
+    description:
+      "Central pipeline coordinators managing flow, throughput pressure, and multi-depot operational continuity across Kenya.",
     defaultRoute: "/operations/network",
     iconName: "LayoutDashboard",
     contextType: "none",
@@ -84,24 +86,34 @@ export const ROLES_CONFIG: Record<DemoRoleId, RoleConfig> = {
       },
     ],
   },
+
   depot: {
     id: "depot",
     name: "Depot Operator",
     badge: "Terminal Operations",
     workspaceTitle: "Depot Operations Console",
     tagline: "Terminal yard control, bay sequencing & gantry equipment",
-    purpose: "Run day-to-day depot operations, capacity, yard flow, and active actions.",
-    description: "Terminal Superintendents managing physical weighbridges, loading positions, equipment state, and queue velocity.",
-    defaultRoute: "/depot/live",
+    purpose:
+      "Run day-to-day depot operations, capacity, yard flow, and active actions.",
+    description:
+      "Terminal Superintendents managing physical weighbridges, loading positions, equipment state, and queue velocity.",
+    defaultRoute: "/depot/overview",
     iconName: "Building",
     contextType: "depot",
     navItems: [
+      {
+        id: "depot-overview",
+        label: "Overview",
+        route: "/depot/overview",
+        iconName: "LayoutDashboard",
+        description: "KPI summary & click-through tiles",
+      },
       {
         id: "live-yard",
         label: "Live Yard",
         route: "/depot/live",
         iconName: "Truck",
-        description: "Truck stages, dwell & gantry queue",
+        description: "3D twin · stages · trucks in yard",
       },
       {
         id: "capacity-equipment",
@@ -118,16 +130,27 @@ export const ROLES_CONFIG: Record<DemoRoleId, RoleConfig> = {
         badge: "MILP",
         description: "Demand vs capacity & autonomous actions",
       },
+      {
+        id: "depot-events",
+        label: "Events",
+        route: "/depot/events",
+        iconName: "History",
+        description: "Immutable terminal audit trail",
+      },
     ],
   },
+
   omc: {
     id: "omc",
     name: "OMC Dispatcher",
     badge: "Customer Visibility",
     workspaceTitle: "OMC Collection Visibility",
-    tagline: "Customer order tracking, predicted gate-out & turnaround protection",
-    purpose: "Monitor collection orders, expected arrival, loading progress, and customer updates.",
-    description: "Oil Marketing Company dispatch officers tracking order status, turnaround SLAs, delay causes, and gate-out predictions.",
+    tagline:
+      "Customer order tracking, predicted gate-out & turnaround protection",
+    purpose:
+      "Monitor collection orders, expected arrival, loading progress, and customer updates.",
+    description:
+      "Oil Marketing Company dispatch officers tracking order status, turnaround SLAs, delay causes, and gate-out predictions.",
     defaultRoute: "/omc/orders",
     iconName: "Briefcase",
     contextType: "omc",
@@ -156,14 +179,18 @@ export const ROLES_CONFIG: Record<DemoRoleId, RoleConfig> = {
       },
     ],
   },
+
   engineer: {
     id: "engineer",
     name: "FlowGuard Engineer",
     badge: "Autonomous Control",
     workspaceTitle: "Autonomous Engine Control Surface",
-    tagline: "Closed-loop decision timeline, MILP solver & safety invariants",
-    purpose: "Inspect autonomous decisions, system health, policies, and decision history.",
-    description: "Lead Systems Engineers validating sensor ingestion, mathematical optimization, deterministic policies, and verification audits.",
+    tagline:
+      "Closed-loop decision timeline, MILP solver & safety invariants",
+    purpose:
+      "Inspect autonomous decisions, system health, policies, and decision history.",
+    description:
+      "Lead Systems Engineers validating sensor ingestion, mathematical optimization, deterministic policies, and verification audits.",
     defaultRoute: "/engineer/decisions",
     iconName: "Sliders",
     contextType: "none",
@@ -193,14 +220,18 @@ export const ROLES_CONFIG: Record<DemoRoleId, RoleConfig> = {
       },
     ],
   },
+
   executive: {
     id: "executive",
     name: "Executive",
     badge: "Boardroom Perspective",
     workspaceTitle: "Executive Control Plane",
-    tagline: "Strategic turnaround compression, exposure prevented & deployment ROI",
-    purpose: "Track operational performance, protected value, turnaround improvement, and ROI.",
-    description: "KPC Leadership & Ministry officials assessing turnaround recovery, demurrage penalty mitigation, and capital business cases.",
+    tagline:
+      "Strategic turnaround compression, exposure prevented & deployment ROI",
+    purpose:
+      "Track operational performance, protected value, turnaround improvement, and ROI.",
+    description:
+      "KPC Leadership & Ministry officials assessing turnaround recovery, demurrage penalty mitigation, and capital business cases.",
     defaultRoute: "/executive/overview",
     iconName: "TrendingUp",
     contextType: "none",
@@ -209,15 +240,15 @@ export const ROLES_CONFIG: Record<DemoRoleId, RoleConfig> = {
         id: "overview",
         label: "Overview",
         route: "/executive/overview",
-        iconName: "Award",
-        description: "Executive KPIs & sustained turnaround trend",
+        iconName: "LayoutDashboard",
+        description: "Combined network KPIs & decision summary",
       },
       {
         id: "performance",
         label: "Performance",
         route: "/executive/performance",
-        iconName: "BarChart3",
-        description: "5-depot network turnaround scorecard",
+        iconName: "Activity",
+        description: "Turnaround trend & 5-depot scorecard",
       },
       {
         id: "value-roi",
@@ -225,18 +256,44 @@ export const ROLES_CONFIG: Record<DemoRoleId, RoleConfig> = {
         route: "/executive/value",
         iconName: "DollarSign",
         badge: "27.5x",
-        description: "Modeled business case & prototype readiness",
+        description: "Value waterfall & capital business case",
+      },
+      {
+        id: "exposure-risk",
+        label: "Exposure",
+        route: "/executive/risk",
+        iconName: "AlertTriangle",
+        description: "Demurrage accounting & active risk vectors",
+      },
+      {
+        id: "reports",
+        label: "Reports",
+        route: "/executive/reports",
+        iconName: "ClipboardList",
+        description: "Generate PDF, CSV & XLSX exports",
+      },
+      {
+        id: "readiness",
+        label: "Readiness",
+        route: "/executive/readiness",
+        iconName: "Award",
+        badge: "Stage-Gate",
+        description: "Deployment roadmap & trust health",
       },
     ],
   },
+
   driver: {
     id: "driver",
     name: "Driver",
     badge: "Mobile Interface",
     workspaceTitle: "Driver Turnaround Interface",
-    tagline: "Glanceable loading bay instructions & one-tap collection progress",
-    purpose: "View your assigned collection guidance, status, and updates.",
-    description: "Commercial road tanker drivers receiving crystal-clear bay assignments and collection milestone guidance on mobile.",
+    tagline:
+      "Glanceable loading bay instructions & one-tap collection progress",
+    purpose:
+      "View your assigned collection guidance, status, and updates.",
+    description:
+      "Commercial road tanker drivers receiving crystal-clear bay assignments and collection milestone guidance on mobile.",
     defaultRoute: "/driver",
     iconName: "Smartphone",
     contextType: "none",
@@ -276,8 +333,16 @@ export function getRoleFromPath(pathname: string): RoleConfig {
 
   // Legacy mappings
   if (pathname.startsWith("/depot-operations")) return ROLES_CONFIG.depot;
-  if (pathname.startsWith("/omc-visibility") || pathname.startsWith("/omc-collection")) return ROLES_CONFIG.omc;
-  if (pathname.startsWith("/autonomous-control") || pathname.startsWith("/autonomous")) return ROLES_CONFIG.engineer;
+  if (
+    pathname.startsWith("/omc-visibility") ||
+    pathname.startsWith("/omc-collection")
+  )
+    return ROLES_CONFIG.omc;
+  if (
+    pathname.startsWith("/autonomous-control") ||
+    pathname.startsWith("/autonomous")
+  )
+    return ROLES_CONFIG.engineer;
   if (pathname.startsWith("/executive-control")) return ROLES_CONFIG.executive;
 
   // Default fallback
