@@ -1,60 +1,73 @@
 "use client";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
-import React from "react";
-import Link from "next/link";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useRole } from "@/context/RoleContext";
-import { ROLES_CONFIG, DemoRoleId } from "@/types/navigation";
 import {
   Fuel,
-  LayoutDashboard,
-  Building,
-  Briefcase,
-  Sliders,
-  TrendingUp,
-  Smartphone,
-  ArrowRight,
   ShieldCheck,
   Radio,
-  Zap,
-  CheckCircle2,
   Lock,
+  User as UserIcon,
+  Loader2,
+  AlertCircle,
+  ArrowRight,
 } from "lucide-react";
+import { loginRequest, setSession } from "@/lib/api";
+
+/** Role → default landing route (matches your ROLES_CONFIG) */
+const ROLE_LANDING: Record<string, string> = {
+  super_admin: "/operations/network",
+  manager: "/operations/network",
+  executive: "/executive/overview",
+  omc: "/omc/overview",
+  kpc_depot_operator: "/depot/overview",
+  kpc_engineer: "/engineer/decisions",
+  driver: "/driver",
+};
+
+/** Demo credentials — change these to match your seeded users. */
+const DEMO_ACCOUNTS: { label: string; username: string; password: string }[] = [
+  { label: "Super Admin", username: "superadmin", password: "superadmin123" },
+  { label: "Manager",     username: "manager",    password: "manager123" },
+  { label: "Executive",   username: "executive",  password: "executive123" },
+  { label: "OMC",         username: "omc",        password: "omc123" },
+  { label: "Depot Op",    username: "operator",   password: "operator123" },
+  { label: "Engineer",    username: "engineer",   password: "engineer123" },
+  { label: "Driver",      username: "driver",     password: "driver123" },
+];
 
 export default function LoginPage() {
-  const { switchRole } = useRole();
   const router = useRouter();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const rolesList: DemoRoleId[] = [
-    "operations",
-    "depot",
-    "omc",
-    "engineer",
-    "executive",
-    "driver",
-  ];
-
-  const getRoleIcon = (id: DemoRoleId) => {
-    switch (id) {
-      case "operations":
-        return <LayoutDashboard className="w-6 h-6 text-emerald-400" />;
-      case "depot":
-        return <Building className="w-6 h-6 text-blue-400" />;
-      case "omc":
-        return <Briefcase className="w-6 h-6 text-amber-400" />;
-      case "engineer":
-        return <Sliders className="w-6 h-6 text-indigo-400" />;
-      case "executive":
-        return <TrendingUp className="w-6 h-6 text-purple-400" />;
-      case "driver":
-        return <Smartphone className="w-6 h-6 text-teal-400" />;
+  const submit = async (u = username, p = password) => {
+    setError(null);
+    setLoading(true);
+    try {
+      const data = await loginRequest(u, p);
+      setSession(data.access_token, data.user);
+      const landing = ROLE_LANDING[data.user.role] ?? "/operations/network";
+      router.replace(landing);
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : "Login failed");
+      setLoading(false);
     }
   };
 
-  const handleSelectRole = (roleId: DemoRoleId) => {
-    switchRole(roleId);
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    void submit();
+  };
+
+  const useDemo = (u: string, p: string) => {
+    setUsername(u);
+    setPassword(p);
+    void submit(u, p);
   };
 
   return (
@@ -71,7 +84,7 @@ export default function LoginPage() {
                 KPC FLOWGUARD
               </span>
               <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#1B7A3D]/30 text-[#3DAA63] border border-[#1B7A3D]/50 uppercase">
-                DEMO GATEWAY
+                SECURE GATEWAY
               </span>
             </div>
             <p className="text-xs text-slate-400">
@@ -85,107 +98,140 @@ export default function LoginPage() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1B7A3D] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1B7A3D]"></span>
           </span>
-          <span>5 Terminals Connected</span>
+          <span>Backend Online</span>
         </div>
       </header>
 
-      {/* Main Role Selection Area */}
-      <main className="max-w-6xl w-full mx-auto my-8 space-y-8">
-        {/* Title & Introduction */}
-        <div className="text-center space-y-2 max-w-2xl mx-auto">
+      {/* Main */}
+      <main className="max-w-6xl w-full mx-auto my-8 grid grid-cols-1 lg:grid-cols-5 gap-8">
+        {/* Left — Brand panel */}
+        <section className="lg:col-span-2 space-y-6 flex flex-col justify-center">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
-            Select Operational Demo Workspace
+            Sign in to your workspace
           </h1>
           <p className="text-sm text-slate-400 leading-relaxed">
-            FlowGuard enforces role-bounded operational workspaces. Select a persona below to experience the platform from that user&apos;s perspective.
+            FlowGuard enforces role-bounded operational workspaces. Authenticate
+            with your credentials to enter the console for your role.
           </p>
-        </div>
+          <ul className="text-xs text-slate-400 space-y-2">
+            <li className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-emerald-500" />
+              JWT-secured sessions with role-based access
+            </li>
+            <li className="flex items-center gap-2">
+              <Radio className="w-4 h-4 text-emerald-500" />
+              Live telemetry from 5 connected terminals
+            </li>
+            <li className="flex items-center gap-2">
+              <Lock className="w-4 h-4 text-emerald-500" />
+              All actions written to immutable audit trail
+            </li>
+          </ul>
+        </section>
 
-        {/* 6 Role Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {rolesList.map((roleId) => {
-            const role = ROLES_CONFIG[roleId];
+        {/* Right — Login card */}
+        <section className="lg:col-span-3">
+          <form
+            onSubmit={onSubmit}
+            className="p-6 sm:p-8 rounded-xl bg-[#0F1B2B]/90 border border-[#1C2C42] space-y-5"
+          >
+            <div className="space-y-1">
+              <h2 className="text-lg font-bold text-white">Authentication</h2>
+              <p className="text-xs text-slate-400">
+                Enter your KPC FlowGuard credentials.
+              </p>
+            </div>
 
-            return (
-              <div
-                key={roleId}
-                onClick={() => handleSelectRole(roleId)}
-                className="p-6 rounded-xl bg-[#0F1B2B]/90 border border-[#1C2C42] hover:border-[#1B7A3D] transition-all duration-200 hover:shadow-lg hover:shadow-emerald-950/30 flex flex-col justify-between group cursor-pointer relative overflow-hidden"
-              >
-                {/* Accent Top Line */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#1B7A3D]/40 to-transparent group-hover:via-[#1B7A3D] transition-all" />
-
-                <div>
-                  <div className="flex items-start justify-between gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#152234] border border-[#243447] flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:border-emerald-500/50 transition-all">
-                      {getRoleIcon(roleId)}
-                    </div>
-
-                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-slate-800/80 text-slate-300 border border-slate-700">
-                      {role.badge}
-                    </span>
-                  </div>
-
-                  <h2 className="text-lg font-bold text-white tracking-tight group-hover:text-emerald-300 transition-colors">
-                    {role.name}
-                  </h2>
-
-                  <p className="text-xs font-semibold text-emerald-400/90 mt-1 leading-snug">
-                    {role.purpose}
-                  </p>
-
-                  <p className="text-xs text-slate-400 mt-2.5 leading-relaxed">
-                    {role.description}
-                  </p>
-                </div>
-
-                <div className="pt-4 mt-4 border-t border-slate-800 flex items-center justify-between text-xs">
-                  <span className="text-[11px] font-mono text-slate-500">
-                    {role.defaultRoute}
-                  </span>
-
-                  <div className="flex items-center gap-1 font-bold text-emerald-400 group-hover:translate-x-1 transition-transform">
-                    <span>Enter Workspace</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </div>
-                </div>
+            {error && (
+              <div className="flex items-start gap-2 p-3 rounded-md bg-red-950/40 border border-red-900/60 text-xs text-red-300">
+                <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+                <span>{error}</span>
               </div>
-            );
-          })}
-        </div>
+            )}
 
-        {/* Quick Launch Presets */}
-        <div className="p-4 rounded-lg bg-[#0F1B2B]/60 border border-slate-800/80 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
-          <div className="flex items-center gap-2">
-            <Zap className="w-4 h-4 text-amber-400" />
-            <span className="font-semibold text-slate-300">Fast Demo Presets:</span>
-            <span>Jump straight into high-stakes demonstration corridors:</span>
-          </div>
+            <div className="space-y-1">
+              <label className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
+                Username
+              </label>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-md bg-[#152234] border border-[#243447] focus-within:border-emerald-500/60">
+                <UserIcon className="w-4 h-4 text-slate-500" />
+                <input
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  autoComplete="username"
+                  required
+                  className="flex-1 bg-transparent outline-none text-sm text-white placeholder-slate-600"
+                  placeholder="your.username"
+                />
+              </div>
+            </div>
 
-          <div className="flex flex-wrap items-center gap-2">
+            <div className="space-y-1">
+              <label className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
+                Password
+              </label>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-md bg-[#152234] border border-[#243447] focus-within:border-emerald-500/60">
+                <Lock className="w-4 h-4 text-slate-500" />
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  autoComplete="current-password"
+                  required
+                  className="flex-1 bg-transparent outline-none text-sm text-white placeholder-slate-600"
+                  placeholder="••••••••"
+                />
+              </div>
+            </div>
+
             <button
-              onClick={() => handleSelectRole("operations")}
-              className="px-3 py-1 rounded bg-[#152234] hover:bg-[#1C2C42] text-slate-200 border border-slate-700 transition-all cursor-pointer font-medium"
+              type="submit"
+              disabled={loading}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#1B7A3D] hover:bg-[#229049] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-sm transition-all"
             >
-              Central Ops (EMB-88)
+              {loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  Signing in…
+                </>
+              ) : (
+                <>
+                  Sign in
+                  <ArrowRight className="w-4 h-4" />
+                </>
+              )}
             </button>
-            <button
-              onClick={() => handleSelectRole("depot")}
-              className="px-3 py-1 rounded bg-[#152234] hover:bg-[#1C2C42] text-slate-200 border border-slate-700 transition-all cursor-pointer font-medium"
-            >
-              Nairobi PS10 Yard
-            </button>
-            <button
-              onClick={() => handleSelectRole("executive")}
-              className="px-3 py-1 rounded bg-[#152234] hover:bg-[#1C2C42] text-slate-200 border border-slate-700 transition-all cursor-pointer font-medium"
-            >
-              Boardroom ROI
-            </button>
-          </div>
-        </div>
+
+            {/* Demo credentials */}
+            <div className="pt-4 border-t border-slate-800">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
+                  Demo access
+                </span>
+                <span className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
+                  ONE-CLICK LOGIN
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {DEMO_ACCOUNTS.map((acc) => (
+                  <button
+                    key={acc.username}
+                    type="button"
+                    onClick={() => useDemo(acc.username, acc.password)}
+                    disabled={loading}
+                    className="px-2.5 py-1 rounded bg-[#152234] hover:bg-[#1C2C42] text-slate-200 border border-slate-700 text-[11px] font-medium transition-all disabled:opacity-50"
+                  >
+                    {acc.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </form>
+        </section>
       </main>
 
-      {/* Bottom Legal / Enterprise Notice */}
+      {/* Footer */}
       <footer className="max-w-6xl w-full mx-auto pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 font-mono">
         <div className="flex items-center gap-2">
           <ShieldCheck className="w-4 h-4 text-emerald-600" />
