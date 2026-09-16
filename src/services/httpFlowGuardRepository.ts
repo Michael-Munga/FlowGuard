@@ -90,6 +90,7 @@ import {
 } from "./syntheticOmcData";
 
 import { initPolicyRules } from "./syntheticAutonomyData";
+import { normalizeApiUrl } from "@/lib/utils";
 
 export class HttpFlowGuardRepository implements IFlowGuardRepository, OptimizationRepository {
   private baseUrl: string;
@@ -133,7 +134,7 @@ export class HttpFlowGuardRepository implements IFlowGuardRepository, Optimizati
 
   constructor(baseUrl?: string) {
     const rawUrl = baseUrl || process.env.NEXT_PUBLIC_FLOWGUARD_API_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-    this.baseUrl = rawUrl.replace(/\/+$/, "");
+    this.baseUrl = normalizeApiUrl(rawUrl);
 
     // Initialize clean baseline master contract metadata
     this.depots = this.initMasterDepotMetadata();

@@ -15,6 +15,7 @@ import React, {
   useCallback,
   useRef,
 } from "react";
+import { getApiBaseUrl } from "@/lib/utils";
 
 export type DataMode = "api" | "synthetic";
 
@@ -57,7 +58,7 @@ export function DataSourceProvider({ children }: DataSourceProviderProps) {
       : "synthetic"
   ) as DataMode;
 
-  const apiBaseUrl = (rawApiUrl || "http://localhost:8000").replace(/\/+$/, "");
+  const apiBaseUrl = getApiBaseUrl();
 
   const [isApiConnected, setIsApiConnected] = useState(false);
   const [isApiLoading, setIsApiLoading] = useState(dataMode === "api");

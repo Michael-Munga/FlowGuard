@@ -36,6 +36,7 @@ allow_all = "*" in cors_origins
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"] if allow_all else cors_origins,
+    allow_origin_regex=None if allow_all else r"https://.*\.onrender\.com",
     allow_credentials=not allow_all,
     allow_methods=["*"],
     allow_headers=["*"],
