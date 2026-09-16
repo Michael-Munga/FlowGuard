@@ -92,6 +92,9 @@ import {
 import { initPolicyRules } from "./syntheticAutonomyData";
 import { normalizeApiUrl } from "@/lib/utils";
 
+// 20s timeout gives Render free-tier cold starts sufficient room while keeping failed calls bounded
+const DEFAULT_API_TIMEOUT_MS = 20000;
+
 export class HttpFlowGuardRepository implements IFlowGuardRepository, OptimizationRepository {
   private baseUrl: string;
   private isConnected: boolean = false;
@@ -333,14 +336,29 @@ export class HttpFlowGuardRepository implements IFlowGuardRepository, Optimizati
    */
   public async syncFromApi(): Promise<boolean> {
     try {
-      const healthRes = await fetch(`${this.baseUrl}/health`, {
-        cache: "no-store",
-        signal: AbortSignal.timeout(5000),
-      });
+      let healthRes: Response | null = null;
+      try {
+        healthRes = await fetch(`${this.baseUrl}/health`, {
+          cache: "no-store",
+          signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS),
+        });
+      } catch {
+        // Initial ping timed out or connection refused (Render free tier waking up).
+        // Wait 1.5s and retry once with an extended 30s timeout before failing.
+        await new Promise((r) => setTimeout(r, 1500));
+        try {
+          healthRes = await fetch(`${this.baseUrl}/health`, {
+            cache: "no-store",
+            signal: AbortSignal.timeout(30000),
+          });
+        } catch {
+          healthRes = null;
+        }
+      }
 
-      if (!healthRes.ok) {
+      if (!healthRes || !healthRes.ok) {
         this.isConnected = false;
-        this.lastError = `Backend returned HTTP ${healthRes.status}`;
+        this.lastError = healthRes ? `Backend returned HTTP ${healthRes.status}` : "Backend is waking up or unreachable";
         return false;
       }
 
@@ -355,14 +373,14 @@ export class HttpFlowGuardRepository implements IFlowGuardRepository, Optimizati
         loNboOrderRes,
         loNboRiskRes,
       ] = await Promise.allSettled([
-        fetch(`${this.baseUrl}/api/metrics/network`, { cache: "no-store", signal: AbortSignal.timeout(5000) }),
-        fetch(`${this.baseUrl}/api/metrics/executive`, { cache: "no-store", signal: AbortSignal.timeout(5000) }),
-        fetch(`${this.baseUrl}/api/depots`, { cache: "no-store", signal: AbortSignal.timeout(5000) }),
-        fetch(`${this.baseUrl}/api/decisions?limit=50`, { cache: "no-store", signal: AbortSignal.timeout(5000) }),
-        fetch(`${this.baseUrl}/api/decisions/stats/autonomy`, { cache: "no-store", signal: AbortSignal.timeout(5000) }),
-        fetch(`${this.baseUrl}/api/risks/active`, { cache: "no-store", signal: AbortSignal.timeout(5000) }),
-        fetch(`${this.baseUrl}/api/orders/LO-NBO-8821`, { cache: "no-store", signal: AbortSignal.timeout(5000) }),
-        fetch(`${this.baseUrl}/api/predictions/orders/LO-NBO-8821/risk`, { cache: "no-store", signal: AbortSignal.timeout(5000) }),
+        fetch(`${this.baseUrl}/api/metrics/network`, { cache: "no-store", signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS) }),
+        fetch(`${this.baseUrl}/api/metrics/executive`, { cache: "no-store", signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS) }),
+        fetch(`${this.baseUrl}/api/depots`, { cache: "no-store", signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS) }),
+        fetch(`${this.baseUrl}/api/decisions?limit=50`, { cache: "no-store", signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS) }),
+        fetch(`${this.baseUrl}/api/decisions/stats/autonomy`, { cache: "no-store", signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS) }),
+        fetch(`${this.baseUrl}/api/risks/active`, { cache: "no-store", signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS) }),
+        fetch(`${this.baseUrl}/api/orders/LO-NBO-8821`, { cache: "no-store", signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS) }),
+        fetch(`${this.baseUrl}/api/predictions/orders/LO-NBO-8821/risk`, { cache: "no-store", signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS) }),
       ]);
 
       let rawRisksData: any = null;
@@ -620,9 +638,9 @@ export class HttpFlowGuardRepository implements IFlowGuardRepository, Optimizati
       const depotPromises = this.depots.map(async (depot) => {
         const depotId = depot.id;
         const [liveRes, forecastRes, depotRiskRes] = await Promise.allSettled([
-          fetch(`${this.baseUrl}/api/depots/${depotId}/live`, { cache: "no-store", signal: AbortSignal.timeout(5000) }),
-          fetch(`${this.baseUrl}/api/depots/${depotId}/forecast`, { cache: "no-store", signal: AbortSignal.timeout(5000) }),
-          fetch(`${this.baseUrl}/api/predictions/depots/${depotId}/risk`, { cache: "no-store", signal: AbortSignal.timeout(5000) }),
+          fetch(`${this.baseUrl}/api/depots/${depotId}/live`, { cache: "no-store", signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS) }),
+          fetch(`${this.baseUrl}/api/depots/${depotId}/forecast`, { cache: "no-store", signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS) }),
+          fetch(`${this.baseUrl}/api/predictions/depots/${depotId}/risk`, { cache: "no-store", signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS) }),
         ]);
 
         let liveData: any = null;
@@ -733,8 +751,8 @@ export class HttpFlowGuardRepository implements IFlowGuardRepository, Optimizati
       const omcKeys: OmcId[] = ["vivo", "totalenergies", "rubis", "ola", "hass", "lakeoil"];
       const omcPromises = omcKeys.map(async (omcId) => {
         const [sumRes, ordersRes] = await Promise.allSettled([
-          fetch(`${this.baseUrl}/api/omcs/${omcId}/summary`, { cache: "no-store", signal: AbortSignal.timeout(5000) }),
-          fetch(`${this.baseUrl}/api/omcs/${omcId}/orders?limit=50`, { cache: "no-store", signal: AbortSignal.timeout(5000) }),
+          fetch(`${this.baseUrl}/api/omcs/${omcId}/summary`, { cache: "no-store", signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS) }),
+          fetch(`${this.baseUrl}/api/omcs/${omcId}/orders?limit=50`, { cache: "no-store", signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS) }),
         ]);
 
         if (sumRes.status === "fulfilled" && sumRes.value.ok) {
@@ -1023,7 +1041,9 @@ export class HttpFlowGuardRepository implements IFlowGuardRepository, Optimizati
 
   public async fetchOrderFromApi(orderId: string): Promise<any | null> {
     try {
-      const res = await fetch(`${this.baseUrl}/api/orders/${orderId}`);
+      const res = await fetch(`${this.baseUrl}/api/orders/${orderId}`, {
+        signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS),
+      });
       if (res.ok) return await res.json();
       return null;
     } catch {
@@ -1033,7 +1053,9 @@ export class HttpFlowGuardRepository implements IFlowGuardRepository, Optimizati
 
   public async fetchDepotLiveFromApi(depotId: DepotId): Promise<any | null> {
     try {
-      const res = await fetch(`${this.baseUrl}/api/depots/${depotId}/live`);
+      const res = await fetch(`${this.baseUrl}/api/depots/${depotId}/live`, {
+        signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS),
+      });
       if (res.ok) {
         const data = await res.json();
         this.cachedDepotLive.set(depotId, data);
@@ -1047,7 +1069,9 @@ export class HttpFlowGuardRepository implements IFlowGuardRepository, Optimizati
 
   public async fetchDecisionTraceFromApi(decisionId: string): Promise<any | null> {
     try {
-      const res = await fetch(`${this.baseUrl}/api/decisions/${decisionId}/trace`);
+      const res = await fetch(`${this.baseUrl}/api/decisions/${decisionId}/trace`, {
+        signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS),
+      });
       if (res.ok) return await res.json();
       return null;
     } catch {
@@ -1088,19 +1112,24 @@ export class HttpFlowGuardRepository implements IFlowGuardRepository, Optimizati
   public async solveDepotOptimization(depotId: string, forceNew = false): Promise<OptimizationDecision> {
     const response = await fetch(`${this.baseUrl}/api/optimization/depot/${depotId}/solve?force_new=${forceNew}`, {
       method: "POST",
+      signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS),
     });
     if (!response.ok) throw new Error("Unable to solve depot optimization.");
     return this.mapOptimizationDecision(await response.json());
   }
 
   public async getOptimizationDecision(decisionId: string): Promise<OptimizationDecision> {
-    const response = await fetch(`${this.baseUrl}/api/optimization/decisions/${decisionId}`);
+    const response = await fetch(`${this.baseUrl}/api/optimization/decisions/${decisionId}`, {
+      signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS),
+    });
     if (!response.ok) throw new Error("Optimization decision was not found.");
     return this.mapOptimizationDecision(await response.json());
   }
 
   public async getOptimizationCandidates(decisionId: string): Promise<OptimizationCandidate[]> {
-    const response = await fetch(`${this.baseUrl}/api/optimization/decisions/${decisionId}/candidates`);
+    const response = await fetch(`${this.baseUrl}/api/optimization/decisions/${decisionId}/candidates`, {
+      signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS),
+    });
     if (!response.ok) throw new Error("Optimization candidates were not found.");
     return (await response.json()).map((candidate: any) => this.mapOptimizationCandidate(candidate));
   }
@@ -1114,6 +1143,7 @@ export class HttpFlowGuardRepository implements IFlowGuardRepository, Optimizati
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ operator_id: operatorId, comments }),
+      signal: AbortSignal.timeout(DEFAULT_API_TIMEOUT_MS),
     });
     if (!response.ok) throw new Error("Optimization approval was not accepted.");
     return this.getOptimizationDecision(decisionId);

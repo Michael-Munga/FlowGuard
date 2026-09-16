@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { AutonomyCandidateIntervention, DepotId } from "@/types/flowguard";
 import { flowGuardService } from "@/services/flowguardService";
+import { getApiBaseUrl } from "@/lib/utils";
 import { OptimizationDecision, OptimizationCandidate } from "@/types/optimization";
 
 interface CandidateInterventionsTableProps {
@@ -45,10 +46,10 @@ export const CandidateInterventionsTable: React.FC<CandidateInterventionsTablePr
         const decision = await (flowGuardService as any).solveDepotOptimization(depotId, true);
         setLiveDecision(decision);
       } else {
-        const rawApiUrl = process.env.NEXT_PUBLIC_FLOWGUARD_API_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-        const apiUrl = rawApiUrl.replace(/\/+$/, "");
+        const apiUrl = getApiBaseUrl();
         const res = await fetch(`${apiUrl}/api/optimization/depot/${depotId}/solve?force_new=true`, {
           method: "POST",
+          signal: AbortSignal.timeout(20000),
         });
         if (!res.ok) throw new Error(`Solver responded with HTTP ${res.status}`);
         const data = await res.json();

@@ -23,6 +23,7 @@ export interface DataSourceState {
   dataMode: DataMode;
   isApiConnected: boolean;
   isApiLoading: boolean;
+  isWakingUp: boolean;
   lastApiError: string | null;
   lastSyncTime: Date | null;
   apiBaseUrl: string;
@@ -33,6 +34,7 @@ const defaultState: DataSourceState = {
   dataMode: "synthetic",
   isApiConnected: false,
   isApiLoading: false,
+  isWakingUp: false,
   lastApiError: null,
   lastSyncTime: null,
   apiBaseUrl: "",
@@ -62,6 +64,7 @@ export function DataSourceProvider({ children }: DataSourceProviderProps) {
 
   const [isApiConnected, setIsApiConnected] = useState(false);
   const [isApiLoading, setIsApiLoading] = useState(dataMode === "api");
+  const [isWakingUp, setIsWakingUp] = useState(false);
   const [lastApiError, setLastApiError] = useState<string | null>(null);
   const [lastSyncTime, setLastSyncTime] = useState<Date | null>(null);
   const retryRef = useRef(0);
@@ -69,23 +72,54 @@ export function DataSourceProvider({ children }: DataSourceProviderProps) {
   const checkConnection = useCallback(async () => {
     if (dataMode !== "api") return;
     setIsApiLoading(true);
+    setIsWakingUp(false);
     try {
-      const res = await fetch(`${apiBaseUrl}/health`, {
-        cache: "no-store",
-        signal: AbortSignal.timeout(5000),
-      });
-      if (res.ok) {
+      let res: Response | null = null;
+      try {
+        // Attempt 1: 20 seconds
+        res = await fetch(`${apiBaseUrl}/health`, {
+          cache: "no-store",
+          signal: AbortSignal.timeout(20000),
+        });
+      } catch (firstErr) {
+        // First ping timed out or failed (typical Render free-tier cold start).
+        // Set waking-up state and auto-retry once with 35s timeout.
+        setIsWakingUp(true);
+        setLastApiError("Backend service is waking up from idle sleep (Render free-tier cold start). Retrying automatically...");
+        await new Promise((r) => setTimeout(r, 2000));
+        try {
+          res = await fetch(`${apiBaseUrl}/health`, {
+            cache: "no-store",
+            signal: AbortSignal.timeout(35000),
+          });
+        } catch (secondErr) {
+          throw secondErr;
+        }
+      }
+
+      if (res && res.ok) {
         setIsApiConnected(true);
+        setIsWakingUp(false);
         setLastApiError(null);
         setLastSyncTime(new Date());
       } else {
         setIsApiConnected(false);
-        setLastApiError(`Backend returned HTTP ${res.status}`);
+        setIsWakingUp(false);
+        setLastApiError(res ? `Backend returned HTTP ${res.status}` : "Backend is waking up or unreachable");
       }
     } catch (err: unknown) {
       setIsApiConnected(false);
+      setIsWakingUp(false);
+      const isTimeout =
+        (err instanceof Error && err.name === "TimeoutError") ||
+        (err instanceof Error && err.name === "AbortError") ||
+        (err instanceof Error && err.message.toLowerCase().includes("timeout"));
       setLastApiError(
-        err instanceof Error ? err.message : "Backend unreachable"
+        isTimeout
+          ? "Connection timed out. The Render backend may still be spinning up from idle sleep (takes ~50-70s)."
+          : err instanceof Error
+          ? err.message
+          : "Backend unreachable"
       );
     } finally {
       setIsApiLoading(false);
@@ -115,6 +149,7 @@ export function DataSourceProvider({ children }: DataSourceProviderProps) {
     dataMode,
     isApiConnected,
     isApiLoading,
+    isWakingUp,
     lastApiError,
     lastSyncTime,
     apiBaseUrl,

@@ -12,7 +12,7 @@ export const DataSourceBadge: React.FC<DataSourceBadgeProps> = ({
   className = "",
   showDetails = true,
 }) => {
-  const { dataMode, isApiConnected, isApiLoading, lastSyncTime, retryConnection } = useDataSource();
+  const { dataMode, isApiConnected, isApiLoading, isWakingUp, lastSyncTime, retryConnection } = useDataSource();
 
   if (dataMode === "synthetic") {
     return (
@@ -22,6 +22,18 @@ export const DataSourceBadge: React.FC<DataSourceBadgeProps> = ({
       >
         <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
         <span>DEMO MODE · Synthetic Data</span>
+      </div>
+    );
+  }
+
+  if (isWakingUp) {
+    return (
+      <div
+        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border bg-amber-950/40 border-amber-700/60 text-amber-300 shadow-sm ${className}`}
+        title="Render free tier backend is spinning up (~50-70s cold start)"
+      >
+        <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+        <span>WAKING UP · Render Free Tier</span>
       </div>
     );
   }
