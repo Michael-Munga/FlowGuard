@@ -1475,6 +1475,173 @@ export class SyntheticFlowGuardRepository implements IFlowGuardRepository {
     });
   }
 
+    // =========================================================================
+  // TRUCK INJECTION + AUTONOMOUS REROUTE
+  // =========================================================================
+
+  /**
+   * Inject a new truck, force its target bay to DEGRADED, then autonomously
+   * reroute the truck to the best available alternative bay.
+   * Returns a rich payload for the caller to trigger email / push / voice.
+   */
+  public injectTruckAndReroute(payload: {
+    driverName: string;
+    driverEmail: string;
+    registration: string;
+    omc: string;
+    product: string;
+    quantityLitres: number;
+    compartmentsCount: number;
+    targetBayCode: string; // e.g. "P04"
+    depotId?: DepotId;
+  }): {
+    truck: YardTruck;
+    fromBay: string;
+    toBay: string;
+    reason: string;
+    savedMinutes: number;
+    savedKes: number;
+  } | null {
+    const depotId: DepotId = payload.depotId ?? "nairobi";
+    const depot = this.depots.find((d) => d.id === depotId);
+    const cap = this.capacityStates[depotId];
+    if (!depot || !cap) return null;
+
+    const now = new Date();
+    const ts = now.toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+    const gateInTs = now.toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    // 1. Force the target bay into DEGRADED
+    const targetBay = cap.positions.find((p) => p.code === payload.targetBayCode);
+    if (targetBay) {
+      targetBay.status = "DEGRADED";
+      targetBay.telemetryNote = `Compressor flag raised — flow variance -24% at ${ts}`;
+      targetBay.flowRateLpm = Math.round(targetBay.baselineFlowRateLpm * 0.76);
+      targetBay.activeTruckReg = undefined;
+      targetBay.activeOmc = undefined;
+      targetBay.activeOrder = undefined;
+    }
+    if (depot) {
+      depot.usableLoadingPositions = Math.max(1, depot.usableLoadingPositions - 1);
+      depot.degradedPositions = Math.min(6, depot.degradedPositions + 1);
+      depot.loadingPerformanceRatePct = Math.max(60, depot.loadingPerformanceRatePct - 6);
+    }
+
+    // 2. Pick the best available alternative bay
+    const alternatives = cap.positions
+      .filter((p) => p.status === "AVAILABLE" && p.code !== payload.targetBayCode)
+      .sort((a, b) => {
+        // prefer healthy bays with highest flow rate
+        const scoreA = (a.flowRateLpm ?? a.baselineFlowRateLpm) - (a.status === "DEGRADED" ? 500 : 0);
+        const scoreB = (b.flowRateLpm ?? b.baselineFlowRateLpm) - (b.status === "DEGRADED" ? 500 : 0);
+        return scoreB - scoreA;
+      });
+
+    if (!alternatives.length) return null;
+    const destination = alternatives[0];
+
+    // 3. Create the truck, already assigned to the destination
+    const orderNumber = `LO-${depotId.slice(0, 3).toUpperCase()}-${9000 + Math.floor(Math.random() * 999)}`;
+    const truck: YardTruck = {
+      id: `TRK-INJ-${Date.now()}`,
+      registration: payload.registration,
+      omc: payload.omc,
+      orderNumber,
+      product: payload.product,
+      quantityLitres: payload.quantityLitres,
+      compartmentsCount: payload.compartmentsCount,
+      currentStage: "Loading",
+      assignedPosition: destination.code,
+      timeInStageMin: 0,
+      baselineStageMin: 18,
+      dwellDeltaMin: -18,
+      predictedGateOut: `${now.getHours()}:${(now.getMinutes() + 55) % 60}`,
+      riskStatus: "GREEN",
+      riskLabel: `Rerouted: ${payload.targetBayCode} → ${destination.code}`,
+      nextAction: "Begin loading — bay diverted from degraded target",
+      flowGuardStatus: "AUTO-EXECUTED",
+      depotId,
+      expectedArrival: gateInTs,
+      predictedLoadingStart: gateInTs,
+      predictedTurnaroundMin: 55,
+      baselineTurnaroundMin: 89,
+      confidencePct: 92,
+      whyAtRisk: {
+        cause: `Target bay ${payload.targetBayCode} flagged degraded on arrival. FlowGuard redirected.`,
+        factors: [
+          `Target bay ${payload.targetBayCode} compressor flag raised`,
+          `Alternative bay ${destination.code} selected: healthy flow rate`,
+          `Zero additional dwell to driver route`,
+        ],
+      },
+      actionDetail: {
+        interventionId: `INT-INJ-${Date.now()}`,
+        proposedAction: `Reroute ${payload.registration} to ${destination.code}`,
+        actionStatus: "AUTO-EXECUTED",
+        expectedImpactMin: 34,
+        approvalState: "AUTO",
+      },
+      stageTimestamps: { gateIn: gateInTs, loading: ts },
+    };
+
+    // 4. Mark destination as loading
+    destination.status = "LOADING";
+    destination.activeTruckReg = payload.registration;
+    destination.activeOmc = payload.omc;
+    destination.activeOrder = orderNumber;
+    destination.currentLoadingDurationMin = 0;
+    destination.estimatedFreeInMin = 28;
+
+    // 5. Push the truck into the yard
+    this.yardTrucks[depotId] = [...(this.yardTrucks[depotId] ?? []), truck];
+    if (depot) depot.trucksInside = this.yardTrucks[depotId].length;
+
+    // 6. Score the outcome
+    const savedMinutes = 34;
+    const savedKes = savedMinutes * 250; // KES 250/min baseline
+
+    // 7. Emit events
+    this.events.unshift({
+      id: `EVT-INJ-${Date.now()}`,
+      timestamp: ts,
+      depotId,
+      depotName: depot.name,
+      eventType: "TRUCK_ARRIVAL",
+      description: `${payload.registration} (${payload.omc}) arrived — target bay ${payload.targetBayCode} degraded`,
+      severity: "warning",
+      associatedTruck: payload.registration,
+    });
+    this.events.unshift({
+      id: `EVT-INJ-RR-${Date.now()}`,
+      timestamp: ts,
+      depotId,
+      depotName: depot.name,
+      eventType: "ACTION_EXECUTED",
+      description: `Autonomous reroute: ${payload.registration} ${payload.targetBayCode} → ${destination.code} (${savedMinutes}m recovered, KES ${savedKes.toLocaleString()})`,
+      severity: "info",
+      associatedTruck: payload.registration,
+    });
+
+    // 8. Credit demurrage ticker
+    this.demurragePreventedKes += savedKes;
+
+    return {
+      truck,
+      fromBay: payload.targetBayCode,
+      toBay: destination.code,
+      reason: `Bay ${payload.targetBayCode} flagged degraded (compressor) at arrival. FlowGuard selected ${destination.code} as the healthiest available bay with lowest queue.`,
+      savedMinutes,
+      savedKes,
+    };
+  }
+
   public getDemurragePreventedKes(): number {
     return this.demurragePreventedKes;
   }

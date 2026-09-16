@@ -23,6 +23,21 @@ import { useDepotOperationsData, DepotSubView } from "@/hooks/useDepotOperations
 import { useRole } from "@/context/RoleContext";
 import { DepotId, YardTruck } from "@/types/flowguard";
 import { Lock } from "lucide-react";
+import { InjectTruckPanel, InjectTruckPayload } from "./Injection/InjectTruckPanel";
+import { EmailPreviewPanel } from "./Injection/EmailPreviewPanel";
+import {
+  DriverPushNotification,
+  DriverSheetModal,
+} from "./Injection/DriverPushNotification";
+import {
+  buildRerouteEmail,
+  buildRerouteVoiceLine,
+  sendRerouteEmail,
+  sendReroutePush,
+  DriverPushPayload,
+  EmailPreview,
+} from "@/services/notificationsService";
+import { voiceService } from "@/services/voiceService";
 
 interface DepotOperationsViewProps {
   subView: DepotSubView;
@@ -69,6 +84,7 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
     toggleDegradedMode,
     toggleLiveStream,
     forceCrisis,
+    injectTruckAndReroute,
   } = useDepotOperationsData(effectiveInitialDepotId);
 
   const handleDepotChange = (depotId: DepotId) => {
@@ -85,6 +101,11 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
   const [selectedTruck, setSelectedTruck] = useState<YardTruck | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [stageFilter, setStageFilter] = useState<string>("ALL");
+
+  // Injection overlays
+  const [emailPreview, setEmailPreview] = useState<EmailPreview | null>(null);
+  const [pushPayload, setPushPayload] = useState<DriverPushPayload | null>(null);
+  const [driverSheetOpen, setDriverSheetOpen] = useState(false);
 
   const handleSelectTruck = (truck: YardTruck) => {
     setSelectedTruck(truck);
@@ -108,6 +129,80 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
         },
       });
     }
+  };
+
+  const handleInject = async (payload: InjectTruckPayload) => {
+    const result = injectTruckAndReroute({
+      driverName: payload.driverName,
+      driverEmail: payload.driverEmail,
+      registration: payload.registration,
+      omc: payload.omc,
+      product: payload.product,
+      quantityLitres: payload.quantityLitres,
+      compartmentsCount: payload.compartmentsCount,
+      targetBayCode: payload.targetBayCode,
+      depotId: activeDepotId,
+    });
+
+    if (!result) {
+      // eslint-disable-next-line no-console
+      console.warn("[inject] no alternative bay available — reroute aborted");
+      return;
+    }
+
+    const timestamp = new Date().toLocaleString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    // 1. Email
+    const preview = buildRerouteEmail({
+      driverName: payload.driverName,
+      driverEmail: payload.driverEmail,
+      truckRegistration: payload.registration,
+      orderNumber: result.truck.orderNumber,
+      fromBay: result.fromBay,
+      toBay: result.toBay,
+      reason: result.reason,
+      savedMinutes: result.savedMinutes,
+      savedKes: result.savedKes,
+      depotName: depot.name,
+      timestamp,
+    });
+    await sendRerouteEmail({
+      driverName: payload.driverName,
+      driverEmail: payload.driverEmail,
+      truckRegistration: payload.registration,
+      orderNumber: result.truck.orderNumber,
+      fromBay: result.fromBay,
+      toBay: result.toBay,
+      reason: result.reason,
+      savedMinutes: result.savedMinutes,
+      savedKes: result.savedKes,
+      depotName: depot.name,
+      timestamp,
+    });
+    setEmailPreview(preview);
+
+    // 2. Push
+    const push: DriverPushPayload = {
+      driverName: payload.driverName,
+      driverEmail: payload.driverEmail,
+      truckRegistration: payload.registration,
+      fromBay: result.fromBay,
+      toBay: result.toBay,
+      savedMinutes: result.savedMinutes,
+      savedKes: result.savedKes,
+      depotName: depot.name,
+      timestamp,
+    };
+    await sendReroutePush(push);
+    setPushPayload(push);
+
+    // 3. Voice — command centre operator
+    voiceService.speak(buildRerouteVoiceLine(push));
   };
 
   const recentEventCount = depotEvents.filter((e) => e.severity !== "info").length;
@@ -138,6 +233,17 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
         <DepotSubNav activeDepotId={activeDepotId} activeEventsCount={recentEventCount} />
 
         <main className="flex-1 flex flex-col space-y-4 py-5 pb-12">
+          {/* Inject Truck panel — only on Live Yard */}
+          {subView === "live" && (
+            <div className="px-6 flex justify-end">
+              <InjectTruckPanel
+                targetBayOptions={capacityState.positions.map((p) => p.code)}
+                defaultTargetBay="P04"
+                onInject={handleInject}
+              />
+            </div>
+          )}
+
           {/* OVERVIEW */}
           {subView === "overview" && (
             <>
@@ -155,7 +261,7 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
             </>
           )}
 
-          {/* LIVE YARD — 3D twin + bottleneck + stage flow + yard board + action/events */}
+          {/* LIVE YARD */}
           {subView === "live" && (
             <>
               <div className="px-6">
@@ -288,6 +394,25 @@ export const DepotOperationsView: React.FC<DepotOperationsViewProps> = ({
       />
 
       <LiveToasts events={depotEvents} />
+
+      <EmailPreviewPanel
+        preview={emailPreview}
+        onClose={() => setEmailPreview(null)}
+      />
+
+      <DriverPushNotification
+        payload={pushPayload}
+        onClose={() => setPushPayload(null)}
+        onOpenSheet={() => setDriverSheetOpen(true)}
+      />
+
+      <DriverSheetModal
+        payload={driverSheetOpen ? pushPayload : null}
+        onClose={() => {
+          setDriverSheetOpen(false);
+          setPushPayload(null);
+        }}
+      />
     </div>
   );
 };

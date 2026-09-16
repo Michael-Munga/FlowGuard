@@ -133,6 +133,25 @@ export function useDepotOperationsData(
     syncDepotState(activeDepotId);
   }, [activeDepotId, syncDepotState]);
 
+  const injectTruckAndReroute = useCallback(
+    (payload: {
+      driverName: string;
+      driverEmail: string;
+      registration: string;
+      omc: string;
+      product: string;
+      quantityLitres: number;
+      compartmentsCount: number;
+      targetBayCode: string;
+      depotId?: DepotId;
+    }) => {
+      const result = flowGuardService.injectTruckAndReroute(payload);
+      syncDepotState(activeDepotId);
+      return result;
+    },
+    [activeDepotId, syncDepotState]
+  );
+
   return {
     activeDepotId,
     setActiveDepotId: handleSelectDepot,
@@ -156,5 +175,6 @@ export function useDepotOperationsData(
     toggleDegradedMode,
     toggleLiveStream,
     forceCrisis,
+    injectTruckAndReroute,
   };
 }

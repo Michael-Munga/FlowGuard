@@ -16,7 +16,8 @@ import { DeploymentReadinessPanel } from "./Readiness/DeploymentReadinessPanel";
 import { MetricDefinitionModal } from "./Modals/MetricDefinitionModal";
 import { ExecutiveOverviewTiles } from "./Overview/ExecutiveOverviewTiles";
 import { ReportsWorkspace } from "./Reports/ReportsWorkspace";
-import { ShieldCheck, TrendingUp } from "lucide-react";
+import { ExecutiveVoiceAssistant } from "./Voice/ExecutiveVoiceAssistant";
+import { ShieldCheck } from "lucide-react";
 
 interface ExecutiveControlViewProps {
   subView: ExecutiveSubView;
@@ -178,6 +179,9 @@ export const ExecutiveControlView: React.FC<ExecutiveControlViewProps> = ({
         isOpen={isDefinitionModalOpen}
         onClose={() => setIsDefinitionModalOpen(false)}
       />
+
+      {/* Voice assistant — only mounted on the Overview page */}
+      {subView === "overview" && <ExecutiveVoiceAssistant kpis={kpis} />}
     </div>
   );
 };
