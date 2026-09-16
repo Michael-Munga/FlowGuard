@@ -355,8 +355,9 @@ The following technologies are present and used in the repository:
 | Technology | Purpose |
 |---|---|
 | Docker Compose | Local PostgreSQL 15 instance |
+| GitHub Actions | Automated CI (build & test) and CD deployment to Render |
 
-**Not present**: GitHub Actions CI/CD pipelines, Dockerfiles for application services, Prometheus/Grafana monitoring, live deployment configuration (Render or other). These are planned but not implemented.
+**Not present**: Dockerfiles for application services, Prometheus/Grafana monitoring. These are planned for future infrastructure hardening.
 
 ---
 
@@ -907,29 +908,33 @@ There is no silent fallback to synthetic data in API mode. Widgets that cannot r
 
 ## 23. CI/CD and Deployment
 
-### Current State
+FlowGuard uses GitHub Actions for continuous integration and automated deployment to Render.
 
-- **No `.github/` directory exists** — GitHub Actions workflows have not been implemented.
-- **No application Dockerfiles** — the `docker-compose.yml` defines only the PostgreSQL service.
-- **No live public deployment** — FlowGuard is a local development system.
+### Workflow Configuration
 
-### What Exists
+The pipeline definition is located at:
+- [`.github/workflows/ci.yml`](.github/workflows/ci.yml)
 
-| Asset | Status |
-|---|---|
-| `docker-compose.yml` (PostgreSQL 15) | Present — used for local database |
-| `pyproject.toml` (Python package metadata) | Present |
-| `alembic.ini` (migration configuration) | Present |
-| `.env.example` (environment template) | Present |
+### What Runs on Push and Pull Requests
 
-### What Remains
+For every **push** and **pull request** targeting the `main` branch, the CI workflow runs on `ubuntu-latest`:
+1. **Environment Setup**: Checks out the repository and configures Node.js 20 with npm dependency caching.
+2. **Dependency Installation**: Installs locked dependencies cleanly via `npm ci`.
+3. **Automated Testing**: Executes the test suite via `npm test --if-present`.
+4. **Production Build**: Compiles and verifies the Next.js application using `npm run build` (`next build --webpack`), verifying TypeScript types and static page generation across all routes.
+5. **Failure Policy**: Fails the workflow immediately if any installation, test, or build step encounters an error.
 
-To complete a CI/CD pipeline:
-1. Application `Dockerfile` for the FastAPI backend
-2. Application `Dockerfile` (or build step) for the Next.js frontend
-3. GitHub Actions workflow: lint → test → build → push image
-4. Deployment target configuration (Render, Railway, or similar)
-5. Environment variable injection in CI/CD
+### What Triggers Deployment (CD)
+
+Continuous deployment runs on every **push or merge to `main`** after build and verification succeed:
+- **Render Deploy Hook**: If `RENDER_DEPLOY_HOOK_URL` is set in GitHub repository secrets (`Settings > Secrets and variables > Actions`), the CD step issues an HTTP POST request via `curl` to trigger a deployment on Render.
+- **Auto-Deploy on Push**: If the service is linked directly in Render with auto-deploy enabled, Render deploys automatically on push to `main`.
+- **Infrastructure Overhead**: Minimal and zero-tooling — leverages standard GitHub Actions runners and native webhook triggering without third-party CLI dependencies.
+
+| Pipeline Stage | Mechanism | Trigger Event |
+|---|---|---|
+| **CI (Build & Verify)** | Node 20, `npm ci`, `npm run build` | Push or PR to `main` |
+| **CD (Render Deployment)** | Render Deploy Hook (`RENDER_DEPLOY_HOOK_URL`) / Auto-Deploy | Merge / Push to `main` |
 
 ---
 

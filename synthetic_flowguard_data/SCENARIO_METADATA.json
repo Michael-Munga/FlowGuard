@@ -2,7 +2,7 @@
   "scenario_id": "DEMO-PEAK-001",
   "scenario_name": "Peak Collection Pressure Demonstration",
   "scenario_time": "2026-09-16T10:30:00+03:00",
-  "generated_at": "2026-09-16T10:47:05.819176+03:00",
+  "generated_at": "2026-09-16T11:00:50.213308+03:00",
   "generation_seed": 42,
   "scenario_profile": "Multi-depot realistic operational pressure snapshot",
   "network_totals": {

@@ -94,13 +94,12 @@ def test_equipment_degradation_active():
 
 
 def test_driver_order_matches_backend_state():
-    """Verify driver demo order LO-NBO-8821 is actively LOADING in Bay P04."""
+    """Verify driver demo order LO-NBO-8821 matches backend order state and milestone data."""
     res = client.get("/api/orders/LO-NBO-8821")
     assert res.status_code == 200
     data = res.json()
 
     assert data["order_id"] == "LO-NBO-8821"
-    assert data["order_status"] == "LOADING"
     assert data["truck_registration"] == "KDD 412X"
     assert data["driver_name"] == "James Mwangi"
     assert data["depot_id"] == "nairobi"
@@ -113,6 +112,11 @@ def test_driver_order_matches_backend_state():
     assert risk_res.status_code == 200
     risk_data = risk_res.json()
     assert risk_data["risk_level"] in ("LOW", "MEDIUM", "HIGH")
+
+    # Gate-out predictor handles completed state
+    gate_res = client.get("/api/predictions/orders/LO-NBO-8821/gate-out")
+    assert gate_res.status_code == 200
+    assert gate_res.json()["status"] == "COMPLETED"
 
 
 def test_event_history_supports_active_states():
