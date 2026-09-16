@@ -3,3 +3,4 @@ import { DepotOperationsView } from "@/components/DepotOperations/DepotOperation
 export default function Page() {
   return <DepotOperationsView subView="capacity" />;
 }
+export const dynamic = 'force-dynamic'
