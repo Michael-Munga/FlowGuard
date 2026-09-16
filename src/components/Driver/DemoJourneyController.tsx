@@ -48,14 +48,14 @@ export const DemoJourneyController: React.FC<DemoJourneyControllerProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex flex-col justify-end animate-fade-in"
+      className="fixed sm:absolute inset-0 z-50 bg-black/70 backdrop-blur-xs flex flex-col justify-end animate-fade-in"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="journey-stepper-title"
     >
       <div
-        className="w-full max-w-md mx-auto bg-[#0B1420] border-t border-slate-700 rounded-t-2xl shadow-2xl p-5 space-y-4 max-h-[85vh] overflow-y-auto"
+        className="w-full max-w-md mx-auto bg-[#0B1420] border-t border-slate-700 rounded-t-2xl shadow-2xl p-5 space-y-4 max-h-[85vh] sm:max-h-[85%] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}

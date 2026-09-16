@@ -57,7 +57,7 @@ export const CollectionTab: React.FC<CollectionTabProps> = ({
   ];
 
   return (
-    <div className="space-y-4 pb-4">
+    <div id="journey" className="space-y-4 pb-4 scroll-mt-3">
       {/* 1. Header Order Banner */}
       <div className="p-4 rounded-xl bg-[#0F1B2B] border border-[#1C2C42] space-y-3">
         <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">

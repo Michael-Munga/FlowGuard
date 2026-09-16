@@ -53,7 +53,7 @@ export const UpdatesTab: React.FC<UpdatesTabProps> = ({
   };
 
   return (
-    <div className="space-y-3.5 pb-4">
+    <div id="updates" className="space-y-3.5 pb-4 scroll-mt-3">
       {/* Filter Tabs */}
       <div className="flex items-center gap-1.5 p-1 rounded-lg bg-[#0F1B2B] border border-[#1C2C42]">
         <button

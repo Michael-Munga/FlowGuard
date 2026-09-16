@@ -187,7 +187,7 @@ export const HomeTab: React.FC<HomeTabProps> = ({
       )}
 
       {/* 6. Collection Progress Tracker (6 stages) */}
-      <div className="p-4 rounded-xl bg-[#0F1B2B] border border-[#1C2C42] space-y-3">
+      <div id="journey" className="p-4 rounded-xl bg-[#0F1B2B] border border-[#1C2C42] space-y-3 scroll-mt-3">
         <div className="flex items-center justify-between border-b border-slate-800 pb-2">
           <span className="text-xs font-bold text-white uppercase tracking-wider font-mono">
             Collection Progress
@@ -318,23 +318,33 @@ export const HomeTab: React.FC<HomeTabProps> = ({
       </div>
 
       {/* 9. Recent Operational Update Banner */}
-      {recentUpdate && (
-        <div
-          onClick={() => onSelectTab("UPDATES")}
-          className="p-3 rounded-xl bg-[#0F1B2B] hover:bg-[#152234] border border-[#1C2C42] flex items-center justify-between gap-3 text-xs transition-colors cursor-pointer"
-        >
-          <div className="flex items-center gap-2.5 overflow-hidden">
-            <div className="w-7 h-7 rounded-md bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
-              <Zap className="w-3.5 h-3.5" />
+      <div id="updates" className="scroll-mt-3">
+        {recentUpdate ? (
+          <div
+            onClick={() => onSelectTab("UPDATES")}
+            className="p-3 rounded-xl bg-[#0F1B2B] hover:bg-[#152234] border border-[#1C2C42] flex items-center justify-between gap-3 text-xs transition-colors cursor-pointer"
+          >
+            <div className="flex items-center gap-2.5 overflow-hidden">
+              <div className="w-7 h-7 rounded-md bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                <Zap className="w-3.5 h-3.5" />
+              </div>
+              <div className="overflow-hidden">
+                <span className="font-bold text-white block truncate">{recentUpdate.title}</span>
+                <span className="text-[10px] text-slate-400 block truncate">{recentUpdate.message}</span>
+              </div>
             </div>
-            <div className="overflow-hidden">
-              <span className="font-bold text-white block truncate">{recentUpdate.title}</span>
-              <span className="text-[10px] text-slate-400 block truncate">{recentUpdate.message}</span>
-            </div>
+            <ChevronRight className="w-4 h-4 text-slate-500 shrink-0" />
           </div>
-          <ChevronRight className="w-4 h-4 text-slate-500 shrink-0" />
-        </div>
-      )}
+        ) : (
+          <div
+            onClick={() => onSelectTab("UPDATES")}
+            className="p-3 rounded-xl bg-[#0F1B2B] hover:bg-[#152234] border border-[#1C2C42] flex items-center justify-between gap-3 text-xs transition-colors cursor-pointer"
+          >
+            <span className="text-slate-400">View Operational Updates & Broadcasts</span>
+            <ChevronRight className="w-4 h-4 text-slate-500 shrink-0" />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
