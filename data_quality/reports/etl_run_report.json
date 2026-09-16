@@ -1,0 +1,37 @@
+{
+  "run_id": "ETL-20260915142335-EB7652",
+  "status": "SUCCESS",
+  "start_time": "2026-09-15T14:23:35.972902",
+  "end_time": "2026-09-15T14:24:17.456302",
+  "duration_seconds": 41.47,
+  "rows_read": 89954,
+  "rows_loaded": 89338,
+  "rows_quarantined": 616,
+  "table_load_counts": {
+    "depots": 5,
+    "omcs": 7,
+    "products": 4,
+    "trucks": 750,
+    "loading_positions": 32,
+    "loading_orders": 10976,
+    "gate_events": 31919,
+    "validation_events": 10642,
+    "staging_events": 10397,
+    "loading_events": 10394,
+    "equipment_events": 629,
+    "product_readiness_events": 351,
+    "arrival_signals": 10128,
+    "notifications": 1,
+    "risk_events": 316,
+    "decisions": 252,
+    "decision_stages": 2016,
+    "autonomous_actions": 173,
+    "verification_events": 173,
+    "audit_events": 173
+  },
+  "great_expectations_summary": {
+    "total_expectations": 40,
+    "passed": 34,
+    "flagged": 6
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "model_name": "flowguard_arrival_predictor",
+  "model_version": "v1.0.0",
+  "algorithm": "XGBoost (XGBRegressor Pipeline)",
+  "target": "minutes_to_arrival",
+  "training_timestamp": "2026-09-15T15:57:19.687925+00:00",
+  "random_seed": 42,
+  "record_counts": {
+    "total": 10406,
+    "train": 6479,
+    "validation": 2260,
+    "test": 1667
+  },
+  "chronological_cutoffs": {
+    "train_end": "2026-08-11 00:00:00",
+    "validation_end": "2026-09-01 00:00:00"
+  },
+  "features": [
+    "depot_id",
+    "omc_id",
+    "product_id",
+    "signal_quality",
+    "ordered_quantity_litres",
+    "planned_lead_time_min",
+    "hour_of_day",
+    "day_of_week",
+    "has_telematics_signal",
+    "estimated_distance_km",
+    "signal_confidence_pct",
+    "depot_baseline_turnaround_min",
+    "depot_total_positions"
+  ],
+  "baseline_metrics": {
+    "mae": 11.38,
+    "rmse": 14.2,
+    "medae": 9.52,
+    "p90_ae": 23.3,
+    "r2": 0.8298,
+    "pct_within_5min": 26.4,
+    "pct_within_10min": 52.4,
+    "pct_within_15min": 70.8
+  },
+  "model_metrics": {
+    "mae": 10.88,
+    "rmse": 13.67,
+    "medae": 9.2,
+    "p90_ae": 22.23,
+    "r2": 0.8422,
+    "pct_within_5min": 29.5,
+    "pct_within_10min": 53.5,
+    "pct_within_15min": 72.0
+  },
+  "mae_reduction_pct": 4.4,
+  "top_features": [
+    {
+      "feature": "planned_lead_time_min",
+      "importance": 0.7242
+    },
+    {
+      "feature": "signal_quality_NONE",
+      "importance": 0.0355
+    },
+    {
+      "feature": "has_telematics_signal",
+      "importance": 0.0329
+    },
+    {
+      "feature": "omc_id_ola",
+      "importance": 0.01
+    },
+    {
+      "feature": "depot_baseline_turnaround_min",
+      "importance": 0.0097
+    },
+    {
+      "feature": "depot_id_kisumu",
+      "importance": 0.0097
+    },
+    {
+      "feature": "estimated_distance_km",
+      "importance": 0.0096
+    },
+    {
+      "feature": "signal_quality_HIGH",
+      "importance": 0.0095
+    }
+  ]
+}

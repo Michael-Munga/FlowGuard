@@ -1,0 +1,5 @@
+product_id,code,name,density_kg_per_l,standard_flow_rate_lpm,is_hazardous_priority,compatible_bays_desc
+PMS,PMS,Premium Motor Spirit (Super Unleaded),0.745,1650,True,Segregated PMS meters with vapor recovery line
+AGO,AGO,Automotive Gasoil (Diesel),0.84,1650,False,Standard & high-velocity diesel loading arms
+DPK,DPK,Dual Purpose Kerosene,0.795,1600,False,Dedicated domestic illuminant/power arms
+JET-A1,JET-A1,Aviation Turbine Fuel (Jet A-1),0.804,1500,True,High-purity dedicated aviation arm with micro-filter water separators

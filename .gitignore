@@ -32,6 +32,16 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
 
 # vercel
 .vercel
@@ -46,7 +56,9 @@ next-env.d.ts
 *.swp
 *.swo
 
-# markdown files (ignore all except README)
+# markdown files (ignore all except README and docs)
 *.md
 !README.md
 !README.*
+!docs/*.md
+!docs/**/*.md

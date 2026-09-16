@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: flowguard-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: flowguard
+      POSTGRES_USER: flowguard
+      POSTGRES_PASSWORD: flowguard
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U flowguard -d flowguard"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    driver: local

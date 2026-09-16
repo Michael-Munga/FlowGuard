@@ -1,0 +1,33 @@
+loading_position_id,depot_id,code,bay_number,product_compatibility,has_dual_arm,standard_flow_rate_lpm,is_high_velocity
+NBO-P01,nairobi,P01,1,PMS / Dual-Arm,True,1650,True
+NBO-P02,nairobi,P02,2,PMS / Dual-Arm,True,1650,True
+NBO-P03,nairobi,P03,3,AGO / High-Flow,True,1650,True
+NBO-P04,nairobi,P04,4,AGO / Dual-Arm High-Velocity,True,1650,True
+NBO-P05,nairobi,P05,5,DPK / Dual-Arm,True,1600,False
+NBO-P06,nairobi,P06,6,AGO / Dual-Arm,True,1650,True
+NBO-P07,nairobi,P07,7,AGO / Standard,False,1650,False
+NBO-P08,nairobi,P08,8,PMS / Standard,False,1650,False
+MBA-P01,mombasa,P01,1,PMS / Dual-Arm,True,1650,False
+MBA-P02,mombasa,P02,2,PMS / Dual-Arm,True,1650,False
+MBA-P03,mombasa,P03,3,PMS / Dual-Arm,False,1650,False
+MBA-P04,mombasa,P04,4,AGO / Dual-Arm High-Velocity,True,1650,True
+MBA-P05,mombasa,P05,5,AGO / Dual-Arm High-Velocity,True,1650,True
+MBA-P06,mombasa,P06,6,AGO / Dual-Arm High-Velocity,True,1650,True
+MBA-P07,mombasa,P07,7,AGO / Dual-Arm High-Velocity,False,1650,False
+MBA-P08,mombasa,P08,8,JET-A1 / Aviation Dedicated,False,1500,False
+MBA-P09,mombasa,P09,9,JET-A1 / Aviation Dedicated,False,1500,False
+MBA-P10,mombasa,P10,10,DPK / Standard,False,1500,False
+NKR-P01,nakuru,P01,1,PMS / Dual-Arm,True,1600,True
+NKR-P02,nakuru,P02,2,PMS / Standard,False,1600,False
+NKR-P03,nakuru,P03,3,AGO / High-Flow,True,1650,True
+NKR-P04,nakuru,P04,4,AGO / Dual-Arm,True,1650,False
+ELD-P01,eldoret,P01,1,PMS / Dual-Arm,True,1650,False
+ELD-P02,eldoret,P02,2,PMS / Dual-Arm,False,1650,False
+ELD-P03,eldoret,P03,3,AGO / Dual-Arm,True,1650,True
+ELD-P04,eldoret,P04,4,AGO / Dual-Arm,True,1650,True
+ELD-P05,eldoret,P05,5,AGO / Dual-Arm,False,1650,False
+ELD-P06,eldoret,P06,6,DPK / Standard,False,1650,False
+KSM-P01,kisumu,P01,1,AGO / Dual-Arm,True,1650,True
+KSM-P02,kisumu,P02,2,PMS / Dual-Arm,True,1650,True
+KSM-P03,kisumu,P03,3,AGO / Standard,False,1650,False
+KSM-P04,kisumu,P04,4,PMS / Standard,False,1650,False

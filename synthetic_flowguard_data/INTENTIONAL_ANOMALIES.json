@@ -1,0 +1,626 @@
+[
+  {
+    "table": "09_loading_events.csv",
+    "entity_id": "LDG-004772",
+    "field": "loading_duration_minutes",
+    "invalid_value": -15.0,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative loading duration indicating sensor telemetry inversion error."
+  },
+  {
+    "table": "09_loading_events.csv",
+    "entity_id": "LDG-006678",
+    "field": "loading_duration_minutes",
+    "invalid_value": -15.0,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative loading duration indicating sensor telemetry inversion error."
+  },
+  {
+    "table": "09_loading_events.csv",
+    "entity_id": "LDG-005959",
+    "field": "loading_duration_minutes",
+    "invalid_value": -15.0,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative loading duration indicating sensor telemetry inversion error."
+  },
+  {
+    "table": "09_loading_events.csv",
+    "entity_id": "LDG-004166",
+    "field": "loading_duration_minutes",
+    "invalid_value": -15.0,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative loading duration indicating sensor telemetry inversion error."
+  },
+  {
+    "table": "09_loading_events.csv",
+    "entity_id": "LDG-001528",
+    "field": "loading_duration_minutes",
+    "invalid_value": -15.0,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative loading duration indicating sensor telemetry inversion error."
+  },
+  {
+    "table": "09_loading_events.csv",
+    "entity_id": "LDG-002838",
+    "field": "loading_duration_minutes",
+    "invalid_value": -15.0,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative loading duration indicating sensor telemetry inversion error."
+  },
+  {
+    "table": "09_loading_events.csv",
+    "entity_id": "LDG-003789",
+    "field": "loading_duration_minutes",
+    "invalid_value": -15.0,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative loading duration indicating sensor telemetry inversion error."
+  },
+  {
+    "table": "09_loading_events.csv",
+    "entity_id": "LDG-003468",
+    "field": "loading_duration_minutes",
+    "invalid_value": -15.0,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative loading duration indicating sensor telemetry inversion error."
+  },
+  {
+    "table": "09_loading_events.csv",
+    "entity_id": "LDG-007223",
+    "field": "loading_duration_minutes",
+    "invalid_value": -15.0,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative loading duration indicating sensor telemetry inversion error."
+  },
+  {
+    "table": "09_loading_events.csv",
+    "entity_id": "LDG-001193",
+    "field": "loading_duration_minutes",
+    "invalid_value": -15.0,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative loading duration indicating sensor telemetry inversion error."
+  },
+  {
+    "table": "09_loading_events.csv",
+    "entity_id": "LDG-003121",
+    "field": "loading_duration_minutes",
+    "invalid_value": -15.0,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative loading duration indicating sensor telemetry inversion error."
+  },
+  {
+    "table": "09_loading_events.csv",
+    "entity_id": "LDG-001724",
+    "field": "loading_duration_minutes",
+    "invalid_value": -15.0,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative loading duration indicating sensor telemetry inversion error."
+  },
+  {
+    "table": "06_gate_events.csv",
+    "entity_id": "GE-0023835",
+    "field": "event_timestamp",
+    "invalid_value": "2026-08-22 10:12:37",
+    "issue_type": "CHRONOLOGICAL_INVERSION",
+    "description": "Gate-out timestamp occurs before gate-in timestamp due to edge gateway clock drift."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-01768",
+    "field": "depot_id",
+    "invalid_value": "marsabit",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced depot 'marsabit' does not exist in depots dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-01115",
+    "field": "depot_id",
+    "invalid_value": "marsabit",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced depot 'marsabit' does not exist in depots dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-03371",
+    "field": "depot_id",
+    "invalid_value": "marsabit",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced depot 'marsabit' does not exist in depots dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS28-01377",
+    "field": "depot_id",
+    "invalid_value": "marsabit",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced depot 'marsabit' does not exist in depots dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS25-01923",
+    "field": "depot_id",
+    "invalid_value": "marsabit",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced depot 'marsabit' does not exist in depots dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-01704",
+    "field": "depot_id",
+    "invalid_value": "marsabit",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced depot 'marsabit' does not exist in depots dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-04570",
+    "field": "depot_id",
+    "invalid_value": "marsabit",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced depot 'marsabit' does not exist in depots dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-03626",
+    "field": "depot_id",
+    "invalid_value": "marsabit",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced depot 'marsabit' does not exist in depots dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS28-01078",
+    "field": "omc_id",
+    "invalid_value": "unknown_petroleum",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced OMC 'unknown_petroleum' does not exist in OMCs dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-02662",
+    "field": "omc_id",
+    "invalid_value": "unknown_petroleum",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced OMC 'unknown_petroleum' does not exist in OMCs dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-04256",
+    "field": "omc_id",
+    "invalid_value": "unknown_petroleum",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced OMC 'unknown_petroleum' does not exist in OMCs dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS27-02120",
+    "field": "omc_id",
+    "invalid_value": "unknown_petroleum",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced OMC 'unknown_petroleum' does not exist in OMCs dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-04830",
+    "field": "omc_id",
+    "invalid_value": "unknown_petroleum",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced OMC 'unknown_petroleum' does not exist in OMCs dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS25-02423",
+    "field": "omc_id",
+    "invalid_value": "unknown_petroleum",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced OMC 'unknown_petroleum' does not exist in OMCs dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-01538",
+    "field": "omc_id",
+    "invalid_value": "unknown_petroleum",
+    "issue_type": "UNKNOWN_FOREIGN_KEY",
+    "description": "Referenced OMC 'unknown_petroleum' does not exist in OMCs dimension table."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-01133",
+    "field": "order_id",
+    "invalid_value": "LO-KOTPS1-01133",
+    "issue_type": "DUPLICATE_PRIMARY_KEY",
+    "description": "Duplicate order_id duplicate of row index 483."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-01124",
+    "field": "order_id",
+    "invalid_value": "LO-KOTPS1-01124",
+    "issue_type": "DUPLICATE_PRIMARY_KEY",
+    "description": "Duplicate order_id duplicate of row index 462."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-01065",
+    "field": "order_id",
+    "invalid_value": "LO-PS10-01065",
+    "issue_type": "DUPLICATE_PRIMARY_KEY",
+    "description": "Duplicate order_id duplicate of row index 162."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS27-01035",
+    "field": "order_id",
+    "invalid_value": "LO-PS27-01035",
+    "issue_type": "DUPLICATE_PRIMARY_KEY",
+    "description": "Duplicate order_id duplicate of row index 382."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-01094",
+    "field": "order_id",
+    "invalid_value": "LO-PS10-01094",
+    "issue_type": "DUPLICATE_PRIMARY_KEY",
+    "description": "Duplicate order_id duplicate of row index 229."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-01101",
+    "field": "order_id",
+    "invalid_value": "LO-PS10-01101",
+    "issue_type": "DUPLICATE_PRIMARY_KEY",
+    "description": "Duplicate order_id duplicate of row index 247."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS28-01013",
+    "field": "order_id",
+    "invalid_value": "LO-PS28-01013",
+    "issue_type": "DUPLICATE_PRIMARY_KEY",
+    "description": "Duplicate order_id duplicate of row index 180."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-01096",
+    "field": "order_id",
+    "invalid_value": "LO-KOTPS1-01096",
+    "issue_type": "DUPLICATE_PRIMARY_KEY",
+    "description": "Duplicate order_id duplicate of row index 345."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS28-01031",
+    "field": "order_id",
+    "invalid_value": "LO-PS28-01031",
+    "issue_type": "DUPLICATE_PRIMARY_KEY",
+    "description": "Duplicate order_id duplicate of row index 379."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS27-01034",
+    "field": "order_id",
+    "invalid_value": "LO-PS27-01034",
+    "issue_type": "DUPLICATE_PRIMARY_KEY",
+    "description": "Duplicate order_id duplicate of row index 380."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-04124",
+    "field": "ordered_quantity_litres",
+    "invalid_value": -36000,
+    "issue_type": "NEGATIVE_QUANTITY",
+    "description": "Negative ordered quantity in ERP sales order record."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS28-01639",
+    "field": "ordered_quantity_litres",
+    "invalid_value": -36000,
+    "issue_type": "NEGATIVE_QUANTITY",
+    "description": "Negative ordered quantity in ERP sales order record."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-03619",
+    "field": "ordered_quantity_litres",
+    "invalid_value": -36000,
+    "issue_type": "NEGATIVE_QUANTITY",
+    "description": "Negative ordered quantity in ERP sales order record."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS27-02254",
+    "field": "ordered_quantity_litres",
+    "invalid_value": -36000,
+    "issue_type": "NEGATIVE_QUANTITY",
+    "description": "Negative ordered quantity in ERP sales order record."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-01696",
+    "field": "ordered_quantity_litres",
+    "invalid_value": -36000,
+    "issue_type": "NEGATIVE_QUANTITY",
+    "description": "Negative ordered quantity in ERP sales order record."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-01098",
+    "field": "ordered_quantity_litres",
+    "invalid_value": -36000,
+    "issue_type": "NEGATIVE_QUANTITY",
+    "description": "Negative ordered quantity in ERP sales order record."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-02876",
+    "field": "ordered_quantity_litres",
+    "invalid_value": -36000,
+    "issue_type": "NEGATIVE_QUANTITY",
+    "description": "Negative ordered quantity in ERP sales order record."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-03584",
+    "field": "ordered_quantity_litres",
+    "invalid_value": -36000,
+    "issue_type": "NEGATIVE_QUANTITY",
+    "description": "Negative ordered quantity in ERP sales order record."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-02917",
+    "field": "ordered_quantity_litres",
+    "invalid_value": -36000,
+    "issue_type": "NEGATIVE_QUANTITY",
+    "description": "Negative ordered quantity in ERP sales order record."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS27-01451",
+    "field": "ordered_quantity_litres",
+    "invalid_value": -36000,
+    "issue_type": "NEGATIVE_QUANTITY",
+    "description": "Negative ordered quantity in ERP sales order record."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS25-01156",
+    "field": "ordered_quantity_litres",
+    "invalid_value": 950000,
+    "issue_type": "EXTREME_OUTLIER",
+    "description": "Ordered volume 950,000L exceeds physical maximum road tanker capacity (40,000L)."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-03732",
+    "field": "ordered_quantity_litres",
+    "invalid_value": 950000,
+    "issue_type": "EXTREME_OUTLIER",
+    "description": "Ordered volume 950,000L exceeds physical maximum road tanker capacity (40,000L)."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-01707",
+    "field": "ordered_quantity_litres",
+    "invalid_value": 950000,
+    "issue_type": "EXTREME_OUTLIER",
+    "description": "Ordered volume 950,000L exceeds physical maximum road tanker capacity (40,000L)."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-01848",
+    "field": "ordered_quantity_litres",
+    "invalid_value": 950000,
+    "issue_type": "EXTREME_OUTLIER",
+    "description": "Ordered volume 950,000L exceeds physical maximum road tanker capacity (40,000L)."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-03885",
+    "field": "ordered_quantity_litres",
+    "invalid_value": 950000,
+    "issue_type": "EXTREME_OUTLIER",
+    "description": "Ordered volume 950,000L exceeds physical maximum road tanker capacity (40,000L)."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-04209",
+    "field": "ordered_quantity_litres",
+    "invalid_value": 950000,
+    "issue_type": "EXTREME_OUTLIER",
+    "description": "Ordered volume 950,000L exceeds physical maximum road tanker capacity (40,000L)."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-03382",
+    "field": "ordered_quantity_litres",
+    "invalid_value": 950000,
+    "issue_type": "EXTREME_OUTLIER",
+    "description": "Ordered volume 950,000L exceeds physical maximum road tanker capacity (40,000L)."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-03513",
+    "field": "ordered_quantity_litres",
+    "invalid_value": 950000,
+    "issue_type": "EXTREME_OUTLIER",
+    "description": "Ordered volume 950,000L exceeds physical maximum road tanker capacity (40,000L)."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS27-01312",
+    "field": "ordered_quantity_litres",
+    "invalid_value": 950000,
+    "issue_type": "EXTREME_OUTLIER",
+    "description": "Ordered volume 950,000L exceeds physical maximum road tanker capacity (40,000L)."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-01929",
+    "field": "ordered_quantity_litres",
+    "invalid_value": 950000,
+    "issue_type": "EXTREME_OUTLIER",
+    "description": "Ordered volume 950,000L exceeds physical maximum road tanker capacity (40,000L)."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS27-01229",
+    "field": "truck_id",
+    "invalid_value": "",
+    "issue_type": "NULL_REQUIRED_FIELD",
+    "description": "Missing required truck_id in order header."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-02336",
+    "field": "truck_id",
+    "invalid_value": "",
+    "issue_type": "NULL_REQUIRED_FIELD",
+    "description": "Missing required truck_id in order header."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS27-01773",
+    "field": "truck_id",
+    "invalid_value": "",
+    "issue_type": "NULL_REQUIRED_FIELD",
+    "description": "Missing required truck_id in order header."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS25-01550",
+    "field": "truck_id",
+    "invalid_value": "",
+    "issue_type": "NULL_REQUIRED_FIELD",
+    "description": "Missing required truck_id in order header."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-01974",
+    "field": "truck_id",
+    "invalid_value": "",
+    "issue_type": "NULL_REQUIRED_FIELD",
+    "description": "Missing required truck_id in order header."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-01598",
+    "field": "truck_id",
+    "invalid_value": "",
+    "issue_type": "NULL_REQUIRED_FIELD",
+    "description": "Missing required truck_id in order header."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-03169",
+    "field": "truck_id",
+    "invalid_value": "",
+    "issue_type": "NULL_REQUIRED_FIELD",
+    "description": "Missing required truck_id in order header."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-01624",
+    "field": "truck_id",
+    "invalid_value": "",
+    "issue_type": "NULL_REQUIRED_FIELD",
+    "description": "Missing required truck_id in order header."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-PS10-04050",
+    "field": "truck_id",
+    "invalid_value": "",
+    "issue_type": "NULL_REQUIRED_FIELD",
+    "description": "Missing required truck_id in order header."
+  },
+  {
+    "table": "05_loading_orders.csv",
+    "entity_id": "LO-KOTPS1-02464",
+    "field": "truck_id",
+    "invalid_value": "",
+    "issue_type": "NULL_REQUIRED_FIELD",
+    "description": "Missing required truck_id in order header."
+  },
+  {
+    "table": "08_staging_events.csv",
+    "entity_id": "STG-008870",
+    "field": "wait_duration_minutes",
+    "invalid_value": -8.5,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative staging queue wait duration."
+  },
+  {
+    "table": "08_staging_events.csv",
+    "entity_id": "STG-001623",
+    "field": "wait_duration_minutes",
+    "invalid_value": -8.5,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative staging queue wait duration."
+  },
+  {
+    "table": "08_staging_events.csv",
+    "entity_id": "STG-006062",
+    "field": "wait_duration_minutes",
+    "invalid_value": -8.5,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative staging queue wait duration."
+  },
+  {
+    "table": "08_staging_events.csv",
+    "entity_id": "STG-002975",
+    "field": "wait_duration_minutes",
+    "invalid_value": -8.5,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative staging queue wait duration."
+  },
+  {
+    "table": "08_staging_events.csv",
+    "entity_id": "STG-000215",
+    "field": "wait_duration_minutes",
+    "invalid_value": -8.5,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative staging queue wait duration."
+  },
+  {
+    "table": "08_staging_events.csv",
+    "entity_id": "STG-001295",
+    "field": "wait_duration_minutes",
+    "invalid_value": -8.5,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative staging queue wait duration."
+  },
+  {
+    "table": "08_staging_events.csv",
+    "entity_id": "STG-006633",
+    "field": "wait_duration_minutes",
+    "invalid_value": -8.5,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative staging queue wait duration."
+  },
+  {
+    "table": "08_staging_events.csv",
+    "entity_id": "STG-003843",
+    "field": "wait_duration_minutes",
+    "invalid_value": -8.5,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative staging queue wait duration."
+  },
+  {
+    "table": "08_staging_events.csv",
+    "entity_id": "STG-006654",
+    "field": "wait_duration_minutes",
+    "invalid_value": -8.5,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative staging queue wait duration."
+  },
+  {
+    "table": "08_staging_events.csv",
+    "entity_id": "STG-009320",
+    "field": "wait_duration_minutes",
+    "invalid_value": -8.5,
+    "issue_type": "NEGATIVE_DURATION",
+    "description": "Negative staging queue wait duration."
+  }
+]

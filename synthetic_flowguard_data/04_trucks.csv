@@ -1,0 +1,751 @@
+truck_id,registration,trailer_registration,transporter_name,driver_name,driver_national_id,capacity_litres,compartments_count,tare_weight_kg,vehicle_type,active_status
+TRK-0001,KDD 412X,ZF 9102,Trans-Rift Hauliers Ltd,James Mwangi,24891002,36000,3,14820,Semi-Trailer Tanker,ACTIVE
+TRK-0002,KDD 851G,ZD 6459,Freight Forwarders Kenya Ltd,James Musyoka,32020819,40000,4,16391,Multi-Compartment B-Double,ACTIVE
+TRK-0003,KBB 164D,ZE 4199,Freight Forwarders Kenya Ltd,Stephen Kimani,19213069,36000,3,15132,Semi-Trailer Tanker,ACTIVE
+TRK-0004,KDF 603D,ZP 5976,Freight Forwarders Kenya Ltd,Michael Wafula,28339523,36000,3,15067,Semi-Trailer Tanker,ACTIVE
+TRK-0005,KCE 410E,ZF 1166,Continental Cargo Tankers Ltd,Francis Ochieng,21492786,28000,2,12716,3-Axle Rigid Tanker,ACTIVE
+TRK-0006,KDW 168T,ZV 4949,Bollore Logistics Kenya,Daniel Odhiambo,27568559,40000,4,16368,Multi-Compartment B-Double,ACTIVE
+TRK-0007,KCJ 977A,ZZ 5937,Afrilink Petroleum Transporters,Anthony Kariuki,20940621,34000,3,14756,Semi-Trailer Tanker,INACTIVE
+TRK-0008,KBX 921M,ZB 3899,Rift Valley Fleet Services,Charles Maina,22840830,32000,3,13603,Semi-Trailer Tanker,ACTIVE
+TRK-0009,KDW 545R,ZN 3128,Siginon Global Logistics,Dennis Otieno,24190962,38000,4,15483,Semi-Trailer Tanker,ACTIVE
+TRK-0010,KBF 545W,ZE 2646,Continental Cargo Tankers Ltd,Daniel Kipkorir,23019372,34000,3,14055,Semi-Trailer Tanker,ACTIVE
+TRK-0011,KCT 612V,ZE 5942,Afrilink Petroleum Transporters,James Ochieng,28446321,40000,4,16092,Multi-Compartment B-Double,ACTIVE
+TRK-0012,KDJ 115N,ZG 2438,Trans-Rift Hauliers Ltd,Brian Barasa,26143192,40000,4,16109,Multi-Compartment B-Double,ACTIVE
+TRK-0013,KDM 392R,ZX 6271,Siginon Global Logistics,James Wafula,24368516,38000,4,15870,Semi-Trailer Tanker,ACTIVE
+TRK-0014,KBR 202R,ZS 4603,Lakeside Bulk Carriers,Victor Kibet,19307409,38000,4,15656,Semi-Trailer Tanker,ACTIVE
+TRK-0015,KDS 131F,ZN 3910,Bollore Logistics Kenya,Charles Njoroge,22318660,34000,3,14207,Semi-Trailer Tanker,ACTIVE
+TRK-0016,KBT 302H,ZX 3735,Southern Cross Hauliers,Geoffrey Kipkorir,28000941,32000,3,13918,Semi-Trailer Tanker,ACTIVE
+TRK-0017,KCQ 731T,ZH 3437,Southern Cross Hauliers,Charles Ondieki,26543891,34000,3,14425,Semi-Trailer Tanker,ACTIVE
+TRK-0018,KBZ 530K,ZY 1397,Bollore Logistics Kenya,Daniel Maina,33417278,28000,2,12833,3-Axle Rigid Tanker,ACTIVE
+TRK-0019,KDS 296G,ZU 8907,Freight Forwarders Kenya Ltd,Daniel Mwangi,21817046,40000,4,16035,Multi-Compartment B-Double,ACTIVE
+TRK-0020,KDN 983X,ZT 2441,Lakeside Bulk Carriers,Samuel Kamau,19201812,40000,4,16059,Multi-Compartment B-Double,ACTIVE
+TRK-0021,KCJ 951G,ZD 8561,Siginon Global Logistics,Charles Makori,21003561,28000,2,13004,3-Axle Rigid Tanker,ACTIVE
+TRK-0022,KCH 780S,ZJ 7114,Continental Cargo Tankers Ltd,Geoffrey Rotich,27802631,38000,4,15903,Semi-Trailer Tanker,ACTIVE
+TRK-0023,KDD 357L,ZJ 1727,Bollore Logistics Kenya,Boniface Kariuki,27348399,32000,3,14249,Semi-Trailer Tanker,ACTIVE
+TRK-0024,KBX 302R,ZH 8586,Coastline Petroleum Transport,Joseph Waweru,32237746,36000,3,14525,Semi-Trailer Tanker,ACTIVE
+TRK-0025,KCY 659L,ZP 9739,Apex Fuel Movers Ltd,Samuel Ondieki,21629866,40000,4,15886,Multi-Compartment B-Double,ACTIVE
+TRK-0026,KBA 992B,ZJ 7862,Babena Hauliers Kenya,Anthony Maina,21973273,28000,2,12706,3-Axle Rigid Tanker,ACTIVE
+TRK-0027,KDV 975F,ZT 8680,Simba Transporters Ltd,Paul Odhiambo,28905979,38000,4,15255,Semi-Trailer Tanker,ACTIVE
+TRK-0028,KDN 451D,ZP 5319,Continental Cargo Tankers Ltd,Joseph Mwangi,19599653,36000,3,14919,Semi-Trailer Tanker,ACTIVE
+TRK-0029,KCW 824J,ZG 8824,Bollore Logistics Kenya,Boniface Kipkorir,21268792,36000,3,14709,Semi-Trailer Tanker,ACTIVE
+TRK-0030,KBY 190P,ZY 2053,Lakeside Bulk Carriers,Brian Wafula,24917477,38000,4,15725,Semi-Trailer Tanker,ACTIVE
+TRK-0031,KDK 738G,ZX 1127,Trans-Rift Hauliers Ltd,Stephen Ochieng,24096791,36000,3,15196,Semi-Trailer Tanker,ACTIVE
+TRK-0032,KDV 421R,ZW 7607,Trans-Rift Hauliers Ltd,Kennedy Kamau,32921117,28000,2,12853,3-Axle Rigid Tanker,ACTIVE
+TRK-0033,KBC 869T,ZM 2967,Apex Fuel Movers Ltd,Peter Mutua,20290894,40000,4,16043,Multi-Compartment B-Double,ACTIVE
+TRK-0034,KDB 848P,ZR 9297,Simba Transporters Ltd,Charles Rotich,31827889,28000,2,13155,3-Axle Rigid Tanker,ACTIVE
+TRK-0035,KCA 148V,ZC 6444,Freight Forwarders Kenya Ltd,Joseph Kariuki,29819136,28000,2,12790,3-Axle Rigid Tanker,ACTIVE
+TRK-0036,KDP 791D,ZH 6824,Coastline Petroleum Transport,Boniface Kariuki,22744528,38000,4,15886,Semi-Trailer Tanker,INACTIVE
+TRK-0037,KBM 674W,ZH 8343,Lakeside Bulk Carriers,Charles Musyoka,30920500,28000,2,12418,3-Axle Rigid Tanker,ACTIVE
+TRK-0038,KCH 152Q,ZP 7922,Babena Hauliers Kenya,Daniel Maina,25215400,40000,4,16154,Multi-Compartment B-Double,ACTIVE
+TRK-0039,KDM 246T,ZL 3273,Freight Forwarders Kenya Ltd,Victor Ochieng,27294826,38000,4,15614,Semi-Trailer Tanker,ACTIVE
+TRK-0040,KDN 750U,ZM 1333,Apex Fuel Movers Ltd,Anthony Makori,30322814,32000,3,14064,Semi-Trailer Tanker,ACTIVE
+TRK-0041,KDM 197E,ZR 4213,Coastline Petroleum Transport,Evans Kiprono,22437035,40000,4,16242,Multi-Compartment B-Double,ACTIVE
+TRK-0042,KCW 819F,ZL 6959,Lakeside Bulk Carriers,Samuel Kiprono,24776204,34000,3,14714,Semi-Trailer Tanker,ACTIVE
+TRK-0043,KCF 944Y,ZR 7738,Southern Cross Hauliers,Paul Odhiambo,30179113,34000,3,14015,Semi-Trailer Tanker,ACTIVE
+TRK-0044,KBN 621M,ZU 4331,Afrilink Petroleum Transporters,George Kipkorir,26940102,38000,4,15386,Semi-Trailer Tanker,ACTIVE
+TRK-0045,KDM 327H,ZZ 2607,Multiple Hauliers EA,Dennis Wafula,28221392,36000,3,15061,Semi-Trailer Tanker,ACTIVE
+TRK-0046,KDK 400J,ZD 4488,Afrilink Petroleum Transporters,Kennedy Ondieki,33692241,38000,4,15701,Semi-Trailer Tanker,ACTIVE
+TRK-0047,KCV 626W,ZZ 1430,Lakeside Bulk Carriers,Charles Kimani,27825365,36000,3,14467,Semi-Trailer Tanker,ACTIVE
+TRK-0048,KCE 253C,ZA 3868,Bollore Logistics Kenya,David Maina,22806745,38000,4,15676,Semi-Trailer Tanker,ACTIVE
+TRK-0049,KBM 526A,ZK 4672,Multiple Hauliers EA,Patrick Musyoka,26705232,36000,3,14936,Semi-Trailer Tanker,ACTIVE
+TRK-0050,KDS 541B,ZD 6831,Freight Forwarders Kenya Ltd,Charles Kamau,25556458,40000,4,15800,Multi-Compartment B-Double,ACTIVE
+TRK-0051,KDC 784H,ZT 2924,Rift Valley Fleet Services,Daniel Wanyama,22191502,38000,4,15289,Semi-Trailer Tanker,ACTIVE
+TRK-0052,KCW 124F,ZD 3716,Freight Forwarders Kenya Ltd,Victor Rotich,29454439,40000,4,16572,Multi-Compartment B-Double,ACTIVE
+TRK-0053,KCQ 710Q,ZP 1703,Trans-Rift Hauliers Ltd,Anthony Wanyama,30401357,34000,3,14050,Semi-Trailer Tanker,ACTIVE
+TRK-0054,KBR 374N,ZY 9333,Rift Valley Fleet Services,Anthony Kipkorir,20055335,36000,3,14684,Semi-Trailer Tanker,ACTIVE
+TRK-0055,KBD 732B,ZR 3232,Siginon Global Logistics,Charles Maina,22345496,40000,4,16157,Multi-Compartment B-Double,ACTIVE
+TRK-0056,KBL 978S,ZK 9678,Continental Cargo Tankers Ltd,Peter Ondieki,19053038,28000,2,12488,3-Axle Rigid Tanker,ACTIVE
+TRK-0057,KCW 284X,ZW 9564,Simba Transporters Ltd,Charles Kimani,27058518,32000,3,14297,Semi-Trailer Tanker,ACTIVE
+TRK-0058,KBU 271V,ZW 8316,Bollore Logistics Kenya,Brian Kipkorir,25123792,34000,3,14244,Semi-Trailer Tanker,ACTIVE
+TRK-0059,KDK 795C,ZF 5629,Continental Cargo Tankers Ltd,George Maina,33802399,36000,3,14778,Semi-Trailer Tanker,INACTIVE
+TRK-0060,KDJ 326C,ZE 6517,Apex Fuel Movers Ltd,James Njoroge,23711633,28000,2,12716,3-Axle Rigid Tanker,ACTIVE
+TRK-0061,KBG 519F,ZZ 9419,Trans-Rift Hauliers Ltd,Francis Ondieki,22561560,28000,2,12548,3-Axle Rigid Tanker,ACTIVE
+TRK-0062,KCP 643C,ZE 1332,Apex Fuel Movers Ltd,Samuel Wafula,20437781,38000,4,15387,Semi-Trailer Tanker,ACTIVE
+TRK-0063,KDL 577K,ZK 6831,Trans-Rift Hauliers Ltd,Anthony Otieno,31943650,32000,3,13882,Semi-Trailer Tanker,ACTIVE
+TRK-0064,KBQ 205V,ZU 5135,Southern Cross Hauliers,Dennis Rotich,29962629,32000,3,14205,Semi-Trailer Tanker,ACTIVE
+TRK-0065,KDW 348R,ZM 8981,Bollore Logistics Kenya,Joseph Kibet,27225180,28000,2,13008,3-Axle Rigid Tanker,ACTIVE
+TRK-0066,KBY 734B,ZH 4008,Siginon Global Logistics,Anthony Ochieng,33496148,36000,3,15098,Semi-Trailer Tanker,ACTIVE
+TRK-0067,KCH 721M,ZE 6144,Simba Transporters Ltd,John Musyoka,23884015,40000,4,15979,Multi-Compartment B-Double,ACTIVE
+TRK-0068,KCN 825Y,ZW 8064,Lakeside Bulk Carriers,Michael Makori,19925647,28000,2,13120,3-Axle Rigid Tanker,ACTIVE
+TRK-0069,KCU 555Q,ZU 7637,Continental Cargo Tankers Ltd,Boniface Ochieng,27061219,40000,4,16569,Multi-Compartment B-Double,ACTIVE
+TRK-0070,KBY 726A,ZP 5233,Afrilink Petroleum Transporters,Stephen Kimani,31223924,38000,4,15553,Semi-Trailer Tanker,ACTIVE
+TRK-0071,KBX 638X,ZL 4970,Southern Cross Hauliers,Patrick Barasa,30273697,40000,4,16527,Multi-Compartment B-Double,ACTIVE
+TRK-0072,KBR 599Z,ZC 1527,Bollore Logistics Kenya,Charles Kiprono,21233854,38000,4,15899,Semi-Trailer Tanker,ACTIVE
+TRK-0073,KBA 365D,ZA 2855,Southern Cross Hauliers,Peter Mutua,33861824,40000,4,16548,Multi-Compartment B-Double,ACTIVE
+TRK-0074,KCE 581Z,ZC 9525,Babena Hauliers Kenya,David Kipkorir,26796795,40000,4,15835,Multi-Compartment B-Double,ACTIVE
+TRK-0075,KBK 223Z,ZJ 9953,Babena Hauliers Kenya,Patrick Ochieng,30079659,40000,4,15971,Multi-Compartment B-Double,ACTIVE
+TRK-0076,KBB 215V,ZC 5324,Simba Transporters Ltd,Michael Otieno,24652637,36000,3,14448,Semi-Trailer Tanker,ACTIVE
+TRK-0077,KCB 748G,ZD 4950,Siginon Global Logistics,John Kipkorir,27983105,40000,4,16382,Multi-Compartment B-Double,ACTIVE
+TRK-0078,KDD 645F,ZH 5496,Afrilink Petroleum Transporters,Peter Wanyama,21738956,32000,3,14211,Semi-Trailer Tanker,ACTIVE
+TRK-0079,KDF 447E,ZE 2090,Multiple Hauliers EA,Dennis Ochieng,31657893,34000,3,14791,Semi-Trailer Tanker,ACTIVE
+TRK-0080,KCA 244E,ZJ 4265,Siginon Global Logistics,James Kamau,21872195,38000,4,15201,Semi-Trailer Tanker,ACTIVE
+TRK-0081,KDG 621A,ZT 8091,Trans-Rift Hauliers Ltd,Paul Odhiambo,21723502,28000,2,12820,3-Axle Rigid Tanker,ACTIVE
+TRK-0082,KDZ 970R,ZL 7248,Simba Transporters Ltd,Peter Njoroge,33089454,28000,2,12831,3-Axle Rigid Tanker,ACTIVE
+TRK-0083,KDR 647Z,ZZ 4197,Continental Cargo Tankers Ltd,Geoffrey Kamau,25860651,34000,3,14586,Semi-Trailer Tanker,ACTIVE
+TRK-0084,KBY 554V,ZN 5178,Coastline Petroleum Transport,Geoffrey Makori,29319529,40000,4,16360,Multi-Compartment B-Double,ACTIVE
+TRK-0085,KBP 750Z,ZA 5462,Bollore Logistics Kenya,Peter Rotich,30705587,36000,3,15184,Semi-Trailer Tanker,ACTIVE
+TRK-0086,KBA 140J,ZE 5598,Apex Fuel Movers Ltd,Stephen Wafula,24327408,28000,2,12420,3-Axle Rigid Tanker,ACTIVE
+TRK-0087,KBM 740R,ZM 6045,Coastline Petroleum Transport,Patrick Wafula,31182739,34000,3,14514,Semi-Trailer Tanker,ACTIVE
+TRK-0088,KDP 199U,ZM 2939,Freight Forwarders Kenya Ltd,Samuel Kariuki,26796187,32000,3,13572,Semi-Trailer Tanker,ACTIVE
+TRK-0089,KBC 339P,ZW 1028,Multiple Hauliers EA,Victor Kipkorir,30343366,32000,3,14140,Semi-Trailer Tanker,ACTIVE
+TRK-0090,KDM 907J,ZN 7498,Southern Cross Hauliers,James Kamau,29088081,36000,3,14458,Semi-Trailer Tanker,INACTIVE
+TRK-0091,KCQ 751F,ZM 4437,Bollore Logistics Kenya,Peter Maina,33583184,36000,3,14546,Semi-Trailer Tanker,ACTIVE
+TRK-0092,KBL 836B,ZG 7198,Rift Valley Fleet Services,Paul Odhiambo,29981355,34000,3,14450,Semi-Trailer Tanker,ACTIVE
+TRK-0093,KDG 752P,ZH 1697,Apex Fuel Movers Ltd,Paul Wanyama,22058319,36000,3,14541,Semi-Trailer Tanker,ACTIVE
+TRK-0094,KBY 170N,ZX 6982,Continental Cargo Tankers Ltd,Boniface Musyoka,28570136,40000,4,15953,Multi-Compartment B-Double,ACTIVE
+TRK-0095,KCM 711H,ZV 1209,Apex Fuel Movers Ltd,Boniface Mwangi,32267213,38000,4,15884,Semi-Trailer Tanker,ACTIVE
+TRK-0096,KBU 843K,ZW 5545,Freight Forwarders Kenya Ltd,George Kiprono,21891543,34000,3,14230,Semi-Trailer Tanker,ACTIVE
+TRK-0097,KCU 938F,ZM 2819,Babena Hauliers Kenya,Stephen Kibet,27489466,38000,4,15425,Semi-Trailer Tanker,ACTIVE
+TRK-0098,KCW 925G,ZY 6534,Freight Forwarders Kenya Ltd,John Kariuki,19851324,28000,2,12613,3-Axle Rigid Tanker,ACTIVE
+TRK-0099,KCL 643T,ZR 9487,Trans-Rift Hauliers Ltd,Paul Kimani,19395222,28000,2,12609,3-Axle Rigid Tanker,ACTIVE
+TRK-0100,KCE 999F,ZF 5778,Bollore Logistics Kenya,Peter Otieno,28317468,34000,3,14770,Semi-Trailer Tanker,ACTIVE
+TRK-0101,KCU 214S,ZE 7778,Continental Cargo Tankers Ltd,Michael Kariuki,24742635,38000,4,15778,Semi-Trailer Tanker,ACTIVE
+TRK-0102,KDA 560J,ZA 2581,Southern Cross Hauliers,Anthony Mutua,22786847,40000,4,16425,Multi-Compartment B-Double,ACTIVE
+TRK-0103,KDV 494K,ZY 3271,Babena Hauliers Kenya,Francis Ondieki,25582468,28000,2,12518,3-Axle Rigid Tanker,ACTIVE
+TRK-0104,KCU 466B,ZG 1047,Siginon Global Logistics,Peter Wanyama,32520556,32000,3,13650,Semi-Trailer Tanker,ACTIVE
+TRK-0105,KDC 854H,ZE 7816,Afrilink Petroleum Transporters,Geoffrey Mwangi,19447340,40000,4,16345,Multi-Compartment B-Double,ACTIVE
+TRK-0106,KDS 705Q,ZR 4308,Bollore Logistics Kenya,Paul Njoroge,29560298,40000,4,15903,Multi-Compartment B-Double,ACTIVE
+TRK-0107,KDU 397L,ZW 5430,Multiple Hauliers EA,James Odhiambo,25598692,38000,4,15529,Semi-Trailer Tanker,ACTIVE
+TRK-0108,KBX 540X,ZV 6164,Freight Forwarders Kenya Ltd,Anthony Ondieki,19831264,34000,3,14354,Semi-Trailer Tanker,INACTIVE
+TRK-0109,KDK 405M,ZM 5750,Coastline Petroleum Transport,David Barasa,20911883,34000,3,14320,Semi-Trailer Tanker,ACTIVE
+TRK-0110,KCY 695F,ZK 6964,Trans-Rift Hauliers Ltd,Joseph Ondieki,26660667,40000,4,16229,Multi-Compartment B-Double,ACTIVE
+TRK-0111,KDS 430C,ZA 4647,Bollore Logistics Kenya,Boniface Kamau,19187073,34000,3,14206,Semi-Trailer Tanker,ACTIVE
+TRK-0112,KBN 538R,ZN 6947,Continental Cargo Tankers Ltd,Dennis Musyoka,23919767,28000,2,12713,3-Axle Rigid Tanker,ACTIVE
+TRK-0113,KCJ 209H,ZW 9776,Lakeside Bulk Carriers,Joseph Kimani,19549275,32000,3,13911,Semi-Trailer Tanker,ACTIVE
+TRK-0114,KBS 907Z,ZS 4916,Multiple Hauliers EA,Peter Makori,28178751,40000,4,15829,Multi-Compartment B-Double,ACTIVE
+TRK-0115,KDL 960N,ZF 3214,Freight Forwarders Kenya Ltd,John Kamau,24945168,36000,3,14403,Semi-Trailer Tanker,ACTIVE
+TRK-0116,KDL 137A,ZP 7453,Babena Hauliers Kenya,Samuel Odhiambo,24994177,36000,3,15060,Semi-Trailer Tanker,ACTIVE
+TRK-0117,KDJ 608C,ZF 8339,Multiple Hauliers EA,George Kamau,22353301,36000,3,14638,Semi-Trailer Tanker,ACTIVE
+TRK-0118,KBD 961C,ZX 4340,Rift Valley Fleet Services,Boniface Kipkorir,33189695,32000,3,13605,Semi-Trailer Tanker,ACTIVE
+TRK-0119,KDL 275W,ZJ 5496,Babena Hauliers Kenya,James Kariuki,32144756,34000,3,14099,Semi-Trailer Tanker,ACTIVE
+TRK-0120,KBH 378B,ZW 5661,Rift Valley Fleet Services,Francis Kibet,20750452,28000,2,13029,3-Axle Rigid Tanker,ACTIVE
+TRK-0121,KBT 691B,ZS 8796,Siginon Global Logistics,George Barasa,30121672,34000,3,14013,Semi-Trailer Tanker,ACTIVE
+TRK-0122,KDH 730E,ZK 1768,Coastline Petroleum Transport,Evans Kimani,24687458,38000,4,15870,Semi-Trailer Tanker,ACTIVE
+TRK-0123,KDM 120A,ZS 3851,Lakeside Bulk Carriers,Peter Musyoka,23975990,28000,2,13171,3-Axle Rigid Tanker,ACTIVE
+TRK-0124,KBS 112D,ZP 7124,Babena Hauliers Kenya,Francis Ondieki,22564201,36000,3,14657,Semi-Trailer Tanker,ACTIVE
+TRK-0125,KCS 624L,ZA 9153,Freight Forwarders Kenya Ltd,Michael Maina,27230310,32000,3,13658,Semi-Trailer Tanker,ACTIVE
+TRK-0126,KBG 744T,ZN 4259,Babena Hauliers Kenya,Kennedy Kipkorir,20088594,32000,3,14280,Semi-Trailer Tanker,ACTIVE
+TRK-0127,KDL 652N,ZC 5109,Freight Forwarders Kenya Ltd,John Kipkorir,26260018,32000,3,13712,Semi-Trailer Tanker,ACTIVE
+TRK-0128,KDB 261R,ZF 8744,Multiple Hauliers EA,Charles Rotich,31133661,40000,4,16167,Multi-Compartment B-Double,ACTIVE
+TRK-0129,KDK 958E,ZB 9525,Southern Cross Hauliers,Victor Barasa,19001856,34000,3,14302,Semi-Trailer Tanker,ACTIVE
+TRK-0130,KDL 550E,ZS 9217,Babena Hauliers Kenya,Kennedy Musyoka,24101375,36000,3,14403,Semi-Trailer Tanker,ACTIVE
+TRK-0131,KDZ 273F,ZP 2353,Rift Valley Fleet Services,Daniel Kimani,28825181,32000,3,13591,Semi-Trailer Tanker,ACTIVE
+TRK-0132,KBQ 524L,ZW 5847,Freight Forwarders Kenya Ltd,Francis Mutua,23563481,34000,3,14013,Semi-Trailer Tanker,ACTIVE
+TRK-0133,KCT 650E,ZB 8638,Southern Cross Hauliers,Paul Ondieki,21207588,38000,4,15507,Semi-Trailer Tanker,ACTIVE
+TRK-0134,KCK 320R,ZU 5433,Simba Transporters Ltd,Paul Ochieng,24645549,32000,3,13813,Semi-Trailer Tanker,ACTIVE
+TRK-0135,KCT 116S,ZA 9998,Rift Valley Fleet Services,Kennedy Musyoka,29069903,36000,3,15160,Semi-Trailer Tanker,ACTIVE
+TRK-0136,KCE 263Z,ZW 1995,Lakeside Bulk Carriers,Charles Ondieki,31657230,32000,3,13979,Semi-Trailer Tanker,ACTIVE
+TRK-0137,KDN 751U,ZL 1211,Apex Fuel Movers Ltd,John Musyoka,31657697,36000,3,14927,Semi-Trailer Tanker,ACTIVE
+TRK-0138,KCJ 496M,ZV 4259,Rift Valley Fleet Services,Anthony Otieno,22355265,32000,3,13953,Semi-Trailer Tanker,ACTIVE
+TRK-0139,KCA 382N,ZQ 7300,Multiple Hauliers EA,Stephen Mwangi,19887402,28000,2,12784,3-Axle Rigid Tanker,ACTIVE
+TRK-0140,KDP 114B,ZJ 9281,Freight Forwarders Kenya Ltd,Paul Kamau,19935526,34000,3,14065,Semi-Trailer Tanker,ACTIVE
+TRK-0141,KDD 180Q,ZK 5182,Simba Transporters Ltd,Dennis Mutua,33113208,28000,2,13183,3-Axle Rigid Tanker,ACTIVE
+TRK-0142,KCZ 160U,ZA 4264,Rift Valley Fleet Services,George Kipkorir,28932268,28000,2,12715,3-Axle Rigid Tanker,ACTIVE
+TRK-0143,KBW 437Y,ZS 1450,Freight Forwarders Kenya Ltd,James Ochieng,22667010,36000,3,14675,Semi-Trailer Tanker,ACTIVE
+TRK-0144,KCL 602S,ZL 6049,Bollore Logistics Kenya,Francis Maina,22559154,28000,2,12603,3-Axle Rigid Tanker,ACTIVE
+TRK-0145,KBV 924K,ZE 3026,Trans-Rift Hauliers Ltd,Daniel Kiprono,30165340,32000,3,13991,Semi-Trailer Tanker,ACTIVE
+TRK-0146,KDZ 861W,ZU 7423,Coastline Petroleum Transport,David Kimani,26748302,36000,3,14765,Semi-Trailer Tanker,ACTIVE
+TRK-0147,KBC 115B,ZY 5825,Afrilink Petroleum Transporters,James Mutua,25440084,36000,3,14529,Semi-Trailer Tanker,ACTIVE
+TRK-0148,KBS 383Y,ZV 3267,Afrilink Petroleum Transporters,Patrick Waweru,21907187,38000,4,15264,Semi-Trailer Tanker,ACTIVE
+TRK-0149,KDV 869Q,ZU 3746,Continental Cargo Tankers Ltd,Charles Barasa,26193510,40000,4,16591,Multi-Compartment B-Double,ACTIVE
+TRK-0150,KBC 239N,ZK 6359,Babena Hauliers Kenya,Daniel Maina,23512840,38000,4,15678,Semi-Trailer Tanker,ACTIVE
+TRK-0151,KCB 187D,ZA 9372,Coastline Petroleum Transport,David Ochieng,30135470,34000,3,14240,Semi-Trailer Tanker,ACTIVE
+TRK-0152,KCF 755L,ZQ 1530,Freight Forwarders Kenya Ltd,Geoffrey Barasa,21447856,38000,4,15577,Semi-Trailer Tanker,ACTIVE
+TRK-0153,KDU 178D,ZM 9125,Multiple Hauliers EA,David Musyoka,30835096,38000,4,15507,Semi-Trailer Tanker,ACTIVE
+TRK-0154,KDD 732R,ZM 6392,Siginon Global Logistics,Victor Odhiambo,33143664,32000,3,14192,Semi-Trailer Tanker,ACTIVE
+TRK-0155,KDX 822D,ZK 5996,Siginon Global Logistics,Peter Barasa,21199438,34000,3,14730,Semi-Trailer Tanker,ACTIVE
+TRK-0156,KDM 602A,ZT 5528,Siginon Global Logistics,Charles Kimani,33899156,28000,2,12852,3-Axle Rigid Tanker,ACTIVE
+TRK-0157,KCU 320L,ZR 9731,Coastline Petroleum Transport,James Kiprono,21133843,32000,3,13718,Semi-Trailer Tanker,ACTIVE
+TRK-0158,KBL 384P,ZX 4662,Trans-Rift Hauliers Ltd,Anthony Maina,24308746,32000,3,13588,Semi-Trailer Tanker,ACTIVE
+TRK-0159,KDS 946F,ZP 5782,Freight Forwarders Kenya Ltd,David Rotich,27343160,32000,3,13577,Semi-Trailer Tanker,ACTIVE
+TRK-0160,KDC 536Z,ZE 2201,Continental Cargo Tankers Ltd,Brian Makori,26588003,32000,3,13675,Semi-Trailer Tanker,ACTIVE
+TRK-0161,KCY 174P,ZC 6782,Lakeside Bulk Carriers,Michael Odhiambo,20353812,34000,3,14043,Semi-Trailer Tanker,ACTIVE
+TRK-0162,KBT 390N,ZJ 4497,Multiple Hauliers EA,Evans Kamau,29291998,28000,2,12897,3-Axle Rigid Tanker,ACTIVE
+TRK-0163,KDK 743J,ZC 1218,Babena Hauliers Kenya,Stephen Kiprono,27809481,28000,2,12695,3-Axle Rigid Tanker,ACTIVE
+TRK-0164,KBW 434G,ZV 8491,Rift Valley Fleet Services,Kennedy Otieno,27947112,32000,3,13602,Semi-Trailer Tanker,ACTIVE
+TRK-0165,KDV 437P,ZS 2573,Siginon Global Logistics,Brian Wanyama,20256756,28000,2,12987,3-Axle Rigid Tanker,ACTIVE
+TRK-0166,KBH 399B,ZC 2303,Continental Cargo Tankers Ltd,Joseph Kiprono,30248287,28000,2,12482,3-Axle Rigid Tanker,ACTIVE
+TRK-0167,KDZ 946Y,ZX 5349,Multiple Hauliers EA,David Kipkorir,24997601,36000,3,14831,Semi-Trailer Tanker,ACTIVE
+TRK-0168,KBL 706X,ZM 9557,Babena Hauliers Kenya,Charles Njoroge,26163726,28000,2,13199,3-Axle Rigid Tanker,ACTIVE
+TRK-0169,KCM 682Q,ZY 8703,Coastline Petroleum Transport,Samuel Makori,22022322,34000,3,14002,Semi-Trailer Tanker,ACTIVE
+TRK-0170,KCR 616V,ZH 7345,Bollore Logistics Kenya,Michael Kimani,26857156,32000,3,13559,Semi-Trailer Tanker,ACTIVE
+TRK-0171,KCU 984K,ZP 4011,Afrilink Petroleum Transporters,Kennedy Kariuki,21020133,32000,3,13655,Semi-Trailer Tanker,ACTIVE
+TRK-0172,KCA 244V,ZW 8156,Lakeside Bulk Carriers,Patrick Waweru,32168016,40000,4,15851,Multi-Compartment B-Double,ACTIVE
+TRK-0173,KDM 866Y,ZE 1698,Lakeside Bulk Carriers,Peter Kiprono,23349316,38000,4,15456,Semi-Trailer Tanker,ACTIVE
+TRK-0174,KBH 412B,ZJ 8096,Freight Forwarders Kenya Ltd,Geoffrey Barasa,24920162,36000,3,14857,Semi-Trailer Tanker,ACTIVE
+TRK-0175,KBJ 310R,ZK 1667,Coastline Petroleum Transport,Geoffrey Rotich,28526769,40000,4,16359,Multi-Compartment B-Double,ACTIVE
+TRK-0176,KCK 209D,ZV 8512,Bollore Logistics Kenya,Boniface Kimani,22354404,34000,3,14596,Semi-Trailer Tanker,ACTIVE
+TRK-0177,KBE 517U,ZM 7080,Rift Valley Fleet Services,Michael Ochieng,28937778,38000,4,15566,Semi-Trailer Tanker,ACTIVE
+TRK-0178,KBH 953K,ZT 9592,Apex Fuel Movers Ltd,Anthony Maina,27536453,40000,4,15880,Multi-Compartment B-Double,ACTIVE
+TRK-0179,KDC 607B,ZT 8953,Apex Fuel Movers Ltd,Dennis Mwangi,32274426,34000,3,14427,Semi-Trailer Tanker,ACTIVE
+TRK-0180,KCH 120W,ZB 8316,Afrilink Petroleum Transporters,Stephen Kariuki,31746567,40000,4,16504,Multi-Compartment B-Double,ACTIVE
+TRK-0181,KDZ 242Y,ZD 5900,Simba Transporters Ltd,Michael Njoroge,29870703,32000,3,13678,Semi-Trailer Tanker,ACTIVE
+TRK-0182,KCV 532R,ZG 6218,Lakeside Bulk Carriers,Samuel Kiprono,25692826,36000,3,14539,Semi-Trailer Tanker,ACTIVE
+TRK-0183,KBM 990B,ZE 6646,Lakeside Bulk Carriers,Boniface Kimani,20576484,36000,3,14858,Semi-Trailer Tanker,ACTIVE
+TRK-0184,KBJ 272W,ZP 9948,Trans-Rift Hauliers Ltd,Patrick Kimani,32134187,40000,4,15880,Multi-Compartment B-Double,ACTIVE
+TRK-0185,KCP 357Q,ZT 1996,Multiple Hauliers EA,Victor Kipkorir,32431165,38000,4,15868,Semi-Trailer Tanker,ACTIVE
+TRK-0186,KDD 428F,ZB 5152,Coastline Petroleum Transport,David Wanyama,21496538,40000,4,15865,Multi-Compartment B-Double,ACTIVE
+TRK-0187,KBX 210C,ZT 8229,Freight Forwarders Kenya Ltd,Samuel Kipkorir,25376569,36000,3,14740,Semi-Trailer Tanker,ACTIVE
+TRK-0188,KCC 739S,ZK 1508,Lakeside Bulk Carriers,Brian Njoroge,28822071,36000,3,14730,Semi-Trailer Tanker,ACTIVE
+TRK-0189,KBN 935M,ZD 2658,Apex Fuel Movers Ltd,Brian Kamau,32406398,36000,3,15089,Semi-Trailer Tanker,ACTIVE
+TRK-0190,KCQ 996Q,ZN 3485,Southern Cross Hauliers,Joseph Njoroge,28797698,38000,4,15628,Semi-Trailer Tanker,ACTIVE
+TRK-0191,KDC 813F,ZK 4678,Southern Cross Hauliers,David Rotich,26491047,36000,3,14694,Semi-Trailer Tanker,ACTIVE
+TRK-0192,KDY 891S,ZZ 6413,Coastline Petroleum Transport,Patrick Kimani,20249548,32000,3,13608,Semi-Trailer Tanker,ACTIVE
+TRK-0193,KDQ 118U,ZE 7184,Trans-Rift Hauliers Ltd,Victor Odhiambo,29492661,40000,4,16374,Multi-Compartment B-Double,INACTIVE
+TRK-0194,KCB 715C,ZN 1094,Rift Valley Fleet Services,Daniel Odhiambo,25796139,40000,4,16086,Multi-Compartment B-Double,ACTIVE
+TRK-0195,KBH 728Q,ZP 3754,Continental Cargo Tankers Ltd,Francis Rotich,25802651,28000,2,13046,3-Axle Rigid Tanker,ACTIVE
+TRK-0196,KCS 327T,ZM 9979,Apex Fuel Movers Ltd,Dennis Kiprono,33103816,40000,4,16482,Multi-Compartment B-Double,ACTIVE
+TRK-0197,KDY 783A,ZF 6729,Coastline Petroleum Transport,Anthony Wafula,30271164,34000,3,14400,Semi-Trailer Tanker,ACTIVE
+TRK-0198,KDC 226Y,ZP 5102,Afrilink Petroleum Transporters,James Kariuki,30747076,36000,3,14649,Semi-Trailer Tanker,ACTIVE
+TRK-0199,KBQ 880K,ZL 5256,Trans-Rift Hauliers Ltd,Patrick Wanyama,30839074,34000,3,14085,Semi-Trailer Tanker,ACTIVE
+TRK-0200,KDA 634G,ZG 1608,Trans-Rift Hauliers Ltd,Michael Rotich,23804610,36000,3,14687,Semi-Trailer Tanker,ACTIVE
+TRK-0201,KCF 458U,ZA 3484,Southern Cross Hauliers,Michael Mwangi,21480159,34000,3,14593,Semi-Trailer Tanker,ACTIVE
+TRK-0202,KDX 322J,ZT 8298,Multiple Hauliers EA,John Barasa,30138788,32000,3,13879,Semi-Trailer Tanker,ACTIVE
+TRK-0203,KCF 458M,ZD 7373,Bollore Logistics Kenya,Patrick Rotich,29571643,34000,3,14540,Semi-Trailer Tanker,ACTIVE
+TRK-0204,KCC 214S,ZY 4103,Bollore Logistics Kenya,David Makori,20129586,40000,4,15980,Multi-Compartment B-Double,ACTIVE
+TRK-0205,KCQ 407J,ZV 8035,Apex Fuel Movers Ltd,Joseph Kimani,19312457,38000,4,15557,Semi-Trailer Tanker,ACTIVE
+TRK-0206,KBY 174U,ZR 5947,Simba Transporters Ltd,Paul Makori,22955724,32000,3,13705,Semi-Trailer Tanker,ACTIVE
+TRK-0207,KBM 743D,ZD 1067,Trans-Rift Hauliers Ltd,Francis Kiprono,23239495,38000,4,15554,Semi-Trailer Tanker,ACTIVE
+TRK-0208,KBU 186H,ZP 2389,Rift Valley Fleet Services,Dennis Kariuki,19364281,28000,2,12814,3-Axle Rigid Tanker,ACTIVE
+TRK-0209,KCW 974P,ZG 7040,Apex Fuel Movers Ltd,Charles Barasa,22126839,38000,4,15949,Semi-Trailer Tanker,ACTIVE
+TRK-0210,KBM 177C,ZS 8056,Lakeside Bulk Carriers,Francis Njoroge,26869150,38000,4,15475,Semi-Trailer Tanker,INACTIVE
+TRK-0211,KDQ 879Q,ZE 1343,Babena Hauliers Kenya,Peter Rotich,21103621,36000,3,14409,Semi-Trailer Tanker,ACTIVE
+TRK-0212,KDC 590M,ZA 7820,Simba Transporters Ltd,Peter Wanyama,25528305,34000,3,14189,Semi-Trailer Tanker,ACTIVE
+TRK-0213,KDW 913B,ZF 3368,Trans-Rift Hauliers Ltd,Brian Ochieng,27967154,36000,3,14410,Semi-Trailer Tanker,ACTIVE
+TRK-0214,KBW 180R,ZX 9583,Trans-Rift Hauliers Ltd,Joseph Kibet,21858167,40000,4,16168,Multi-Compartment B-Double,ACTIVE
+TRK-0215,KBC 183C,ZV 6846,Multiple Hauliers EA,Kennedy Kariuki,20610866,40000,4,16545,Multi-Compartment B-Double,ACTIVE
+TRK-0216,KCD 639Q,ZF 9485,Simba Transporters Ltd,George Kimani,27644922,40000,4,16263,Multi-Compartment B-Double,ACTIVE
+TRK-0217,KBD 411E,ZX 8359,Southern Cross Hauliers,Michael Njoroge,32203989,38000,4,15292,Semi-Trailer Tanker,ACTIVE
+TRK-0218,KDV 442R,ZJ 8855,Siginon Global Logistics,Francis Musyoka,30739743,28000,2,13124,3-Axle Rigid Tanker,ACTIVE
+TRK-0219,KDC 620S,ZK 6235,Multiple Hauliers EA,Paul Wafula,28286488,28000,2,12567,3-Axle Rigid Tanker,ACTIVE
+TRK-0220,KBP 523Y,ZS 6037,Siginon Global Logistics,Evans Waweru,29313873,40000,4,16108,Multi-Compartment B-Double,ACTIVE
+TRK-0221,KDU 916A,ZL 9510,Southern Cross Hauliers,John Maina,30170583,34000,3,14280,Semi-Trailer Tanker,ACTIVE
+TRK-0222,KDK 489S,ZU 3837,Multiple Hauliers EA,Kennedy Kamau,21888300,38000,4,15792,Semi-Trailer Tanker,ACTIVE
+TRK-0223,KDS 302S,ZJ 7061,Babena Hauliers Kenya,David Kibet,19022171,40000,4,16095,Multi-Compartment B-Double,ACTIVE
+TRK-0224,KDQ 657K,ZZ 5534,Afrilink Petroleum Transporters,Michael Maina,29373972,36000,3,14432,Semi-Trailer Tanker,ACTIVE
+TRK-0225,KDA 149F,ZY 3216,Multiple Hauliers EA,Kennedy Kariuki,21636161,34000,3,14311,Semi-Trailer Tanker,ACTIVE
+TRK-0226,KCP 820E,ZD 5180,Siginon Global Logistics,Daniel Maina,30035677,38000,4,15393,Semi-Trailer Tanker,ACTIVE
+TRK-0227,KDG 659N,ZW 1972,Siginon Global Logistics,Michael Mwangi,20549109,32000,3,14076,Semi-Trailer Tanker,ACTIVE
+TRK-0228,KCG 655E,ZA 7053,Afrilink Petroleum Transporters,Stephen Maina,23145333,36000,3,14768,Semi-Trailer Tanker,ACTIVE
+TRK-0229,KDG 925K,ZP 2573,Trans-Rift Hauliers Ltd,Evans Kamau,25939259,38000,4,15375,Semi-Trailer Tanker,ACTIVE
+TRK-0230,KBE 919R,ZG 3166,Siginon Global Logistics,Samuel Kimani,32726807,34000,3,14766,Semi-Trailer Tanker,ACTIVE
+TRK-0231,KDE 869R,ZR 9612,Coastline Petroleum Transport,Stephen Kimani,29567074,34000,3,14255,Semi-Trailer Tanker,ACTIVE
+TRK-0232,KBS 129G,ZY 8894,Lakeside Bulk Carriers,Brian Kimani,33373104,32000,3,14072,Semi-Trailer Tanker,ACTIVE
+TRK-0233,KCN 210S,ZT 1146,Afrilink Petroleum Transporters,Joseph Kamau,25481604,28000,2,12953,3-Axle Rigid Tanker,ACTIVE
+TRK-0234,KCR 756S,ZB 1055,Continental Cargo Tankers Ltd,Boniface Kipkorir,27672625,28000,2,12401,3-Axle Rigid Tanker,ACTIVE
+TRK-0235,KCP 280G,ZD 2251,Rift Valley Fleet Services,Charles Mwangi,29107590,38000,4,15508,Semi-Trailer Tanker,ACTIVE
+TRK-0236,KCZ 658E,ZS 2502,Coastline Petroleum Transport,Peter Musyoka,24217596,40000,4,16198,Multi-Compartment B-Double,ACTIVE
+TRK-0237,KCP 892D,ZJ 1815,Babena Hauliers Kenya,Stephen Maina,25226280,40000,4,16174,Multi-Compartment B-Double,INACTIVE
+TRK-0238,KCN 457H,ZV 3355,Multiple Hauliers EA,Charles Wanyama,20733059,34000,3,14638,Semi-Trailer Tanker,ACTIVE
+TRK-0239,KCH 760N,ZB 2246,Trans-Rift Hauliers Ltd,Joseph Rotich,33931555,38000,4,15577,Semi-Trailer Tanker,ACTIVE
+TRK-0240,KDE 685P,ZK 4818,Lakeside Bulk Carriers,Patrick Mutua,32909319,36000,3,15084,Semi-Trailer Tanker,ACTIVE
+TRK-0241,KDA 445Z,ZZ 6641,Rift Valley Fleet Services,Dennis Kariuki,22059258,36000,3,14916,Semi-Trailer Tanker,ACTIVE
+TRK-0242,KCE 160G,ZE 6117,Southern Cross Hauliers,Boniface Musyoka,27516422,38000,4,15476,Semi-Trailer Tanker,ACTIVE
+TRK-0243,KCP 234H,ZA 8288,Freight Forwarders Kenya Ltd,Joseph Kibet,30845814,32000,3,13507,Semi-Trailer Tanker,ACTIVE
+TRK-0244,KCM 573X,ZY 9407,Trans-Rift Hauliers Ltd,Anthony Kibet,31486879,34000,3,14352,Semi-Trailer Tanker,ACTIVE
+TRK-0245,KCE 124L,ZF 4247,Continental Cargo Tankers Ltd,Boniface Njoroge,31047103,40000,4,16153,Multi-Compartment B-Double,ACTIVE
+TRK-0246,KBC 537W,ZC 9760,Apex Fuel Movers Ltd,Patrick Otieno,19466461,34000,3,14265,Semi-Trailer Tanker,ACTIVE
+TRK-0247,KCX 188E,ZX 9366,Bollore Logistics Kenya,James Njoroge,20027451,38000,4,15507,Semi-Trailer Tanker,ACTIVE
+TRK-0248,KCY 690E,ZK 2638,Apex Fuel Movers Ltd,Charles Maina,21456891,28000,2,12932,3-Axle Rigid Tanker,ACTIVE
+TRK-0249,KDN 128P,ZW 3807,Coastline Petroleum Transport,Boniface Mutua,20568187,34000,3,14145,Semi-Trailer Tanker,ACTIVE
+TRK-0250,KBF 106G,ZE 4906,Simba Transporters Ltd,Victor Kamau,30511143,28000,2,12995,3-Axle Rigid Tanker,ACTIVE
+TRK-0251,KCW 600F,ZY 7045,Bollore Logistics Kenya,Geoffrey Makori,27143245,32000,3,13661,Semi-Trailer Tanker,ACTIVE
+TRK-0252,KBP 496L,ZG 5544,Freight Forwarders Kenya Ltd,Anthony Mutua,19176805,36000,3,15125,Semi-Trailer Tanker,ACTIVE
+TRK-0253,KCX 607L,ZL 6582,Coastline Petroleum Transport,David Kipkorir,26778883,38000,4,15704,Semi-Trailer Tanker,ACTIVE
+TRK-0254,KDC 440L,ZQ 5344,Trans-Rift Hauliers Ltd,Geoffrey Kipkorir,23547020,36000,3,14992,Semi-Trailer Tanker,ACTIVE
+TRK-0255,KBG 224T,ZR 2729,Siginon Global Logistics,Dennis Makori,27232553,28000,2,12952,3-Axle Rigid Tanker,ACTIVE
+TRK-0256,KDR 934Q,ZX 8466,Siginon Global Logistics,Geoffrey Mwangi,21758901,40000,4,16118,Multi-Compartment B-Double,ACTIVE
+TRK-0257,KCL 115R,ZC 3685,Simba Transporters Ltd,Patrick Ochieng,25003341,34000,3,14516,Semi-Trailer Tanker,ACTIVE
+TRK-0258,KCL 996Z,ZJ 2973,Coastline Petroleum Transport,Brian Kariuki,32243163,32000,3,13942,Semi-Trailer Tanker,ACTIVE
+TRK-0259,KDV 740Y,ZQ 8657,Babena Hauliers Kenya,Charles Otieno,23090489,34000,3,14589,Semi-Trailer Tanker,ACTIVE
+TRK-0260,KBK 249Z,ZK 4401,Simba Transporters Ltd,David Wafula,24179807,40000,4,16567,Multi-Compartment B-Double,ACTIVE
+TRK-0261,KDZ 821L,ZB 8509,Coastline Petroleum Transport,Michael Makori,29616795,28000,2,13096,3-Axle Rigid Tanker,ACTIVE
+TRK-0262,KCB 566M,ZH 7822,Coastline Petroleum Transport,Kennedy Ondieki,33764573,32000,3,14278,Semi-Trailer Tanker,ACTIVE
+TRK-0263,KCH 198A,ZL 9967,Lakeside Bulk Carriers,Brian Odhiambo,20676069,36000,3,14903,Semi-Trailer Tanker,ACTIVE
+TRK-0264,KDU 619Q,ZL 2485,Babena Hauliers Kenya,Michael Kimani,27818456,36000,3,14589,Semi-Trailer Tanker,ACTIVE
+TRK-0265,KCF 778W,ZL 5460,Coastline Petroleum Transport,David Njoroge,33015607,28000,2,13111,3-Axle Rigid Tanker,ACTIVE
+TRK-0266,KDA 605T,ZZ 5350,Apex Fuel Movers Ltd,James Maina,31190334,38000,4,15964,Semi-Trailer Tanker,ACTIVE
+TRK-0267,KCV 690Z,ZN 7301,Coastline Petroleum Transport,David Ochieng,23929665,34000,3,14646,Semi-Trailer Tanker,ACTIVE
+TRK-0268,KCL 779E,ZP 8136,Rift Valley Fleet Services,Dennis Kamau,22208874,34000,3,14116,Semi-Trailer Tanker,ACTIVE
+TRK-0269,KBW 839R,ZV 6363,Babena Hauliers Kenya,Charles Maina,23021066,34000,3,14302,Semi-Trailer Tanker,ACTIVE
+TRK-0270,KCS 800V,ZW 4604,Trans-Rift Hauliers Ltd,Joseph Kamau,32240198,36000,3,14944,Semi-Trailer Tanker,ACTIVE
+TRK-0271,KCN 675W,ZB 2058,Rift Valley Fleet Services,Kennedy Kimani,23683147,28000,2,12858,3-Axle Rigid Tanker,ACTIVE
+TRK-0272,KDY 715L,ZU 6989,Multiple Hauliers EA,Daniel Ondieki,32593738,34000,3,14180,Semi-Trailer Tanker,ACTIVE
+TRK-0273,KCE 606K,ZN 1423,Freight Forwarders Kenya Ltd,Anthony Njoroge,32137892,36000,3,14857,Semi-Trailer Tanker,ACTIVE
+TRK-0274,KBU 188J,ZQ 8106,Freight Forwarders Kenya Ltd,John Kimani,31080554,28000,2,13051,3-Axle Rigid Tanker,INACTIVE
+TRK-0275,KBH 938R,ZG 4757,Lakeside Bulk Carriers,James Wanyama,19988529,32000,3,14268,Semi-Trailer Tanker,INACTIVE
+TRK-0276,KCP 618S,ZJ 6728,Freight Forwarders Kenya Ltd,Evans Kiprono,33040758,36000,3,14484,Semi-Trailer Tanker,ACTIVE
+TRK-0277,KBL 151R,ZJ 9762,Continental Cargo Tankers Ltd,Charles Maina,28408075,32000,3,13624,Semi-Trailer Tanker,ACTIVE
+TRK-0278,KDT 722R,ZT 5267,Simba Transporters Ltd,Boniface Ochieng,29689069,32000,3,13701,Semi-Trailer Tanker,ACTIVE
+TRK-0279,KCM 914T,ZW 1249,Siginon Global Logistics,Brian Musyoka,19248903,40000,4,16221,Multi-Compartment B-Double,ACTIVE
+TRK-0280,KBG 980H,ZS 8889,Southern Cross Hauliers,Geoffrey Ondieki,20905690,36000,3,14466,Semi-Trailer Tanker,ACTIVE
+TRK-0281,KBV 546N,ZK 3422,Lakeside Bulk Carriers,Stephen Waweru,28764980,40000,4,15953,Multi-Compartment B-Double,ACTIVE
+TRK-0282,KDN 552X,ZR 3867,Bollore Logistics Kenya,Dennis Ochieng,22968523,34000,3,14396,Semi-Trailer Tanker,ACTIVE
+TRK-0283,KDX 550D,ZV 5923,Bollore Logistics Kenya,Paul Ondieki,26000606,34000,3,14132,Semi-Trailer Tanker,ACTIVE
+TRK-0284,KCR 485Q,ZB 3916,Freight Forwarders Kenya Ltd,Dennis Otieno,22347726,34000,3,14591,Semi-Trailer Tanker,ACTIVE
+TRK-0285,KBU 518X,ZL 4973,Coastline Petroleum Transport,James Kariuki,30481012,40000,4,16445,Multi-Compartment B-Double,ACTIVE
+TRK-0286,KBS 884X,ZU 9813,Afrilink Petroleum Transporters,Joseph Wafula,25387007,40000,4,16098,Multi-Compartment B-Double,ACTIVE
+TRK-0287,KBM 678V,ZN 2133,Trans-Rift Hauliers Ltd,Victor Njoroge,31873118,36000,3,15100,Semi-Trailer Tanker,ACTIVE
+TRK-0288,KBM 402X,ZJ 7183,Bollore Logistics Kenya,Samuel Musyoka,30948889,28000,2,12657,3-Axle Rigid Tanker,ACTIVE
+TRK-0289,KBQ 898J,ZA 2626,Continental Cargo Tankers Ltd,Boniface Wafula,33483633,38000,4,15394,Semi-Trailer Tanker,ACTIVE
+TRK-0290,KCD 463F,ZF 4190,Trans-Rift Hauliers Ltd,Evans Maina,30160990,36000,3,14950,Semi-Trailer Tanker,ACTIVE
+TRK-0291,KDM 861H,ZS 6768,Freight Forwarders Kenya Ltd,John Wanyama,29541323,32000,3,13813,Semi-Trailer Tanker,ACTIVE
+TRK-0292,KBH 709N,ZQ 1200,Simba Transporters Ltd,Joseph Wanyama,33011524,40000,4,16529,Multi-Compartment B-Double,ACTIVE
+TRK-0293,KBH 935M,ZY 9710,Coastline Petroleum Transport,Stephen Odhiambo,28298222,28000,2,13072,3-Axle Rigid Tanker,ACTIVE
+TRK-0294,KDJ 567M,ZQ 9421,Coastline Petroleum Transport,Geoffrey Barasa,31289303,34000,3,14784,Semi-Trailer Tanker,ACTIVE
+TRK-0295,KCQ 867E,ZP 5170,Siginon Global Logistics,Samuel Maina,28677029,36000,3,15092,Semi-Trailer Tanker,ACTIVE
+TRK-0296,KDS 387B,ZY 6476,Multiple Hauliers EA,Anthony Kiprono,26862857,32000,3,14096,Semi-Trailer Tanker,ACTIVE
+TRK-0297,KCQ 470N,ZH 9994,Bollore Logistics Kenya,Daniel Kamau,24676513,34000,3,14248,Semi-Trailer Tanker,ACTIVE
+TRK-0298,KDS 372A,ZG 5016,Lakeside Bulk Carriers,Michael Maina,20113443,28000,2,12862,3-Axle Rigid Tanker,ACTIVE
+TRK-0299,KCA 267Z,ZL 7790,Afrilink Petroleum Transporters,Daniel Kipkorir,29052996,38000,4,15981,Semi-Trailer Tanker,ACTIVE
+TRK-0300,KBQ 198T,ZN 6941,Southern Cross Hauliers,Geoffrey Wanyama,24958009,28000,2,13097,3-Axle Rigid Tanker,ACTIVE
+TRK-0301,KDC 466P,ZR 3593,Coastline Petroleum Transport,Paul Kariuki,30195040,40000,4,15865,Multi-Compartment B-Double,ACTIVE
+TRK-0302,KBE 880C,ZC 5517,Trans-Rift Hauliers Ltd,John Mwangi,22832421,38000,4,15543,Semi-Trailer Tanker,ACTIVE
+TRK-0303,KDM 697A,ZS 2354,Continental Cargo Tankers Ltd,John Odhiambo,24583847,40000,4,16542,Multi-Compartment B-Double,ACTIVE
+TRK-0304,KBJ 489E,ZD 5655,Simba Transporters Ltd,John Kibet,28140918,32000,3,13981,Semi-Trailer Tanker,ACTIVE
+TRK-0305,KBX 424P,ZH 5813,Bollore Logistics Kenya,Dennis Waweru,24517510,36000,3,15181,Semi-Trailer Tanker,ACTIVE
+TRK-0306,KBC 598N,ZR 5469,Simba Transporters Ltd,Samuel Rotich,30114332,28000,2,12738,3-Axle Rigid Tanker,ACTIVE
+TRK-0307,KBF 208N,ZU 8403,Bollore Logistics Kenya,John Waweru,25607979,28000,2,13030,3-Axle Rigid Tanker,ACTIVE
+TRK-0308,KBN 563E,ZE 6148,Southern Cross Hauliers,Patrick Odhiambo,19230038,28000,2,13057,3-Axle Rigid Tanker,ACTIVE
+TRK-0309,KDB 530Q,ZM 2614,Rift Valley Fleet Services,Brian Kariuki,21709458,34000,3,14213,Semi-Trailer Tanker,ACTIVE
+TRK-0310,KBJ 136X,ZK 5028,Simba Transporters Ltd,Paul Njoroge,25298807,34000,3,14061,Semi-Trailer Tanker,ACTIVE
+TRK-0311,KBA 864K,ZZ 5374,Continental Cargo Tankers Ltd,Stephen Barasa,33949019,28000,2,12727,3-Axle Rigid Tanker,ACTIVE
+TRK-0312,KCH 710Z,ZY 5063,Apex Fuel Movers Ltd,David Wafula,19484923,34000,3,14751,Semi-Trailer Tanker,ACTIVE
+TRK-0313,KBY 967S,ZL 7311,Siginon Global Logistics,Francis Kamau,21645261,28000,2,13113,3-Axle Rigid Tanker,ACTIVE
+TRK-0314,KDY 772B,ZF 6689,Lakeside Bulk Carriers,Patrick Kimani,22497772,36000,3,15154,Semi-Trailer Tanker,ACTIVE
+TRK-0315,KBR 877W,ZW 3540,Simba Transporters Ltd,Joseph Maina,23730040,32000,3,14104,Semi-Trailer Tanker,ACTIVE
+TRK-0316,KBU 105M,ZK 8520,Apex Fuel Movers Ltd,Anthony Kimani,20747995,32000,3,14228,Semi-Trailer Tanker,ACTIVE
+TRK-0317,KBR 545N,ZG 6705,Siginon Global Logistics,Evans Kamau,25559857,36000,3,15057,Semi-Trailer Tanker,ACTIVE
+TRK-0318,KDF 828Q,ZU 9518,Babena Hauliers Kenya,Evans Wanyama,30203451,38000,4,15680,Semi-Trailer Tanker,ACTIVE
+TRK-0319,KDT 125H,ZP 6328,Afrilink Petroleum Transporters,Dennis Waweru,23117028,28000,2,13074,3-Axle Rigid Tanker,ACTIVE
+TRK-0320,KBR 861E,ZZ 1318,Coastline Petroleum Transport,Paul Otieno,21719428,40000,4,15859,Multi-Compartment B-Double,ACTIVE
+TRK-0321,KCS 375P,ZK 6365,Babena Hauliers Kenya,Daniel Kipkorir,27812327,40000,4,16351,Multi-Compartment B-Double,ACTIVE
+TRK-0322,KBW 257F,ZM 2516,Freight Forwarders Kenya Ltd,Peter Mwangi,33637113,34000,3,14199,Semi-Trailer Tanker,ACTIVE
+TRK-0323,KDU 558L,ZC 9439,Freight Forwarders Kenya Ltd,Samuel Kamau,21780341,32000,3,13591,Semi-Trailer Tanker,ACTIVE
+TRK-0324,KBP 842D,ZZ 8641,Bollore Logistics Kenya,Charles Rotich,21176746,34000,3,14050,Semi-Trailer Tanker,ACTIVE
+TRK-0325,KBL 837X,ZZ 4871,Bollore Logistics Kenya,James Ondieki,27231667,32000,3,13913,Semi-Trailer Tanker,ACTIVE
+TRK-0326,KBQ 593M,ZB 7211,Southern Cross Hauliers,Brian Rotich,29882853,28000,2,12765,3-Axle Rigid Tanker,ACTIVE
+TRK-0327,KBK 944T,ZW 1686,Freight Forwarders Kenya Ltd,James Otieno,23090796,28000,2,12777,3-Axle Rigid Tanker,ACTIVE
+TRK-0328,KDH 452N,ZX 2149,Afrilink Petroleum Transporters,Joseph Mutua,27405289,28000,2,12844,3-Axle Rigid Tanker,ACTIVE
+TRK-0329,KCD 328C,ZW 6292,Freight Forwarders Kenya Ltd,David Ondieki,30626970,36000,3,15119,Semi-Trailer Tanker,ACTIVE
+TRK-0330,KCL 324P,ZJ 3653,Coastline Petroleum Transport,Victor Mwangi,29978385,38000,4,15907,Semi-Trailer Tanker,ACTIVE
+TRK-0331,KBM 728K,ZC 9857,Babena Hauliers Kenya,Kennedy Maina,31593780,40000,4,15996,Multi-Compartment B-Double,ACTIVE
+TRK-0332,KDK 115U,ZM 1105,Simba Transporters Ltd,Kennedy Otieno,28740856,40000,4,16502,Multi-Compartment B-Double,ACTIVE
+TRK-0333,KDG 219Z,ZT 9732,Simba Transporters Ltd,James Maina,27831579,38000,4,15340,Semi-Trailer Tanker,ACTIVE
+TRK-0334,KCU 543U,ZY 4555,Southern Cross Hauliers,David Kibet,27429338,32000,3,13730,Semi-Trailer Tanker,ACTIVE
+TRK-0335,KBM 286L,ZJ 4448,Babena Hauliers Kenya,Evans Musyoka,24105567,28000,2,12865,3-Axle Rigid Tanker,ACTIVE
+TRK-0336,KBT 943J,ZB 6684,Continental Cargo Tankers Ltd,Geoffrey Kibet,22524561,32000,3,13692,Semi-Trailer Tanker,ACTIVE
+TRK-0337,KDR 641C,ZR 9488,Freight Forwarders Kenya Ltd,Patrick Barasa,26971008,38000,4,15708,Semi-Trailer Tanker,ACTIVE
+TRK-0338,KCF 543D,ZK 8963,Trans-Rift Hauliers Ltd,David Musyoka,27671765,28000,2,12675,3-Axle Rigid Tanker,ACTIVE
+TRK-0339,KBL 922E,ZU 5201,Rift Valley Fleet Services,Charles Odhiambo,30502229,32000,3,14278,Semi-Trailer Tanker,ACTIVE
+TRK-0340,KBF 510T,ZW 6198,Simba Transporters Ltd,George Makori,29689538,32000,3,14203,Semi-Trailer Tanker,ACTIVE
+TRK-0341,KCF 350M,ZL 9503,Rift Valley Fleet Services,Francis Otieno,31840081,32000,3,13677,Semi-Trailer Tanker,ACTIVE
+TRK-0342,KBY 752G,ZW 1271,Lakeside Bulk Carriers,Brian Barasa,19724556,34000,3,14746,Semi-Trailer Tanker,ACTIVE
+TRK-0343,KDR 248Y,ZS 5312,Continental Cargo Tankers Ltd,Victor Rotich,31388959,40000,4,16213,Multi-Compartment B-Double,INACTIVE
+TRK-0344,KCD 591F,ZN 6990,Coastline Petroleum Transport,Victor Rotich,19353676,32000,3,14245,Semi-Trailer Tanker,ACTIVE
+TRK-0345,KCS 285T,ZT 5297,Simba Transporters Ltd,Daniel Odhiambo,23712291,32000,3,13910,Semi-Trailer Tanker,ACTIVE
+TRK-0346,KBF 534N,ZN 9105,Rift Valley Fleet Services,Stephen Kiprono,20382174,36000,3,14783,Semi-Trailer Tanker,ACTIVE
+TRK-0347,KBZ 105U,ZZ 6171,Bollore Logistics Kenya,David Ochieng,25372671,36000,3,14453,Semi-Trailer Tanker,ACTIVE
+TRK-0348,KDT 478X,ZA 5342,Multiple Hauliers EA,Patrick Barasa,20172262,34000,3,14630,Semi-Trailer Tanker,ACTIVE
+TRK-0349,KCB 486Q,ZA 3492,Simba Transporters Ltd,Charles Kipkorir,31851261,32000,3,13856,Semi-Trailer Tanker,ACTIVE
+TRK-0350,KBQ 303N,ZC 1206,Siginon Global Logistics,Samuel Kibet,21809060,28000,2,13039,3-Axle Rigid Tanker,ACTIVE
+TRK-0351,KDB 677N,ZD 9032,Multiple Hauliers EA,Geoffrey Wanyama,30321337,34000,3,14184,Semi-Trailer Tanker,ACTIVE
+TRK-0352,KCS 338W,ZA 5020,Lakeside Bulk Carriers,Geoffrey Mutua,27381099,32000,3,13548,Semi-Trailer Tanker,INACTIVE
+TRK-0353,KDM 873R,ZM 6470,Apex Fuel Movers Ltd,Dennis Wafula,20838923,38000,4,15510,Semi-Trailer Tanker,ACTIVE
+TRK-0354,KDA 961D,ZP 5064,Southern Cross Hauliers,Peter Njoroge,28952185,38000,4,15916,Semi-Trailer Tanker,ACTIVE
+TRK-0355,KDM 685A,ZY 6653,Babena Hauliers Kenya,John Njoroge,19267040,38000,4,15950,Semi-Trailer Tanker,ACTIVE
+TRK-0356,KCK 822N,ZC 7990,Trans-Rift Hauliers Ltd,Anthony Kamau,30402758,32000,3,13569,Semi-Trailer Tanker,ACTIVE
+TRK-0357,KDH 738T,ZP 9495,Simba Transporters Ltd,Daniel Maina,28820232,38000,4,15870,Semi-Trailer Tanker,ACTIVE
+TRK-0358,KDL 396E,ZM 4995,Multiple Hauliers EA,John Kamau,25531694,36000,3,15010,Semi-Trailer Tanker,ACTIVE
+TRK-0359,KDN 473L,ZD 9615,Lakeside Bulk Carriers,Evans Njoroge,20159530,36000,3,15117,Semi-Trailer Tanker,ACTIVE
+TRK-0360,KCQ 735F,ZP 2488,Continental Cargo Tankers Ltd,Peter Rotich,27770717,40000,4,16521,Multi-Compartment B-Double,ACTIVE
+TRK-0361,KCZ 489D,ZR 2108,Multiple Hauliers EA,Geoffrey Mutua,24374489,32000,3,13530,Semi-Trailer Tanker,ACTIVE
+TRK-0362,KCL 757L,ZD 8541,Coastline Petroleum Transport,John Otieno,26737878,28000,2,12682,3-Axle Rigid Tanker,ACTIVE
+TRK-0363,KDX 543N,ZB 3845,Bollore Logistics Kenya,Stephen Njoroge,32287307,38000,4,15899,Semi-Trailer Tanker,ACTIVE
+TRK-0364,KDQ 721J,ZA 8146,Simba Transporters Ltd,Boniface Otieno,28470051,28000,2,12445,3-Axle Rigid Tanker,ACTIVE
+TRK-0365,KDU 159P,ZS 5299,Siginon Global Logistics,Paul Kimani,23367467,34000,3,14390,Semi-Trailer Tanker,ACTIVE
+TRK-0366,KCL 292A,ZW 8909,Bollore Logistics Kenya,Patrick Kimani,27442707,40000,4,16499,Multi-Compartment B-Double,ACTIVE
+TRK-0367,KDF 170H,ZE 5705,Trans-Rift Hauliers Ltd,Samuel Odhiambo,26023404,28000,2,12829,3-Axle Rigid Tanker,ACTIVE
+TRK-0368,KDH 831L,ZA 2414,Afrilink Petroleum Transporters,Patrick Musyoka,20752984,38000,4,15374,Semi-Trailer Tanker,ACTIVE
+TRK-0369,KCR 310X,ZA 6287,Siginon Global Logistics,Paul Rotich,25383781,32000,3,13589,Semi-Trailer Tanker,ACTIVE
+TRK-0370,KCF 681J,ZT 4772,Freight Forwarders Kenya Ltd,Geoffrey Wafula,32397545,28000,2,12997,3-Axle Rigid Tanker,INACTIVE
+TRK-0371,KDC 692A,ZY 6244,Afrilink Petroleum Transporters,Victor Maina,21613417,34000,3,14309,Semi-Trailer Tanker,ACTIVE
+TRK-0372,KDW 939E,ZQ 5531,Babena Hauliers Kenya,Boniface Wanyama,33745961,28000,2,12767,3-Axle Rigid Tanker,ACTIVE
+TRK-0373,KCV 688M,ZE 4928,Freight Forwarders Kenya Ltd,Joseph Rotich,21037352,28000,2,13093,3-Axle Rigid Tanker,ACTIVE
+TRK-0374,KCB 894P,ZQ 4139,Multiple Hauliers EA,Joseph Musyoka,30283158,34000,3,14027,Semi-Trailer Tanker,ACTIVE
+TRK-0375,KBP 351V,ZW 6258,Bollore Logistics Kenya,James Odhiambo,21318531,32000,3,13864,Semi-Trailer Tanker,ACTIVE
+TRK-0376,KDU 265E,ZQ 5254,Apex Fuel Movers Ltd,James Ondieki,28193009,34000,3,14627,Semi-Trailer Tanker,ACTIVE
+TRK-0377,KCL 711Z,ZX 6134,Trans-Rift Hauliers Ltd,Stephen Makori,30275226,40000,4,15964,Multi-Compartment B-Double,ACTIVE
+TRK-0378,KCF 329W,ZR 1689,Apex Fuel Movers Ltd,Francis Barasa,31459289,38000,4,15383,Semi-Trailer Tanker,ACTIVE
+TRK-0379,KCV 410H,ZK 3859,Lakeside Bulk Carriers,Charles Ochieng,23271893,34000,3,14183,Semi-Trailer Tanker,ACTIVE
+TRK-0380,KBZ 796V,ZM 1099,Afrilink Petroleum Transporters,Francis Kipkorir,24912418,36000,3,15129,Semi-Trailer Tanker,ACTIVE
+TRK-0381,KBW 219D,ZP 4799,Southern Cross Hauliers,Geoffrey Wanyama,28806745,36000,3,14413,Semi-Trailer Tanker,ACTIVE
+TRK-0382,KDT 128G,ZU 6063,Rift Valley Fleet Services,Joseph Ochieng,29515678,32000,3,13590,Semi-Trailer Tanker,ACTIVE
+TRK-0383,KBB 401D,ZB 9438,Rift Valley Fleet Services,George Odhiambo,21696213,32000,3,13686,Semi-Trailer Tanker,ACTIVE
+TRK-0384,KDF 371G,ZE 5827,Coastline Petroleum Transport,Joseph Kipkorir,32152294,28000,2,12764,3-Axle Rigid Tanker,ACTIVE
+TRK-0385,KDB 476W,ZG 1149,Afrilink Petroleum Transporters,Francis Kimani,32760134,34000,3,14151,Semi-Trailer Tanker,ACTIVE
+TRK-0386,KCP 681X,ZH 5591,Southern Cross Hauliers,George Kipkorir,20918583,38000,4,15379,Semi-Trailer Tanker,ACTIVE
+TRK-0387,KCP 707D,ZQ 1230,Trans-Rift Hauliers Ltd,Joseph Wafula,23314991,40000,4,16371,Multi-Compartment B-Double,ACTIVE
+TRK-0388,KBU 807N,ZH 9917,Multiple Hauliers EA,James Kariuki,26604450,34000,3,14067,Semi-Trailer Tanker,ACTIVE
+TRK-0389,KBJ 636Z,ZV 8929,Trans-Rift Hauliers Ltd,Charles Musyoka,32004430,32000,3,13728,Semi-Trailer Tanker,ACTIVE
+TRK-0390,KCC 292Q,ZQ 7162,Afrilink Petroleum Transporters,Michael Njoroge,20204616,38000,4,15418,Semi-Trailer Tanker,ACTIVE
+TRK-0391,KCV 367C,ZW 1979,Afrilink Petroleum Transporters,George Kimani,30447608,36000,3,14605,Semi-Trailer Tanker,ACTIVE
+TRK-0392,KDR 805J,ZW 2454,Rift Valley Fleet Services,George Odhiambo,28490810,38000,4,15893,Semi-Trailer Tanker,ACTIVE
+TRK-0393,KBS 110C,ZF 7502,Babena Hauliers Kenya,Michael Mutua,19949317,34000,3,14552,Semi-Trailer Tanker,ACTIVE
+TRK-0394,KBT 807W,ZD 5497,Lakeside Bulk Carriers,Joseph Kiprono,20183337,28000,2,12828,3-Axle Rigid Tanker,ACTIVE
+TRK-0395,KBX 781M,ZW 6818,Multiple Hauliers EA,Daniel Wafula,26382163,36000,3,14931,Semi-Trailer Tanker,ACTIVE
+TRK-0396,KBK 446J,ZL 4587,Continental Cargo Tankers Ltd,Charles Njoroge,22210379,34000,3,14779,Semi-Trailer Tanker,ACTIVE
+TRK-0397,KBM 265M,ZC 1706,Afrilink Petroleum Transporters,Paul Ondieki,21760772,36000,3,15156,Semi-Trailer Tanker,ACTIVE
+TRK-0398,KCG 965N,ZP 5268,Lakeside Bulk Carriers,Dennis Njoroge,27390007,36000,3,14764,Semi-Trailer Tanker,ACTIVE
+TRK-0399,KDR 693Q,ZF 9976,Multiple Hauliers EA,Daniel Wafula,28348244,28000,2,12856,3-Axle Rigid Tanker,ACTIVE
+TRK-0400,KDC 761S,ZC 8371,Continental Cargo Tankers Ltd,George Kibet,21294441,28000,2,12641,3-Axle Rigid Tanker,ACTIVE
+TRK-0401,KBA 283N,ZD 3620,Siginon Global Logistics,Kennedy Kamau,29118760,34000,3,14683,Semi-Trailer Tanker,ACTIVE
+TRK-0402,KCJ 439P,ZW 7540,Babena Hauliers Kenya,Charles Otieno,32377273,38000,4,15593,Semi-Trailer Tanker,ACTIVE
+TRK-0403,KDV 344S,ZK 5908,Rift Valley Fleet Services,Charles Waweru,26160975,34000,3,14210,Semi-Trailer Tanker,ACTIVE
+TRK-0404,KBU 551T,ZZ 4805,Simba Transporters Ltd,James Odhiambo,27202230,36000,3,14716,Semi-Trailer Tanker,ACTIVE
+TRK-0405,KDU 660Y,ZA 2987,Continental Cargo Tankers Ltd,Samuel Ondieki,32809004,38000,4,15228,Semi-Trailer Tanker,ACTIVE
+TRK-0406,KCM 912T,ZU 3676,Bollore Logistics Kenya,Charles Rotich,33540773,28000,2,12504,3-Axle Rigid Tanker,ACTIVE
+TRK-0407,KDT 565F,ZN 6241,Multiple Hauliers EA,Michael Wafula,22451829,40000,4,15835,Multi-Compartment B-Double,ACTIVE
+TRK-0408,KBT 532L,ZY 7618,Multiple Hauliers EA,Joseph Wafula,30467362,38000,4,15455,Semi-Trailer Tanker,INACTIVE
+TRK-0409,KCN 975W,ZN 9092,Siginon Global Logistics,Patrick Kiprono,26685532,28000,2,12673,3-Axle Rigid Tanker,ACTIVE
+TRK-0410,KDB 134E,ZS 2995,Lakeside Bulk Carriers,George Musyoka,20336404,32000,3,14038,Semi-Trailer Tanker,ACTIVE
+TRK-0411,KCZ 175N,ZJ 1772,Trans-Rift Hauliers Ltd,Brian Barasa,32464472,34000,3,14195,Semi-Trailer Tanker,ACTIVE
+TRK-0412,KDR 880D,ZD 7834,Babena Hauliers Kenya,George Njoroge,32970020,36000,3,14505,Semi-Trailer Tanker,ACTIVE
+TRK-0413,KCE 561W,ZU 4602,Apex Fuel Movers Ltd,Dennis Mutua,23442290,36000,3,14958,Semi-Trailer Tanker,ACTIVE
+TRK-0414,KCV 219Q,ZG 9183,Rift Valley Fleet Services,Boniface Barasa,27383255,40000,4,16263,Multi-Compartment B-Double,ACTIVE
+TRK-0415,KBQ 673A,ZF 7454,Lakeside Bulk Carriers,James Waweru,24767370,40000,4,16124,Multi-Compartment B-Double,ACTIVE
+TRK-0416,KCZ 635S,ZQ 5424,Simba Transporters Ltd,George Kamau,21160610,28000,2,13174,3-Axle Rigid Tanker,ACTIVE
+TRK-0417,KDU 256F,ZH 7362,Coastline Petroleum Transport,Daniel Kariuki,31418464,38000,4,15634,Semi-Trailer Tanker,ACTIVE
+TRK-0418,KDQ 931E,ZU 1709,Afrilink Petroleum Transporters,Joseph Musyoka,25141816,32000,3,14041,Semi-Trailer Tanker,ACTIVE
+TRK-0419,KCX 297F,ZC 3032,Rift Valley Fleet Services,Samuel Mutua,25643237,28000,2,13110,3-Axle Rigid Tanker,ACTIVE
+TRK-0420,KDP 758P,ZG 4038,Coastline Petroleum Transport,Patrick Maina,23216232,40000,4,15872,Multi-Compartment B-Double,ACTIVE
+TRK-0421,KBL 180W,ZM 6292,Southern Cross Hauliers,David Rotich,22137877,28000,2,12890,3-Axle Rigid Tanker,ACTIVE
+TRK-0422,KDC 213X,ZU 9999,Rift Valley Fleet Services,Paul Wafula,27343321,32000,3,13768,Semi-Trailer Tanker,INACTIVE
+TRK-0423,KBD 518C,ZU 1897,Coastline Petroleum Transport,Brian Kibet,33129602,34000,3,14164,Semi-Trailer Tanker,ACTIVE
+TRK-0424,KCV 227K,ZF 9901,Lakeside Bulk Carriers,Dennis Kamau,28544854,28000,2,12507,3-Axle Rigid Tanker,ACTIVE
+TRK-0425,KDW 936C,ZX 4827,Trans-Rift Hauliers Ltd,Victor Otieno,30401483,32000,3,14262,Semi-Trailer Tanker,ACTIVE
+TRK-0426,KDA 920S,ZU 1268,Babena Hauliers Kenya,Stephen Musyoka,24866397,38000,4,15797,Semi-Trailer Tanker,ACTIVE
+TRK-0427,KBQ 297T,ZY 5246,Lakeside Bulk Carriers,John Maina,24465889,32000,3,14130,Semi-Trailer Tanker,ACTIVE
+TRK-0428,KCS 705L,ZG 8863,Southern Cross Hauliers,Joseph Wanyama,25221124,38000,4,15230,Semi-Trailer Tanker,ACTIVE
+TRK-0429,KBL 948D,ZU 1513,Lakeside Bulk Carriers,Peter Ochieng,26017234,32000,3,13775,Semi-Trailer Tanker,ACTIVE
+TRK-0430,KDN 585M,ZD 6668,Trans-Rift Hauliers Ltd,Brian Ondieki,29630430,34000,3,14449,Semi-Trailer Tanker,ACTIVE
+TRK-0431,KCZ 159P,ZA 8091,Trans-Rift Hauliers Ltd,David Mwangi,19932625,38000,4,15892,Semi-Trailer Tanker,ACTIVE
+TRK-0432,KDB 918W,ZN 4404,Afrilink Petroleum Transporters,Victor Wanyama,21492874,36000,3,14865,Semi-Trailer Tanker,ACTIVE
+TRK-0433,KCB 608K,ZW 7544,Southern Cross Hauliers,George Waweru,31288076,36000,3,14930,Semi-Trailer Tanker,ACTIVE
+TRK-0434,KCE 580U,ZM 3698,Lakeside Bulk Carriers,Victor Kamau,27119672,36000,3,14866,Semi-Trailer Tanker,ACTIVE
+TRK-0435,KBW 601Z,ZU 2374,Multiple Hauliers EA,Samuel Waweru,21941026,34000,3,14683,Semi-Trailer Tanker,ACTIVE
+TRK-0436,KCD 711A,ZY 8323,Siginon Global Logistics,Francis Musyoka,20168680,32000,3,13989,Semi-Trailer Tanker,ACTIVE
+TRK-0437,KCB 911W,ZW 4038,Freight Forwarders Kenya Ltd,Patrick Otieno,29200876,34000,3,14662,Semi-Trailer Tanker,INACTIVE
+TRK-0438,KDJ 946P,ZY 6208,Lakeside Bulk Carriers,John Kariuki,24494393,36000,3,14401,Semi-Trailer Tanker,ACTIVE
+TRK-0439,KDC 749S,ZX 6536,Babena Hauliers Kenya,Joseph Njoroge,25969577,32000,3,13598,Semi-Trailer Tanker,ACTIVE
+TRK-0440,KBB 402E,ZA 1252,Freight Forwarders Kenya Ltd,Daniel Kamau,28540313,28000,2,12900,3-Axle Rigid Tanker,ACTIVE
+TRK-0441,KDR 526C,ZF 9691,Coastline Petroleum Transport,Samuel Kibet,22838623,40000,4,16241,Multi-Compartment B-Double,ACTIVE
+TRK-0442,KDF 542A,ZM 5284,Multiple Hauliers EA,Paul Wanyama,30505433,38000,4,15276,Semi-Trailer Tanker,ACTIVE
+TRK-0443,KDS 487Q,ZT 9596,Afrilink Petroleum Transporters,Dennis Kipkorir,23814646,32000,3,13787,Semi-Trailer Tanker,ACTIVE
+TRK-0444,KDX 612W,ZT 9383,Apex Fuel Movers Ltd,Geoffrey Makori,26749083,36000,3,15172,Semi-Trailer Tanker,ACTIVE
+TRK-0445,KBM 199B,ZT 1775,Continental Cargo Tankers Ltd,James Kipkorir,21430352,38000,4,15980,Semi-Trailer Tanker,ACTIVE
+TRK-0446,KDN 460N,ZB 6430,Rift Valley Fleet Services,Paul Ochieng,33022041,28000,2,13090,3-Axle Rigid Tanker,ACTIVE
+TRK-0447,KCS 208N,ZP 7578,Babena Hauliers Kenya,Patrick Ochieng,26418293,28000,2,12841,3-Axle Rigid Tanker,ACTIVE
+TRK-0448,KCC 429U,ZM 7238,Bollore Logistics Kenya,Charles Barasa,20956571,32000,3,13835,Semi-Trailer Tanker,ACTIVE
+TRK-0449,KCY 945S,ZY 1278,Rift Valley Fleet Services,Patrick Makori,33520000,32000,3,13564,Semi-Trailer Tanker,ACTIVE
+TRK-0450,KCY 777B,ZM 4865,Siginon Global Logistics,Paul Njoroge,33563673,34000,3,14762,Semi-Trailer Tanker,INACTIVE
+TRK-0451,KDC 596G,ZV 1738,Siginon Global Logistics,Peter Kariuki,26290407,40000,4,16522,Multi-Compartment B-Double,ACTIVE
+TRK-0452,KCQ 902S,ZX 5686,Afrilink Petroleum Transporters,David Maina,24079361,28000,2,13168,3-Axle Rigid Tanker,ACTIVE
+TRK-0453,KCY 874A,ZH 7696,Siginon Global Logistics,Joseph Otieno,21597890,36000,3,14407,Semi-Trailer Tanker,ACTIVE
+TRK-0454,KCQ 491V,ZS 6793,Southern Cross Hauliers,Samuel Waweru,28351973,34000,3,14100,Semi-Trailer Tanker,ACTIVE
+TRK-0455,KBB 587H,ZE 1376,Babena Hauliers Kenya,David Makori,28141384,40000,4,15827,Multi-Compartment B-Double,ACTIVE
+TRK-0456,KDX 848S,ZF 6190,Lakeside Bulk Carriers,John Makori,23942373,38000,4,15361,Semi-Trailer Tanker,ACTIVE
+TRK-0457,KBX 806J,ZP 7460,Continental Cargo Tankers Ltd,James Rotich,20907688,28000,2,13108,3-Axle Rigid Tanker,ACTIVE
+TRK-0458,KDZ 517R,ZE 2102,Afrilink Petroleum Transporters,Peter Wanyama,19592245,38000,4,15985,Semi-Trailer Tanker,INACTIVE
+TRK-0459,KCT 684K,ZU 8004,Bollore Logistics Kenya,James Kamau,23720723,28000,2,12749,3-Axle Rigid Tanker,ACTIVE
+TRK-0460,KDN 791X,ZR 6088,Afrilink Petroleum Transporters,Paul Rotich,24124412,40000,4,16056,Multi-Compartment B-Double,ACTIVE
+TRK-0461,KDP 528V,ZF 2932,Lakeside Bulk Carriers,Victor Wanyama,23828188,36000,3,14901,Semi-Trailer Tanker,ACTIVE
+TRK-0462,KBM 647W,ZX 4137,Continental Cargo Tankers Ltd,George Wanyama,30159118,34000,3,14483,Semi-Trailer Tanker,ACTIVE
+TRK-0463,KDH 912N,ZX 5432,Multiple Hauliers EA,Geoffrey Kipkorir,32023859,32000,3,13593,Semi-Trailer Tanker,ACTIVE
+TRK-0464,KDQ 183R,ZX 5617,Freight Forwarders Kenya Ltd,Charles Rotich,19268351,34000,3,14398,Semi-Trailer Tanker,ACTIVE
+TRK-0465,KDX 486S,ZK 4438,Rift Valley Fleet Services,Francis Ondieki,26185369,36000,3,14893,Semi-Trailer Tanker,ACTIVE
+TRK-0466,KCL 935L,ZS 1723,Lakeside Bulk Carriers,Michael Odhiambo,32018292,32000,3,13671,Semi-Trailer Tanker,INACTIVE
+TRK-0467,KCW 378M,ZL 9677,Southern Cross Hauliers,Charles Mutua,23277863,32000,3,13585,Semi-Trailer Tanker,ACTIVE
+TRK-0468,KBB 601T,ZS 1956,Afrilink Petroleum Transporters,Kennedy Barasa,29699946,32000,3,13547,Semi-Trailer Tanker,ACTIVE
+TRK-0469,KDY 983C,ZE 8419,Continental Cargo Tankers Ltd,Kennedy Kimani,24467467,32000,3,13942,Semi-Trailer Tanker,ACTIVE
+TRK-0470,KDV 898M,ZR 9022,Babena Hauliers Kenya,Charles Odhiambo,29257556,38000,4,15871,Semi-Trailer Tanker,ACTIVE
+TRK-0471,KBB 253J,ZX 2466,Trans-Rift Hauliers Ltd,Michael Kimani,25431531,32000,3,14108,Semi-Trailer Tanker,ACTIVE
+TRK-0472,KBR 415S,ZY 6417,Lakeside Bulk Carriers,Anthony Kamau,26900158,34000,3,14096,Semi-Trailer Tanker,ACTIVE
+TRK-0473,KBC 691K,ZV 8653,Coastline Petroleum Transport,Stephen Barasa,31074923,40000,4,16038,Multi-Compartment B-Double,ACTIVE
+TRK-0474,KDN 729M,ZD 6471,Afrilink Petroleum Transporters,Paul Kimani,27054428,40000,4,16517,Multi-Compartment B-Double,ACTIVE
+TRK-0475,KBD 949V,ZK 9616,Rift Valley Fleet Services,Joseph Rotich,28047286,38000,4,15370,Semi-Trailer Tanker,ACTIVE
+TRK-0476,KCH 476P,ZK 9302,Southern Cross Hauliers,John Musyoka,29808834,40000,4,16210,Multi-Compartment B-Double,ACTIVE
+TRK-0477,KCF 985D,ZA 3073,Southern Cross Hauliers,George Kiprono,22429060,36000,3,14924,Semi-Trailer Tanker,ACTIVE
+TRK-0478,KCR 972Z,ZS 9376,Trans-Rift Hauliers Ltd,John Kimani,30003118,34000,3,14246,Semi-Trailer Tanker,ACTIVE
+TRK-0479,KDM 572N,ZD 8587,Coastline Petroleum Transport,Charles Kamau,21775481,36000,3,14743,Semi-Trailer Tanker,ACTIVE
+TRK-0480,KCG 334U,ZF 8250,Trans-Rift Hauliers Ltd,Joseph Mwangi,28317607,38000,4,15837,Semi-Trailer Tanker,ACTIVE
+TRK-0481,KCD 556N,ZP 9265,Simba Transporters Ltd,Brian Rotich,19042855,32000,3,14071,Semi-Trailer Tanker,INACTIVE
+TRK-0482,KDS 285Y,ZR 2336,Babena Hauliers Kenya,Evans Kipkorir,26879382,32000,3,13675,Semi-Trailer Tanker,ACTIVE
+TRK-0483,KCD 954V,ZQ 9473,Afrilink Petroleum Transporters,Geoffrey Mwangi,31070377,32000,3,13877,Semi-Trailer Tanker,ACTIVE
+TRK-0484,KCS 418P,ZN 6227,Babena Hauliers Kenya,Kennedy Mwangi,19815693,36000,3,14944,Semi-Trailer Tanker,ACTIVE
+TRK-0485,KBA 397C,ZH 2307,Southern Cross Hauliers,Victor Kipkorir,28377922,40000,4,15859,Multi-Compartment B-Double,ACTIVE
+TRK-0486,KDD 322E,ZV 6764,Multiple Hauliers EA,Brian Wafula,20998177,36000,3,14874,Semi-Trailer Tanker,ACTIVE
+TRK-0487,KCA 200W,ZV 3369,Afrilink Petroleum Transporters,Stephen Musyoka,26015216,38000,4,15665,Semi-Trailer Tanker,ACTIVE
+TRK-0488,KCY 490T,ZX 2936,Afrilink Petroleum Transporters,Joseph Wanyama,19826512,28000,2,12419,3-Axle Rigid Tanker,ACTIVE
+TRK-0489,KCS 923C,ZE 5237,Freight Forwarders Kenya Ltd,Stephen Kariuki,32735453,38000,4,15437,Semi-Trailer Tanker,ACTIVE
+TRK-0490,KCG 541V,ZG 7663,Afrilink Petroleum Transporters,David Maina,23753252,36000,3,15044,Semi-Trailer Tanker,ACTIVE
+TRK-0491,KCV 279T,ZB 1816,Rift Valley Fleet Services,Francis Ondieki,27865895,32000,3,14199,Semi-Trailer Tanker,ACTIVE
+TRK-0492,KDE 484H,ZJ 3101,Babena Hauliers Kenya,Boniface Barasa,19453828,32000,3,14128,Semi-Trailer Tanker,ACTIVE
+TRK-0493,KCM 353C,ZX 5935,Siginon Global Logistics,Joseph Ochieng,28135247,28000,2,12957,3-Axle Rigid Tanker,ACTIVE
+TRK-0494,KDT 131G,ZQ 9350,Siginon Global Logistics,Samuel Kiprono,24651453,36000,3,14466,Semi-Trailer Tanker,ACTIVE
+TRK-0495,KCB 203Y,ZR 6626,Apex Fuel Movers Ltd,Victor Wanyama,31931875,40000,4,16325,Multi-Compartment B-Double,ACTIVE
+TRK-0496,KBD 112A,ZG 1316,Simba Transporters Ltd,David Ondieki,25141212,38000,4,15436,Semi-Trailer Tanker,ACTIVE
+TRK-0497,KDY 533C,ZW 2943,Lakeside Bulk Carriers,Michael Barasa,20311403,40000,4,16117,Multi-Compartment B-Double,ACTIVE
+TRK-0498,KCN 304Z,ZY 9900,Babena Hauliers Kenya,Brian Maina,30044582,32000,3,13831,Semi-Trailer Tanker,ACTIVE
+TRK-0499,KBC 139H,ZB 8194,Lakeside Bulk Carriers,Victor Makori,22481587,28000,2,12596,3-Axle Rigid Tanker,ACTIVE
+TRK-0500,KDP 722M,ZG 6237,Babena Hauliers Kenya,John Ondieki,20705842,40000,4,15807,Multi-Compartment B-Double,ACTIVE
+TRK-0501,KDV 171S,ZR 9271,Coastline Petroleum Transport,Evans Makori,29087167,34000,3,14337,Semi-Trailer Tanker,ACTIVE
+TRK-0502,KCA 458F,ZQ 4939,Afrilink Petroleum Transporters,Kennedy Musyoka,29939195,38000,4,15734,Semi-Trailer Tanker,ACTIVE
+TRK-0503,KBU 891J,ZW 6852,Continental Cargo Tankers Ltd,Daniel Makori,29976110,36000,3,14868,Semi-Trailer Tanker,ACTIVE
+TRK-0504,KCE 712P,ZT 6465,Rift Valley Fleet Services,Patrick Kiprono,33009613,40000,4,15971,Multi-Compartment B-Double,ACTIVE
+TRK-0505,KCG 251W,ZD 5494,Coastline Petroleum Transport,Brian Kimani,25628653,34000,3,14112,Semi-Trailer Tanker,ACTIVE
+TRK-0506,KCC 748H,ZG 3866,Coastline Petroleum Transport,Patrick Musyoka,33965170,32000,3,14042,Semi-Trailer Tanker,ACTIVE
+TRK-0507,KCQ 121C,ZK 5588,Freight Forwarders Kenya Ltd,Evans Kiprono,28742585,36000,3,14590,Semi-Trailer Tanker,ACTIVE
+TRK-0508,KDS 402Z,ZQ 2584,Apex Fuel Movers Ltd,Victor Wafula,23049681,40000,4,15860,Multi-Compartment B-Double,ACTIVE
+TRK-0509,KBK 440Q,ZC 6551,Continental Cargo Tankers Ltd,Samuel Wanyama,33899625,38000,4,15582,Semi-Trailer Tanker,ACTIVE
+TRK-0510,KCX 616U,ZK 6722,Southern Cross Hauliers,Samuel Otieno,32751488,40000,4,16450,Multi-Compartment B-Double,ACTIVE
+TRK-0511,KCS 943P,ZW 1372,Babena Hauliers Kenya,Peter Njoroge,33264732,40000,4,16196,Multi-Compartment B-Double,ACTIVE
+TRK-0512,KDV 407T,ZR 8425,Simba Transporters Ltd,Dennis Wanyama,30354585,40000,4,15912,Multi-Compartment B-Double,ACTIVE
+TRK-0513,KBE 968L,ZT 7516,Trans-Rift Hauliers Ltd,Peter Ondieki,20274191,28000,2,12804,3-Axle Rigid Tanker,INACTIVE
+TRK-0514,KCH 287F,ZG 8391,Multiple Hauliers EA,Francis Njoroge,30628514,28000,2,12567,3-Axle Rigid Tanker,ACTIVE
+TRK-0515,KBE 293M,ZL 7988,Afrilink Petroleum Transporters,Boniface Kiprono,33432425,40000,4,15934,Multi-Compartment B-Double,ACTIVE
+TRK-0516,KBL 364T,ZA 8342,Simba Transporters Ltd,Charles Kimani,33418446,38000,4,15882,Semi-Trailer Tanker,ACTIVE
+TRK-0517,KCF 672A,ZN 4518,Siginon Global Logistics,Geoffrey Makori,19657314,38000,4,15511,Semi-Trailer Tanker,ACTIVE
+TRK-0518,KCK 827Y,ZV 2071,Multiple Hauliers EA,Peter Kiprono,30649379,38000,4,15780,Semi-Trailer Tanker,ACTIVE
+TRK-0519,KBV 140Z,ZL 6684,Trans-Rift Hauliers Ltd,Boniface Kipkorir,27063209,38000,4,15692,Semi-Trailer Tanker,ACTIVE
+TRK-0520,KDT 931A,ZF 9249,Continental Cargo Tankers Ltd,Daniel Kariuki,20086378,32000,3,13750,Semi-Trailer Tanker,ACTIVE
+TRK-0521,KDA 883C,ZZ 3099,Continental Cargo Tankers Ltd,Stephen Musyoka,26451674,40000,4,16372,Multi-Compartment B-Double,ACTIVE
+TRK-0522,KBQ 133F,ZX 5110,Coastline Petroleum Transport,John Kamau,32027051,28000,2,12636,3-Axle Rigid Tanker,ACTIVE
+TRK-0523,KBF 988T,ZH 4994,Afrilink Petroleum Transporters,Boniface Wanyama,20376844,40000,4,16366,Multi-Compartment B-Double,ACTIVE
+TRK-0524,KDK 780G,ZL 1157,Lakeside Bulk Carriers,Dennis Kibet,24278038,32000,3,13655,Semi-Trailer Tanker,ACTIVE
+TRK-0525,KBF 460B,ZC 6781,Siginon Global Logistics,Peter Wanyama,29929376,36000,3,14875,Semi-Trailer Tanker,ACTIVE
+TRK-0526,KBX 647M,ZN 8440,Southern Cross Hauliers,Evans Maina,20813836,40000,4,15999,Multi-Compartment B-Double,ACTIVE
+TRK-0527,KDG 101W,ZD 3336,Afrilink Petroleum Transporters,Anthony Waweru,31586056,28000,2,12979,3-Axle Rigid Tanker,ACTIVE
+TRK-0528,KDE 467A,ZB 6362,Simba Transporters Ltd,John Waweru,23628386,36000,3,14526,Semi-Trailer Tanker,ACTIVE
+TRK-0529,KBH 559Q,ZL 8007,Rift Valley Fleet Services,David Wafula,32970783,36000,3,15196,Semi-Trailer Tanker,ACTIVE
+TRK-0530,KBW 983N,ZF 3170,Freight Forwarders Kenya Ltd,Evans Waweru,29855896,36000,3,15008,Semi-Trailer Tanker,ACTIVE
+TRK-0531,KCB 926W,ZE 1982,Babena Hauliers Kenya,Geoffrey Ochieng,31585787,40000,4,16285,Multi-Compartment B-Double,ACTIVE
+TRK-0532,KBA 513V,ZK 6565,Afrilink Petroleum Transporters,Francis Barasa,30916472,34000,3,14581,Semi-Trailer Tanker,ACTIVE
+TRK-0533,KDR 325B,ZX 5878,Apex Fuel Movers Ltd,Peter Barasa,20899509,28000,2,12976,3-Axle Rigid Tanker,ACTIVE
+TRK-0534,KBZ 148Y,ZU 1531,Trans-Rift Hauliers Ltd,Michael Barasa,32753688,40000,4,16504,Multi-Compartment B-Double,ACTIVE
+TRK-0535,KCZ 987C,ZS 6612,Lakeside Bulk Carriers,Samuel Kamau,22116444,32000,3,14295,Semi-Trailer Tanker,ACTIVE
+TRK-0536,KCX 213L,ZK 6632,Bollore Logistics Kenya,Boniface Barasa,29498871,34000,3,14671,Semi-Trailer Tanker,ACTIVE
+TRK-0537,KCH 880D,ZT 1571,Afrilink Petroleum Transporters,Stephen Ochieng,28777381,40000,4,16412,Multi-Compartment B-Double,ACTIVE
+TRK-0538,KDJ 987Z,ZA 3598,Lakeside Bulk Carriers,James Kipkorir,19925996,28000,2,12955,3-Axle Rigid Tanker,INACTIVE
+TRK-0539,KBR 904K,ZC 9049,Babena Hauliers Kenya,Kennedy Wanyama,33968697,40000,4,16097,Multi-Compartment B-Double,ACTIVE
+TRK-0540,KCT 997T,ZT 6247,Southern Cross Hauliers,Daniel Musyoka,28823051,40000,4,16376,Multi-Compartment B-Double,ACTIVE
+TRK-0541,KBZ 310Y,ZF 6138,Trans-Rift Hauliers Ltd,George Kariuki,20733768,40000,4,15842,Multi-Compartment B-Double,ACTIVE
+TRK-0542,KBE 460R,ZY 1649,Rift Valley Fleet Services,David Mwangi,24828070,28000,2,12900,3-Axle Rigid Tanker,ACTIVE
+TRK-0543,KCY 436E,ZV 5239,Rift Valley Fleet Services,Paul Kariuki,25364926,28000,2,13184,3-Axle Rigid Tanker,ACTIVE
+TRK-0544,KCY 741A,ZT 1749,Lakeside Bulk Carriers,Anthony Kipkorir,21257876,28000,2,13134,3-Axle Rigid Tanker,ACTIVE
+TRK-0545,KCR 926U,ZQ 7429,Rift Valley Fleet Services,Geoffrey Odhiambo,22300436,34000,3,14138,Semi-Trailer Tanker,ACTIVE
+TRK-0546,KBN 566U,ZD 2897,Freight Forwarders Kenya Ltd,Francis Kimani,28778684,36000,3,15092,Semi-Trailer Tanker,ACTIVE
+TRK-0547,KDF 944B,ZU 7048,Siginon Global Logistics,Paul Waweru,23066902,38000,4,15978,Semi-Trailer Tanker,ACTIVE
+TRK-0548,KDC 748L,ZM 4854,Siginon Global Logistics,Patrick Mutua,33944858,40000,4,16121,Multi-Compartment B-Double,ACTIVE
+TRK-0549,KDE 690E,ZL 9473,Rift Valley Fleet Services,George Ondieki,30216179,28000,2,13185,3-Axle Rigid Tanker,INACTIVE
+TRK-0550,KBN 243N,ZN 9913,Babena Hauliers Kenya,Francis Ochieng,22742166,28000,2,13196,3-Axle Rigid Tanker,ACTIVE
+TRK-0551,KDZ 841K,ZX 1114,Multiple Hauliers EA,Brian Mutua,24877030,36000,3,14468,Semi-Trailer Tanker,ACTIVE
+TRK-0552,KCM 839C,ZX 5025,Coastline Petroleum Transport,Samuel Kariuki,29857473,34000,3,14705,Semi-Trailer Tanker,ACTIVE
+TRK-0553,KCL 424P,ZM 7526,Multiple Hauliers EA,David Mutua,32919679,28000,2,13094,3-Axle Rigid Tanker,ACTIVE
+TRK-0554,KBW 906W,ZT 8742,Bollore Logistics Kenya,Kennedy Wanyama,24362999,36000,3,14726,Semi-Trailer Tanker,ACTIVE
+TRK-0555,KBM 394J,ZS 4372,Lakeside Bulk Carriers,Paul Wafula,22695004,40000,4,16429,Multi-Compartment B-Double,ACTIVE
+TRK-0556,KDM 532T,ZB 7248,Apex Fuel Movers Ltd,Kennedy Otieno,23023604,36000,3,14915,Semi-Trailer Tanker,ACTIVE
+TRK-0557,KDX 544F,ZA 3816,Freight Forwarders Kenya Ltd,Geoffrey Kipkorir,33039889,28000,2,13043,3-Axle Rigid Tanker,ACTIVE
+TRK-0558,KDM 508K,ZN 6887,Afrilink Petroleum Transporters,Victor Musyoka,27769707,32000,3,13626,Semi-Trailer Tanker,ACTIVE
+TRK-0559,KCG 423R,ZD 7652,Freight Forwarders Kenya Ltd,Peter Otieno,24983564,38000,4,15913,Semi-Trailer Tanker,ACTIVE
+TRK-0560,KBA 242J,ZL 9044,Bollore Logistics Kenya,Anthony Wanyama,32679228,40000,4,16245,Multi-Compartment B-Double,ACTIVE
+TRK-0561,KDP 807S,ZM 4390,Trans-Rift Hauliers Ltd,Michael Ochieng,23467131,38000,4,15329,Semi-Trailer Tanker,ACTIVE
+TRK-0562,KCP 251X,ZM 8863,Southern Cross Hauliers,Paul Kibet,25447762,34000,3,14415,Semi-Trailer Tanker,ACTIVE
+TRK-0563,KBW 442G,ZX 4579,Babena Hauliers Kenya,Joseph Mwangi,19205066,28000,2,12739,3-Axle Rigid Tanker,ACTIVE
+TRK-0564,KDM 269A,ZF 2033,Coastline Petroleum Transport,Boniface Ondieki,27256264,38000,4,15599,Semi-Trailer Tanker,ACTIVE
+TRK-0565,KCX 680L,ZE 1911,Babena Hauliers Kenya,Peter Kariuki,31999729,32000,3,14268,Semi-Trailer Tanker,ACTIVE
+TRK-0566,KBV 201F,ZG 7820,Rift Valley Fleet Services,Francis Kipkorir,25963707,40000,4,16529,Multi-Compartment B-Double,ACTIVE
+TRK-0567,KDQ 230Q,ZD 7740,Lakeside Bulk Carriers,David Ochieng,29472449,40000,4,16208,Multi-Compartment B-Double,ACTIVE
+TRK-0568,KBE 800S,ZA 9297,Siginon Global Logistics,Dennis Rotich,31989484,34000,3,14166,Semi-Trailer Tanker,ACTIVE
+TRK-0569,KDJ 110T,ZX 4593,Siginon Global Logistics,Dennis Wanyama,25604899,38000,4,15909,Semi-Trailer Tanker,ACTIVE
+TRK-0570,KBH 540E,ZG 2670,Coastline Petroleum Transport,Kennedy Makori,22759246,28000,2,12845,3-Axle Rigid Tanker,ACTIVE
+TRK-0571,KCD 359B,ZH 6194,Freight Forwarders Kenya Ltd,Kennedy Mutua,24299198,38000,4,15343,Semi-Trailer Tanker,ACTIVE
+TRK-0572,KBN 350Z,ZU 4933,Coastline Petroleum Transport,Kennedy Ondieki,32547986,28000,2,12625,3-Axle Rigid Tanker,ACTIVE
+TRK-0573,KBC 266Q,ZS 7334,Rift Valley Fleet Services,James Barasa,22827983,38000,4,15542,Semi-Trailer Tanker,ACTIVE
+TRK-0574,KDJ 527P,ZQ 3674,Apex Fuel Movers Ltd,Paul Rotich,27323748,32000,3,13625,Semi-Trailer Tanker,ACTIVE
+TRK-0575,KBU 551F,ZS 9427,Coastline Petroleum Transport,John Kamau,32163563,40000,4,16279,Multi-Compartment B-Double,ACTIVE
+TRK-0576,KBW 737U,ZU 3120,Bollore Logistics Kenya,Joseph Rotich,22280772,28000,2,12795,3-Axle Rigid Tanker,ACTIVE
+TRK-0577,KBL 561V,ZD 9745,Multiple Hauliers EA,James Barasa,25689081,40000,4,16265,Multi-Compartment B-Double,ACTIVE
+TRK-0578,KBD 860W,ZF 4698,Apex Fuel Movers Ltd,Kennedy Njoroge,29284398,40000,4,16165,Multi-Compartment B-Double,ACTIVE
+TRK-0579,KCU 286K,ZL 4674,Simba Transporters Ltd,Paul Mutua,25232919,36000,3,15007,Semi-Trailer Tanker,ACTIVE
+TRK-0580,KDW 887R,ZH 5651,Multiple Hauliers EA,James Njoroge,30263459,36000,3,14622,Semi-Trailer Tanker,ACTIVE
+TRK-0581,KDV 612C,ZM 9706,Coastline Petroleum Transport,Francis Barasa,23094170,34000,3,14554,Semi-Trailer Tanker,ACTIVE
+TRK-0582,KBN 453H,ZE 6992,Trans-Rift Hauliers Ltd,David Kamau,33898178,32000,3,13529,Semi-Trailer Tanker,ACTIVE
+TRK-0583,KBR 805C,ZH 8105,Rift Valley Fleet Services,Dennis Musyoka,31377608,34000,3,14593,Semi-Trailer Tanker,ACTIVE
+TRK-0584,KDE 464X,ZP 9524,Babena Hauliers Kenya,Stephen Odhiambo,29176850,32000,3,13782,Semi-Trailer Tanker,ACTIVE
+TRK-0585,KDQ 586U,ZG 9604,Simba Transporters Ltd,Victor Kimani,23033876,28000,2,12963,3-Axle Rigid Tanker,ACTIVE
+TRK-0586,KCT 801E,ZG 4408,Multiple Hauliers EA,Francis Kibet,33858087,38000,4,15905,Semi-Trailer Tanker,ACTIVE
+TRK-0587,KBA 215K,ZH 6874,Simba Transporters Ltd,George Waweru,25246411,32000,3,13790,Semi-Trailer Tanker,ACTIVE
+TRK-0588,KCW 775E,ZU 3371,Simba Transporters Ltd,Daniel Mutua,19397466,28000,2,12481,3-Axle Rigid Tanker,ACTIVE
+TRK-0589,KBA 729G,ZR 1691,Apex Fuel Movers Ltd,Kennedy Mutua,22085300,40000,4,15823,Multi-Compartment B-Double,ACTIVE
+TRK-0590,KCQ 260X,ZP 8748,Multiple Hauliers EA,Evans Mutua,32907254,28000,2,12896,3-Axle Rigid Tanker,ACTIVE
+TRK-0591,KDU 280M,ZW 7821,Afrilink Petroleum Transporters,Evans Maina,32750078,34000,3,14149,Semi-Trailer Tanker,ACTIVE
+TRK-0592,KCT 240B,ZQ 1298,Coastline Petroleum Transport,Patrick Njoroge,21573971,32000,3,14229,Semi-Trailer Tanker,ACTIVE
+TRK-0593,KCL 505Q,ZX 4033,Trans-Rift Hauliers Ltd,Evans Odhiambo,24051479,36000,3,15180,Semi-Trailer Tanker,ACTIVE
+TRK-0594,KDQ 499U,ZG 9479,Apex Fuel Movers Ltd,Joseph Kariuki,27167872,32000,3,14042,Semi-Trailer Tanker,ACTIVE
+TRK-0595,KCG 966D,ZK 3171,Coastline Petroleum Transport,George Kiprono,25313714,40000,4,15813,Multi-Compartment B-Double,ACTIVE
+TRK-0596,KBD 795M,ZC 9654,Multiple Hauliers EA,Daniel Kiprono,28166066,34000,3,14239,Semi-Trailer Tanker,ACTIVE
+TRK-0597,KDV 311D,ZY 2368,Lakeside Bulk Carriers,Kennedy Odhiambo,19426209,38000,4,15211,Semi-Trailer Tanker,ACTIVE
+TRK-0598,KDM 572D,ZN 1840,Babena Hauliers Kenya,Francis Waweru,22066755,32000,3,13720,Semi-Trailer Tanker,ACTIVE
+TRK-0599,KCM 647E,ZA 6373,Simba Transporters Ltd,Francis Barasa,23894463,32000,3,13929,Semi-Trailer Tanker,ACTIVE
+TRK-0600,KCX 312Z,ZD 8268,Multiple Hauliers EA,Michael Wafula,30759123,28000,2,12897,3-Axle Rigid Tanker,ACTIVE
+TRK-0601,KBS 427B,ZG 8783,Siginon Global Logistics,Stephen Rotich,27876337,32000,3,13666,Semi-Trailer Tanker,ACTIVE
+TRK-0602,KDY 614Y,ZX 6485,Babena Hauliers Kenya,Charles Makori,20781665,34000,3,14004,Semi-Trailer Tanker,ACTIVE
+TRK-0603,KDH 571N,ZC 2082,Trans-Rift Hauliers Ltd,Victor Rotich,26106482,34000,3,14436,Semi-Trailer Tanker,ACTIVE
+TRK-0604,KCK 859R,ZF 8516,Coastline Petroleum Transport,Victor Musyoka,33391967,28000,2,12467,3-Axle Rigid Tanker,ACTIVE
+TRK-0605,KDL 656J,ZA 2996,Afrilink Petroleum Transporters,Anthony Otieno,32112535,28000,2,13179,3-Axle Rigid Tanker,ACTIVE
+TRK-0606,KDY 391Q,ZU 9353,Siginon Global Logistics,David Barasa,29200863,28000,2,13132,3-Axle Rigid Tanker,ACTIVE
+TRK-0607,KDM 494C,ZA 9286,Freight Forwarders Kenya Ltd,Brian Maina,27270677,28000,2,12725,3-Axle Rigid Tanker,ACTIVE
+TRK-0608,KDJ 198T,ZF 9354,Simba Transporters Ltd,David Kariuki,32803177,40000,4,15903,Multi-Compartment B-Double,ACTIVE
+TRK-0609,KBW 437K,ZH 7627,Freight Forwarders Kenya Ltd,Evans Kariuki,26048921,38000,4,15612,Semi-Trailer Tanker,ACTIVE
+TRK-0610,KCY 352R,ZM 7984,Multiple Hauliers EA,Victor Wafula,21880668,40000,4,16100,Multi-Compartment B-Double,ACTIVE
+TRK-0611,KBY 216U,ZR 5208,Freight Forwarders Kenya Ltd,John Waweru,24656332,38000,4,15891,Semi-Trailer Tanker,ACTIVE
+TRK-0612,KBY 502U,ZN 8325,Rift Valley Fleet Services,Charles Wafula,30647119,38000,4,15955,Semi-Trailer Tanker,ACTIVE
+TRK-0613,KDP 316Q,ZC 8059,Afrilink Petroleum Transporters,David Njoroge,22043715,40000,4,16474,Multi-Compartment B-Double,ACTIVE
+TRK-0614,KBE 950F,ZW 4616,Siginon Global Logistics,Patrick Barasa,22142947,36000,3,14428,Semi-Trailer Tanker,ACTIVE
+TRK-0615,KBW 274J,ZA 3747,Continental Cargo Tankers Ltd,Francis Njoroge,28300221,40000,4,15977,Multi-Compartment B-Double,ACTIVE
+TRK-0616,KCH 801J,ZD 1512,Coastline Petroleum Transport,Dennis Kamau,22218091,28000,2,12563,3-Axle Rigid Tanker,ACTIVE
+TRK-0617,KCF 339M,ZU 1511,Southern Cross Hauliers,Paul Makori,19215964,28000,2,12541,3-Axle Rigid Tanker,ACTIVE
+TRK-0618,KDC 819M,ZX 9340,Coastline Petroleum Transport,Francis Maina,23518560,40000,4,16193,Multi-Compartment B-Double,ACTIVE
+TRK-0619,KBY 658B,ZA 8983,Coastline Petroleum Transport,James Mwangi,32480817,36000,3,14599,Semi-Trailer Tanker,ACTIVE
+TRK-0620,KBG 233A,ZN 8387,Bollore Logistics Kenya,Kennedy Ondieki,24492829,32000,3,13843,Semi-Trailer Tanker,ACTIVE
+TRK-0621,KDV 282Y,ZK 2150,Bollore Logistics Kenya,George Kamau,24214976,40000,4,16553,Multi-Compartment B-Double,ACTIVE
+TRK-0622,KCK 376V,ZC 7947,Bollore Logistics Kenya,Kennedy Kamau,20243935,40000,4,15835,Multi-Compartment B-Double,ACTIVE
+TRK-0623,KDJ 639S,ZG 4088,Multiple Hauliers EA,Dennis Mutua,24799245,32000,3,13775,Semi-Trailer Tanker,ACTIVE
+TRK-0624,KDS 628H,ZK 4232,Freight Forwarders Kenya Ltd,Evans Ochieng,27884138,28000,2,13149,3-Axle Rigid Tanker,ACTIVE
+TRK-0625,KDY 673C,ZV 3761,Coastline Petroleum Transport,David Kipkorir,22962180,28000,2,12483,3-Axle Rigid Tanker,ACTIVE
+TRK-0626,KDM 448L,ZP 6079,Babena Hauliers Kenya,Kennedy Barasa,25662372,36000,3,14942,Semi-Trailer Tanker,ACTIVE
+TRK-0627,KBD 723R,ZS 5631,Bollore Logistics Kenya,Stephen Kamau,30842281,32000,3,13802,Semi-Trailer Tanker,ACTIVE
+TRK-0628,KCP 814G,ZE 2232,Siginon Global Logistics,Charles Ondieki,19288789,32000,3,13811,Semi-Trailer Tanker,ACTIVE
+TRK-0629,KBA 125J,ZA 2412,Lakeside Bulk Carriers,Geoffrey Barasa,27499599,34000,3,14355,Semi-Trailer Tanker,ACTIVE
+TRK-0630,KBA 425Z,ZU 4172,Freight Forwarders Kenya Ltd,Peter Waweru,28083920,32000,3,13740,Semi-Trailer Tanker,ACTIVE
+TRK-0631,KDB 271Y,ZK 6135,Freight Forwarders Kenya Ltd,Francis Odhiambo,26525907,36000,3,14621,Semi-Trailer Tanker,ACTIVE
+TRK-0632,KDN 582Q,ZS 9357,Babena Hauliers Kenya,Patrick Odhiambo,21661909,38000,4,15909,Semi-Trailer Tanker,ACTIVE
+TRK-0633,KCT 143G,ZP 2232,Siginon Global Logistics,Geoffrey Rotich,30936581,38000,4,15712,Semi-Trailer Tanker,ACTIVE
+TRK-0634,KDK 485H,ZT 4580,Apex Fuel Movers Ltd,Charles Waweru,20308892,32000,3,13762,Semi-Trailer Tanker,ACTIVE
+TRK-0635,KCJ 850A,ZB 1821,Bollore Logistics Kenya,Anthony Kariuki,30153079,36000,3,15156,Semi-Trailer Tanker,ACTIVE
+TRK-0636,KCG 938N,ZG 2414,Lakeside Bulk Carriers,John Kimani,29667793,40000,4,16357,Multi-Compartment B-Double,ACTIVE
+TRK-0637,KBS 235M,ZX 7647,Southern Cross Hauliers,Paul Otieno,32331819,34000,3,14623,Semi-Trailer Tanker,ACTIVE
+TRK-0638,KDP 527K,ZZ 1248,Freight Forwarders Kenya Ltd,Stephen Kiprono,27255682,36000,3,14656,Semi-Trailer Tanker,ACTIVE
+TRK-0639,KBJ 542X,ZN 7462,Coastline Petroleum Transport,Victor Odhiambo,26369093,38000,4,15951,Semi-Trailer Tanker,ACTIVE
+TRK-0640,KCS 863Q,ZL 4370,Siginon Global Logistics,Brian Makori,28723097,34000,3,14149,Semi-Trailer Tanker,ACTIVE
+TRK-0641,KBR 127W,ZT 8140,Southern Cross Hauliers,Michael Wafula,27514176,38000,4,15790,Semi-Trailer Tanker,ACTIVE
+TRK-0642,KCF 923Q,ZY 3367,Rift Valley Fleet Services,James Kamau,23056918,38000,4,15844,Semi-Trailer Tanker,ACTIVE
+TRK-0643,KDE 619A,ZQ 6161,Continental Cargo Tankers Ltd,Samuel Odhiambo,32827750,32000,3,13804,Semi-Trailer Tanker,ACTIVE
+TRK-0644,KBS 190K,ZL 6279,Simba Transporters Ltd,Samuel Ochieng,26664434,32000,3,13717,Semi-Trailer Tanker,ACTIVE
+TRK-0645,KCU 568W,ZZ 2731,Trans-Rift Hauliers Ltd,Geoffrey Odhiambo,26632991,34000,3,14112,Semi-Trailer Tanker,ACTIVE
+TRK-0646,KCH 171T,ZK 2281,Multiple Hauliers EA,Victor Otieno,21350386,34000,3,14006,Semi-Trailer Tanker,ACTIVE
+TRK-0647,KCZ 819C,ZJ 2800,Trans-Rift Hauliers Ltd,Boniface Kibet,22560461,34000,3,14043,Semi-Trailer Tanker,ACTIVE
+TRK-0648,KBF 854Z,ZC 2342,Trans-Rift Hauliers Ltd,Samuel Mutua,20529693,32000,3,14251,Semi-Trailer Tanker,ACTIVE
+TRK-0649,KDM 233G,ZV 5793,Trans-Rift Hauliers Ltd,Patrick Otieno,24593398,32000,3,13765,Semi-Trailer Tanker,ACTIVE
+TRK-0650,KCT 912D,ZC 7008,Continental Cargo Tankers Ltd,Francis Waweru,26318460,32000,3,13741,Semi-Trailer Tanker,ACTIVE
+TRK-0651,KBT 854E,ZV 7367,Apex Fuel Movers Ltd,Stephen Kipkorir,22783751,32000,3,13576,Semi-Trailer Tanker,ACTIVE
+TRK-0652,KDV 660A,ZA 3054,Simba Transporters Ltd,Samuel Kibet,28055837,28000,2,13179,3-Axle Rigid Tanker,ACTIVE
+TRK-0653,KDR 903H,ZM 2740,Continental Cargo Tankers Ltd,Brian Maina,30134494,36000,3,14455,Semi-Trailer Tanker,ACTIVE
+TRK-0654,KCU 192H,ZU 5561,Afrilink Petroleum Transporters,Dennis Mutua,33659683,32000,3,14106,Semi-Trailer Tanker,ACTIVE
+TRK-0655,KDF 556C,ZT 1902,Bollore Logistics Kenya,George Kamau,21829199,36000,3,14550,Semi-Trailer Tanker,ACTIVE
+TRK-0656,KBA 700B,ZV 4285,Continental Cargo Tankers Ltd,Joseph Kimani,31110340,36000,3,14605,Semi-Trailer Tanker,ACTIVE
+TRK-0657,KDM 515A,ZE 4941,Coastline Petroleum Transport,Geoffrey Mutua,24968337,34000,3,14432,Semi-Trailer Tanker,ACTIVE
+TRK-0658,KBJ 316H,ZX 9956,Lakeside Bulk Carriers,Samuel Maina,20850442,38000,4,15604,Semi-Trailer Tanker,INACTIVE
+TRK-0659,KBD 932Z,ZZ 7347,Freight Forwarders Kenya Ltd,Daniel Musyoka,25111382,36000,3,14752,Semi-Trailer Tanker,ACTIVE
+TRK-0660,KCY 293N,ZA 7822,Siginon Global Logistics,Samuel Wanyama,23231603,40000,4,16318,Multi-Compartment B-Double,ACTIVE
+TRK-0661,KDL 811M,ZC 4280,Lakeside Bulk Carriers,Charles Kibet,27111016,38000,4,15495,Semi-Trailer Tanker,ACTIVE
+TRK-0662,KBN 905R,ZN 6898,Siginon Global Logistics,David Odhiambo,25100839,32000,3,14094,Semi-Trailer Tanker,ACTIVE
+TRK-0663,KDW 691R,ZK 5183,Siginon Global Logistics,Evans Kipkorir,24461358,40000,4,16133,Multi-Compartment B-Double,ACTIVE
+TRK-0664,KDR 864Y,ZB 7232,Apex Fuel Movers Ltd,Peter Ochieng,31365458,36000,3,14471,Semi-Trailer Tanker,ACTIVE
+TRK-0665,KCH 658N,ZE 7751,Southern Cross Hauliers,Kennedy Mwangi,29770458,38000,4,15676,Semi-Trailer Tanker,ACTIVE
+TRK-0666,KCV 454P,ZP 5855,Siginon Global Logistics,Kennedy Odhiambo,25477583,32000,3,14151,Semi-Trailer Tanker,ACTIVE
+TRK-0667,KDG 230H,ZQ 4561,Southern Cross Hauliers,Patrick Kiprono,33114569,40000,4,16461,Multi-Compartment B-Double,ACTIVE
+TRK-0668,KDY 344M,ZA 6462,Multiple Hauliers EA,Brian Njoroge,23351809,34000,3,14524,Semi-Trailer Tanker,ACTIVE
+TRK-0669,KCY 908G,ZR 9870,Multiple Hauliers EA,George Wafula,31772150,32000,3,13672,Semi-Trailer Tanker,ACTIVE
+TRK-0670,KDN 900B,ZD 8083,Lakeside Bulk Carriers,David Kariuki,27733997,38000,4,15585,Semi-Trailer Tanker,ACTIVE
+TRK-0671,KCH 366S,ZH 2411,Apex Fuel Movers Ltd,Anthony Barasa,24447581,40000,4,16189,Multi-Compartment B-Double,ACTIVE
+TRK-0672,KDZ 496U,ZH 6731,Coastline Petroleum Transport,Boniface Wafula,20458924,32000,3,13587,Semi-Trailer Tanker,ACTIVE
+TRK-0673,KBD 428K,ZB 6167,Simba Transporters Ltd,John Kiprono,31966479,32000,3,13992,Semi-Trailer Tanker,ACTIVE
+TRK-0674,KDB 940A,ZR 4124,Southern Cross Hauliers,Kennedy Ochieng,29610366,36000,3,14978,Semi-Trailer Tanker,ACTIVE
+TRK-0675,KCV 844F,ZE 2692,Bollore Logistics Kenya,Michael Ochieng,32166256,34000,3,14590,Semi-Trailer Tanker,ACTIVE
+TRK-0676,KBT 262B,ZG 8935,Afrilink Petroleum Transporters,Victor Barasa,28249898,34000,3,14264,Semi-Trailer Tanker,ACTIVE
+TRK-0677,KCX 542G,ZG 7371,Multiple Hauliers EA,Boniface Kariuki,20431903,40000,4,16234,Multi-Compartment B-Double,ACTIVE
+TRK-0678,KBQ 782R,ZV 6584,Southern Cross Hauliers,Patrick Kariuki,27900285,38000,4,15236,Semi-Trailer Tanker,ACTIVE
+TRK-0679,KCB 263L,ZH 2245,Afrilink Petroleum Transporters,Daniel Wafula,27091209,28000,2,12899,3-Axle Rigid Tanker,ACTIVE
+TRK-0680,KDN 696Y,ZV 2330,Apex Fuel Movers Ltd,Joseph Kipkorir,33576727,32000,3,13873,Semi-Trailer Tanker,ACTIVE
+TRK-0681,KDB 481E,ZJ 1700,Lakeside Bulk Carriers,George Kariuki,33809071,36000,3,15150,Semi-Trailer Tanker,ACTIVE
+TRK-0682,KDF 234A,ZR 3752,Simba Transporters Ltd,Paul Kipkorir,33932543,36000,3,14400,Semi-Trailer Tanker,ACTIVE
+TRK-0683,KCK 289R,ZJ 1619,Bollore Logistics Kenya,John Odhiambo,30224056,34000,3,14314,Semi-Trailer Tanker,ACTIVE
+TRK-0684,KDB 260E,ZJ 3257,Apex Fuel Movers Ltd,George Mutua,29579573,40000,4,16139,Multi-Compartment B-Double,ACTIVE
+TRK-0685,KBN 309T,ZD 1877,Multiple Hauliers EA,Boniface Musyoka,24773269,28000,2,12531,3-Axle Rigid Tanker,ACTIVE
+TRK-0686,KCT 823G,ZX 8070,Multiple Hauliers EA,Daniel Kiprono,23949136,28000,2,12913,3-Axle Rigid Tanker,ACTIVE
+TRK-0687,KDU 674C,ZL 1196,Southern Cross Hauliers,Joseph Ondieki,31137268,38000,4,15997,Semi-Trailer Tanker,ACTIVE
+TRK-0688,KBL 428S,ZT 9275,Babena Hauliers Kenya,David Mwangi,32615133,36000,3,14424,Semi-Trailer Tanker,ACTIVE
+TRK-0689,KDB 788Q,ZB 3411,Simba Transporters Ltd,George Odhiambo,33542450,34000,3,14390,Semi-Trailer Tanker,ACTIVE
+TRK-0690,KCJ 719B,ZW 6463,Trans-Rift Hauliers Ltd,David Makori,29290181,28000,2,12768,3-Axle Rigid Tanker,ACTIVE
+TRK-0691,KDM 647B,ZF 2886,Afrilink Petroleum Transporters,Victor Rotich,22695647,38000,4,15247,Semi-Trailer Tanker,ACTIVE
+TRK-0692,KDU 581Q,ZD 4235,Rift Valley Fleet Services,Joseph Njoroge,33823334,28000,2,13043,3-Axle Rigid Tanker,ACTIVE
+TRK-0693,KDJ 173Q,ZK 4531,Rift Valley Fleet Services,Stephen Waweru,25174342,28000,2,12933,3-Axle Rigid Tanker,ACTIVE
+TRK-0694,KCZ 572M,ZC 4074,Multiple Hauliers EA,Francis Kimani,27295613,40000,4,16068,Multi-Compartment B-Double,ACTIVE
+TRK-0695,KCC 110H,ZX 3916,Siginon Global Logistics,Kennedy Kibet,26815334,38000,4,15670,Semi-Trailer Tanker,ACTIVE
+TRK-0696,KBS 803X,ZB 7534,Continental Cargo Tankers Ltd,Anthony Ochieng,19476508,38000,4,15297,Semi-Trailer Tanker,ACTIVE
+TRK-0697,KBR 539F,ZR 6554,Bollore Logistics Kenya,Kennedy Maina,21727792,40000,4,16335,Multi-Compartment B-Double,ACTIVE
+TRK-0698,KDS 631L,ZC 9456,Continental Cargo Tankers Ltd,Stephen Maina,23102012,38000,4,15833,Semi-Trailer Tanker,ACTIVE
+TRK-0699,KCV 388L,ZD 9190,Apex Fuel Movers Ltd,Geoffrey Kamau,33941355,38000,4,15988,Semi-Trailer Tanker,ACTIVE
+TRK-0700,KDB 580H,ZJ 8578,Apex Fuel Movers Ltd,David Kibet,19507180,32000,3,14235,Semi-Trailer Tanker,ACTIVE
+TRK-0701,KCK 483E,ZB 5916,Babena Hauliers Kenya,Francis Kipkorir,24203238,38000,4,15474,Semi-Trailer Tanker,ACTIVE
+TRK-0702,KCA 300L,ZN 7185,Babena Hauliers Kenya,Paul Rotich,27179252,36000,3,14521,Semi-Trailer Tanker,ACTIVE
+TRK-0703,KDC 950H,ZT 7849,Bollore Logistics Kenya,Victor Wanyama,29068589,34000,3,14081,Semi-Trailer Tanker,ACTIVE
+TRK-0704,KDC 442X,ZV 2375,Coastline Petroleum Transport,David Kariuki,26331188,36000,3,14630,Semi-Trailer Tanker,ACTIVE
+TRK-0705,KBC 186W,ZV 6190,Multiple Hauliers EA,Anthony Otieno,19763297,28000,2,13123,3-Axle Rigid Tanker,ACTIVE
+TRK-0706,KCP 563X,ZZ 8253,Simba Transporters Ltd,James Waweru,20495489,40000,4,15938,Multi-Compartment B-Double,ACTIVE
+TRK-0707,KDH 220M,ZT 6805,Lakeside Bulk Carriers,Kennedy Otieno,33468260,36000,3,14861,Semi-Trailer Tanker,ACTIVE
+TRK-0708,KBH 752Z,ZQ 9835,Freight Forwarders Kenya Ltd,Boniface Kibet,27346589,34000,3,14369,Semi-Trailer Tanker,ACTIVE
+TRK-0709,KCX 664Z,ZS 2144,Coastline Petroleum Transport,Kennedy Makori,23967527,36000,3,14612,Semi-Trailer Tanker,ACTIVE
+TRK-0710,KCT 403G,ZQ 5381,Simba Transporters Ltd,Joseph Waweru,23738856,28000,2,13112,3-Axle Rigid Tanker,ACTIVE
+TRK-0711,KBC 802F,ZE 8386,Continental Cargo Tankers Ltd,Charles Barasa,19844268,32000,3,13696,Semi-Trailer Tanker,ACTIVE
+TRK-0712,KCU 955D,ZZ 1920,Apex Fuel Movers Ltd,John Otieno,32322952,34000,3,14332,Semi-Trailer Tanker,ACTIVE
+TRK-0713,KDH 914A,ZN 4602,Lakeside Bulk Carriers,Kennedy Kiprono,28514120,32000,3,13984,Semi-Trailer Tanker,ACTIVE
+TRK-0714,KBH 231Z,ZN 7756,Southern Cross Hauliers,Patrick Njoroge,20737928,38000,4,15246,Semi-Trailer Tanker,ACTIVE
+TRK-0715,KDX 172K,ZW 7875,Continental Cargo Tankers Ltd,David Odhiambo,19228326,32000,3,13755,Semi-Trailer Tanker,ACTIVE
+TRK-0716,KBP 970G,ZH 1130,Babena Hauliers Kenya,Patrick Kariuki,24994025,34000,3,14669,Semi-Trailer Tanker,ACTIVE
+TRK-0717,KBK 848B,ZC 8349,Coastline Petroleum Transport,Stephen Wanyama,23597324,34000,3,14208,Semi-Trailer Tanker,ACTIVE
+TRK-0718,KDN 552N,ZG 7281,Multiple Hauliers EA,Dennis Mutua,33651096,28000,2,13157,3-Axle Rigid Tanker,ACTIVE
+TRK-0719,KDW 698G,ZX 3418,Bollore Logistics Kenya,Samuel Wanyama,22925567,36000,3,15171,Semi-Trailer Tanker,ACTIVE
+TRK-0720,KBJ 788L,ZJ 1887,Bollore Logistics Kenya,Evans Ochieng,28505037,36000,3,14849,Semi-Trailer Tanker,ACTIVE
+TRK-0721,KDM 210G,ZH 8012,Freight Forwarders Kenya Ltd,Kennedy Mutua,26230115,28000,2,12941,3-Axle Rigid Tanker,ACTIVE
+TRK-0722,KCT 455E,ZX 7384,Continental Cargo Tankers Ltd,George Makori,19898667,38000,4,15971,Semi-Trailer Tanker,ACTIVE
+TRK-0723,KDL 184G,ZJ 6922,Multiple Hauliers EA,Evans Kipkorir,33652300,36000,3,14588,Semi-Trailer Tanker,ACTIVE
+TRK-0724,KCY 236X,ZV 1827,Afrilink Petroleum Transporters,Boniface Mutua,23780183,32000,3,13967,Semi-Trailer Tanker,ACTIVE
+TRK-0725,KCF 324X,ZJ 6688,Trans-Rift Hauliers Ltd,George Kimani,20638962,36000,3,14961,Semi-Trailer Tanker,ACTIVE
+TRK-0726,KBL 908E,ZZ 1258,Simba Transporters Ltd,Anthony Mwangi,26167972,38000,4,15382,Semi-Trailer Tanker,ACTIVE
+TRK-0727,KDF 401Y,ZV 6317,Babena Hauliers Kenya,Paul Barasa,20151663,38000,4,15719,Semi-Trailer Tanker,ACTIVE
+TRK-0728,KCD 430C,ZF 1848,Afrilink Petroleum Transporters,Evans Kipkorir,30369170,40000,4,16148,Multi-Compartment B-Double,ACTIVE
+TRK-0729,KDJ 841C,ZB 8124,Southern Cross Hauliers,Evans Wanyama,19052599,32000,3,14231,Semi-Trailer Tanker,ACTIVE
+TRK-0730,KBB 436N,ZU 2086,Trans-Rift Hauliers Ltd,Anthony Kariuki,26374491,34000,3,14026,Semi-Trailer Tanker,ACTIVE
+TRK-0731,KBM 513L,ZF 5650,Rift Valley Fleet Services,Geoffrey Odhiambo,27297317,32000,3,14073,Semi-Trailer Tanker,ACTIVE
+TRK-0732,KBH 992Z,ZB 5103,Babena Hauliers Kenya,Michael Barasa,22013746,36000,3,14615,Semi-Trailer Tanker,ACTIVE
+TRK-0733,KCK 343R,ZU 3139,Siginon Global Logistics,Peter Kariuki,19197898,32000,3,14241,Semi-Trailer Tanker,ACTIVE
+TRK-0734,KDY 334K,ZN 8681,Bollore Logistics Kenya,Francis Kariuki,33394302,34000,3,14016,Semi-Trailer Tanker,ACTIVE
+TRK-0735,KCS 835Z,ZL 7034,Babena Hauliers Kenya,David Makori,22239929,38000,4,15541,Semi-Trailer Tanker,ACTIVE
+TRK-0736,KBC 598Q,ZH 7259,Southern Cross Hauliers,Charles Kimani,22199960,38000,4,15636,Semi-Trailer Tanker,INACTIVE
+TRK-0737,KBR 926Q,ZA 2118,Siginon Global Logistics,Kennedy Kamau,22674615,32000,3,13697,Semi-Trailer Tanker,ACTIVE
+TRK-0738,KCH 288U,ZX 8324,Continental Cargo Tankers Ltd,George Makori,28658803,28000,2,12682,3-Axle Rigid Tanker,ACTIVE
+TRK-0739,KCS 764B,ZL 9833,Apex Fuel Movers Ltd,Geoffrey Kariuki,24067022,34000,3,14031,Semi-Trailer Tanker,ACTIVE
+TRK-0740,KBV 582R,ZH 8218,Multiple Hauliers EA,Daniel Njoroge,33904959,28000,2,12546,3-Axle Rigid Tanker,ACTIVE
+TRK-0741,KCC 321E,ZD 4104,Rift Valley Fleet Services,Kennedy Wanyama,22763463,28000,2,12719,3-Axle Rigid Tanker,ACTIVE
+TRK-0742,KDH 728Y,ZK 4566,Simba Transporters Ltd,Charles Waweru,26110573,28000,2,12496,3-Axle Rigid Tanker,ACTIVE
+TRK-0743,KBT 881X,ZP 5029,Coastline Petroleum Transport,Stephen Wafula,19601540,38000,4,15640,Semi-Trailer Tanker,ACTIVE
+TRK-0744,KCF 425A,ZW 7356,Coastline Petroleum Transport,John Waweru,20180092,34000,3,14721,Semi-Trailer Tanker,ACTIVE
+TRK-0745,KDD 741E,ZN 8949,Siginon Global Logistics,Stephen Mwangi,22852626,36000,3,14421,Semi-Trailer Tanker,ACTIVE
+TRK-0746,KCF 915L,ZA 3061,Rift Valley Fleet Services,Evans Mwangi,23229296,32000,3,14011,Semi-Trailer Tanker,ACTIVE
+TRK-0747,KDV 719P,ZM 2136,Babena Hauliers Kenya,Patrick Ochieng,27018756,38000,4,15581,Semi-Trailer Tanker,ACTIVE
+TRK-0748,KCT 834G,ZB 9935,Coastline Petroleum Transport,Evans Mutua,25395008,38000,4,15501,Semi-Trailer Tanker,ACTIVE
+TRK-0749,KDD 732J,ZP 7746,Multiple Hauliers EA,John Wanyama,23383708,32000,3,13740,Semi-Trailer Tanker,ACTIVE
+TRK-0750,KDV 170F,ZY 4814,Lakeside Bulk Carriers,Paul Kibet,21119694,34000,3,14691,Semi-Trailer Tanker,ACTIVE

@@ -1,0 +1,89 @@
+{
+  "model_name": "flowguard_turnaround_predictor",
+  "model_version": "v1.0.0",
+  "algorithm": "XGBoost (XGBRegressor Pipeline)",
+  "target": "turnaround_minutes",
+  "training_timestamp": "2026-09-15T15:59:20.704844+00:00",
+  "random_seed": 42,
+  "record_counts": {
+    "total": 10406,
+    "train": 6479,
+    "validation": 2260,
+    "test": 1667
+  },
+  "chronological_cutoffs": {
+    "train_end": "2026-08-11 00:00:00",
+    "validation_end": "2026-09-01 00:00:00"
+  },
+  "features": [
+    "depot_id",
+    "omc_id",
+    "product_id",
+    "gate_lane",
+    "ordered_quantity_litres",
+    "depot_baseline_turnaround_min",
+    "depot_total_positions",
+    "dual_arm_bays",
+    "compatible_bays_count",
+    "gate_in_hour",
+    "gate_in_day_of_week",
+    "tare_weight_kg",
+    "active_trucks_in_depot",
+    "estimated_bay_utilization"
+  ],
+  "baseline_metrics": {
+    "mae": 22.98,
+    "rmse": 27.54,
+    "medae": 21.52,
+    "p90_ae": 44.43,
+    "r2": -2.7768,
+    "pct_within_5min": 12.4,
+    "pct_within_10min": 23.8,
+    "pct_within_15min": 36.2
+  },
+  "model_metrics": {
+    "mae": 10.33,
+    "rmse": 12.82,
+    "medae": 8.97,
+    "p90_ae": 20.88,
+    "r2": 0.1817,
+    "pct_within_5min": 28.7,
+    "pct_within_10min": 55.1,
+    "pct_within_15min": 75.5
+  },
+  "mae_reduction_pct": 55.0,
+  "top_features": [
+    {
+      "feature": "gate_in_hour",
+      "importance": 0.2357
+    },
+    {
+      "feature": "ordered_quantity_litres",
+      "importance": 0.0488
+    },
+    {
+      "feature": "dual_arm_bays",
+      "importance": 0.046
+    },
+    {
+      "feature": "tare_weight_kg",
+      "importance": 0.0408
+    },
+    {
+      "feature": "estimated_bay_utilization",
+      "importance": 0.0361
+    },
+    {
+      "feature": "active_trucks_in_depot",
+      "importance": 0.0336
+    },
+    {
+      "feature": "compatible_bays_count",
+      "importance": 0.0319
+    },
+    {
+      "feature": "depot_baseline_turnaround_min",
+      "importance": 0.0316
+    }
+  ]
+}

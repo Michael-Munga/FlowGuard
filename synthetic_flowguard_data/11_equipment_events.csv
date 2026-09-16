@@ -1,0 +1,630 @@
+equipment_event_id,depot_id,loading_position_id,equipment_category,component_name,status,event_timestamp,resolved_timestamp,flow_impact_pct,operational_notes
+EQ-000001,nairobi,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-06-11 23:00:00,,0,Nominal operating telemetry
+EQ-000002,nairobi,NBO-P05,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-06-12 21:00:00,,0,Nominal operating telemetry
+EQ-000003,nairobi,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-06-13 13:00:00,,0,Nominal operating telemetry
+EQ-000004,nairobi,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-06-14 03:00:00,,0,Nominal operating telemetry
+EQ-000005,nairobi,,GATE_SCALE,Gross Weighbridge Transducer,UNAVAILABLE,2026-06-15 04:00:00,2026-06-15 13:00:00,100,Gross Weighbridge Transducer offline for maintenance
+EQ-000006,nairobi,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-06-16 05:00:00,,0,Nominal operating telemetry
+EQ-000007,nairobi,,SCADA_CONTROL,Redundant DCS PLC Gateway,UNAVAILABLE,2026-06-17 06:00:00,2026-06-17 08:00:00,100,Redundant DCS PLC Gateway offline for maintenance
+EQ-000008,nairobi,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-06-17 16:00:00,,0,Nominal operating telemetry
+EQ-000009,nairobi,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-06-18 16:00:00,,0,Nominal operating telemetry
+EQ-000010,nairobi,,GATE_SCALE,Tare Weighbridge Loadcell Platform,UNAVAILABLE,2026-06-19 05:00:00,2026-06-19 10:00:00,100,Tare Weighbridge Loadcell Platform offline for maintenance
+EQ-000011,nairobi,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-06-20 05:00:00,,0,Nominal operating telemetry
+EQ-000012,nairobi,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,DEGRADED,2026-06-21 00:00:00,2026-06-21 06:00:00,13,Vapor Recovery Compressor calibration offset detected
+EQ-000013,nairobi,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-06-21 19:00:00,,0,Nominal operating telemetry
+EQ-000014,nairobi,,SCADA_CONTROL,OPC-UA Interface Bridge,DEGRADED,2026-06-22 12:00:00,2026-06-22 20:00:00,12,OPC-UA Interface Bridge calibration offset detected
+EQ-000015,nairobi,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-06-23 13:00:00,,0,Nominal operating telemetry
+EQ-000016,nairobi,NBO-P07,METERING,Digital Batch Controller,HEALTHY,2026-06-24 07:00:00,,0,Nominal operating telemetry
+EQ-000017,nairobi,NBO-P04,METERING,Digital Batch Controller,HEALTHY,2026-06-25 08:00:00,,0,Nominal operating telemetry
+EQ-000018,nairobi,NBO-P08,METERING,Flow Meter Temperature RTD,HEALTHY,2026-06-25 16:00:00,,0,Nominal operating telemetry
+EQ-000019,nairobi,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-06-26 10:00:00,,0,Nominal operating telemetry
+EQ-000020,nairobi,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-06-27 00:00:00,,0,Nominal operating telemetry
+EQ-000021,nairobi,NBO-P05,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,DEGRADED,2026-06-27 18:00:00,2026-06-28 03:00:00,13,Hydraulic Gantry Loading Arms calibration offset detected
+EQ-000022,nairobi,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,DEGRADED,2026-06-28 10:00:00,2026-06-28 20:00:00,24,Vapor Recovery Compressor calibration offset detected
+EQ-000023,nairobi,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-06-28 20:00:00,,0,Nominal operating telemetry
+EQ-000024,nairobi,,GATE_SCALE,Tare Weighbridge Loadcell Platform,UNAVAILABLE,2026-06-30 00:00:00,2026-06-30 14:00:00,100,Tare Weighbridge Loadcell Platform offline for maintenance
+EQ-000025,nairobi,NBO-P03,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-06-30 15:00:00,,0,Nominal operating telemetry
+EQ-000026,nairobi,NBO-P06,LOADING_SYSTEM,Loading Arm Swivel Joint,UNAVAILABLE,2026-07-01 09:00:00,2026-07-01 17:00:00,100,Loading Arm Swivel Joint offline for maintenance
+EQ-000027,nairobi,NBO-P08,METERING,Coriolis Mass-Flow Meter,UNAVAILABLE,2026-07-02 13:00:00,2026-07-03 00:00:00,100,Coriolis Mass-Flow Meter offline for maintenance
+EQ-000028,nairobi,NBO-P07,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-07-03 09:00:00,,0,Nominal operating telemetry
+EQ-000029,nairobi,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,UNAVAILABLE,2026-07-04 03:00:00,2026-07-04 13:00:00,100,Static Earth Monitoring Reel offline for maintenance
+EQ-000030,nairobi,NBO-P06,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-07-04 23:00:00,,0,Nominal operating telemetry
+EQ-000031,nairobi,NBO-P03,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-05 15:00:00,,0,Nominal operating telemetry
+EQ-000032,nairobi,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-07-06 01:00:00,,0,Nominal operating telemetry
+EQ-000033,nairobi,,SCADA_CONTROL,Redundant DCS PLC Gateway,DEGRADED,2026-07-06 18:00:00,2026-07-07 01:00:00,21,Redundant DCS PLC Gateway calibration offset detected
+EQ-000034,nairobi,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-07-07 19:00:00,,0,Nominal operating telemetry
+EQ-000035,nairobi,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-08 21:00:00,,0,Nominal operating telemetry
+EQ-000036,nairobi,,GATE_SCALE,Tare Weighbridge Loadcell Platform,DEGRADED,2026-07-09 05:00:00,2026-07-09 16:00:00,25,Tare Weighbridge Loadcell Platform calibration offset detected
+EQ-000037,nairobi,NBO-P06,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-07-10 08:00:00,,0,Nominal operating telemetry
+EQ-000038,nairobi,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,DEGRADED,2026-07-11 07:00:00,2026-07-11 15:00:00,11,Additive Injection Pump Line calibration offset detected
+EQ-000039,nairobi,NBO-P06,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-12 08:00:00,,0,Nominal operating telemetry
+EQ-000040,nairobi,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-07-13 00:00:00,,0,Nominal operating telemetry
+EQ-000041,nairobi,NBO-P01,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-07-13 08:00:00,,0,Nominal operating telemetry
+EQ-000042,nairobi,NBO-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-07-14 11:00:00,,0,Nominal operating telemetry
+EQ-000043,nairobi,NBO-P07,METERING,Digital Batch Controller,DEGRADED,2026-07-15 14:00:00,2026-07-15 23:00:00,21,Digital Batch Controller calibration offset detected
+EQ-000044,nairobi,NBO-P02,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-07-16 03:00:00,,0,Nominal operating telemetry
+EQ-000045,nairobi,NBO-P04,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-07-16 23:00:00,,0,Nominal operating telemetry
+EQ-000046,nairobi,NBO-P08,METERING,Digital Batch Controller,DEGRADED,2026-07-17 23:00:00,2026-07-18 10:00:00,16,Digital Batch Controller calibration offset detected
+EQ-000047,nairobi,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,UNAVAILABLE,2026-07-18 13:00:00,2026-07-19 00:00:00,100,Static Earth Monitoring Reel offline for maintenance
+EQ-000048,nairobi,NBO-P03,METERING,Digital Batch Controller,HEALTHY,2026-07-19 06:00:00,,0,Nominal operating telemetry
+EQ-000049,nairobi,NBO-P04,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-07-20 08:00:00,,0,Nominal operating telemetry
+EQ-000050,nairobi,NBO-P03,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-07-21 07:00:00,,0,Nominal operating telemetry
+EQ-000051,nairobi,NBO-P01,METERING,Digital Batch Controller,HEALTHY,2026-07-22 10:00:00,,0,Nominal operating telemetry
+EQ-000052,nairobi,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-07-23 05:00:00,,0,Nominal operating telemetry
+EQ-000053,nairobi,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-07-24 02:00:00,,0,Nominal operating telemetry
+EQ-000054,nairobi,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-07-24 20:00:00,,0,Nominal operating telemetry
+EQ-000055,nairobi,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-07-25 22:00:00,,0,Nominal operating telemetry
+EQ-000056,nairobi,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-07-26 14:00:00,,0,Nominal operating telemetry
+EQ-000057,nairobi,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-27 05:00:00,,0,Nominal operating telemetry
+EQ-000058,nairobi,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-07-28 09:00:00,,0,Nominal operating telemetry
+EQ-000059,nairobi,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-07-28 20:00:00,,0,Nominal operating telemetry
+EQ-000060,nairobi,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-07-29 15:00:00,,0,Nominal operating telemetry
+EQ-000061,nairobi,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-30 13:00:00,,0,Nominal operating telemetry
+EQ-000062,nairobi,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-31 13:00:00,,0,Nominal operating telemetry
+EQ-000063,nairobi,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,UNAVAILABLE,2026-08-01 07:00:00,2026-08-01 13:00:00,100,Static Earth Monitoring Reel offline for maintenance
+EQ-000064,nairobi,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,DEGRADED,2026-08-02 05:00:00,2026-08-02 09:00:00,21,Additive Injection Pump Line calibration offset detected
+EQ-000065,nairobi,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-08-02 16:00:00,,0,Nominal operating telemetry
+EQ-000066,nairobi,NBO-P03,METERING,Digital Batch Controller,HEALTHY,2026-08-03 17:00:00,,0,Nominal operating telemetry
+EQ-000067,nairobi,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-04 21:00:00,,0,Nominal operating telemetry
+EQ-000068,nairobi,NBO-P06,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-08-05 22:00:00,,0,Nominal operating telemetry
+EQ-000069,nairobi,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-08-06 19:00:00,,0,Nominal operating telemetry
+EQ-000070,nairobi,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-07 18:00:00,,0,Nominal operating telemetry
+EQ-000071,nairobi,,GATE_SCALE,Gross Weighbridge Transducer,UNAVAILABLE,2026-08-08 14:00:00,2026-08-09 04:00:00,100,Gross Weighbridge Transducer offline for maintenance
+EQ-000072,nairobi,NBO-P01,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-09 01:00:00,,0,Nominal operating telemetry
+EQ-000073,nairobi,,SCADA_CONTROL,OPC-UA Interface Bridge,UNAVAILABLE,2026-08-09 19:00:00,2026-08-10 08:00:00,100,OPC-UA Interface Bridge offline for maintenance
+EQ-000074,nairobi,NBO-P08,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-08-10 16:00:00,,0,Nominal operating telemetry
+EQ-000075,nairobi,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-11 05:00:00,,0,Nominal operating telemetry
+EQ-000076,nairobi,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-12 05:00:00,,0,Nominal operating telemetry
+EQ-000077,nairobi,NBO-P02,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-08-13 01:00:00,,0,Nominal operating telemetry
+EQ-000078,nairobi,NBO-P08,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-14 03:00:00,,0,Nominal operating telemetry
+EQ-000079,nairobi,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-15 06:00:00,,0,Nominal operating telemetry
+EQ-000080,nairobi,NBO-P03,METERING,Digital Batch Controller,HEALTHY,2026-08-16 10:00:00,,0,Nominal operating telemetry
+EQ-000081,nairobi,NBO-P04,LOADING_SYSTEM,Emergency Breakaway Coupler,UNAVAILABLE,2026-08-17 14:00:00,2026-08-17 19:00:00,100,Emergency Breakaway Coupler offline for maintenance
+EQ-000082,nairobi,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-08-18 09:00:00,,0,Nominal operating telemetry
+EQ-000083,nairobi,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-18 21:00:00,,0,Nominal operating telemetry
+EQ-000084,nairobi,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-08-19 12:00:00,,0,Nominal operating telemetry
+EQ-000085,nairobi,NBO-P02,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-08-20 02:00:00,,0,Nominal operating telemetry
+EQ-000086,nairobi,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-08-20 23:00:00,,0,Nominal operating telemetry
+EQ-000087,nairobi,NBO-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-08-21 14:00:00,,0,Nominal operating telemetry
+EQ-000088,nairobi,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-08-22 18:00:00,,0,Nominal operating telemetry
+EQ-000089,nairobi,NBO-P07,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-08-23 03:00:00,,0,Nominal operating telemetry
+EQ-000090,nairobi,NBO-P06,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-08-24 07:00:00,,0,Nominal operating telemetry
+EQ-000091,nairobi,NBO-P06,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-08-24 15:00:00,,0,Nominal operating telemetry
+EQ-000092,nairobi,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-08-25 16:00:00,,0,Nominal operating telemetry
+EQ-000093,nairobi,NBO-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-08-26 08:00:00,,0,Nominal operating telemetry
+EQ-000094,nairobi,NBO-P04,METERING,Digital Batch Controller,HEALTHY,2026-08-26 16:00:00,,0,Nominal operating telemetry
+EQ-000095,nairobi,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-08-27 20:00:00,,0,Nominal operating telemetry
+EQ-000096,nairobi,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-08-28 19:00:00,,0,Nominal operating telemetry
+EQ-000097,nairobi,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-08-29 17:00:00,,0,Nominal operating telemetry
+EQ-000098,nairobi,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-08-30 21:00:00,,0,Nominal operating telemetry
+EQ-000099,nairobi,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-08-31 16:00:00,,0,Nominal operating telemetry
+EQ-000100,nairobi,NBO-P03,METERING,Flow Meter Temperature RTD,HEALTHY,2026-09-01 00:00:00,,0,Nominal operating telemetry
+EQ-000101,nairobi,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-09-01 23:00:00,,0,Nominal operating telemetry
+EQ-000102,nairobi,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-09-03 01:00:00,,0,Nominal operating telemetry
+EQ-000103,nairobi,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-09-04 05:00:00,,0,Nominal operating telemetry
+EQ-000104,nairobi,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-09-05 02:00:00,,0,Nominal operating telemetry
+EQ-000105,nairobi,NBO-P05,METERING,Flow Meter Temperature RTD,HEALTHY,2026-09-05 17:00:00,,0,Nominal operating telemetry
+EQ-000106,nairobi,NBO-P08,LOADING_SYSTEM,Emergency Breakaway Coupler,UNAVAILABLE,2026-09-06 02:00:00,2026-09-06 12:00:00,100,Emergency Breakaway Coupler offline for maintenance
+EQ-000107,nairobi,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-09-06 12:00:00,,0,Nominal operating telemetry
+EQ-000108,nairobi,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-09-07 09:00:00,,0,Nominal operating telemetry
+EQ-000109,nairobi,NBO-P04,METERING,Flow Meter Temperature RTD,UNAVAILABLE,2026-09-07 22:00:00,2026-09-08 03:00:00,100,Flow Meter Temperature RTD offline for maintenance
+EQ-000110,nairobi,NBO-P03,METERING,Flow Meter Temperature RTD,HEALTHY,2026-09-08 20:00:00,,0,Nominal operating telemetry
+EQ-000111,nairobi,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-09-09 06:00:00,,0,Nominal operating telemetry
+EQ-000112,nairobi,,GATE_SCALE,Gross Weighbridge Transducer,UNAVAILABLE,2026-09-10 01:00:00,2026-09-10 07:00:00,100,Gross Weighbridge Transducer offline for maintenance
+EQ-000113,nairobi,,SCADA_CONTROL,Redundant DCS PLC Gateway,DEGRADED,2026-09-11 00:00:00,2026-09-11 07:00:00,23,Redundant DCS PLC Gateway calibration offset detected
+EQ-000114,nairobi,NBO-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-09-12 01:00:00,,0,Nominal operating telemetry
+EQ-000115,nairobi,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-09-13 03:00:00,,0,Nominal operating telemetry
+EQ-000116,nairobi,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-09-14 04:00:00,,0,Nominal operating telemetry
+EQ-000117,nairobi,NBO-P04,METERING,Digital Batch Controller,HEALTHY,2026-09-14 17:00:00,,0,Nominal operating telemetry
+EQ-000118,nairobi,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-09-15 04:00:00,,0,Nominal operating telemetry
+EQ-000119,nairobi,NBO-P04,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-09-16 06:00:00,,0,Nominal operating telemetry
+EQ-000120,mombasa,MBA-P08,METERING,Digital Batch Controller,HEALTHY,2026-06-12 06:00:00,,0,Nominal operating telemetry
+EQ-000121,mombasa,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-06-13 05:00:00,,0,Nominal operating telemetry
+EQ-000122,mombasa,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-06-14 06:00:00,,0,Nominal operating telemetry
+EQ-000123,mombasa,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-06-15 03:00:00,,0,Nominal operating telemetry
+EQ-000124,mombasa,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-06-15 12:00:00,,0,Nominal operating telemetry
+EQ-000125,mombasa,MBA-P04,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-06-15 22:00:00,,0,Nominal operating telemetry
+EQ-000126,mombasa,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-06-16 22:00:00,,0,Nominal operating telemetry
+EQ-000127,mombasa,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-06-17 11:00:00,,0,Nominal operating telemetry
+EQ-000128,mombasa,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-06-18 05:00:00,,0,Nominal operating telemetry
+EQ-000129,mombasa,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,DEGRADED,2026-06-18 13:00:00,2026-06-19 00:00:00,16,Additive Injection Pump Line calibration offset detected
+EQ-000130,mombasa,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-06-19 14:00:00,,0,Nominal operating telemetry
+EQ-000131,mombasa,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-06-20 13:00:00,,0,Nominal operating telemetry
+EQ-000132,mombasa,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-06-21 12:00:00,,0,Nominal operating telemetry
+EQ-000133,mombasa,MBA-P02,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-06-22 06:00:00,,0,Nominal operating telemetry
+EQ-000134,mombasa,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,UNAVAILABLE,2026-06-23 04:00:00,2026-06-23 07:00:00,100,Additive Injection Pump Line offline for maintenance
+EQ-000135,mombasa,,GATE_SCALE,Smart RFID Barrier Gate,UNAVAILABLE,2026-06-23 15:00:00,2026-06-23 21:00:00,100,Smart RFID Barrier Gate offline for maintenance
+EQ-000136,mombasa,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-06-24 16:00:00,,0,Nominal operating telemetry
+EQ-000137,mombasa,MBA-P10,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-06-25 06:00:00,,0,Nominal operating telemetry
+EQ-000138,mombasa,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-06-25 22:00:00,,0,Nominal operating telemetry
+EQ-000139,mombasa,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-06-26 18:00:00,,0,Nominal operating telemetry
+EQ-000140,mombasa,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-06-27 22:00:00,,0,Nominal operating telemetry
+EQ-000141,mombasa,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-06-28 07:00:00,,0,Nominal operating telemetry
+EQ-000142,mombasa,MBA-P02,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-06-28 21:00:00,,0,Nominal operating telemetry
+EQ-000143,mombasa,MBA-P08,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-06-29 13:00:00,,0,Nominal operating telemetry
+EQ-000144,mombasa,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-06-30 04:00:00,,0,Nominal operating telemetry
+EQ-000145,mombasa,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-06-30 21:00:00,,0,Nominal operating telemetry
+EQ-000146,mombasa,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-01 16:00:00,,0,Nominal operating telemetry
+EQ-000147,mombasa,MBA-P09,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-02 15:00:00,,0,Nominal operating telemetry
+EQ-000148,mombasa,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-07-03 08:00:00,,0,Nominal operating telemetry
+EQ-000149,mombasa,MBA-P08,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-07-04 01:00:00,,0,Nominal operating telemetry
+EQ-000150,mombasa,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-07-04 10:00:00,,0,Nominal operating telemetry
+EQ-000151,mombasa,MBA-P07,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-05 10:00:00,,0,Nominal operating telemetry
+EQ-000152,mombasa,MBA-P01,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-07-05 23:00:00,,0,Nominal operating telemetry
+EQ-000153,mombasa,MBA-P08,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-07-06 12:00:00,,0,Nominal operating telemetry
+EQ-000154,mombasa,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-07-06 20:00:00,,0,Nominal operating telemetry
+EQ-000155,mombasa,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-07-07 09:00:00,,0,Nominal operating telemetry
+EQ-000156,mombasa,MBA-P03,METERING,Digital Batch Controller,HEALTHY,2026-07-08 03:00:00,,0,Nominal operating telemetry
+EQ-000157,mombasa,MBA-P01,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-08 18:00:00,,0,Nominal operating telemetry
+EQ-000158,mombasa,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-07-09 22:00:00,,0,Nominal operating telemetry
+EQ-000159,mombasa,MBA-P02,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-07-10 06:00:00,,0,Nominal operating telemetry
+EQ-000160,mombasa,,GATE_SCALE,Tare Weighbridge Loadcell Platform,UNAVAILABLE,2026-07-10 15:00:00,2026-07-11 02:00:00,100,Tare Weighbridge Loadcell Platform offline for maintenance
+EQ-000161,mombasa,MBA-P06,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-11 14:00:00,,0,Nominal operating telemetry
+EQ-000162,mombasa,MBA-P03,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-07-12 09:00:00,,0,Nominal operating telemetry
+EQ-000163,mombasa,MBA-P05,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-07-12 22:00:00,,0,Nominal operating telemetry
+EQ-000164,mombasa,MBA-P07,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-07-13 22:00:00,,0,Nominal operating telemetry
+EQ-000165,mombasa,MBA-P02,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-14 09:00:00,,0,Nominal operating telemetry
+EQ-000166,mombasa,MBA-P06,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,DEGRADED,2026-07-15 00:00:00,2026-07-15 07:00:00,10,Hydraulic Gantry Loading Arms calibration offset detected
+EQ-000167,mombasa,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-07-16 00:00:00,,0,Nominal operating telemetry
+EQ-000168,mombasa,,GATE_SCALE,Tare Weighbridge Loadcell Platform,UNAVAILABLE,2026-07-17 04:00:00,2026-07-17 12:00:00,100,Tare Weighbridge Loadcell Platform offline for maintenance
+EQ-000169,mombasa,MBA-P09,LOADING_SYSTEM,Emergency Breakaway Coupler,UNAVAILABLE,2026-07-17 22:00:00,2026-07-18 09:00:00,100,Emergency Breakaway Coupler offline for maintenance
+EQ-000170,mombasa,MBA-P05,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-18 23:00:00,,0,Nominal operating telemetry
+EQ-000171,mombasa,MBA-P06,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-07-19 08:00:00,,0,Nominal operating telemetry
+EQ-000172,mombasa,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,DEGRADED,2026-07-20 05:00:00,2026-07-20 09:00:00,22,Static Earth Monitoring Reel calibration offset detected
+EQ-000173,mombasa,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-07-20 13:00:00,,0,Nominal operating telemetry
+EQ-000174,mombasa,MBA-P09,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-07-20 22:00:00,,0,Nominal operating telemetry
+EQ-000175,mombasa,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-07-21 12:00:00,,0,Nominal operating telemetry
+EQ-000176,mombasa,MBA-P09,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-07-22 09:00:00,,0,Nominal operating telemetry
+EQ-000177,mombasa,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-07-23 01:00:00,,0,Nominal operating telemetry
+EQ-000178,mombasa,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,UNAVAILABLE,2026-07-23 09:00:00,2026-07-23 23:00:00,100,Additive Injection Pump Line offline for maintenance
+EQ-000179,mombasa,MBA-P03,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-23 18:00:00,,0,Nominal operating telemetry
+EQ-000180,mombasa,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-07-24 21:00:00,,0,Nominal operating telemetry
+EQ-000181,mombasa,MBA-P02,LOADING_SYSTEM,Emergency Breakaway Coupler,DEGRADED,2026-07-25 19:00:00,2026-07-26 01:00:00,22,Emergency Breakaway Coupler calibration offset detected
+EQ-000182,mombasa,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-07-26 11:00:00,,0,Nominal operating telemetry
+EQ-000183,mombasa,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-07-27 13:00:00,,0,Nominal operating telemetry
+EQ-000184,mombasa,MBA-P06,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-07-28 10:00:00,,0,Nominal operating telemetry
+EQ-000185,mombasa,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-07-29 10:00:00,,0,Nominal operating telemetry
+EQ-000186,mombasa,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-07-30 08:00:00,,0,Nominal operating telemetry
+EQ-000187,mombasa,MBA-P07,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-31 08:00:00,,0,Nominal operating telemetry
+EQ-000188,mombasa,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-01 09:00:00,,0,Nominal operating telemetry
+EQ-000189,mombasa,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-08-02 00:00:00,,0,Nominal operating telemetry
+EQ-000190,mombasa,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-08-02 19:00:00,,0,Nominal operating telemetry
+EQ-000191,mombasa,MBA-P06,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-03 04:00:00,,0,Nominal operating telemetry
+EQ-000192,mombasa,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-08-04 00:00:00,,0,Nominal operating telemetry
+EQ-000193,mombasa,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-04 22:00:00,,0,Nominal operating telemetry
+EQ-000194,mombasa,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-08-05 17:00:00,,0,Nominal operating telemetry
+EQ-000195,mombasa,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-06 03:00:00,,0,Nominal operating telemetry
+EQ-000196,mombasa,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,DEGRADED,2026-08-06 16:00:00,2026-08-06 22:00:00,23,Vapor Recovery Compressor calibration offset detected
+EQ-000197,mombasa,MBA-P09,METERING,Digital Batch Controller,HEALTHY,2026-08-07 10:00:00,,0,Nominal operating telemetry
+EQ-000198,mombasa,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-08-08 00:00:00,,0,Nominal operating telemetry
+EQ-000199,mombasa,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-08-08 14:00:00,,0,Nominal operating telemetry
+EQ-000200,mombasa,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-08-09 14:00:00,,0,Nominal operating telemetry
+EQ-000201,mombasa,MBA-P09,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-08-10 10:00:00,,0,Nominal operating telemetry
+EQ-000202,mombasa,MBA-P02,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-08-11 04:00:00,,0,Nominal operating telemetry
+EQ-000203,mombasa,MBA-P09,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-11 17:00:00,,0,Nominal operating telemetry
+EQ-000204,mombasa,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-08-12 20:00:00,,0,Nominal operating telemetry
+EQ-000205,mombasa,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-08-13 08:00:00,,0,Nominal operating telemetry
+EQ-000206,mombasa,MBA-P08,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-08-14 01:00:00,,0,Nominal operating telemetry
+EQ-000207,mombasa,MBA-P10,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-08-14 20:00:00,,0,Nominal operating telemetry
+EQ-000208,mombasa,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-08-15 14:00:00,,0,Nominal operating telemetry
+EQ-000209,mombasa,MBA-P02,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-08-16 08:00:00,,0,Nominal operating telemetry
+EQ-000210,mombasa,MBA-P07,METERING,Digital Batch Controller,HEALTHY,2026-08-17 04:00:00,,0,Nominal operating telemetry
+EQ-000211,mombasa,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-08-18 02:00:00,,0,Nominal operating telemetry
+EQ-000212,mombasa,MBA-P06,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-08-19 06:00:00,,0,Nominal operating telemetry
+EQ-000213,mombasa,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-19 18:00:00,,0,Nominal operating telemetry
+EQ-000214,mombasa,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-08-20 13:00:00,,0,Nominal operating telemetry
+EQ-000215,mombasa,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-08-21 14:00:00,,0,Nominal operating telemetry
+EQ-000216,mombasa,MBA-P06,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-22 08:00:00,,0,Nominal operating telemetry
+EQ-000217,mombasa,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-08-23 04:00:00,,0,Nominal operating telemetry
+EQ-000218,mombasa,,SCADA_CONTROL,Emergency Shut-Down Loop,DEGRADED,2026-08-24 02:00:00,2026-08-24 12:00:00,20,Emergency Shut-Down Loop calibration offset detected
+EQ-000219,mombasa,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-08-24 17:00:00,,0,Nominal operating telemetry
+EQ-000220,mombasa,MBA-P10,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-08-25 16:00:00,,0,Nominal operating telemetry
+EQ-000221,mombasa,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-08-26 00:00:00,,0,Nominal operating telemetry
+EQ-000222,mombasa,MBA-P10,METERING,Digital Batch Controller,HEALTHY,2026-08-26 18:00:00,,0,Nominal operating telemetry
+EQ-000223,mombasa,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-27 15:00:00,,0,Nominal operating telemetry
+EQ-000224,mombasa,MBA-P05,METERING,Digital Batch Controller,HEALTHY,2026-08-28 14:00:00,,0,Nominal operating telemetry
+EQ-000225,mombasa,MBA-P07,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-08-29 03:00:00,,0,Nominal operating telemetry
+EQ-000226,mombasa,MBA-P06,METERING,Digital Batch Controller,HEALTHY,2026-08-29 15:00:00,,0,Nominal operating telemetry
+EQ-000227,mombasa,MBA-P09,METERING,Coriolis Mass-Flow Meter,UNAVAILABLE,2026-08-30 14:00:00,2026-08-31 04:00:00,100,Coriolis Mass-Flow Meter offline for maintenance
+EQ-000228,mombasa,MBA-P07,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-30 22:00:00,,0,Nominal operating telemetry
+EQ-000229,mombasa,MBA-P06,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-31 17:00:00,,0,Nominal operating telemetry
+EQ-000230,mombasa,,SCADA_CONTROL,OPC-UA Interface Bridge,UNAVAILABLE,2026-09-01 05:00:00,2026-09-01 13:00:00,100,OPC-UA Interface Bridge offline for maintenance
+EQ-000231,mombasa,MBA-P04,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-09-01 18:00:00,,0,Nominal operating telemetry
+EQ-000232,mombasa,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-09-02 19:00:00,,0,Nominal operating telemetry
+EQ-000233,mombasa,MBA-P05,METERING,Digital Batch Controller,HEALTHY,2026-09-03 17:00:00,,0,Nominal operating telemetry
+EQ-000234,mombasa,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-09-04 07:00:00,,0,Nominal operating telemetry
+EQ-000235,mombasa,MBA-P06,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-09-04 21:00:00,,0,Nominal operating telemetry
+EQ-000236,mombasa,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-09-05 05:00:00,,0,Nominal operating telemetry
+EQ-000237,mombasa,MBA-P06,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-09-05 15:00:00,,0,Nominal operating telemetry
+EQ-000238,mombasa,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-09-06 04:00:00,,0,Nominal operating telemetry
+EQ-000239,mombasa,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-09-06 14:00:00,,0,Nominal operating telemetry
+EQ-000240,mombasa,,GATE_SCALE,Smart RFID Barrier Gate,DEGRADED,2026-09-07 18:00:00,2026-09-08 03:00:00,16,Smart RFID Barrier Gate calibration offset detected
+EQ-000241,mombasa,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-09-08 20:00:00,,0,Nominal operating telemetry
+EQ-000242,mombasa,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-09-09 22:00:00,,0,Nominal operating telemetry
+EQ-000243,mombasa,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-09-10 16:00:00,,0,Nominal operating telemetry
+EQ-000244,mombasa,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-09-11 17:00:00,,0,Nominal operating telemetry
+EQ-000245,mombasa,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-09-12 08:00:00,,0,Nominal operating telemetry
+EQ-000246,mombasa,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-09-12 23:00:00,,0,Nominal operating telemetry
+EQ-000247,mombasa,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-09-13 10:00:00,,0,Nominal operating telemetry
+EQ-000248,mombasa,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-09-14 08:00:00,,0,Nominal operating telemetry
+EQ-000249,mombasa,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-09-14 19:00:00,,0,Nominal operating telemetry
+EQ-000250,mombasa,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-09-15 22:00:00,,0,Nominal operating telemetry
+EQ-000251,nakuru,NKR-P04,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-06-12 05:00:00,,0,Nominal operating telemetry
+EQ-000252,nakuru,NKR-P03,METERING,Digital Batch Controller,HEALTHY,2026-06-13 07:00:00,,0,Nominal operating telemetry
+EQ-000253,nakuru,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-06-13 18:00:00,,0,Nominal operating telemetry
+EQ-000254,nakuru,NKR-P03,METERING,Flow Meter Temperature RTD,HEALTHY,2026-06-14 17:00:00,,0,Nominal operating telemetry
+EQ-000255,nakuru,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-06-15 16:00:00,,0,Nominal operating telemetry
+EQ-000256,nakuru,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-06-16 18:00:00,,0,Nominal operating telemetry
+EQ-000257,nakuru,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-06-17 22:00:00,,0,Nominal operating telemetry
+EQ-000258,nakuru,NKR-P03,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-06-18 10:00:00,,0,Nominal operating telemetry
+EQ-000259,nakuru,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-06-19 01:00:00,,0,Nominal operating telemetry
+EQ-000260,nakuru,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-06-19 18:00:00,,0,Nominal operating telemetry
+EQ-000261,nakuru,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-06-20 10:00:00,,0,Nominal operating telemetry
+EQ-000262,nakuru,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-06-21 01:00:00,,0,Nominal operating telemetry
+EQ-000263,nakuru,,SCADA_CONTROL,OPC-UA Interface Bridge,UNAVAILABLE,2026-06-21 22:00:00,2026-06-22 00:00:00,100,OPC-UA Interface Bridge offline for maintenance
+EQ-000264,nakuru,NKR-P02,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-06-22 06:00:00,,0,Nominal operating telemetry
+EQ-000265,nakuru,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-06-22 21:00:00,,0,Nominal operating telemetry
+EQ-000266,nakuru,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-06-23 13:00:00,,0,Nominal operating telemetry
+EQ-000267,nakuru,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-06-24 04:00:00,,0,Nominal operating telemetry
+EQ-000268,nakuru,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-06-25 06:00:00,,0,Nominal operating telemetry
+EQ-000269,nakuru,,GATE_SCALE,Smart RFID Barrier Gate,UNAVAILABLE,2026-06-25 20:00:00,2026-06-26 06:00:00,100,Smart RFID Barrier Gate offline for maintenance
+EQ-000270,nakuru,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-06-26 08:00:00,,0,Nominal operating telemetry
+EQ-000271,nakuru,,GATE_SCALE,Gross Weighbridge Transducer,UNAVAILABLE,2026-06-26 22:00:00,2026-06-27 06:00:00,100,Gross Weighbridge Transducer offline for maintenance
+EQ-000272,nakuru,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-06-27 20:00:00,,0,Nominal operating telemetry
+EQ-000273,nakuru,,GATE_SCALE,Tare Weighbridge Loadcell Platform,DEGRADED,2026-06-28 17:00:00,2026-06-29 02:00:00,10,Tare Weighbridge Loadcell Platform calibration offset detected
+EQ-000274,nakuru,,GATE_SCALE,Gross Weighbridge Transducer,DEGRADED,2026-06-29 13:00:00,2026-06-29 23:00:00,25,Gross Weighbridge Transducer calibration offset detected
+EQ-000275,nakuru,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-06-29 23:00:00,,0,Nominal operating telemetry
+EQ-000276,nakuru,NKR-P01,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-07-01 00:00:00,,0,Nominal operating telemetry
+EQ-000277,nakuru,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,DEGRADED,2026-07-01 09:00:00,2026-07-01 16:00:00,12,Additive Injection Pump Line calibration offset detected
+EQ-000278,nakuru,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-07-02 12:00:00,,0,Nominal operating telemetry
+EQ-000279,nakuru,NKR-P03,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-07-03 06:00:00,,0,Nominal operating telemetry
+EQ-000280,nakuru,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-04 02:00:00,,0,Nominal operating telemetry
+EQ-000281,nakuru,NKR-P02,METERING,Digital Batch Controller,HEALTHY,2026-07-05 03:00:00,,0,Nominal operating telemetry
+EQ-000282,nakuru,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-07-05 19:00:00,,0,Nominal operating telemetry
+EQ-000283,nakuru,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-06 18:00:00,,0,Nominal operating telemetry
+EQ-000284,nakuru,NKR-P04,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-07-07 02:00:00,,0,Nominal operating telemetry
+EQ-000285,nakuru,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,UNAVAILABLE,2026-07-08 05:00:00,2026-07-08 16:00:00,100,Static Earth Monitoring Reel offline for maintenance
+EQ-000286,nakuru,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-07-09 09:00:00,,0,Nominal operating telemetry
+EQ-000287,nakuru,NKR-P04,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-07-10 10:00:00,,0,Nominal operating telemetry
+EQ-000288,nakuru,NKR-P04,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-07-11 00:00:00,,0,Nominal operating telemetry
+EQ-000289,nakuru,NKR-P04,METERING,Coriolis Mass-Flow Meter,DEGRADED,2026-07-11 18:00:00,2026-07-11 21:00:00,11,Coriolis Mass-Flow Meter calibration offset detected
+EQ-000290,nakuru,NKR-P04,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-07-12 19:00:00,,0,Nominal operating telemetry
+EQ-000291,nakuru,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-07-13 07:00:00,,0,Nominal operating telemetry
+EQ-000292,nakuru,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-07-13 17:00:00,,0,Nominal operating telemetry
+EQ-000293,nakuru,NKR-P02,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-07-14 05:00:00,,0,Nominal operating telemetry
+EQ-000294,nakuru,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-07-14 15:00:00,,0,Nominal operating telemetry
+EQ-000295,nakuru,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-07-15 07:00:00,,0,Nominal operating telemetry
+EQ-000296,nakuru,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-15 23:00:00,,0,Nominal operating telemetry
+EQ-000297,nakuru,NKR-P03,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-07-16 18:00:00,,0,Nominal operating telemetry
+EQ-000298,nakuru,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-07-17 08:00:00,,0,Nominal operating telemetry
+EQ-000299,nakuru,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-07-17 18:00:00,,0,Nominal operating telemetry
+EQ-000300,nakuru,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-07-18 22:00:00,,0,Nominal operating telemetry
+EQ-000301,nakuru,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-07-19 20:00:00,,0,Nominal operating telemetry
+EQ-000302,nakuru,NKR-P04,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-07-20 20:00:00,,0,Nominal operating telemetry
+EQ-000303,nakuru,NKR-P01,METERING,Digital Batch Controller,HEALTHY,2026-07-21 16:00:00,,0,Nominal operating telemetry
+EQ-000304,nakuru,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-07-22 14:00:00,,0,Nominal operating telemetry
+EQ-000305,nakuru,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-07-23 16:00:00,,0,Nominal operating telemetry
+EQ-000306,nakuru,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-07-24 18:00:00,,0,Nominal operating telemetry
+EQ-000307,nakuru,NKR-P02,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-07-25 14:00:00,,0,Nominal operating telemetry
+EQ-000308,nakuru,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-07-25 23:00:00,,0,Nominal operating telemetry
+EQ-000309,nakuru,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-07-26 07:00:00,,0,Nominal operating telemetry
+EQ-000310,nakuru,NKR-P04,LOADING_SYSTEM,Loading Arm Swivel Joint,DEGRADED,2026-07-26 16:00:00,2026-07-27 05:00:00,17,Loading Arm Swivel Joint calibration offset detected
+EQ-000311,nakuru,NKR-P04,METERING,Digital Batch Controller,DEGRADED,2026-07-27 19:00:00,2026-07-28 01:00:00,13,Digital Batch Controller calibration offset detected
+EQ-000312,nakuru,NKR-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-07-28 17:00:00,,0,Nominal operating telemetry
+EQ-000313,nakuru,,SCADA_CONTROL,OPC-UA Interface Bridge,DEGRADED,2026-07-29 05:00:00,2026-07-29 18:00:00,15,OPC-UA Interface Bridge calibration offset detected
+EQ-000314,nakuru,,GATE_SCALE,Tare Weighbridge Loadcell Platform,DEGRADED,2026-07-30 02:00:00,2026-07-30 16:00:00,21,Tare Weighbridge Loadcell Platform calibration offset detected
+EQ-000315,nakuru,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-07-30 16:00:00,,0,Nominal operating telemetry
+EQ-000316,nakuru,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-07-31 17:00:00,,0,Nominal operating telemetry
+EQ-000317,nakuru,NKR-P01,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-08-01 09:00:00,,0,Nominal operating telemetry
+EQ-000318,nakuru,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-08-02 03:00:00,,0,Nominal operating telemetry
+EQ-000319,nakuru,NKR-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-08-02 14:00:00,,0,Nominal operating telemetry
+EQ-000320,nakuru,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-03 18:00:00,,0,Nominal operating telemetry
+EQ-000321,nakuru,NKR-P01,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-08-04 12:00:00,,0,Nominal operating telemetry
+EQ-000322,nakuru,NKR-P04,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-08-05 13:00:00,,0,Nominal operating telemetry
+EQ-000323,nakuru,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-05 22:00:00,,0,Nominal operating telemetry
+EQ-000324,nakuru,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-06 16:00:00,,0,Nominal operating telemetry
+EQ-000325,nakuru,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-08-07 00:00:00,,0,Nominal operating telemetry
+EQ-000326,nakuru,,SCADA_CONTROL,Redundant DCS PLC Gateway,DEGRADED,2026-08-08 00:00:00,2026-08-08 04:00:00,12,Redundant DCS PLC Gateway calibration offset detected
+EQ-000327,nakuru,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-08 23:00:00,,0,Nominal operating telemetry
+EQ-000328,nakuru,NKR-P01,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-08-09 12:00:00,,0,Nominal operating telemetry
+EQ-000329,nakuru,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-08-10 11:00:00,,0,Nominal operating telemetry
+EQ-000330,nakuru,NKR-P02,METERING,Digital Batch Controller,HEALTHY,2026-08-11 08:00:00,,0,Nominal operating telemetry
+EQ-000331,nakuru,,GATE_SCALE,Tare Weighbridge Loadcell Platform,UNAVAILABLE,2026-08-11 20:00:00,2026-08-12 06:00:00,100,Tare Weighbridge Loadcell Platform offline for maintenance
+EQ-000332,nakuru,NKR-P02,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-08-12 07:00:00,,0,Nominal operating telemetry
+EQ-000333,nakuru,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-08-12 16:00:00,,0,Nominal operating telemetry
+EQ-000334,nakuru,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-08-13 14:00:00,,0,Nominal operating telemetry
+EQ-000335,nakuru,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-08-13 22:00:00,,0,Nominal operating telemetry
+EQ-000336,nakuru,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-08-15 00:00:00,,0,Nominal operating telemetry
+EQ-000337,nakuru,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-08-16 01:00:00,,0,Nominal operating telemetry
+EQ-000338,nakuru,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-08-17 05:00:00,,0,Nominal operating telemetry
+EQ-000339,nakuru,,GATE_SCALE,Tare Weighbridge Loadcell Platform,DEGRADED,2026-08-18 07:00:00,2026-08-18 14:00:00,11,Tare Weighbridge Loadcell Platform calibration offset detected
+EQ-000340,nakuru,NKR-P02,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-19 05:00:00,,0,Nominal operating telemetry
+EQ-000341,nakuru,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-08-20 01:00:00,,0,Nominal operating telemetry
+EQ-000342,nakuru,NKR-P02,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-21 00:00:00,,0,Nominal operating telemetry
+EQ-000343,nakuru,NKR-P04,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-08-22 02:00:00,,0,Nominal operating telemetry
+EQ-000344,nakuru,NKR-P03,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-08-23 06:00:00,,0,Nominal operating telemetry
+EQ-000345,nakuru,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-08-24 04:00:00,,0,Nominal operating telemetry
+EQ-000346,nakuru,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-08-25 01:00:00,,0,Nominal operating telemetry
+EQ-000347,nakuru,NKR-P01,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-08-25 14:00:00,,0,Nominal operating telemetry
+EQ-000348,nakuru,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-26 10:00:00,,0,Nominal operating telemetry
+EQ-000349,nakuru,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-27 00:00:00,,0,Nominal operating telemetry
+EQ-000350,nakuru,NKR-P01,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-08-27 16:00:00,,0,Nominal operating telemetry
+EQ-000351,nakuru,NKR-P03,METERING,Digital Batch Controller,HEALTHY,2026-08-28 16:00:00,,0,Nominal operating telemetry
+EQ-000352,nakuru,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-08-29 14:00:00,,0,Nominal operating telemetry
+EQ-000353,nakuru,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-30 02:00:00,,0,Nominal operating telemetry
+EQ-000354,nakuru,NKR-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-08-31 03:00:00,,0,Nominal operating telemetry
+EQ-000355,nakuru,NKR-P02,LOADING_SYSTEM,Loading Arm Swivel Joint,UNAVAILABLE,2026-08-31 13:00:00,2026-09-01 00:00:00,100,Loading Arm Swivel Joint offline for maintenance
+EQ-000356,nakuru,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-09-01 14:00:00,,0,Nominal operating telemetry
+EQ-000357,nakuru,NKR-P01,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-09-02 17:00:00,,0,Nominal operating telemetry
+EQ-000358,nakuru,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-09-03 17:00:00,,0,Nominal operating telemetry
+EQ-000359,nakuru,,GATE_SCALE,Gross Weighbridge Transducer,DEGRADED,2026-09-04 13:00:00,2026-09-04 23:00:00,10,Gross Weighbridge Transducer calibration offset detected
+EQ-000360,nakuru,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-09-04 21:00:00,,0,Nominal operating telemetry
+EQ-000361,nakuru,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-09-05 14:00:00,,0,Nominal operating telemetry
+EQ-000362,nakuru,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-09-06 16:00:00,,0,Nominal operating telemetry
+EQ-000363,nakuru,NKR-P04,METERING,Flow Meter Temperature RTD,HEALTHY,2026-09-07 08:00:00,,0,Nominal operating telemetry
+EQ-000364,nakuru,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-09-08 08:00:00,,0,Nominal operating telemetry
+EQ-000365,nakuru,NKR-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-09-09 04:00:00,,0,Nominal operating telemetry
+EQ-000366,nakuru,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-09-09 23:00:00,,0,Nominal operating telemetry
+EQ-000367,nakuru,NKR-P01,METERING,Digital Batch Controller,HEALTHY,2026-09-10 09:00:00,,0,Nominal operating telemetry
+EQ-000368,nakuru,NKR-P01,LOADING_SYSTEM,Emergency Breakaway Coupler,DEGRADED,2026-09-11 11:00:00,2026-09-11 23:00:00,21,Emergency Breakaway Coupler calibration offset detected
+EQ-000369,nakuru,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-09-12 10:00:00,,0,Nominal operating telemetry
+EQ-000370,nakuru,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-09-13 06:00:00,,0,Nominal operating telemetry
+EQ-000371,nakuru,NKR-P04,METERING,Flow Meter Temperature RTD,HEALTHY,2026-09-14 01:00:00,,0,Nominal operating telemetry
+EQ-000372,nakuru,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-09-15 00:00:00,,0,Nominal operating telemetry
+EQ-000373,nakuru,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-09-16 03:00:00,,0,Nominal operating telemetry
+EQ-000374,eldoret,ELD-P06,METERING,Flow Meter Temperature RTD,HEALTHY,2026-06-11 17:00:00,,0,Nominal operating telemetry
+EQ-000375,eldoret,ELD-P05,METERING,Flow Meter Temperature RTD,HEALTHY,2026-06-12 05:00:00,,0,Nominal operating telemetry
+EQ-000376,eldoret,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-06-13 09:00:00,,0,Nominal operating telemetry
+EQ-000377,eldoret,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-06-14 08:00:00,,0,Nominal operating telemetry
+EQ-000378,eldoret,ELD-P04,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-06-15 10:00:00,,0,Nominal operating telemetry
+EQ-000379,eldoret,ELD-P06,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-06-16 11:00:00,,0,Nominal operating telemetry
+EQ-000380,eldoret,ELD-P01,LOADING_SYSTEM,Emergency Breakaway Coupler,UNAVAILABLE,2026-06-17 00:00:00,2026-06-17 04:00:00,100,Emergency Breakaway Coupler offline for maintenance
+EQ-000381,eldoret,ELD-P03,LOADING_SYSTEM,Emergency Breakaway Coupler,UNAVAILABLE,2026-06-18 01:00:00,2026-06-18 12:00:00,100,Emergency Breakaway Coupler offline for maintenance
+EQ-000382,eldoret,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-06-18 11:00:00,,0,Nominal operating telemetry
+EQ-000383,eldoret,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-06-18 19:00:00,,0,Nominal operating telemetry
+EQ-000384,eldoret,ELD-P02,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-06-19 04:00:00,,0,Nominal operating telemetry
+EQ-000385,eldoret,ELD-P01,METERING,Flow Meter Temperature RTD,HEALTHY,2026-06-20 07:00:00,,0,Nominal operating telemetry
+EQ-000386,eldoret,ELD-P04,METERING,Digital Batch Controller,HEALTHY,2026-06-21 02:00:00,,0,Nominal operating telemetry
+EQ-000387,eldoret,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-06-22 04:00:00,,0,Nominal operating telemetry
+EQ-000388,eldoret,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-06-22 20:00:00,,0,Nominal operating telemetry
+EQ-000389,eldoret,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-06-23 21:00:00,,0,Nominal operating telemetry
+EQ-000390,eldoret,,SCADA_CONTROL,Emergency Shut-Down Loop,UNAVAILABLE,2026-06-24 19:00:00,2026-06-25 08:00:00,100,Emergency Shut-Down Loop offline for maintenance
+EQ-000391,eldoret,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-06-25 12:00:00,,0,Nominal operating telemetry
+EQ-000392,eldoret,ELD-P04,METERING,Digital Batch Controller,HEALTHY,2026-06-26 09:00:00,,0,Nominal operating telemetry
+EQ-000393,eldoret,ELD-P02,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-06-26 23:00:00,,0,Nominal operating telemetry
+EQ-000394,eldoret,ELD-P05,METERING,Digital Batch Controller,HEALTHY,2026-06-27 11:00:00,,0,Nominal operating telemetry
+EQ-000395,eldoret,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-06-28 14:00:00,,0,Nominal operating telemetry
+EQ-000396,eldoret,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-06-28 23:00:00,,0,Nominal operating telemetry
+EQ-000397,eldoret,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-06-30 02:00:00,,0,Nominal operating telemetry
+EQ-000398,eldoret,,SCADA_CONTROL,Redundant DCS PLC Gateway,UNAVAILABLE,2026-06-30 12:00:00,2026-06-30 20:00:00,100,Redundant DCS PLC Gateway offline for maintenance
+EQ-000399,eldoret,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-07-01 06:00:00,,0,Nominal operating telemetry
+EQ-000400,eldoret,,SCADA_CONTROL,Redundant DCS PLC Gateway,DEGRADED,2026-07-01 16:00:00,2026-07-01 20:00:00,11,Redundant DCS PLC Gateway calibration offset detected
+EQ-000401,eldoret,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-07-02 04:00:00,,0,Nominal operating telemetry
+EQ-000402,eldoret,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-07-03 08:00:00,,0,Nominal operating telemetry
+EQ-000403,eldoret,ELD-P04,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-07-04 06:00:00,,0,Nominal operating telemetry
+EQ-000404,eldoret,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-07-04 20:00:00,,0,Nominal operating telemetry
+EQ-000405,eldoret,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-07-05 19:00:00,,0,Nominal operating telemetry
+EQ-000406,eldoret,ELD-P02,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-07-06 16:00:00,,0,Nominal operating telemetry
+EQ-000407,eldoret,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-07-07 17:00:00,,0,Nominal operating telemetry
+EQ-000408,eldoret,,GATE_SCALE,Smart RFID Barrier Gate,DEGRADED,2026-07-08 12:00:00,2026-07-08 15:00:00,12,Smart RFID Barrier Gate calibration offset detected
+EQ-000409,eldoret,ELD-P04,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-07-09 05:00:00,,0,Nominal operating telemetry
+EQ-000410,eldoret,ELD-P03,METERING,Digital Batch Controller,HEALTHY,2026-07-09 19:00:00,,0,Nominal operating telemetry
+EQ-000411,eldoret,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-07-10 19:00:00,,0,Nominal operating telemetry
+EQ-000412,eldoret,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-07-11 19:00:00,,0,Nominal operating telemetry
+EQ-000413,eldoret,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-07-12 03:00:00,,0,Nominal operating telemetry
+EQ-000414,eldoret,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-12 15:00:00,,0,Nominal operating telemetry
+EQ-000415,eldoret,ELD-P04,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-07-13 01:00:00,,0,Nominal operating telemetry
+EQ-000416,eldoret,ELD-P05,METERING,Digital Batch Controller,HEALTHY,2026-07-14 00:00:00,,0,Nominal operating telemetry
+EQ-000417,eldoret,ELD-P04,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-14 20:00:00,,0,Nominal operating telemetry
+EQ-000418,eldoret,ELD-P01,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-07-15 06:00:00,,0,Nominal operating telemetry
+EQ-000419,eldoret,ELD-P03,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-16 06:00:00,,0,Nominal operating telemetry
+EQ-000420,eldoret,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-16 15:00:00,,0,Nominal operating telemetry
+EQ-000421,eldoret,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-07-17 12:00:00,,0,Nominal operating telemetry
+EQ-000422,eldoret,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,DEGRADED,2026-07-18 00:00:00,2026-07-18 11:00:00,24,Additive Injection Pump Line calibration offset detected
+EQ-000423,eldoret,ELD-P04,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-07-19 04:00:00,,0,Nominal operating telemetry
+EQ-000424,eldoret,ELD-P06,METERING,Digital Batch Controller,HEALTHY,2026-07-20 00:00:00,,0,Nominal operating telemetry
+EQ-000425,eldoret,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-07-21 03:00:00,,0,Nominal operating telemetry
+EQ-000426,eldoret,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-07-21 18:00:00,,0,Nominal operating telemetry
+EQ-000427,eldoret,ELD-P01,METERING,Digital Batch Controller,HEALTHY,2026-07-22 18:00:00,,0,Nominal operating telemetry
+EQ-000428,eldoret,ELD-P04,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-23 04:00:00,,0,Nominal operating telemetry
+EQ-000429,eldoret,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-07-23 16:00:00,,0,Nominal operating telemetry
+EQ-000430,eldoret,ELD-P05,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-07-24 12:00:00,,0,Nominal operating telemetry
+EQ-000431,eldoret,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-07-25 15:00:00,,0,Nominal operating telemetry
+EQ-000432,eldoret,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-07-26 13:00:00,,0,Nominal operating telemetry
+EQ-000433,eldoret,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-07-27 06:00:00,,0,Nominal operating telemetry
+EQ-000434,eldoret,ELD-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,DEGRADED,2026-07-27 23:00:00,2026-07-28 08:00:00,16,Loading Arm Swivel Joint calibration offset detected
+EQ-000435,eldoret,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-07-28 21:00:00,,0,Nominal operating telemetry
+EQ-000436,eldoret,ELD-P06,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-07-29 15:00:00,,0,Nominal operating telemetry
+EQ-000437,eldoret,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-07-30 17:00:00,,0,Nominal operating telemetry
+EQ-000438,eldoret,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-07-31 12:00:00,,0,Nominal operating telemetry
+EQ-000439,eldoret,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-01 09:00:00,,0,Nominal operating telemetry
+EQ-000440,eldoret,ELD-P06,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-08-01 20:00:00,,0,Nominal operating telemetry
+EQ-000441,eldoret,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-08-02 13:00:00,,0,Nominal operating telemetry
+EQ-000442,eldoret,,SCADA_CONTROL,OPC-UA Interface Bridge,UNAVAILABLE,2026-08-03 07:00:00,2026-08-03 20:00:00,100,OPC-UA Interface Bridge offline for maintenance
+EQ-000443,eldoret,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-08-04 11:00:00,,0,Nominal operating telemetry
+EQ-000444,eldoret,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-08-05 10:00:00,,0,Nominal operating telemetry
+EQ-000445,eldoret,ELD-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-08-06 02:00:00,,0,Nominal operating telemetry
+EQ-000446,eldoret,ELD-P05,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-08-07 05:00:00,,0,Nominal operating telemetry
+EQ-000447,eldoret,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-08-08 06:00:00,,0,Nominal operating telemetry
+EQ-000448,eldoret,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-09 03:00:00,,0,Nominal operating telemetry
+EQ-000449,eldoret,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-09 23:00:00,,0,Nominal operating telemetry
+EQ-000450,eldoret,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-08-11 00:00:00,,0,Nominal operating telemetry
+EQ-000451,eldoret,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-08-11 12:00:00,,0,Nominal operating telemetry
+EQ-000452,eldoret,ELD-P05,METERING,Digital Batch Controller,HEALTHY,2026-08-12 08:00:00,,0,Nominal operating telemetry
+EQ-000453,eldoret,,GATE_SCALE,Gross Weighbridge Transducer,UNAVAILABLE,2026-08-12 20:00:00,2026-08-13 07:00:00,100,Gross Weighbridge Transducer offline for maintenance
+EQ-000454,eldoret,ELD-P06,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-08-13 08:00:00,,0,Nominal operating telemetry
+EQ-000455,eldoret,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-08-13 21:00:00,,0,Nominal operating telemetry
+EQ-000456,eldoret,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-08-14 14:00:00,,0,Nominal operating telemetry
+EQ-000457,eldoret,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,DEGRADED,2026-08-14 22:00:00,2026-08-15 07:00:00,25,Static Earth Monitoring Reel calibration offset detected
+EQ-000458,eldoret,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-08-15 15:00:00,,0,Nominal operating telemetry
+EQ-000459,eldoret,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-16 11:00:00,,0,Nominal operating telemetry
+EQ-000460,eldoret,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,UNAVAILABLE,2026-08-17 09:00:00,2026-08-17 21:00:00,100,Vapor Recovery Compressor offline for maintenance
+EQ-000461,eldoret,ELD-P05,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-08-18 02:00:00,,0,Nominal operating telemetry
+EQ-000462,eldoret,ELD-P04,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-18 18:00:00,,0,Nominal operating telemetry
+EQ-000463,eldoret,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-08-19 22:00:00,,0,Nominal operating telemetry
+EQ-000464,eldoret,ELD-P01,METERING,Digital Batch Controller,HEALTHY,2026-08-20 07:00:00,,0,Nominal operating telemetry
+EQ-000465,eldoret,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-20 20:00:00,,0,Nominal operating telemetry
+EQ-000466,eldoret,ELD-P03,METERING,Coriolis Mass-Flow Meter,DEGRADED,2026-08-21 14:00:00,2026-08-22 04:00:00,15,Coriolis Mass-Flow Meter calibration offset detected
+EQ-000467,eldoret,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-08-22 16:00:00,,0,Nominal operating telemetry
+EQ-000468,eldoret,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-08-23 09:00:00,,0,Nominal operating telemetry
+EQ-000469,eldoret,,GATE_SCALE,Gross Weighbridge Transducer,UNAVAILABLE,2026-08-23 23:00:00,2026-08-24 03:00:00,100,Gross Weighbridge Transducer offline for maintenance
+EQ-000470,eldoret,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-24 22:00:00,,0,Nominal operating telemetry
+EQ-000471,eldoret,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-25 23:00:00,,0,Nominal operating telemetry
+EQ-000472,eldoret,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-08-26 11:00:00,,0,Nominal operating telemetry
+EQ-000473,eldoret,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-08-26 19:00:00,,0,Nominal operating telemetry
+EQ-000474,eldoret,,GATE_SCALE,Gross Weighbridge Transducer,DEGRADED,2026-08-27 04:00:00,2026-08-27 13:00:00,19,Gross Weighbridge Transducer calibration offset detected
+EQ-000475,eldoret,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-08-27 22:00:00,,0,Nominal operating telemetry
+EQ-000476,eldoret,ELD-P03,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-28 12:00:00,,0,Nominal operating telemetry
+EQ-000477,eldoret,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-08-29 12:00:00,,0,Nominal operating telemetry
+EQ-000478,eldoret,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-08-30 16:00:00,,0,Nominal operating telemetry
+EQ-000479,eldoret,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-31 04:00:00,,0,Nominal operating telemetry
+EQ-000480,eldoret,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-08-31 18:00:00,,0,Nominal operating telemetry
+EQ-000481,eldoret,ELD-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-09-01 13:00:00,,0,Nominal operating telemetry
+EQ-000482,eldoret,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,UNAVAILABLE,2026-09-02 11:00:00,2026-09-02 20:00:00,100,Vapor Recovery Compressor offline for maintenance
+EQ-000483,eldoret,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-09-03 06:00:00,,0,Nominal operating telemetry
+EQ-000484,eldoret,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,UNAVAILABLE,2026-09-03 17:00:00,2026-09-03 20:00:00,100,Vapor Recovery Compressor offline for maintenance
+EQ-000485,eldoret,,GATE_SCALE,Smart RFID Barrier Gate,UNAVAILABLE,2026-09-04 13:00:00,2026-09-04 16:00:00,100,Smart RFID Barrier Gate offline for maintenance
+EQ-000486,eldoret,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-09-05 06:00:00,,0,Nominal operating telemetry
+EQ-000487,eldoret,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-09-06 05:00:00,,0,Nominal operating telemetry
+EQ-000488,eldoret,ELD-P05,METERING,Flow Meter Temperature RTD,HEALTHY,2026-09-06 13:00:00,,0,Nominal operating telemetry
+EQ-000489,eldoret,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-09-07 01:00:00,,0,Nominal operating telemetry
+EQ-000490,eldoret,,GATE_SCALE,Gross Weighbridge Transducer,UNAVAILABLE,2026-09-08 02:00:00,2026-09-08 05:00:00,100,Gross Weighbridge Transducer offline for maintenance
+EQ-000491,eldoret,ELD-P05,METERING,Flow Meter Temperature RTD,HEALTHY,2026-09-08 16:00:00,,0,Nominal operating telemetry
+EQ-000492,eldoret,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-09-09 09:00:00,,0,Nominal operating telemetry
+EQ-000493,eldoret,ELD-P01,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-09-10 01:00:00,,0,Nominal operating telemetry
+EQ-000494,eldoret,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-09-10 12:00:00,,0,Nominal operating telemetry
+EQ-000495,eldoret,ELD-P06,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-09-11 09:00:00,,0,Nominal operating telemetry
+EQ-000496,eldoret,ELD-P05,METERING,Flow Meter Temperature RTD,HEALTHY,2026-09-11 19:00:00,,0,Nominal operating telemetry
+EQ-000497,eldoret,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-09-12 15:00:00,,0,Nominal operating telemetry
+EQ-000498,eldoret,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-09-13 18:00:00,,0,Nominal operating telemetry
+EQ-000499,eldoret,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-09-14 10:00:00,,0,Nominal operating telemetry
+EQ-000500,eldoret,,GATE_SCALE,Tare Weighbridge Loadcell Platform,UNAVAILABLE,2026-09-15 06:00:00,2026-09-15 20:00:00,100,Tare Weighbridge Loadcell Platform offline for maintenance
+EQ-000501,eldoret,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-09-16 05:00:00,,0,Nominal operating telemetry
+EQ-000502,kisumu,KSM-P02,METERING,Digital Batch Controller,HEALTHY,2026-06-11 14:00:00,,0,Nominal operating telemetry
+EQ-000503,kisumu,KSM-P04,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-06-12 01:00:00,,0,Nominal operating telemetry
+EQ-000504,kisumu,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-06-13 05:00:00,,0,Nominal operating telemetry
+EQ-000505,kisumu,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,DEGRADED,2026-06-13 20:00:00,2026-06-13 23:00:00,18,Additive Injection Pump Line calibration offset detected
+EQ-000506,kisumu,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-06-14 09:00:00,,0,Nominal operating telemetry
+EQ-000507,kisumu,KSM-P04,METERING,Flow Meter Temperature RTD,UNAVAILABLE,2026-06-14 19:00:00,2026-06-15 06:00:00,100,Flow Meter Temperature RTD offline for maintenance
+EQ-000508,kisumu,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-06-15 03:00:00,,0,Nominal operating telemetry
+EQ-000509,kisumu,KSM-P03,METERING,Digital Batch Controller,HEALTHY,2026-06-16 04:00:00,,0,Nominal operating telemetry
+EQ-000510,kisumu,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-06-16 22:00:00,,0,Nominal operating telemetry
+EQ-000511,kisumu,KSM-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-06-17 18:00:00,,0,Nominal operating telemetry
+EQ-000512,kisumu,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-06-18 21:00:00,,0,Nominal operating telemetry
+EQ-000513,kisumu,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-06-19 18:00:00,,0,Nominal operating telemetry
+EQ-000514,kisumu,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-06-20 17:00:00,,0,Nominal operating telemetry
+EQ-000515,kisumu,KSM-P04,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-06-21 05:00:00,,0,Nominal operating telemetry
+EQ-000516,kisumu,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-06-22 08:00:00,,0,Nominal operating telemetry
+EQ-000517,kisumu,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-06-22 18:00:00,,0,Nominal operating telemetry
+EQ-000518,kisumu,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-06-23 09:00:00,,0,Nominal operating telemetry
+EQ-000519,kisumu,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-06-23 22:00:00,,0,Nominal operating telemetry
+EQ-000520,kisumu,KSM-P04,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-06-24 19:00:00,,0,Nominal operating telemetry
+EQ-000521,kisumu,KSM-P04,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-06-25 04:00:00,,0,Nominal operating telemetry
+EQ-000522,kisumu,KSM-P01,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-06-25 16:00:00,,0,Nominal operating telemetry
+EQ-000523,kisumu,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-06-26 14:00:00,,0,Nominal operating telemetry
+EQ-000524,kisumu,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-06-27 05:00:00,,0,Nominal operating telemetry
+EQ-000525,kisumu,KSM-P04,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,UNAVAILABLE,2026-06-28 06:00:00,2026-06-28 12:00:00,100,Hydraulic Gantry Loading Arms offline for maintenance
+EQ-000526,kisumu,KSM-P02,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,DEGRADED,2026-06-29 00:00:00,2026-06-29 08:00:00,25,Hydraulic Gantry Loading Arms calibration offset detected
+EQ-000527,kisumu,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-06-29 11:00:00,,0,Nominal operating telemetry
+EQ-000528,kisumu,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-06-30 14:00:00,,0,Nominal operating telemetry
+EQ-000529,kisumu,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-07-01 02:00:00,,0,Nominal operating telemetry
+EQ-000530,kisumu,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,DEGRADED,2026-07-02 04:00:00,2026-07-02 09:00:00,16,Static Earth Monitoring Reel calibration offset detected
+EQ-000531,kisumu,,SCADA_CONTROL,OPC-UA Interface Bridge,UNAVAILABLE,2026-07-03 01:00:00,2026-07-03 15:00:00,100,OPC-UA Interface Bridge offline for maintenance
+EQ-000532,kisumu,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-07-03 14:00:00,,0,Nominal operating telemetry
+EQ-000533,kisumu,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-07-04 14:00:00,,0,Nominal operating telemetry
+EQ-000534,kisumu,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-07-05 16:00:00,,0,Nominal operating telemetry
+EQ-000535,kisumu,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-07-06 06:00:00,,0,Nominal operating telemetry
+EQ-000536,kisumu,KSM-P02,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-07-07 04:00:00,,0,Nominal operating telemetry
+EQ-000537,kisumu,KSM-P03,METERING,Coriolis Mass-Flow Meter,UNAVAILABLE,2026-07-08 03:00:00,2026-07-08 15:00:00,100,Coriolis Mass-Flow Meter offline for maintenance
+EQ-000538,kisumu,KSM-P04,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-08 13:00:00,,0,Nominal operating telemetry
+EQ-000539,kisumu,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-07-09 05:00:00,,0,Nominal operating telemetry
+EQ-000540,kisumu,,SCADA_CONTROL,Redundant DCS PLC Gateway,DEGRADED,2026-07-09 19:00:00,2026-07-10 09:00:00,21,Redundant DCS PLC Gateway calibration offset detected
+EQ-000541,kisumu,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-10 04:00:00,,0,Nominal operating telemetry
+EQ-000542,kisumu,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-07-11 04:00:00,,0,Nominal operating telemetry
+EQ-000543,kisumu,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-07-11 22:00:00,,0,Nominal operating telemetry
+EQ-000544,kisumu,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-07-12 14:00:00,,0,Nominal operating telemetry
+EQ-000545,kisumu,KSM-P03,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,DEGRADED,2026-07-12 23:00:00,2026-07-13 06:00:00,15,Hydraulic Gantry Loading Arms calibration offset detected
+EQ-000546,kisumu,KSM-P04,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-13 09:00:00,,0,Nominal operating telemetry
+EQ-000547,kisumu,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-07-14 05:00:00,,0,Nominal operating telemetry
+EQ-000548,kisumu,KSM-P01,LOADING_SYSTEM,Loading Arm Swivel Joint,DEGRADED,2026-07-14 17:00:00,2026-07-15 05:00:00,14,Loading Arm Swivel Joint calibration offset detected
+EQ-000549,kisumu,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-07-15 08:00:00,,0,Nominal operating telemetry
+EQ-000550,kisumu,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-07-16 12:00:00,,0,Nominal operating telemetry
+EQ-000551,kisumu,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-07-17 16:00:00,,0,Nominal operating telemetry
+EQ-000552,kisumu,,GATE_SCALE,Smart RFID Barrier Gate,UNAVAILABLE,2026-07-18 10:00:00,2026-07-18 13:00:00,100,Smart RFID Barrier Gate offline for maintenance
+EQ-000553,kisumu,KSM-P02,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-07-19 05:00:00,,0,Nominal operating telemetry
+EQ-000554,kisumu,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-19 16:00:00,,0,Nominal operating telemetry
+EQ-000555,kisumu,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-07-20 15:00:00,,0,Nominal operating telemetry
+EQ-000556,kisumu,KSM-P04,METERING,Flow Meter Temperature RTD,UNAVAILABLE,2026-07-21 05:00:00,2026-07-21 16:00:00,100,Flow Meter Temperature RTD offline for maintenance
+EQ-000557,kisumu,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-07-22 04:00:00,,0,Nominal operating telemetry
+EQ-000558,kisumu,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-23 03:00:00,,0,Nominal operating telemetry
+EQ-000559,kisumu,KSM-P02,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-07-24 03:00:00,,0,Nominal operating telemetry
+EQ-000560,kisumu,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-07-24 22:00:00,,0,Nominal operating telemetry
+EQ-000561,kisumu,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-07-25 07:00:00,,0,Nominal operating telemetry
+EQ-000562,kisumu,KSM-P04,METERING,Flow Meter Temperature RTD,UNAVAILABLE,2026-07-26 10:00:00,2026-07-26 16:00:00,100,Flow Meter Temperature RTD offline for maintenance
+EQ-000563,kisumu,KSM-P04,METERING,Flow Meter Temperature RTD,HEALTHY,2026-07-27 07:00:00,,0,Nominal operating telemetry
+EQ-000564,kisumu,KSM-P03,METERING,Digital Batch Controller,HEALTHY,2026-07-28 09:00:00,,0,Nominal operating telemetry
+EQ-000565,kisumu,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-07-28 20:00:00,,0,Nominal operating telemetry
+EQ-000566,kisumu,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-07-29 07:00:00,,0,Nominal operating telemetry
+EQ-000567,kisumu,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-07-29 23:00:00,,0,Nominal operating telemetry
+EQ-000568,kisumu,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-07-30 10:00:00,,0,Nominal operating telemetry
+EQ-000569,kisumu,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-07-31 13:00:00,,0,Nominal operating telemetry
+EQ-000570,kisumu,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-08-01 16:00:00,,0,Nominal operating telemetry
+EQ-000571,kisumu,KSM-P02,METERING,Digital Batch Controller,HEALTHY,2026-08-02 01:00:00,,0,Nominal operating telemetry
+EQ-000572,kisumu,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-08-02 15:00:00,,0,Nominal operating telemetry
+EQ-000573,kisumu,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-08-03 02:00:00,,0,Nominal operating telemetry
+EQ-000574,kisumu,KSM-P01,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-08-04 00:00:00,,0,Nominal operating telemetry
+EQ-000575,kisumu,KSM-P03,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-08-04 17:00:00,,0,Nominal operating telemetry
+EQ-000576,kisumu,KSM-P01,METERING,Digital Batch Controller,HEALTHY,2026-08-05 02:00:00,,0,Nominal operating telemetry
+EQ-000577,kisumu,KSM-P03,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-05 15:00:00,,0,Nominal operating telemetry
+EQ-000578,kisumu,,GATE_SCALE,Smart RFID Barrier Gate,DEGRADED,2026-08-06 12:00:00,2026-08-06 15:00:00,16,Smart RFID Barrier Gate calibration offset detected
+EQ-000579,kisumu,KSM-P02,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-08-07 09:00:00,,0,Nominal operating telemetry
+EQ-000580,kisumu,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-08-07 21:00:00,,0,Nominal operating telemetry
+EQ-000581,kisumu,KSM-P04,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-08 08:00:00,,0,Nominal operating telemetry
+EQ-000582,kisumu,KSM-P04,METERING,Flow Meter Temperature RTD,DEGRADED,2026-08-09 02:00:00,2026-08-09 09:00:00,10,Flow Meter Temperature RTD calibration offset detected
+EQ-000583,kisumu,,SCADA_CONTROL,Emergency Shut-Down Loop,DEGRADED,2026-08-09 17:00:00,2026-08-10 00:00:00,12,Emergency Shut-Down Loop calibration offset detected
+EQ-000584,kisumu,KSM-P04,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-08-10 10:00:00,,0,Nominal operating telemetry
+EQ-000585,kisumu,KSM-P04,METERING,Digital Batch Controller,HEALTHY,2026-08-11 12:00:00,,0,Nominal operating telemetry
+EQ-000586,kisumu,KSM-P02,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-08-12 00:00:00,,0,Nominal operating telemetry
+EQ-000587,kisumu,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-08-12 23:00:00,,0,Nominal operating telemetry
+EQ-000588,kisumu,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-13 17:00:00,,0,Nominal operating telemetry
+EQ-000589,kisumu,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-08-14 20:00:00,,0,Nominal operating telemetry
+EQ-000590,kisumu,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,DEGRADED,2026-08-15 20:00:00,2026-08-16 01:00:00,25,Additive Injection Pump Line calibration offset detected
+EQ-000591,kisumu,KSM-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-08-16 10:00:00,,0,Nominal operating telemetry
+EQ-000592,kisumu,,SCADA_CONTROL,Emergency Shut-Down Loop,HEALTHY,2026-08-17 12:00:00,,0,Nominal operating telemetry
+EQ-000593,kisumu,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-18 14:00:00,,0,Nominal operating telemetry
+EQ-000594,kisumu,KSM-P04,METERING,Digital Batch Controller,HEALTHY,2026-08-19 16:00:00,,0,Nominal operating telemetry
+EQ-000595,kisumu,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-08-20 17:00:00,,0,Nominal operating telemetry
+EQ-000596,kisumu,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-08-21 21:00:00,,0,Nominal operating telemetry
+EQ-000597,kisumu,KSM-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-08-22 23:00:00,,0,Nominal operating telemetry
+EQ-000598,kisumu,KSM-P04,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-23 11:00:00,,0,Nominal operating telemetry
+EQ-000599,kisumu,KSM-P03,LOADING_SYSTEM,Emergency Breakaway Coupler,HEALTHY,2026-08-23 19:00:00,,0,Nominal operating telemetry
+EQ-000600,kisumu,,SCADA_CONTROL,Redundant DCS PLC Gateway,HEALTHY,2026-08-24 23:00:00,,0,Nominal operating telemetry
+EQ-000601,kisumu,KSM-P01,METERING,Digital Batch Controller,HEALTHY,2026-08-25 10:00:00,,0,Nominal operating telemetry
+EQ-000602,kisumu,KSM-P04,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-08-25 19:00:00,,0,Nominal operating telemetry
+EQ-000603,kisumu,KSM-P02,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-08-26 11:00:00,,0,Nominal operating telemetry
+EQ-000604,kisumu,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-08-26 23:00:00,,0,Nominal operating telemetry
+EQ-000605,kisumu,KSM-P04,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-08-27 14:00:00,,0,Nominal operating telemetry
+EQ-000606,kisumu,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-08-28 10:00:00,,0,Nominal operating telemetry
+EQ-000607,kisumu,,EQUIPMENT_AVAILABILITY,Additive Injection Pump Line,HEALTHY,2026-08-29 04:00:00,,0,Nominal operating telemetry
+EQ-000608,kisumu,,GATE_SCALE,Smart RFID Barrier Gate,UNAVAILABLE,2026-08-29 14:00:00,2026-08-29 16:00:00,100,Smart RFID Barrier Gate offline for maintenance
+EQ-000609,kisumu,KSM-P03,LOADING_SYSTEM,Loading Arm Swivel Joint,HEALTHY,2026-08-30 14:00:00,,0,Nominal operating telemetry
+EQ-000610,kisumu,KSM-P01,METERING,Flow Meter Temperature RTD,HEALTHY,2026-08-31 10:00:00,,0,Nominal operating telemetry
+EQ-000611,kisumu,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-09-01 09:00:00,,0,Nominal operating telemetry
+EQ-000612,kisumu,KSM-P01,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-09-02 13:00:00,,0,Nominal operating telemetry
+EQ-000613,kisumu,KSM-P02,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,DEGRADED,2026-09-03 05:00:00,2026-09-03 15:00:00,14,Hydraulic Gantry Loading Arms calibration offset detected
+EQ-000614,kisumu,,EQUIPMENT_AVAILABILITY,Vapor Recovery Compressor,HEALTHY,2026-09-04 01:00:00,,0,Nominal operating telemetry
+EQ-000615,kisumu,,GATE_SCALE,Tare Weighbridge Loadcell Platform,HEALTHY,2026-09-04 12:00:00,,0,Nominal operating telemetry
+EQ-000616,kisumu,KSM-P01,METERING,Flow Meter Temperature RTD,DEGRADED,2026-09-05 07:00:00,2026-09-05 20:00:00,21,Flow Meter Temperature RTD calibration offset detected
+EQ-000617,kisumu,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-09-05 18:00:00,,0,Nominal operating telemetry
+EQ-000618,kisumu,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-09-06 22:00:00,,0,Nominal operating telemetry
+EQ-000619,kisumu,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-09-07 12:00:00,,0,Nominal operating telemetry
+EQ-000620,kisumu,KSM-P02,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-09-08 11:00:00,,0,Nominal operating telemetry
+EQ-000621,kisumu,,SCADA_CONTROL,OPC-UA Interface Bridge,HEALTHY,2026-09-09 02:00:00,,0,Nominal operating telemetry
+EQ-000622,kisumu,,EQUIPMENT_AVAILABILITY,Static Earth Monitoring Reel,HEALTHY,2026-09-09 21:00:00,,0,Nominal operating telemetry
+EQ-000623,kisumu,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-09-10 21:00:00,,0,Nominal operating telemetry
+EQ-000624,kisumu,KSM-P04,LOADING_SYSTEM,Hydraulic Gantry Loading Arms,HEALTHY,2026-09-11 22:00:00,,0,Nominal operating telemetry
+EQ-000625,kisumu,,GATE_SCALE,Smart RFID Barrier Gate,HEALTHY,2026-09-13 01:00:00,,0,Nominal operating telemetry
+EQ-000626,kisumu,KSM-P03,METERING,Coriolis Mass-Flow Meter,HEALTHY,2026-09-13 17:00:00,,0,Nominal operating telemetry
+EQ-000627,kisumu,KSM-P03,METERING,Digital Batch Controller,HEALTHY,2026-09-14 14:00:00,,0,Nominal operating telemetry
+EQ-000628,kisumu,,GATE_SCALE,Gross Weighbridge Transducer,HEALTHY,2026-09-15 01:00:00,,0,Nominal operating telemetry
+EQ-000629,kisumu,KSM-P03,METERING,Coriolis Mass-Flow Meter,UNAVAILABLE,2026-09-16 03:00:00,2026-09-16 15:00:00,100,Coriolis Mass-Flow Meter offline for maintenance

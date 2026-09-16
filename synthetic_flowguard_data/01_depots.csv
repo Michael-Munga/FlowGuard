@@ -1,0 +1,6 @@
+depot_id,name,code,region,total_positions,baseline_turnaround_min,operating_hours_open,operating_hours_close
+nairobi,Nairobi Terminal (PS10),PS10,Nairobi / Central,8,65,06:00,20:00
+mombasa,Mombasa Terminal (KOT-PS1),KOT-PS1,Coast,10,72,05:30,21:00
+nakuru,Nakuru Depot (PS25),PS25,Rift Valley,4,58,06:30,19:00
+eldoret,Eldoret Depot (PS27),PS27,North Rift,6,50,06:00,19:30
+kisumu,Kisumu Depot (PS28),PS28,Western,4,45,06:30,18:30

@@ -1,0 +1,8 @@
+omc_id,name,short_name,account_code,primary_depot_id,contact_email,volume_tier
+vivo,Vivo Energy Kenya Ltd,Vivo Energy,OMC-VIVO-KE-004,nairobi,dispatch.logistics@vivoenergy.com,TIER_1_MAJOR
+totalenergies,TotalEnergies Marketing Kenya Plc,TotalEnergies,OMC-TOTAL-KE-001,mombasa,supply.chain@totalenergies.ke,TIER_1_MAJOR
+rubis,Rubis Energy Kenya Plc,Rubis Energy,OMC-RUBIS-KE-007,nakuru,operations.dispatch@rubiskenya.com,TIER_1_MAJOR
+ola,Ola Energy Kenya Ltd,Ola Energy,OMC-OLA-KE-003,nairobi,supply.dispatch@olaenergy.com,TIER_2_MEDIUM
+lakeoil,Lake Oil Kenya Ltd,Lake Oil,OMC-LAKE-KE-012,eldoret,fleet.logistics@lakeoilgroup.com,TIER_2_MEDIUM
+hass,Hass Petroleum Kenya Ltd,Hass Petroleum,OMC-HASS-KE-015,kisumu,operations@hasspetroleum.com,TIER_2_MEDIUM
+petrocity,Petrocity Enterprises Ltd,Petrocity,OMC-PETRO-KE-031,nairobi,logistics@petrocity.co.ke,TIER_3_INDEPENDENT

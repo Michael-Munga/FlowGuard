@@ -1,0 +1,364 @@
+{
+  "total_expectations": 40,
+  "passed_expectations": 34,
+  "failed_expectations": 6,
+  "table_results": {
+    "01_depots.csv": {
+      "checks_run": 5,
+      "passed": 5,
+      "failed": 0,
+      "expectations": [
+        {
+          "type": "expect_table_column_count_to_equal",
+          "column": "table_level",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_not_be_null",
+          "column": "depot_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_unique",
+          "column": "depot_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_in_set",
+          "column": "depot_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_between",
+          "column": "baseline_turnaround_min",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        }
+      ]
+    },
+    "02_omcs.csv": {
+      "checks_run": 5,
+      "passed": 5,
+      "failed": 0,
+      "expectations": [
+        {
+          "type": "expect_table_column_count_to_equal",
+          "column": "table_level",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_not_be_null",
+          "column": "omc_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_unique",
+          "column": "omc_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_in_set",
+          "column": "omc_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_in_set",
+          "column": "primary_depot_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        }
+      ]
+    },
+    "03_products.csv": {
+      "checks_run": 4,
+      "passed": 4,
+      "failed": 0,
+      "expectations": [
+        {
+          "type": "expect_table_column_count_to_equal",
+          "column": "table_level",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_not_be_null",
+          "column": "product_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_unique",
+          "column": "product_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_in_set",
+          "column": "product_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        }
+      ]
+    },
+    "04_trucks.csv": {
+      "checks_run": 4,
+      "passed": 4,
+      "failed": 0,
+      "expectations": [
+        {
+          "type": "expect_column_values_to_not_be_null",
+          "column": "truck_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_unique",
+          "column": "truck_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_between",
+          "column": "capacity_litres",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_not_be_null",
+          "column": "driver_name",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        }
+      ]
+    },
+    "10_loading_positions.csv": {
+      "checks_run": 3,
+      "passed": 3,
+      "failed": 0,
+      "expectations": [
+        {
+          "type": "expect_column_values_to_not_be_null",
+          "column": "loading_position_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_unique",
+          "column": "loading_position_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_in_set",
+          "column": "depot_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        }
+      ]
+    },
+    "05_loading_orders.csv": {
+      "checks_run": 5,
+      "passed": 1,
+      "failed": 4,
+      "expectations": [
+        {
+          "type": "expect_column_values_to_not_be_null",
+          "column": "order_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_unique",
+          "column": "order_id",
+          "success": false,
+          "unexpected_count": 20,
+          "unexpected_percent": 0.18130722509291994
+        },
+        {
+          "type": "expect_column_values_to_be_in_set",
+          "column": "depot_id",
+          "success": false,
+          "unexpected_count": 8,
+          "unexpected_percent": 0.07252289003716798
+        },
+        {
+          "type": "expect_column_values_to_be_in_set",
+          "column": "omc_id",
+          "success": false,
+          "unexpected_count": 7,
+          "unexpected_percent": 0.06345752878252198
+        },
+        {
+          "type": "expect_column_values_to_be_between",
+          "column": "ordered_quantity_litres",
+          "success": false,
+          "unexpected_count": 20,
+          "unexpected_percent": 0.18130722509291994
+        }
+      ]
+    },
+    "06_gate_events.csv": {
+      "checks_run": 4,
+      "passed": 4,
+      "failed": 0,
+      "expectations": [
+        {
+          "type": "expect_column_values_to_not_be_null",
+          "column": "gate_event_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_unique",
+          "column": "gate_event_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_in_set",
+          "column": "depot_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_not_be_null",
+          "column": "event_timestamp",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        }
+      ]
+    },
+    "08_staging_events.csv": {
+      "checks_run": 2,
+      "passed": 1,
+      "failed": 1,
+      "expectations": [
+        {
+          "type": "expect_column_values_to_not_be_null",
+          "column": "staging_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_between",
+          "column": "wait_duration_minutes",
+          "success": false,
+          "unexpected_count": 10,
+          "unexpected_percent": 0.09562057754828839
+        }
+      ]
+    },
+    "09_loading_events.csv": {
+      "checks_run": 2,
+      "passed": 1,
+      "failed": 1,
+      "expectations": [
+        {
+          "type": "expect_column_values_to_not_be_null",
+          "column": "loading_event_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_between",
+          "column": "loading_duration_minutes",
+          "success": false,
+          "unexpected_count": 12,
+          "unexpected_percent": 0.11474469305794606
+        }
+      ]
+    },
+    "16_decisions.csv": {
+      "checks_run": 3,
+      "passed": 3,
+      "failed": 0,
+      "expectations": [
+        {
+          "type": "expect_column_values_to_not_be_null",
+          "column": "decision_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_unique",
+          "column": "decision_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_in_set",
+          "column": "autonomy_level",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        }
+      ]
+    },
+    "17_decision_stages.csv": {
+      "checks_run": 3,
+      "passed": 3,
+      "failed": 0,
+      "expectations": [
+        {
+          "type": "expect_column_values_to_not_be_null",
+          "column": "stage_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_between",
+          "column": "stage_sequence",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        },
+        {
+          "type": "expect_column_values_to_be_in_set",
+          "column": "stage_name",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0
+        }
+      ]
+    }
+  }
+}
