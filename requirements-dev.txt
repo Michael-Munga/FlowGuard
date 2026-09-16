@@ -1,0 +1,41 @@
+# ============================================================
+# FlowGuard — Dev / Test / Notebook Dependencies
+# ============================================================
+# Install alongside requirements.txt for local development:
+#   pip install -r requirements.txt -r requirements-dev.txt
+#
+# DO NOT add to Render build command — not needed for the API.
+
+# --- Testing ---
+pytest>=8.0.0
+pytest-cov>=5.0.0
+coverage>=7.0.0
+
+# --- Data quality pipeline (ETL / local validation only) ---
+# great-expectations is imported in:
+#   data_quality/expectations/suite.py
+#   etl/run.py
+#   tests/test_data_quality.py
+# None of these are on the deployed API's import path.
+great-expectations>=0.18.0
+
+# --- ML model training (offline, not at inference time) ---
+# xgboost and sklearn are already in requirements.txt because joblib
+# deserialises Pipeline objects that contain XGBoost estimators at
+# inference time.  Nothing extra is needed here for training beyond
+# what is already in requirements.txt.
+
+# --- Notebook / analysis tools (Jupyter stack) ---
+jupyter
+jupyterlab
+notebook
+ipykernel
+ipywidgets
+nbconvert
+nbformat
+nbclient
+jupyter-server
+altair
+matplotlib
+matplotlib-inline
+debugpy
